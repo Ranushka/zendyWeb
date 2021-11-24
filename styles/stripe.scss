@@ -1,0 +1,27 @@
+.StripeElement,
+.StripeElementIdeal,
+.StripeElementFpx {
+  display: block;
+  margin: 0 0 20px 0;
+  padding: 16px 14px;
+  border-radius: var(--radius-1);
+  box-shadow: var(--stage1);
+  background-color: #fff;
+}
+
+.StripeElement--focus,
+.StripeElementIdeal--focus,
+.StripeElementFpx--focus {
+  box-shadow: 0 0 0 1px var(--c-primary);
+  transition: all 150ms ease;
+}
+
+.StripeElement.loading {
+  height: 41.6px;
+  opacity: 0.6;
+}
+
+.StripeElementIdeal,
+.StripeElementFpx {
+  padding: 0;
+}

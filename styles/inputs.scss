@@ -1,0 +1,45 @@
+.input__hide {
+  position: absolute;
+  opacity: 0;
+}
+
+.input__wrapper {
+  position: relative;
+  max-width: 285px;
+  margin-bottom: var(--sp3);
+
+  label {
+    line-height: 1.3125rem;
+  }
+
+  label,
+  select,
+  input {
+    display: block;
+    width: 100%;
+  }
+
+  input,
+  select {
+    padding: var(--sp2) var(--sp3);
+    border: none;
+    line-height: var(--sp4);
+    border-radius: var(--radius-1);
+    box-shadow: var(--stage1);
+    background-color: var(--c-white);
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 1px var(--c-primary);
+    }
+  }
+
+  select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 96%;
+    background-position-y: 12px;
+  }
+}

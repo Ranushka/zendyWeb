@@ -1,0 +1,9 @@
+.wrapper {
+  padding: var(--sp2) var(--sp3);
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+}
+
+.active {
+  border-bottom: 2px solid var(--c-secondary);
+}

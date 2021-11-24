@@ -1,0 +1,9 @@
+.wrapper {
+  padding: 0 var(--sp2);
+}
+
+.magPageWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+  gap: 0.5rem;
+}

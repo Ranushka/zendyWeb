@@ -1,0 +1,17 @@
+.wrapper {
+  overflow: auto;
+  white-space: nowrap;
+  padding: 0 var(--sp2);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & > a {
+    display: inline-block;
+  }
+
+  @media only screen and (min-width: 59.375rem) {
+    white-space: unset;
+  }
+}

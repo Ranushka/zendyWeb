@@ -1,0 +1,57 @@
+.title {
+  font-size: var(--fs-2);
+  line-height: 2.5rem;
+}
+
+.actions {
+  margin-top: var(--sp4);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1rem;
+}
+
+.headerAction {
+  margin: var(--sp4) 0 var(--sp4) 0;
+  opacity: 0.6;
+
+  &:hover,
+  &:focus-within {
+    opacity: 1;
+  }
+
+  a {
+    background-color: transparent;
+  }
+}
+
+.nextPrevWrapper {
+  margin-top: var(--sp5);
+  display: flex;
+  justify-content: space-around;
+}
+
+.prevPublication,
+.nextPublication {
+  position: absolute;
+  top: 40%;
+
+  opacity: 0.4;
+
+  &:focus-within,
+  &:hover {
+    opacity: 1;
+  }
+
+  @media only screen and (max-width: 1204px) {
+    position: relative;
+    opacity: 1;
+  }
+}
+
+.prevPublication {
+  left: 10px;
+}
+
+.nextPublication {
+  right: 10px;
+}

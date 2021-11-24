@@ -1,0 +1,9 @@
+.testimonialsWrap {
+  display: flex;
+  padding: 0 var(--sp2);
+
+  & > div {
+    white-space: initial;
+    min-width: 20.5rem;
+  }
+}

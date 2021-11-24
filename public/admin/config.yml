@@ -1,0 +1,174 @@
+backend:
+  name: git-gateway
+  branch: master
+local_backend: true
+media_folder: public/img
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
+collections:
+  - name: Common
+    label: Common
+    files:
+      - file: data/header.md
+        label: Header
+        name: Header
+        fields:
+          - { label: login_btn_name, name: login_btn_name, widget: string }
+          - label: nav_items
+            name: nav_items
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Path, name: path, widget: string }
+          - { label: advanced_search, name: advanced_search, widget: string }
+          - { label: my_library, name: my_library, widget: string }
+          - {
+              label: search_placeholder_m,
+              name: search_placeholder_m,
+              widget: string,
+            }
+          - {
+              label: search_placeholder_d,
+              name: search_placeholder_d,
+              widget: string,
+            }
+          - { label: mega_menu_btn, name: mega_menu_btn, widget: string }
+          - label: mega_menu_items
+            name: mega_menu_items
+            widget: list
+            fields:
+              - label: title
+                name: title
+                widget: string
+              - {
+                  name: items,
+                  label: items,
+                  widget: list,
+                  fields:
+                    [
+                      { label: Label, name: label, widget: string },
+                      { label: Path, name: path, widget: string },
+                    ],
+                }
+
+      - file: data/footer.md
+        label: Footer
+        name: Footer
+        fields:
+          - { label: about_text, name: about_text, widget: string }
+          - { label: rights_text, name: rights_text, widget: string }
+          - { label: explore_title, name: explore_title, widget: string }
+          - label: explore_list
+            name: explore_list
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Path, name: path, widget: string }
+          - { label: reach_title, name: reach_title, widget: string }
+          - { label: news_title, name: news_title, widget: string }
+          - label: news_list
+            name: news_list
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Path, name: path, widget: string }
+
+          - label: privacy_list
+            name: privacy_list
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Path, name: path, widget: string }
+
+  - name: Pagers
+    label: Pagers
+    files:
+      - file: data/pagers/pricing.md
+        label: pricing
+        name: pricing
+        fields:
+          - { label: "title", name: "title", widget: "markdown" }
+          - {
+              label: "planTypes",
+              name: "planTypes",
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "monthly",
+                    name: "monthly",
+                    widget: object,
+                    fields:
+                      [
+                        { label: "name", name: "name", widget: string },
+                        { label: "content", name: "content", widget: markdown },
+                        { label: "price", name: "price", widget: string },
+                      ],
+                  },
+                  {
+                    label: "yearly",
+                    name: "yearly",
+                    widget: object,
+                    fields:
+                      [
+                        { label: "name", name: "name", widget: string },
+                        { label: "content", name: "content", widget: markdown },
+                        { label: "price", name: "price", widget: string },
+                      ],
+                  },
+                ],
+            }
+
+  - name: Widgets
+    label: Widgets
+    files:
+      - file: data/widgets/curatedContent.md
+        label: curatedContent
+        name: curatedContent
+        fields:
+          - label: curatedContent
+            name: curatedContent
+            widget: list
+            fields:
+              - { label: title, name: title, widget: string }
+              - { label: href, name: href, widget: string }
+              - { label: image, name: image, widget: image }
+              - { label: content, name: content, widget: text }
+
+      - file: data/widgets/testimonials.md
+        label: testimonials
+        name: testimonials
+        fields:
+          - label: testimonials
+            name: testimonials
+            widget: list
+            fields:
+              - { label: title, name: title, widget: string }
+              - { label: name, name: name, widget: string }
+              - { label: quote, name: quote, widget: text }
+
+      - file: data/widgets/magazines.md
+        label: magazines
+        name: magazines
+        fields:
+          - label: magazines
+            name: magazines
+            widget: list
+            fields:
+              - { label: title, name: title, widget: string }
+              - { label: href, name: href, widget: string }
+              - { label: image, name: image, widget: image }
+
+      - file: data/widgets/subjects.md
+        label: subjects
+        name: subjects
+        fields:
+          - label: subjects
+            name: subjects
+            widget: list
+            fields:
+              - { label: title, name: title, widget: string }
+              - { label: href, name: href, widget: string }
+              - { label: image, name: image, widget: image }

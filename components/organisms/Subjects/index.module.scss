@@ -1,0 +1,18 @@
+.wrapper {
+  // overflow: auto;
+  // white-space: nowrap;
+  // padding: 0 var(--sp2);
+  // margin-bottom: -1rem;
+
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
+
+  // @media only screen and (min-width: 59.375rem) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  // margin-top: -1rem;
+  margin-bottom: unset;
+  // }
+}

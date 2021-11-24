@@ -1,0 +1,26 @@
+.headerContainer {
+  z-index: 2;
+  position: relative;
+  width: 100%;
+}
+
+.searchContainer {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.logo {
+  width: 100%;
+  max-width: 8.375rem;
+}
+
+.profilePic {
+  font-size: 1.3rem;
+  font-family: var(--f-title);
+  line-height: 3rem;
+  padding: 0;
+  width: 3rem;
+  border-radius: 100%;
+  text-transform: uppercase;
+}

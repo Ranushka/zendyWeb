@@ -1,0 +1,50 @@
+.paymentTypeWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+.paymentTypeImg {
+  max-width: 24px;
+}
+
+.logo {
+  text-align: center;
+  margin: auto;
+  display: inherit;
+}
+
+.wrapper {
+  min-height: 100vh;
+}
+
+.phoneNumber {
+  [class~="PhoneInput"] {
+    padding: 0 var(--sp3);
+    line-height: var(--sp4);
+    border-radius: var(--radius-1);
+    box-shadow: var(--stage1);
+    outline: unset;
+    border: none;
+
+    --PhoneInputCountrySelectArrow-width: 0.5rem;
+    --PhoneInputCountrySelectArrow-marginTop: -0.2rem;
+  }
+
+  [class~="PhoneInputCountryIcon--border"] {
+    box-shadow: unset;
+    margin-right: 5px;
+  }
+
+  input {
+    width: 100%;
+    padding: var(--sp2) var(--sp3);
+    line-height: var(--sp4);
+    background: unset;
+    border: none;
+    outline: none;
+  }
+}
