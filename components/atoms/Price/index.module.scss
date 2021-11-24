@@ -1,0 +1,31 @@
+.referenced {
+  color: var(--c-info);
+}
+
+.reviewed {
+  color: var(--c-success);
+}
+
+@mixin price_default {
+  color: var(--c-primary);
+  font-family: var(--f-title);
+}
+
+.currency {
+  @include price_default;
+  font-weight: 600;
+  font-size: var(--fs-4);
+  margin-right: var(--sp1);
+}
+
+.number {
+  @include price_default;
+  font-weight: 600;
+  font-size: var(--fs-2);
+}
+
+.float {
+  @include price_default;
+  font-weight: 600;
+  font-size: var(--fs-4);
+}

@@ -1,0 +1,332 @@
+.block {
+  max-width: unset;
+  display: block;
+  width: 100%;
+}
+
+.block__inline {
+  display: inline-block;
+}
+
+.noSelect {
+  user-select: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.hide {
+  display: hide;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sliderScroll {
+  overflow-y: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* 
+  Flex
+*/
+.flex {
+  display: flex;
+}
+
+.flex__align_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex__space_between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex__end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex__left {
+  margin-left: auto;
+}
+
+.flex__wrap__no {
+  flex-shrink: 0;
+}
+
+/* 
+  Stage
+*/
+@mixin stageList {
+  @for $aa from 1 through 4 {
+    .stage__#{$aa} {
+      box-shadow: var(--stage#{$aa});
+    }
+  }
+}
+
+@include stageList;
+
+/* 
+  Radius
+*/
+.rounded__1 {
+  border-radius: var(--radius-1);
+}
+
+.rounded__2 {
+  border-radius: var(--radius-2);
+}
+
+.rounded__3 {
+  border-radius: var(--radius-3);
+}
+
+.rounded__4 {
+  border-radius: var(--radius-4);
+}
+
+/* 
+Background
+
+.bg__black {
+  background-color: var(--c-black);
+}
+*/
+$colors: "black", "white", secondary, primary, overlay, nut1, nut2, nut3, nut4,
+  nut5, nut6, nut7, nut8, success, error, warning, info;
+
+@each $color in $colors {
+  .bg__#{$color} {
+    background-color: var(--c-#{$color});
+  }
+}
+
+/* 
+Container
+
+.mw__1 {
+  max-width: var(--mw6);
+}
+*/
+$maxWidths: 6;
+
+@mixin maxWidthList {
+  @for $a from 1 through $maxWidths {
+    .mw__#{$a} {
+      max-width: var(--mw#{$a});
+      margin: 0 auto;
+    }
+  }
+}
+
+@include maxWidthList;
+
+.min__h {
+  min-height: 60vh;
+}
+
+/* 
+Paddings
+*/
+@mixin paddingList {
+  @for $a from 1 through 7 {
+    .px__#{$a} {
+      padding-left: var(--sp#{$a});
+      padding-right: var(--sp#{$a});
+    }
+
+    .py__#{$a} {
+      padding-top: var(--sp#{$a});
+      padding-bottom: var(--sp#{$a});
+    }
+  }
+}
+
+@include paddingList;
+
+.pl__0 {
+  padding-left: 0;
+}
+
+.pr__0 {
+  padding-right: 0;
+}
+
+.pt__0 {
+  padding-top: 0;
+}
+
+.pb__0 {
+  padding-bottom: 0;
+}
+
+/* 
+Margins
+*/
+@mixin marginList {
+  @for $a from 1 through 7 {
+    .mx__#{$a} {
+      margin-left: var(--sp#{$a});
+      margin-right: var(--sp#{$a});
+    }
+
+    .my__#{$a} {
+      margin-top: var(--sp#{$a});
+      margin-bottom: var(--sp#{$a});
+    }
+
+    .pull__l#{$a} {
+      margin-left: calc(-1 * var(--sp#{$a}));
+    }
+
+    .pull__r#{$a} {
+      margin-right: calc(-1 * var(--sp#{$a}));
+    }
+  }
+}
+
+@include marginList;
+
+.ml__0 {
+  margin-left: 0;
+}
+
+.mr__0 {
+  margin-right: 0;
+}
+
+.mb__0 {
+  margin-bottom: 0;
+}
+
+.mt__0 {
+  margin-top: 0;
+}
+
+/* 
+Grid
+
+.mw__1 {
+  max-width: var(--mw6);
+}
+*/
+.grid__align__center {
+  display: grid;
+  align-items: center;
+}
+
+/* 
+Card
+*/
+.card {
+  display: inline-block;
+  text-decoration: none;
+  overflow: hidden;
+  width: 100%;
+  margin: var(--sp2);
+  max-width: var(--mw6);
+
+  .image {
+    background-size: cover;
+    background-position: center;
+  }
+
+  &.overlayText {
+    width: auto;
+    .image {
+      filter: brightness(60%);
+    }
+    .title {
+      position: relative;
+      min-width: var(--sp7);
+      color: var(--c-white);
+      margin-top: -4rem;
+      padding: var(--sp3);
+      text-shadow: 0px 0 1rem #000000;
+    }
+  }
+
+  &__1 {
+    height: var(--sp6);
+  }
+}
+
+.contain__desktop {
+  min-width: var(--mw5);
+}
+
+.contain__mobile {
+  min-width: var(--mw2);
+}
+
+/* 
+Click ripple
+*/
+.ripple {
+  pointer-events: painted;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+}
+
+/* 
+Overlay
+*/
+.overlay {
+  backdrop-filter: blur(2px);
+  background-color: var(--c-overlay);
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+
+.noScroll {
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+}
+
+.overflowScroll {
+  overflow: scroll;
+  white-space: nowrap;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* 
+Gaps
+*/
+$columns: 7;
+
+@mixin gapsList {
+  @for $i from 1 through $columns {
+    .gaps__#{$i} {
+      width: var(--sp#{$i});
+      height: var(--sp#{$i});
+    }
+  }
+}
+
+@include gapsList;

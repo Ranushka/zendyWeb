@@ -1,0 +1,18 @@
+.appliedSearchFilters {
+  opacity: 0.7;
+  align-items: baseline;
+
+  &:focus-within,
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.searchResultActions {
+  opacity: 0.7;
+
+  &:focus-within,
+  &:hover {
+    opacity: 1;
+  }
+}

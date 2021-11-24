@@ -1,0 +1,28 @@
+// @type
+
+.wrapper {
+  input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    &:focus + label {
+      text-decoration: underline;
+    }
+
+    &:checked + label svg {
+      transform: rotate(90deg);
+    }
+
+    &:checked ~ div {
+      display: none;
+    }
+  }
+
+  label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  mix-blend-mode: darken;
+
+  img {
+    max-height: 3.75rem;
+    margin: var(--sp3);
+  }
+}

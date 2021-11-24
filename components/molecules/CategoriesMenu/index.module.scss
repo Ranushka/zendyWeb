@@ -1,0 +1,22 @@
+// @type
+
+.wrapper {
+  .menu {
+    position: absolute;
+    display: none;
+
+    a {
+      padding: var(--sp1) 0;
+      display: block;
+    }
+  }
+  &:hover {
+    .menu {
+      display: block;
+    }
+  }
+}
+
+// .browseBy {
+//   padding: var(--sp2) var(--sp4);
+// }

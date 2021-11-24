@@ -1,0 +1,65 @@
+.switchWrapper {
+  display: flex;
+  align-items: center;
+  max-width: var(--mw1);
+  margin-bottom: var(--sp3);
+
+  input {
+    & + label {
+      line-height: 1.3125rem;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    & + label > div {
+      position: relative;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    & + label > div:before {
+      content: "";
+      display: inline-block;
+      vertical-align: text-top;
+      border-radius: 4rem;
+      margin: 0 var(--sp2);
+      width: 2.5rem;
+      height: 1.25rem;
+      border: 2px solid var(--c-primary);
+      background: var(--c-primary);
+    }
+
+    &:hover + label > div:after {
+      width: 40%;
+    }
+
+    &:focus + label > div:before {
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+    }
+
+    &:checked + label > div:before {
+      background: var(--c-primary);
+    }
+
+    & + label {
+      & > div:after {
+        content: "";
+        position: absolute;
+        margin: 0 var(--sp2);
+        right: 0.125rem;
+        top: 0.125rem;
+        background: white;
+        width: 35%;
+        height: 1.25rem;
+        border-radius: var(--sp3);
+        transition: width 0.2s cubic-bezier(0.4, 0, 1, 1);
+      }
+    }
+
+    &:checked + label > div:after {
+      left: 0.125rem;
+    }
+  }
+}

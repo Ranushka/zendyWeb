@@ -1,0 +1,24 @@
+.article__content {
+  max-width: var(--mw3);
+}
+
+.article__actions {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-direction: column;
+  min-width: 10rem;
+}
+
+.article__abstract {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.article__actions__sub {
+  a {
+    background-color: transparent;
+  }
+}

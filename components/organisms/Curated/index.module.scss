@@ -1,0 +1,16 @@
+.wrapper {
+  display: block;
+  overflow-y: auto;
+  white-space: nowrap;
+  padding: var(--sp2);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.wrapperInner {
+  width: 87rem;
+  display: flex;
+  margin: auto;
+}

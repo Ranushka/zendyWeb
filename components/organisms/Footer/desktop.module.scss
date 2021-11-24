@@ -1,0 +1,85 @@
+.wrapper {
+  background-color: var(--c-nut2);
+}
+
+.footerTop {
+  // justify-content: center;
+  // max-width: var(--mw6);
+  // padding: 0 var(--sp3);
+  // margin: auto;
+  // display: grid;
+  // grid-template-columns: 2fr 2fr 2fr;
+  // grid-column-gap: var(--sp3);
+  // text-align: left;
+
+  justify-content: space-between;
+  max-width: var(--mw6);
+  padding: 0 var(--sp3);
+  margin: auto;
+  display: flex;
+  text-align: left;
+}
+
+.company {
+  line-height: 0;
+
+  a {
+    justify-content: start;
+  }
+}
+
+.explore {
+  a {
+    display: inline-flex;
+    margin: 0 var(--sp2);
+    line-height: 1.75rem;
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.fromNews {
+  text-align: left;
+  a {
+    display: block;
+    line-height: 1.75rem;
+  }
+}
+
+.footerBottom {
+  // align-items: center;
+  // max-width: var(--mw6);
+  // padding: 0 var(--sp3);
+  // margin: auto;
+  // display: grid;
+  // grid-template-columns: 2fr 2fr 1fr;
+  // grid-column-gap: var(--sp3);
+  // text-align: left;
+
+  justify-content: space-between;
+  max-width: var(--mw6);
+  padding: 0 var(--sp3);
+  margin: auto;
+  display: flex;
+  text-align: left;
+}
+
+// .privacy {
+//   display: flex;
+//   justify-content: space-around;
+// }
+
+.footerBookImg {
+  width: 100%;
+  background-image: url("/img/footerBg.svg");
+  background-size: 100% 100%;
+  display: block;
+  height: var(--sp5);
+}
+.seals {
+  display: flex;
+  justify-content: flex-end;
+}

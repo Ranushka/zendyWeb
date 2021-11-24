@@ -1,0 +1,159 @@
+/* 
+Buttons
+*/
+@mixin btn_default {
+  display: inline-block;
+  line-height: 3.45;
+  padding: 0 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: var(--fs-5);
+  text-align: center;
+  flex-shrink: 0;
+  outline: none;
+  color: var(--c-primary);
+  transition: 0.2s;
+
+  &:active {
+    transform: scale3d(0.95, 0.95, 0.95);
+  }
+}
+
+.btn__default {
+  @include btn_default;
+}
+
+.btn__small {
+  @include btn_default;
+  padding: 0 0.5rem;
+  font-size: var(--fs-6);
+}
+
+.btn__secondary {
+  @include btn_default;
+  background: var(--c-white);
+  color: var(--c-primary);
+  box-shadow: var(--sha-secondary);
+}
+
+.btn__primary {
+  @include btn_default;
+  background: var(--c-primary);
+  color: var(--c-white);
+  box-shadow: var(--sha-primary);
+  padding: 0 2rem;
+  font-weight: 600;
+
+  &:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8),
+      0 0 0 1px rgba(44, 82, 130, 0.9), 0px 4px 8px rgba(44, 82, 130, 0.32),
+      0px 4px 32px rgba(44, 82, 130, 0.16);
+  }
+
+  &:hover {
+    background: var(--c-primary);
+  }
+}
+
+.btn__icon {
+  display: inline-flex;
+  align-items: center;
+
+  svg {
+    margin-left: var(--sp2);
+  }
+}
+
+/* 
+Links
+*/
+
+@mixin link_default {
+  outline: none;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: 0.2s;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    text-decoration: none;
+    // text-decoration-color: var(--c-highlight);
+    box-shadow: inset 0px -8px 0 0 var(--c-highlightAccent);
+  }
+
+  &:active {
+    transform: scale3d(0.95, 0.95, 0.95);
+  }
+}
+
+.link {
+  @include link_default;
+
+  &.active {
+    box-shadow: inset 0px -10px 0 0 var(--c-highlightAccent);
+  }
+}
+
+.link__title {
+  @include link_default;
+  font-size: var(--fs-3);
+  font-family: var(--f-title);
+  line-height: 1.75rem;
+  // display: inline-block;
+
+  &:focus {
+    text-decoration: none;
+    // text-decoration-color: var(--c-highlight);
+    box-shadow: inset 0px -10px 0 0 var(--c-highlightAccent);
+  }
+}
+
+.link__small {
+  @include link_default;
+  font-size: var(--fs-6);
+  line-height: 1.25rem;
+
+  &:focus {
+    text-decoration: none;
+    // text-decoration-color: var(--c-highlight);
+    box-shadow: inset 0px -5px 0 0 var(--c-highlightAccent);
+  }
+}
+
+.link__content > div {
+  &:active {
+    transform: scale3d(0.95, 0.95, 0.95);
+  }
+}
+
+@mixin fab_default {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+}
+
+.fab {
+  width: 3rem;
+  height: 3rem;
+  @include fab_default;
+}
+
+.fab__small {
+  width: 2.125;
+  height: 2.125;
+  @include fab_default;
+}
+
+.btn__icon {
+  display: inline-flex;
+  align-items: center;
+
+  svg {
+    margin-left: var(--sp2);
+  }
+}
