@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head'
 
 import {
   IconAdd,
@@ -35,7 +35,7 @@ import {
   IconArrowUp,
   IconArrowLeft,
   IconArrowRight,
-} from "components/icons";
+} from 'components/icons'
 
 import {
   ButtonFab,
@@ -46,7 +46,7 @@ import {
   ActionItem,
   Space,
   Logo,
-} from "components/atoms";
+} from 'components/atoms'
 
 import {
   SubTitle,
@@ -63,7 +63,7 @@ import {
   Testimonial,
   NextArticle,
   SeeAll,
-} from "components/molecules";
+} from 'components/molecules'
 
 import {
   Header,
@@ -78,7 +78,7 @@ import {
   GetStartedWithUs,
   Testimonials,
   Footer,
-} from "components/organisms";
+} from 'components/organisms'
 
 export default function Home() {
   return (
@@ -102,31 +102,31 @@ export default function Home() {
 
         <p>Regular</p>
         <Space />
-        <p className={"mute"}>Regular mute</p>
+        <p className={'mute'}>Regular mute</p>
         <Space />
         <small>Small</small>
         <Space />
-        <small className={"mute"}>Small mute</small>
+        <small className={'mute'}>Small mute</small>
         <Space />
         <SubTitle title="Sub title" />
       </section>
 
       <section>
-        <Space size={1} style={{ background: "red" }} />
-        <Space size={2} style={{ background: "red" }} />
-        <Space size={3} style={{ background: "red" }} />
-        <Space size={4} style={{ background: "red" }} />
-        <Space size={5} style={{ background: "red" }} />
-        <Space size={6} style={{ background: "red" }} />
-        <Space size={7} style={{ background: "red" }} />
+        <Space size={1} style={{ background: 'red' }} />
+        <Space size={2} style={{ background: 'red' }} />
+        <Space size={3} style={{ background: 'red' }} />
+        <Space size={4} style={{ background: 'red' }} />
+        <Space size={5} style={{ background: 'red' }} />
+        <Space size={6} style={{ background: 'red' }} />
+        <Space size={7} style={{ background: 'red' }} />
       </section>
 
       <section>
-        <ActionItem type="btn__default" onClick={() => alert("go")} />
+        <ActionItem type="btn__default" onClick={() => alert('go')} />
         <Space />
-        <ActionItem type="btn__secondary" onClick={() => alert("go")} />
+        <ActionItem type="btn__secondary" onClick={() => alert('go')} />
         <Space />
-        <ActionItem type="btn__primary" onClick={() => alert("go")} />
+        <ActionItem type="btn__primary" onClick={() => alert('go')} />
         <Space />
         <ActionItem type="btn__default" icon={<IconAdd />} />
         <Space />
@@ -183,28 +183,28 @@ export default function Home() {
       <section>
         {/* <Button text="Subscribe -->" onClick={() => {}} /> */}
 
-        <ActionItem text={"This is title link"} href={"/"} type="link__title" />
-        <ActionItem text={"This is default link"} href={"/"} />
+        <ActionItem text={'This is title link'} href={'/'} type="link__title" />
+        <ActionItem text={'This is default link'} href={'/'} />
         <ActionItem
-          text={"This is default link"}
-          href={"/"}
+          text={'This is default link'}
+          href={'/'}
           icon={<IconLibrary />}
         />
-        <ActionItem text={"This is small link"} href={"/"} type="link__small" />
+        <ActionItem text={'This is small link'} href={'/'} type="link__small" />
         <br />
         <ActionItem
-          text={"Start your Free Trial"}
-          href={"#"}
+          text={'Start your Free Trial'}
+          href={'#'}
           type="btn__primary"
         />
         <ActionItem
-          text={"Start your Free Trial"}
-          href={"#"}
+          text={'Start your Free Trial'}
+          href={'#'}
           type="btn__secondary"
         />
         <ActionItem
-          text={"Start your Free Trial"}
-          href={"#"}
+          text={'Start your Free Trial'}
+          href={'#'}
           icon={<IconLibrary />}
         />
         <ButtonFab icon={<IconLibrary />} small />
@@ -215,7 +215,7 @@ export default function Home() {
         <Input
           id="firstNameTwo"
           name="name"
-          label={"First name"}
+          label={'First name'}
           type="text"
           autoComplete="name"
           required
@@ -223,13 +223,13 @@ export default function Home() {
         <Select
           id="primaryInterest"
           name="name"
-          label={"Primary interest"}
-          data={["None", "Mathematics"]}
+          label={'Primary interest'}
+          data={['None', 'Mathematics']}
         />
         <CheckBox
           id="termsAndConditions"
           name="name"
-          label={"I have read and agreed with Zendy Terms & Conditions"}
+          label={'I have read and agreed with Zendy Terms & Conditions'}
         />
         <Switch
           checked
@@ -299,33 +299,33 @@ export default function Home() {
       </section>
       <section>
         <CardCurated
-          href={"/"}
-          img={"https://picsum.photos/300/200"}
+          href={'/'}
+          img={'https://picsum.photos/300/200'}
           title="Water : towards a culture of supper responsibility long text"
           content="Ride-hailing services provide not only alternative transportation for passengers but also job opportunities for potential drivers,  in both negative and positive ef..."
         />
 
         <SearchResultItem
           id="313sa21"
-          href={"/"}
+          href={'/'}
           journal="abc title"
           year="2020"
           author={[]}
-          keywords={["key"]}
-          subjects={["subject"]}
+          keywords={['key']}
+          subjects={['subject']}
           link={[]}
           title="Platform Competition in the Sharing Economy: Understanding How Ride-Hailing Services Influence New Car Purchases."
           abstract="Ride-hailing services provide not only alternative transportation for passengers but also job opportunities for potential drivers,  in both negative and positive effects on new car purchases. Our study assesses the impact of ride-hailing platforms' market entry on new car purchases in the presence. Entry on new ca..."
         />
 
         <CardMagazine
-          href={"/"}
-          img={"https://picsum.photos/200/300"}
+          href={'/'}
+          img={'https://picsum.photos/200/300'}
           title="Magazine name"
           content="Sep2019, Vol. 73 Issue 9"
         />
 
-        <CardSubject href={"/"} title="Magazine name" />
+        <CardSubject href={'/'} title="Magazine name" />
 
         <SearchForm />
         <ContentStats stat="16.3m +" title="Magazines" />
@@ -357,5 +357,5 @@ export default function Home() {
         <Footer />
       </section>
     </div>
-  );
+  )
 }

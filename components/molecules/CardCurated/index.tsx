@@ -1,25 +1,25 @@
-import React from "react";
-import { ActionItem } from "components/atoms";
-import styles from "./index.module.scss";
-import classnames from "classnames";
+import React from 'react'
+import { ActionItem } from 'components/atoms'
+import styles from './index.module.scss'
+import classnames from 'classnames'
 
 type Props = {
-  href: string;
-  img: string;
-  title: React.ReactNode;
-  content: React.ReactNode;
-  style?: React.CSSProperties;
-};
+  href: string
+  img: string
+  title: React.ReactNode
+  content: React.ReactNode
+  style?: React.CSSProperties
+}
 
 const CardCurated: React.FC<Props> = (props) => {
-  const { href, img, title, content, style } = props;
+  const { href, img, title, content, style } = props
 
   return (
     <ActionItem href={href}>
       <div
         className={classnames(
           styles.curated,
-          "bg__white rounded__1 stage__2 mute"
+          'bg__white rounded__1 stage__2 mute'
         )}
         style={style}
       >
@@ -35,7 +35,7 @@ const CardCurated: React.FC<Props> = (props) => {
         </div>
       </div>
     </ActionItem>
-  );
-};
+  )
+}
 
-export default CardCurated;
+export default CardCurated

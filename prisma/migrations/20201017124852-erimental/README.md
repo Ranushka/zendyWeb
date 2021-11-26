@@ -142,5 +142,3 @@ migration ..20201017124852-erimental
 +  @@map(name: "verification_requests")
 +}
 ```
-
-

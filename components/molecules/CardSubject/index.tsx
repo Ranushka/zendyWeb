@@ -1,12 +1,12 @@
-import { ActionItem } from "components/atoms";
+import { ActionItem } from 'components/atoms'
 
 type Props = {
-  href: string;
-  title: React.ReactNode;
-};
+  href: string
+  title: React.ReactNode
+}
 
 const CardSubject: React.FC<Props> = (props) => {
-  const { href, title } = props;
+  const { href, title } = props
 
   return (
     <ActionItem
@@ -15,7 +15,7 @@ const CardSubject: React.FC<Props> = (props) => {
     >
       <>{title}</>
     </ActionItem>
-  );
-};
+  )
+}
 
-export default CardSubject;
+export default CardSubject

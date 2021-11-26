@@ -1,5 +1,5 @@
-import * as React from "react";
-import Svg from "./Svg";
+import * as React from 'react'
+import Svg from './Svg'
 
 const IconEmail: React.FC<{}> = () => {
   return (
@@ -11,7 +11,7 @@ const IconEmail: React.FC<{}> = () => {
         fill="currentColor"
       />
     </Svg>
-  );
-};
+  )
+}
 
-export default IconEmail;
+export default IconEmail

@@ -1,17 +1,17 @@
-import React from "react";
-import styles from "./mobile.module.scss";
-import { ActionItem, Space, Logo, ButtonFab } from "components/atoms";
-import MobileNav from "./MobileNav";
-import { attributes as Data } from "data/footer.md";
+import React from 'react'
+import styles from './mobile.module.scss'
+import { ActionItem, Space, Logo, ButtonFab } from 'components/atoms'
+import MobileNav from './MobileNav'
+import { attributes as Data } from 'data/footer.md'
 
 import {
   IconSocialLinkedIn,
   IconSocialInstagram,
   IconSocialTwitter,
   IconSocialFacebook,
-} from "components/icons";
+} from 'components/icons'
 
-type Props = {};
+type Props = {}
 
 const Footer: React.FC<Props> = ({}) => {
   return (
@@ -62,8 +62,8 @@ const Footer: React.FC<Props> = ({}) => {
       </footer>
       <MobileNav />
     </>
-  );
-};
+  )
+}
 
 const __exploreList = () => {
   return (
@@ -73,10 +73,10 @@ const __exploreList = () => {
         <React.Fragment key={key}>
           <ActionItem text={label} href={path} type="link__small" />
         </React.Fragment>
-      );
+      )
     })
-  );
-};
+  )
+}
 
 const __newsList = () => {
   return (
@@ -86,10 +86,10 @@ const __newsList = () => {
         <React.Fragment key={key}>
           <ActionItem text={label} href={path} type="link__small" />
         </React.Fragment>
-      );
+      )
     })
-  );
-};
+  )
+}
 
 const __privacyList = () => {
   return (
@@ -99,9 +99,9 @@ const __privacyList = () => {
         <React.Fragment key={key}>
           <ActionItem text={label} href={path} type="link__small" />
         </React.Fragment>
-      );
+      )
     })
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

@@ -1,22 +1,22 @@
-import React from "react";
-import { BaseTemplate } from "components/templates";
-import { LayeredNavigation, SearchResults } from "components/organisms";
-import { SearchLandingBlock } from "components/molecules";
-import { useRouter } from "next/router";
+import React from 'react'
+import { BaseTemplate } from 'components/templates'
+import { LayeredNavigation, SearchResults } from 'components/organisms'
+import { SearchLandingBlock } from 'components/molecules'
+import { useRouter } from 'next/router'
 
 const Search: React.FC = () => {
-  const router = useRouter();
-  const queryString: any = router.query.q;
+  const router = useRouter()
+  const queryString: any = router.query.q
 
   React.useEffect(() => {
-    const searchBoxElement = document.getElementById("mainSearch");
+    const searchBoxElement = document.getElementById('mainSearch')
 
     if (queryString) {
-      searchBoxElement && searchBoxElement.blur();
+      searchBoxElement && searchBoxElement.blur()
     } else {
-      searchBoxElement && searchBoxElement.focus();
+      searchBoxElement && searchBoxElement.focus()
     }
-  }, [router]);
+  }, [router])
 
   return (
     <BaseTemplate isSearchPage>
@@ -29,7 +29,7 @@ const Search: React.FC = () => {
 
       {!queryString && <SearchLandingBlock />}
     </BaseTemplate>
-  );
-};
+  )
+}
 
-export default Search;
+export default Search

@@ -1,17 +1,17 @@
-import { useRouter } from "next/router";
-import { useSession } from "next-auth/client";
+import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/client'
 
-import { Space, ButtonFab } from "components/atoms";
-import { ProfileTabs } from "components/molecules";
-import { IconMore } from "components/icons";
-import { BaseTemplate } from "components/templates";
+import { Space, ButtonFab } from 'components/atoms'
+import { ProfileTabs } from 'components/molecules'
+import { IconMore } from 'components/icons'
+import { BaseTemplate } from 'components/templates'
 
 const Searches = () => {
-  const [session, loading] = useSession();
-  const router = useRouter();
+  const [session, loading] = useSession()
+  const router = useRouter()
 
   if (!loading && !session) {
-    router.push("/authenticate");
+    router.push('/authenticate')
   }
 
   return (
@@ -22,8 +22,8 @@ const Searches = () => {
         <Space size={4} />
       </div>
     </BaseTemplate>
-  );
-};
+  )
+}
 
 const __dataRow = ({ id, name, keyWord, filters }) => (
   <div key={id}>
@@ -32,7 +32,7 @@ const __dataRow = ({ id, name, keyWord, filters }) => (
         <h3>{name}</h3>
         <Space size={2} />
         <div>
-          Search for <strong>{keyWord}</strong> as Keyword. Filtered on{" "}
+          Search for <strong>{keyWord}</strong> as Keyword. Filtered on{' '}
           {__appliedFilters(filters)}. Sorted by relevance.
         </div>
       </div>
@@ -43,35 +43,35 @@ const __dataRow = ({ id, name, keyWord, filters }) => (
     </div>
     <Space size={2} />
   </div>
-);
+)
 
 const __appliedFilters = (filters: [string]) => {
   const data: Array<any> = filters.map((data: string, id: number) => (
     <span key={id}>{data}</span>
-  ));
+  ))
 
-  return data.reduce((pv, cv) => [pv, ", ", cv], 0);
-};
+  return data.reduce((pv, cv) => [pv, ', ', cv], 0)
+}
 
 const dataSet = [
   {
     id: 12,
-    name: "Saved search name",
-    keyWord: "car",
-    filters: ["Books", "journals"],
+    name: 'Saved search name',
+    keyWord: 'car',
+    filters: ['Books', 'journals'],
   },
   {
     id: 13,
-    name: "Trending on micro services",
-    keyWord: "micro services node js",
-    filters: ["journals"],
+    name: 'Trending on micro services',
+    keyWord: 'micro services node js',
+    filters: ['journals'],
   },
   {
     id: 14,
-    name: "Saved search name",
-    keyWord: "car",
-    filters: ["Books"],
+    name: 'Saved search name',
+    keyWord: 'car',
+    filters: ['Books'],
   },
-];
+]
 
-export default Searches;
+export default Searches

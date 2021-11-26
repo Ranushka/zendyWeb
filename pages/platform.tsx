@@ -1,4 +1,4 @@
-import { Space } from "components/atoms";
+import { Space } from 'components/atoms'
 
 import {
   HeroCta,
@@ -9,9 +9,9 @@ import {
   GetStartedWithUs,
   Testimonials,
   PricingList,
-} from "components/organisms";
+} from 'components/organisms'
 
-import { BaseTemplate } from "components/templates";
+import { BaseTemplate } from 'components/templates'
 
 export default function Learn() {
   return (
@@ -29,5 +29,5 @@ export default function Learn() {
       <EmailSubscription />
       <GetStartedWithUs />
     </BaseTemplate>
-  );
+  )
 }

@@ -1,23 +1,23 @@
-import React from "react";
-import classnames from "classnames";
+import React from 'react'
+import classnames from 'classnames'
 
 type Props = {
-  label?: string;
-  name?: string;
-  id: string;
-  data?: string[];
-  block?: boolean;
-  className?: string;
-};
+  label?: string
+  name?: string
+  id: string
+  data?: string[]
+  block?: boolean
+  className?: string
+}
 
 const Select: React.FC<Props> = (props) => {
-  const { label, name, id, data, block, className } = props;
+  const { label, name, id, data, block, className } = props
 
   return (
     <div
       className={classnames(
-        "input__wrapper",
-        block && "block",
+        'input__wrapper',
+        block && 'block',
         className && className
       )}
     >
@@ -31,7 +31,7 @@ const Select: React.FC<Props> = (props) => {
         ))}
       </select>
     </div>
-  );
-};
+  )
+}
 
-export default Select;
+export default Select

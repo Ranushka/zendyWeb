@@ -1,16 +1,16 @@
-import React from "react";
-import classnames from "classnames";
-import styles from "./index.module.scss";
+import React from 'react'
+import classnames from 'classnames'
+import styles from './index.module.scss'
 
 type Props = {
-  rightLabel: React.ReactNode;
-  leftLabel: React.ReactNode;
-  name?: string;
-  id: string;
-  checked: boolean;
-  onChange?: Function;
-  className?: string;
-};
+  rightLabel: React.ReactNode
+  leftLabel: React.ReactNode
+  name?: string
+  id: string
+  checked: boolean
+  onChange?: Function
+  className?: string
+}
 
 const Switch: React.FC<Props> = ({
   rightLabel,
@@ -24,7 +24,7 @@ const Switch: React.FC<Props> = ({
   return (
     <div className={classnames(styles.switchWrapper, className)}>
       <input
-        className={"input__hide"}
+        className={'input__hide'}
         type="checkbox"
         name={name}
         checked={checked}
@@ -38,7 +38,7 @@ const Switch: React.FC<Props> = ({
         {rightLabel}
       </label>
     </div>
-  );
-};
+  )
+}
 
-export default Switch;
+export default Switch

@@ -1,20 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react'
 
-import { Header, Footer } from "components/organisms";
-import DeviceTypeContext from "context/DeviceTypeContext";
-import classnames from "classnames";
+import { Header, Footer } from 'components/organisms'
+import DeviceTypeContext from 'context/DeviceTypeContext'
+import classnames from 'classnames'
 
 type Props = {
-  isSearchPage?: boolean;
-  children?: React.ReactNode;
-};
+  isSearchPage?: boolean
+  children?: React.ReactNode
+}
 
 const BaseTemplate: React.FC<Props> = ({ isSearchPage, children }) => {
-  const { isMobile } = useContext(DeviceTypeContext);
+  const { isMobile } = useContext(DeviceTypeContext)
   const finalClassNames = classnames(
-    "bg__nut1",
-    isMobile ? "contain__mobile" : "contain__desktop"
-  );
+    'bg__nut1',
+    isMobile ? 'contain__mobile' : 'contain__desktop'
+  )
 
   return (
     <main className={finalClassNames}>
@@ -22,7 +22,7 @@ const BaseTemplate: React.FC<Props> = ({ isSearchPage, children }) => {
       {children}
       <Footer />
     </main>
-  );
-};
+  )
+}
 
-export default BaseTemplate;
+export default BaseTemplate

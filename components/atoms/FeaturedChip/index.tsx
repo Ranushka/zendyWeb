@@ -1,18 +1,18 @@
-import classnames from "classnames";
-import styles from "./index.module.scss";
+import classnames from 'classnames'
+import styles from './index.module.scss'
 
 type Props = {
-  type?: "referenced" | "reviewed";
-};
+  type?: 'referenced' | 'reviewed'
+}
 
-const FeaturedChip: React.FC<Props> = ({ type = "Referenced" }) => {
+const FeaturedChip: React.FC<Props> = ({ type = 'Referenced' }) => {
   const __finalClassNames = classnames(
-    "small block_inline px__1 first_letter_caps",
+    'small block_inline px__1 first_letter_caps',
     styles.item,
     styles[type]
-  );
+  )
 
-  return <span className={__finalClassNames}>{type}&nbsp;✓</span>;
-};
+  return <span className={__finalClassNames}>{type}&nbsp;✓</span>
+}
 
-export default FeaturedChip;
+export default FeaturedChip

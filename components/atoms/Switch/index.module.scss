@@ -20,7 +20,7 @@
     }
 
     & + label > div:before {
-      content: "";
+      content: '';
       display: inline-block;
       vertical-align: text-top;
       border-radius: 4rem;
@@ -45,7 +45,7 @@
 
     & + label {
       & > div:after {
-        content: "";
+        content: '';
         position: absolute;
         margin: 0 var(--sp2);
         right: 0.125rem;

@@ -1,66 +1,66 @@
-import React from "react";
-import classnames from "classnames";
-import Mark from "mark.js";
-import { SearchResultItem } from "components/molecules";
-import { Space, ActionItem } from "components/atoms";
-import { IconSavedSearch, IconArrowDown } from "components/icons";
-import styles from "./desktop.module.scss";
-import useSearchResults from "fetchHooks/useSearchResults";
-import Skeleton from "react-loading-skeleton";
+import React from 'react'
+import classnames from 'classnames'
+import Mark from 'mark.js'
+import { SearchResultItem } from 'components/molecules'
+import { Space, ActionItem } from 'components/atoms'
+import { IconSavedSearch, IconArrowDown } from 'components/icons'
+import styles from './desktop.module.scss'
+import useSearchResults from 'fetchHooks/useSearchResults'
+import Skeleton from 'react-loading-skeleton'
 
 const SearchResultActions = () => {
   return (
     <div
       className={classnames(
-        "flex mw__4 ml__0 py__4",
+        'flex mw__4 ml__0 py__4',
         styles.searchResultActions
       )}
     >
-      <ActionItem text={"Save search"} href={"/"} icon={<IconSavedSearch />} />
+      <ActionItem text={'Save search'} href={'/'} icon={<IconSavedSearch />} />
       <div className="flex__left"></div>
       <ActionItem
-        text={"Sort by : Relevance"}
-        href={"/"}
+        text={'Sort by : Relevance'}
+        href={'/'}
         icon={<IconArrowDown />}
       />
       <Space size={3} />
-      <ActionItem text={"Bulk actions"} href={"/"} icon={<IconArrowDown />} />
+      <ActionItem text={'Bulk actions'} href={'/'} icon={<IconArrowDown />} />
     </div>
-  );
-};
+  )
+}
 
 const AppliedSearchFilters = () => {
   return (
-    <div className={classnames("flex", styles.appliedSearchFilters)}>
+    <div className={classnames('flex', styles.appliedSearchFilters)}>
       <span className="small mute px__2 pl__0">Filters applied :</span>
 
       <ActionItem
-        text={"Conference Materials   |  ×"}
-        href={"/"}
+        text={'Conference Materials   |  ×'}
+        href={'/'}
         type="link__small"
         className="px__2"
       />
 
       <ActionItem
-        text={"References available   |  ×"}
-        href={"/"}
+        text={'References available   |  ×'}
+        href={'/'}
         type="link__small"
         className="px__2"
       />
 
       <ActionItem
-        text={"Clear filters"}
-        href={"/"}
+        text={'Clear filters'}
+        href={'/'}
         type="link__small"
         className="px__2"
       />
     </div>
-  );
-};
+  )
+}
 
 const __searchResultLoading = () => {
   return [1, 2, 3].map((id) => (
-    <article key={"skeletonSearchResult" + id} className="mw__4 ml__0">
+    <article key={'skeletonSearchResult' + id} className="mw__4 ml__0">
       <Space size={3} />
       <Skeleton height={30} />
       <Space size={2} />
@@ -81,8 +81,8 @@ const __searchResultLoading = () => {
       </div>
       <Space size={5} />
     </article>
-  ));
-};
+  ))
+}
 
 const __noResultData = () => {
   return (
@@ -91,57 +91,57 @@ const __noResultData = () => {
       Oops...!, Unfortunately we could not found more results.
       <div className="gaps__6"></div>
     </h2>
-  );
-};
+  )
+}
 
 const __resultData = () => {
-  const { data } = useSearchResults();
+  const { data } = useSearchResults()
 
   if (!data) {
-    return __searchResultLoading();
+    return __searchResultLoading()
   }
 
   if (data.results && data.results.length) {
-    return <ResultsWithData results={data.results} />;
+    return <ResultsWithData results={data.results} />
   }
 
-  return __noResultData();
-};
+  return __noResultData()
+}
 
 const ResultsWithData: React.FC<any> = ({ results }) => {
-  const searchResultContainer = React.useRef();
+  const searchResultContainer = React.useRef()
 
   React.useEffect(() => {
-    let mainSearch = document.getElementById("mainSearch") as HTMLInputElement;
-    let mainSearchValue = mainSearch.value;
+    let mainSearch = document.getElementById('mainSearch') as HTMLInputElement
+    let mainSearchValue = mainSearch.value
 
     if (mainSearchValue) {
-      var markInstance = new Mark(searchResultContainer.current);
-      markInstance.mark(mainSearchValue);
+      var markInstance = new Mark(searchResultContainer.current)
+      markInstance.mark(mainSearchValue)
     }
-  }, [results]);
+  }, [results])
 
   return (
     <div ref={searchResultContainer}>
       {/* {__KeywordsList(keywords)} */}
       {results.map((data, id) => {
-        return <SearchResultItem {...data} key={`searchResult${id}`} />;
+        return <SearchResultItem {...data} key={`searchResult${id}`} />
       })}
     </div>
-  );
-};
+  )
+}
 
 const DesktopSearchResults: React.FC<any> = () => {
   return (
     <>
-      <section className={classnames("block text__left")}>
+      <section className={classnames('block text__left')}>
         {SearchResultActions()}
         {AppliedSearchFilters()}
         {__resultData()}
       </section>
       <div className="flex__left" />
     </>
-  );
-};
+  )
+}
 
-export default DesktopSearchResults;
+export default DesktopSearchResults

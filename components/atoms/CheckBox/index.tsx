@@ -1,14 +1,14 @@
-import classnames from "classnames";
-import styles from "./index.module.scss";
+import classnames from 'classnames'
+import styles from './index.module.scss'
 
 type Props = {
-  label?: string;
-  name?: string;
-  id: string;
-  value?: string;
-  className?: string;
-  onChange?: Function;
-};
+  label?: string
+  name?: string
+  id: string
+  value?: string
+  className?: string
+  onChange?: Function
+}
 
 const CheckBox: React.FC<Props> = ({
   label,
@@ -21,13 +21,13 @@ const CheckBox: React.FC<Props> = ({
   return (
     <div
       className={classnames(
-        "my__3 mx__2 mt__0 mr__0",
+        'my__3 mx__2 mt__0 mr__0',
         className && className,
         styles.checkBoxWrapper
       )}
     >
       <input
-        className={"input__hide"}
+        className={'input__hide'}
         type="checkbox"
         name={name}
         id={id}
@@ -41,7 +41,7 @@ const CheckBox: React.FC<Props> = ({
         {name && <span className="labelText">{label}</span>}
       </label>
     </div>
-  );
-};
+  )
+}
 
-export default CheckBox;
+export default CheckBox

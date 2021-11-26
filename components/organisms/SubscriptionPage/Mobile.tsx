@@ -1,11 +1,11 @@
-import React from "react";
-import { Space, Switch } from "components/atoms";
-import { Pricing, WhatWeOffer, SecurityStripBlock } from "components/molecules";
-import { attributes as Data } from "data/pagers/pricing.md";
+import React from 'react'
+import { Space, Switch } from 'components/atoms'
+import { Pricing, WhatWeOffer, SecurityStripBlock } from 'components/molecules'
+import { attributes as Data } from 'data/pagers/pricing.md'
 
 const Mobile: React.FC<{}> = ({}) => {
-  const [plan, planSet] = React.useState(false);
-  const currentPlan = Data.planTypes[plan ? "yearly" : "monthly"];
+  const [plan, planSet] = React.useState(false)
+  const currentPlan = Data.planTypes[plan ? 'yearly' : 'monthly']
 
   return (
     <div className="px__3">
@@ -37,7 +37,7 @@ const Mobile: React.FC<{}> = ({}) => {
       <SecurityStripBlock />
       <Space size={5} />
     </div>
-  );
-};
+  )
+}
 
-export default Mobile;
+export default Mobile

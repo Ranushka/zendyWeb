@@ -1,19 +1,19 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext } from 'react'
 
 type ContextTypes = {
-  value: boolean;
-};
+  value: boolean
+}
 
 type ProviderTypes = {
-  children: React.ReactNode;
-  isMobile: boolean;
-};
+  children: React.ReactNode
+  isMobile: boolean
+}
 
 type ContextProps = {
-  isMobile: boolean;
-};
+  isMobile: boolean
+}
 
-const DeviceTypeContext = React.createContext<ContextProps>(undefined);
+const DeviceTypeContext = React.createContext<ContextProps>(undefined)
 
 export const DeviceTypeContextProvider = ({
   children,
@@ -23,7 +23,7 @@ export const DeviceTypeContextProvider = ({
     <DeviceTypeContext.Provider value={{ isMobile }}>
       {children}
     </DeviceTypeContext.Provider>
-  );
-};
+  )
+}
 
-export default DeviceTypeContext;
+export default DeviceTypeContext

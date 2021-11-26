@@ -21,7 +21,7 @@
     }
 
     & + label > div:before {
-      content: "";
+      content: '';
       display: inline-block;
       vertical-align: middle;
       border-radius: 2px;
@@ -55,7 +55,7 @@
     }
 
     &:checked + label > div:after {
-      content: "";
+      content: '';
       position: absolute;
       left: 3px;
       top: 10px;

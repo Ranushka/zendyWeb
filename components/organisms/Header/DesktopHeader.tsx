@@ -1,34 +1,34 @@
-import React from "react";
-import classnames from "classnames";
-import Skeleton from "react-loading-skeleton";
-import styles from "./desktop.module.scss";
-import { ActionItem, Space, Logo } from "components/atoms";
-import { SearchForm, CategoriesMenu } from "components/molecules";
-import { IconLibrary } from "components/icons";
-import { attributes as t } from "data/header.md";
-import { useSession } from "next-auth/client";
+import React from 'react'
+import classnames from 'classnames'
+import Skeleton from 'react-loading-skeleton'
+import styles from './desktop.module.scss'
+import { ActionItem, Space, Logo } from 'components/atoms'
+import { SearchForm, CategoriesMenu } from 'components/molecules'
+import { IconLibrary } from 'components/icons'
+import { attributes as t } from 'data/header.md'
+import { useSession } from 'next-auth/client'
 
 const DesktopHeader: React.FC = ({}) => {
-  const [session, loading] = useSession();
-  const btnGuestOrUser = session ? __getLoggedInUser(session) : __getLoginBtn();
+  const [session, loading] = useSession()
+  const btnGuestOrUser = session ? __getLoggedInUser(session) : __getLoginBtn()
 
   return (
     <>
       <header
         key="headerContainer"
         className={classnames(
-          "edgeContainer bg__white",
+          'edgeContainer bg__white',
           styles.headerContainer
         )}
       >
         <section className="mw__6">
-          <div className={classnames("px__3 py__3 flex__align_center")}>
+          <div className={classnames('px__3 py__3 flex__align_center')}>
             <Logo
               flag
-              className={classnames("flex__align_center", styles.logo)}
+              className={classnames('flex__align_center', styles.logo)}
             />
             <CategoriesMenu />
-            <ActionItem text={"Magazines"} href={"/magazines"} />
+            <ActionItem text={'Magazines'} href={'/magazines'} />
             <div className="flex__left" />
             <NavItems />
             {loading ? <Skeleton height={48} width={60} /> : btnGuestOrUser}
@@ -37,22 +37,22 @@ const DesktopHeader: React.FC = ({}) => {
       </header>
       <div
         key="searchContainer"
-        className={classnames("bg__white stage__2", styles.searchContainer)}
+        className={classnames('bg__white stage__2', styles.searchContainer)}
       >
         <section className="mw__6">
           <Space size={2} />
-          <div className={classnames("flex flex__space_between px__3")}>
+          <div className={classnames('flex flex__space_between px__3')}>
             <SearchForm id="mainSearch" />
             <Space />
             <ActionItem
               className="flex__wrap__no"
               text={t.advanced_search}
-              href={"/advanced_search"}
+              href={'/advanced_search'}
             />
             <Space />
             <ActionItem
               text={t.my_library}
-              href={"/library/collections"}
+              href={'/library/collections'}
               icon={<IconLibrary />}
             />
           </div>
@@ -60,8 +60,8 @@ const DesktopHeader: React.FC = ({}) => {
         </section>
       </div>
     </>
-  );
-};
+  )
+}
 
 const NavItems = () => {
   return (
@@ -72,38 +72,38 @@ const NavItems = () => {
           <ActionItem text={label} href={path} />
           <Space />
         </React.Fragment>
-      );
+      )
     })
-  );
-};
+  )
+}
 
 const __getLoginBtn = () => {
   return (
     <ActionItem
       text={t.login_btn_name}
-      href={"/authenticate"}
+      href={'/authenticate'}
       type="btn__secondary"
     />
-  );
-};
+  )
+}
 
 const __getLoggedInUser = (session) => {
   return (
     <ActionItem
       text={__getUserNameInitials(session.user.name)}
-      href={"/profile"}
+      href={'/profile'}
       type="btn__secondary"
       className={styles.profilePic}
     />
-  );
-};
+  )
+}
 
 const __getUserNameInitials = (name) => {
   if (name) {
-    return name.substring(0, 2);
+    return name.substring(0, 2)
   }
 
-  return "na";
-};
+  return 'na'
+}
 
-export default DesktopHeader;
+export default DesktopHeader

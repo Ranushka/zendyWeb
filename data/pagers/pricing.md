@@ -36,8 +36,8 @@ planTypes:
 
       <div><del>AED 700</del> <ins> AED 420 </ins> <span> billed yearly</span></div>
     name: Yearly plan
-    price: "29"
-    paying: "420"
+    price: '29'
+    paying: '420'
   yearly:
     content: >-
       <h2>Monthly  plan</h2>
@@ -58,6 +58,6 @@ planTypes:
 
       <p><del>AED 70</del> <ins> AED 63 </ins> <span> billed monthly</span></p>
     name: Monthly plan
-    price: "63"
-    paying: "63"
+    price: '63'
+    paying: '63'
 ---

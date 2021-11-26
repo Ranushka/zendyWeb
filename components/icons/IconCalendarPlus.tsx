@@ -1,5 +1,5 @@
-import * as React from "react";
-import Svg from "./Svg";
+import * as React from 'react'
+import Svg from './Svg'
 
 const IconCalendarPlus: React.FC<{}> = () => {
   return (
@@ -13,7 +13,7 @@ const IconCalendarPlus: React.FC<{}> = () => {
         fill="currentColor"
       />
     </Svg>
-  );
-};
+  )
+}
 
-export default IconCalendarPlus;
+export default IconCalendarPlus

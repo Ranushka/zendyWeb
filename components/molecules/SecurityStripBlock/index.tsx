@@ -1,5 +1,5 @@
-import React from "react";
-import { Space } from "components/atoms";
+import React from 'react'
+import { Space } from 'components/atoms'
 
 const SecurityStripBlock: React.FC<{}> = ({}) => {
   return (
@@ -11,7 +11,7 @@ const SecurityStripBlock: React.FC<{}> = ({}) => {
       <Space size={2} />
       <img className="mw__1 block" src="/img/trust.png" />
     </div>
-  );
-};
+  )
+}
 
-export default SecurityStripBlock;
+export default SecurityStripBlock

@@ -1,30 +1,30 @@
-import React, { useContext } from "react";
-import classnames from "classnames";
-import { useRouter } from "next/router";
-import { useSession } from "next-auth/client";
-import DeviceTypeContext from "context/DeviceTypeContext";
+import React, { useContext } from 'react'
+import classnames from 'classnames'
+import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/client'
+import DeviceTypeContext from 'context/DeviceTypeContext'
 
 type Props = {
-  isSearchPage?: boolean;
-  children?: React.ReactNode;
-};
+  isSearchPage?: boolean
+  children?: React.ReactNode
+}
 
 const LoginRegisterTemplate: React.FC<Props> = ({ children }) => {
-  const [session, loading] = useSession();
-  const router = useRouter();
+  const [session, loading] = useSession()
+  const router = useRouter()
 
-  console.log(session);
+  console.log(session)
   if (!loading && session) {
-    router.push("/");
+    router.push('/')
   }
 
-  const { isMobile } = useContext(DeviceTypeContext);
+  const { isMobile } = useContext(DeviceTypeContext)
   const finalClassNames = classnames(
-    "bg__nut1",
-    isMobile ? "contain__mobile" : "contain__desktop"
-  );
+    'bg__nut1',
+    isMobile ? 'contain__mobile' : 'contain__desktop'
+  )
 
-  return <main className={finalClassNames}>{children}</main>;
-};
+  return <main className={finalClassNames}>{children}</main>
+}
 
-export default LoginRegisterTemplate;
+export default LoginRegisterTemplate

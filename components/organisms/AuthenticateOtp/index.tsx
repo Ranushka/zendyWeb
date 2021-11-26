@@ -1,18 +1,18 @@
-import React from "react";
-import classnames from "classnames";
-import { ActionItem, Input, Space, Logo } from "components/atoms";
+import React from 'react'
+import classnames from 'classnames'
+import { ActionItem, Input, Space, Logo } from 'components/atoms'
 
-import styles from "./index.module.scss";
+import styles from './index.module.scss'
 
-type Props = {};
+type Props = {}
 
 const AuthenticateRegister: React.FC<Props> = ({}) => {
-  const [value, setValue] = React.useState();
+  const [value, setValue] = React.useState()
 
   return (
     <>
-      <div className={classnames("flex__align_center", styles.wrapper)}>
-        <div className={classnames("mw__1 block", styles.phoneNumber)}>
+      <div className={classnames('flex__align_center', styles.wrapper)}>
+        <div className={classnames('mw__1 block', styles.phoneNumber)}>
           <div className="text__center">
             <Space size={4} />
             <Logo className={styles.logo} />
@@ -43,8 +43,8 @@ const AuthenticateRegister: React.FC<Props> = ({}) => {
           </div>
           <div className="flex">
             <ActionItem
-              text={"Confirm OTP"}
-              href={"/authenticate/register"}
+              text={'Confirm OTP'}
+              href={'/authenticate/register'}
               type="btn__primary"
               block
             />
@@ -52,14 +52,14 @@ const AuthenticateRegister: React.FC<Props> = ({}) => {
           <Space size={4} />
           <div className="flex">
             <ActionItem
-              text={"Resend OTP"}
-              href={"/authenticate"}
+              text={'Resend OTP'}
+              href={'/authenticate'}
               type="link__small"
             />
             <div className="flex__left"></div>
             <ActionItem
-              text={"Change number"}
-              href={"/authenticate"}
+              text={'Change number'}
+              href={'/authenticate'}
               type="link__small"
             />
           </div>
@@ -71,7 +71,7 @@ const AuthenticateRegister: React.FC<Props> = ({}) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default AuthenticateRegister;
+export default AuthenticateRegister
