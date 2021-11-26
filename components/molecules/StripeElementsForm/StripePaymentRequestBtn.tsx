@@ -1,37 +1,34 @@
-import React, { useState, useEffect } from "react";
-import {
-  PaymentRequestButtonElement,
-  useStripe,
-} from "@stripe/react-stripe-js";
+import React, { useState, useEffect } from 'react'
+import { PaymentRequestButtonElement, useStripe } from '@stripe/react-stripe-js'
 
 type Props = {
-  price?: string;
-};
+  price?: string
+}
 
 const StripePaymentRequestBtn: React.FC<Props> = ({ price }) => {
-  const stripe = useStripe();
-  const [paymentRequest, setPaymentRequest] = useState(null);
+  const stripe = useStripe()
+  const [paymentRequest, setPaymentRequest] = useState(null)
 
   useEffect(() => {
     if (stripe) {
       const pr = stripe.paymentRequest({
-        country: "AE",
-        currency: "aed",
+        country: 'AE',
+        currency: 'aed',
         total: {
-          label: "Demo total",
+          label: 'Demo total',
           amount: parseInt(price),
         },
         requestPayerName: true,
         requestPayerEmail: true,
-      });
+      })
 
       pr.canMakePayment().then((result) => {
         if (result) {
-          setPaymentRequest(pr);
+          setPaymentRequest(pr)
         }
-      });
+      })
     }
-  }, [stripe]);
+  }, [stripe])
 
   if (paymentRequest) {
     return (
@@ -39,10 +36,10 @@ const StripePaymentRequestBtn: React.FC<Props> = ({ price }) => {
         <span>Subscribe with google pay</span>
         <PaymentRequestButtonElement options={{ paymentRequest }} />
       </div>
-    );
+    )
   }
 
-  return <></>;
-};
+  return <></>
+}
 
-export default StripePaymentRequestBtn;
+export default StripePaymentRequestBtn

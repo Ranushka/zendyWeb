@@ -1,41 +1,41 @@
-import classnames from "classnames";
-import striptags from "striptags";
-import Ellipsis from "react-ellipsis-pjs";
-import card from "./desktop.module.scss";
-import get from "lodash/get";
-import { SearchResultItemProps } from "types";
+import classnames from 'classnames'
+import striptags from 'striptags'
+import Ellipsis from 'react-ellipsis-pjs'
+import card from './desktop.module.scss'
+import get from 'lodash/get'
+import { SearchResultItemProps } from 'types'
 import {
   CheckBox,
   ActionItem,
   ButtonFab,
   Space,
   FeaturedChip,
-} from "components/atoms";
-import { IconCite, IconBookmark, IconLink } from "components/icons";
+} from 'components/atoms'
+import { IconCite, IconBookmark, IconLink } from 'components/icons'
 
 const __renderChips = (isReviewed, isReferenced) => {
-  if (!isReviewed && !isReferenced) return;
+  if (!isReviewed && !isReferenced) return
 
   return (
-    <div className={"pull__l1"}>
-      {isReviewed && <FeaturedChip type={"reviewed"} />}
-      {isReferenced && <FeaturedChip type={"referenced"} />}
+    <div className={'pull__l1'}>
+      {isReviewed && <FeaturedChip type={'reviewed'} />}
+      {isReferenced && <FeaturedChip type={'referenced'} />}
     </div>
-  );
-};
+  )
+}
 
 const __renderTitle = (props) => {
   const {
-    title = "",
-    href = "/",
+    title = '',
+    href = '/',
     isReviewed = true,
     isReferenced = true,
-  } = props;
+  } = props
 
   return (
     <div
       className={classnames(
-        "first_letter_caps py__2 pt__0",
+        'first_letter_caps py__2 pt__0',
         card.article__title
       )}
     >
@@ -47,8 +47,8 @@ const __renderTitle = (props) => {
       />
       {__renderChips(isReviewed, isReferenced)}
     </div>
-  );
-};
+  )
+}
 
 const __renderContentType = (title, journal, year) => {
   return (
@@ -61,22 +61,22 @@ const __renderContentType = (title, journal, year) => {
         type="link__small"
       />
     </div>
-  );
-};
+  )
+}
 
 const __renderAbstract = (content) => {
   return (
     <div className="block py__2 pt__0">
       <div
-        className={classnames(card.article__abstract, "color__nut7")}
+        className={classnames(card.article__abstract, 'color__nut7')}
         dangerouslySetInnerHTML={{ __html: content }}
       />
     </div>
-  );
-};
+  )
+}
 
 const __renderAuthors = (authors: []) => {
-  const authorsList = authors.map(({ name }) => name).join("; ");
+  const authorsList = authors.map(({ name }) => name).join('; ')
 
   return (
     authors && (
@@ -87,8 +87,8 @@ const __renderAuthors = (authors: []) => {
         </small>
       </div>
     )
-  );
-};
+  )
+}
 
 const __renderKeywords = (keywords: [string]) => {
   return (
@@ -97,13 +97,13 @@ const __renderKeywords = (keywords: [string]) => {
         <small className="px__2 pl__0 mute">keywords - </small>
         {keywords
           .map<React.ReactNode>((name, id) => (
-            <ActionItem key={id} text={name} href={"/"} type="link__small" />
+            <ActionItem key={id} text={name} href={'/'} type="link__small" />
           ))
-          .reduce((prev, curr) => [prev, ", ", curr])}
+          .reduce((prev, curr) => [prev, ', ', curr])}
       </div>
     )
-  );
-};
+  )
+}
 
 const __renderSubjects = (keywords: [string]) => {
   return (
@@ -112,40 +112,40 @@ const __renderSubjects = (keywords: [string]) => {
         <small className="px__2 pl__0 mute">Subjects - </small>
         {keywords
           .map<React.ReactNode>((name, id) => (
-            <ActionItem key={id} text={name} href={"/"} type="link__small" />
+            <ActionItem key={id} text={name} href={'/'} type="link__small" />
           ))
-          .reduce((prev, curr) => [prev, ", ", curr])}
+          .reduce((prev, curr) => [prev, ', ', curr])}
       </div>
     )
-  );
-};
+  )
+}
 
 const __renderActions = (link: [], id) => {
-  const href = get(link, "[0].url");
+  const href = get(link, '[0].url')
 
   return (
-    <section className={classnames("px__4 pr__0", card.article__actions)}>
+    <section className={classnames('px__4 pr__0', card.article__actions)}>
       <div className={card.article__actions__sub}>
         <Space size={1} />
-        <CheckBox className={"my__0"} id={"it_id" + id} />
+        <CheckBox className={'my__0'} id={'it_id' + id} />
         <div className="flex">
           <ButtonFab icon={<IconCite />} small />
           <ButtonFab icon={<IconLink />} small />
           <ButtonFab icon={<IconBookmark />} small />
         </div>
       </div>
-      <ActionItem text={"Download"} href={"#"} type="btn__secondary" block />
+      <ActionItem text={'Download'} href={'#'} type="btn__secondary" block />
       <Space size={3} />
       <ActionItem
-        text={"⠀⠀Read⠀⠀"}
+        text={'⠀⠀Read⠀⠀'}
         href={href}
         onClick={() => window.open(href)}
-        type={"btn__primary"}
+        type={'btn__primary'}
         block
       />
     </section>
-  );
-};
+  )
+}
 
 const CardCurated: React.FC<SearchResultItemProps> = (props) => {
   const {
@@ -161,7 +161,7 @@ const CardCurated: React.FC<SearchResultItemProps> = (props) => {
     isReviewed,
     isReferenced,
     subjects,
-  } = props;
+  } = props
 
   return (
     <article>
@@ -178,7 +178,7 @@ const CardCurated: React.FC<SearchResultItemProps> = (props) => {
         {__renderActions(link, id)}
       </div>
     </article>
-  );
-};
+  )
+}
 
-export default CardCurated;
+export default CardCurated

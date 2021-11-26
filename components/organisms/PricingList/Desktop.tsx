@@ -1,19 +1,19 @@
-import React from "react";
-import styles from "./index.module.scss";
-import classnames from "classnames";
-import { ActionItem, Space } from "components/atoms";
-import { attributes as Data } from "data/pagers/pricing.md";
+import React from 'react'
+import styles from './index.module.scss'
+import classnames from 'classnames'
+import { ActionItem, Space } from 'components/atoms'
+import { attributes as Data } from 'data/pagers/pricing.md'
 
-type Props = {};
+type Props = {}
 
 const PricingList: React.FC<Props> = (props) => {
-  const { planTypes, title } = Data;
+  const { planTypes, title } = Data
 
-  const planTypesArray = Object.keys(planTypes);
+  const planTypesArray = Object.keys(planTypes)
 
   const planCards = planTypesArray.map((plan) => {
-    const item = planTypes[plan];
-    const { content } = item;
+    const item = planTypes[plan]
+    const { content } = item
 
     return (
       <ActionItem
@@ -30,8 +30,8 @@ const PricingList: React.FC<Props> = (props) => {
           <Space size={3} />
         </div>
       </ActionItem>
-    );
-  });
+    )
+  })
 
   return (
     <div className="text__center">
@@ -41,7 +41,7 @@ const PricingList: React.FC<Props> = (props) => {
       <div className="flex__align_center mw__4">{planCards}</div>
       <Space size={4} />
     </div>
-  );
-};
+  )
+}
 
-export default PricingList;
+export default PricingList

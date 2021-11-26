@@ -2,5 +2,5 @@
 //   const html: any;
 //   export default html;
 // }
-declare module "*.md";
-declare module "*.scss";
+declare module '*.md'
+declare module '*.scss'

@@ -1,18 +1,18 @@
-import React, { useContext } from "react";
-import dynamic from "next/dynamic";
-import DeviceTypeContext from "context/DeviceTypeContext";
-import SiteLinksSearchJsonLd from "analytics/SiteLinksSearchJsonLd";
+import React, { useContext } from 'react'
+import dynamic from 'next/dynamic'
+import DeviceTypeContext from 'context/DeviceTypeContext'
+import SiteLinksSearchJsonLd from 'analytics/SiteLinksSearchJsonLd'
 
 type Props = {
-  children?: React.ReactNode;
-  isSearchPage?: boolean;
-};
+  children?: React.ReactNode
+  isSearchPage?: boolean
+}
 
-const DynamicComponentMobile = dynamic(() => import("./MobileHeader"));
-const DynamicComponentDesktop = dynamic(() => import("./DesktopHeader"));
+const DynamicComponentMobile = dynamic(() => import('./MobileHeader'))
+const DynamicComponentDesktop = dynamic(() => import('./DesktopHeader'))
 
 const Header: React.FC<Props> = ({ children, isSearchPage }: Props) => {
-  const { isMobile } = useContext(DeviceTypeContext);
+  const { isMobile } = useContext(DeviceTypeContext)
 
   return (
     <>
@@ -26,7 +26,7 @@ const Header: React.FC<Props> = ({ children, isSearchPage }: Props) => {
         <DynamicComponentDesktop children={children} />
       )}
     </>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

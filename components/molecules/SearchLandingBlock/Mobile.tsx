@@ -1,7 +1,7 @@
-import React from "react";
-import { Space, ActionItem } from "components/atoms";
+import React from 'react'
+import { Space, ActionItem } from 'components/atoms'
 
-type Props = {};
+type Props = {}
 
 const SearchLandingBlock: React.FC<Props> = () => {
   return (
@@ -13,34 +13,34 @@ const SearchLandingBlock: React.FC<Props> = () => {
       <div className="py__2">
         <ActionItem
           className="px__3 py__2 block__inline"
-          text={"covid 19"}
-          href={"/search?q=covid 19"}
+          text={'covid 19'}
+          href={'/search?q=covid 19'}
         />
         <ActionItem
           className="px__3 py__2 block__inline"
-          text={"Molecular Cell"}
-          href={"/search?q=Molecular Cell"}
+          text={'Molecular Cell'}
+          href={'/search?q=Molecular Cell'}
         />
         <ActionItem
           className="px__3 py__2 block__inline"
-          text={"Midwifery"}
-          href={"/search?q=Midwifery"}
+          text={'Midwifery'}
+          href={'/search?q=Midwifery'}
         />
         <ActionItem
           className="px__3 py__2 block__inline"
-          text={"cars"}
-          href={"/search?q=cars"}
+          text={'cars'}
+          href={'/search?q=cars'}
         />
         <ActionItem
           className="px__3 py__2 block__inline"
-          text={"nutrition courses"}
-          href={"/search?q=nutrition courses"}
+          text={'nutrition courses'}
+          href={'/search?q=nutrition courses'}
         />
       </div>
 
       <Space size={6} />
     </div>
-  );
-};
+  )
+}
 
-export default SearchLandingBlock;
+export default SearchLandingBlock

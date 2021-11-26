@@ -1,46 +1,46 @@
-import React from "react";
-import { Space } from "components/atoms";
-import { ContentStats } from "components/molecules";
+import React from 'react'
+import { Space } from 'components/atoms'
+import { ContentStats } from 'components/molecules'
 
 const data = [
   {
-    stat: "16.3m+",
-    title: "Magazines",
+    stat: '16.3m+',
+    title: 'Magazines',
   },
   {
-    stat: "79.9m+",
-    title: "News",
+    stat: '79.9m+',
+    title: 'News',
   },
   {
-    stat: "42.3k+",
-    title: "Biographies",
+    stat: '42.3k+',
+    title: 'Biographies',
   },
   {
-    stat: "4.7k+",
-    title: "Dissertations",
+    stat: '4.7k+',
+    title: 'Dissertations',
   },
   {
-    stat: "296.7k+",
-    title: "Books",
+    stat: '296.7k+',
+    title: 'Books',
   },
   {
-    stat: "35.9m+",
-    title: "Academic Journals",
+    stat: '35.9m+',
+    title: 'Academic Journals',
   },
   {
-    stat: "201k+",
-    title: "Ebooks",
+    stat: '201k+',
+    title: 'Ebooks',
   },
   {
-    stat: "439k+",
-    title: "Conference Materials",
+    stat: '439k+',
+    title: 'Conference Materials',
   },
-];
-type Props = {};
+]
+type Props = {}
 
 const Stats: React.FC<Props> = ({}) => {
   return (
-    <section className={"mw__6 text__center"}>
+    <section className={'mw__6 text__center'}>
       <Space />
       <h2 className="color__nut6">Premium content data stats</h2>
       <p className="">
@@ -55,7 +55,7 @@ const Stats: React.FC<Props> = ({}) => {
         />
       ))}
     </section>
-  );
-};
+  )
+}
 
-export default Stats;
+export default Stats

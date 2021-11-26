@@ -1,13 +1,13 @@
-import React from "react";
-import styles from "./desktop.module.scss";
-import { ActionItem, Space, Logo, ButtonFab } from "components/atoms";
+import React from 'react'
+import styles from './desktop.module.scss'
+import { ActionItem, Space, Logo, ButtonFab } from 'components/atoms'
 import {
   IconSocialLinkedIn,
   IconSocialInstagram,
   IconSocialTwitter,
   IconSocialFacebook,
-} from "components/icons";
-import { attributes as Data } from "data/footer.md";
+} from 'components/icons'
+import { attributes as Data } from 'data/footer.md'
 
 const Footer: React.FC<{}> = ({}) => {
   return (
@@ -55,8 +55,8 @@ const Footer: React.FC<{}> = ({}) => {
         <Space size={5} />
       </footer>
     </>
-  );
-};
+  )
+}
 
 const __exploreList = () => {
   return (
@@ -66,10 +66,10 @@ const __exploreList = () => {
         <React.Fragment key={key}>
           <ActionItem text={label} href={path} type="link__small" />
         </React.Fragment>
-      );
+      )
     })
-  );
-};
+  )
+}
 
 const __newsList = () => {
   return (
@@ -79,10 +79,10 @@ const __newsList = () => {
         <React.Fragment key={key}>
           <ActionItem text={label} href={path} type="link__small" />
         </React.Fragment>
-      );
+      )
     })
-  );
-};
+  )
+}
 
 const __privacyList = () => {
   return (
@@ -97,9 +97,9 @@ const __privacyList = () => {
             className="mx__3"
           />
         </React.Fragment>
-      );
+      )
     })
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

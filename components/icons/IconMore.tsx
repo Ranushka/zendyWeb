@@ -1,5 +1,5 @@
-import * as React from "react";
-import Svg from "./Svg";
+import * as React from 'react'
+import Svg from './Svg'
 
 const IconMore: React.FC<{}> = () => {
   return (
@@ -9,7 +9,7 @@ const IconMore: React.FC<{}> = () => {
         fill="currentColor"
       />
     </Svg>
-  );
-};
+  )
+}
 
-export default IconMore;
+export default IconMore

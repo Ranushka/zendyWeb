@@ -4,9 +4,9 @@ backend:
 local_backend: true
 media_folder: public/img
 slug:
-  encoding: "ascii"
+  encoding: 'ascii'
   clean_accents: true
-  sanitize_replacement: "_"
+  sanitize_replacement: '_'
 collections:
   - name: Common
     label: Common
@@ -89,33 +89,33 @@ collections:
         label: pricing
         name: pricing
         fields:
-          - { label: "title", name: "title", widget: "markdown" }
+          - { label: 'title', name: 'title', widget: 'markdown' }
           - {
-              label: "planTypes",
-              name: "planTypes",
-              widget: "object",
+              label: 'planTypes',
+              name: 'planTypes',
+              widget: 'object',
               fields:
                 [
                   {
-                    label: "monthly",
-                    name: "monthly",
+                    label: 'monthly',
+                    name: 'monthly',
                     widget: object,
                     fields:
                       [
-                        { label: "name", name: "name", widget: string },
-                        { label: "content", name: "content", widget: markdown },
-                        { label: "price", name: "price", widget: string },
+                        { label: 'name', name: 'name', widget: string },
+                        { label: 'content', name: 'content', widget: markdown },
+                        { label: 'price', name: 'price', widget: string },
                       ],
                   },
                   {
-                    label: "yearly",
-                    name: "yearly",
+                    label: 'yearly',
+                    name: 'yearly',
                     widget: object,
                     fields:
                       [
-                        { label: "name", name: "name", widget: string },
-                        { label: "content", name: "content", widget: markdown },
-                        { label: "price", name: "price", widget: string },
+                        { label: 'name', name: 'name', widget: string },
+                        { label: 'content', name: 'content', widget: markdown },
+                        { label: 'price', name: 'price', widget: string },
                       ],
                   },
                 ],

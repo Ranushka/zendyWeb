@@ -1,11 +1,11 @@
-import * as React from "react";
+import * as React from 'react'
 
 type Props = {
-  children?: React.ReactNode;
-};
+  children?: React.ReactNode
+}
 
 const IconAdd: React.FC<Props> = (props) => {
-  const { children } = props;
+  const { children } = props
 
   return (
     <svg
@@ -17,7 +17,7 @@ const IconAdd: React.FC<Props> = (props) => {
     >
       {children}
     </svg>
-  );
-};
+  )
+}
 
-export default IconAdd;
+export default IconAdd

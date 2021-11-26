@@ -1,15 +1,15 @@
-import React from "react";
-import styles from "./index.module.scss";
-import { Space } from "components/atoms";
+import React from 'react'
+import styles from './index.module.scss'
+import { Space } from 'components/atoms'
 
 type Props = {
-  src: string;
-  title: React.ReactNode;
-  content: React.ReactNode;
-};
+  src: string
+  title: React.ReactNode
+  content: React.ReactNode
+}
 
 const UspItem: React.FC<Props> = (props) => {
-  const { src, title, content } = props;
+  const { src, title, content } = props
 
   return (
     <div className={styles.wrapper}>
@@ -19,7 +19,7 @@ const UspItem: React.FC<Props> = (props) => {
       <Space size={2} />
       <small>{content}</small>
     </div>
-  );
-};
+  )
+}
 
-export default UspItem;
+export default UspItem

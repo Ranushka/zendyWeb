@@ -1,5 +1,5 @@
-import * as React from "react";
-import Svg from "./Svg";
+import * as React from 'react'
+import Svg from './Svg'
 
 const IconBookmark: React.FC<{}> = () => {
   return (
@@ -9,7 +9,7 @@ const IconBookmark: React.FC<{}> = () => {
         fill="currentColor"
       />
     </Svg>
-  );
-};
+  )
+}
 
-export default IconBookmark;
+export default IconBookmark

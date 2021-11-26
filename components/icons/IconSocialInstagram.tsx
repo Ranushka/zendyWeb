@@ -1,5 +1,5 @@
-import * as React from "react";
-import Svg from "./Svg";
+import * as React from 'react'
+import Svg from './Svg'
 
 const IconSocialLinkedIn: React.FC<{}> = () => {
   return (
@@ -9,7 +9,7 @@ const IconSocialLinkedIn: React.FC<{}> = () => {
         fill="currentColor"
       />
     </Svg>
-  );
-};
+  )
+}
 
-export default IconSocialLinkedIn;
+export default IconSocialLinkedIn

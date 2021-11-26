@@ -1,89 +1,89 @@
-import React, { useState } from "react";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import request from "lib/request";
-import styles from "./index.module.scss";
-import { Input, ActionItem, Price, Space } from "components/atoms";
-import { DiscountCodeBlock, SecurityStripBlock } from "components/molecules";
-import useDiscountCode from "fetchHooks/useDiscountCode";
+import React, { useState } from 'react'
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
+import request from 'lib/request'
+import styles from './index.module.scss'
+import { Input, ActionItem, Price, Space } from 'components/atoms'
+import { DiscountCodeBlock, SecurityStripBlock } from 'components/molecules'
+import useDiscountCode from 'fetchHooks/useDiscountCode'
 
 const CARD_OPTIONS = {
   hidePostalCode: true,
   style: {
     base: {
-      fontSize: "16px",
+      fontSize: '16px',
     },
   },
-};
+}
 
 type Props = {
-  paying?: string;
-};
+  paying?: string
+}
 
 const RegularForm: React.FC<Props> = (props) => {
-  const { paying } = props;
-  const { data } = useDiscountCode();
+  const { paying } = props
+  const { data } = useDiscountCode()
 
   const [input, setInput] = useState({
     customDonation: parseInt(paying),
-    cardholderName: "",
-  });
-  const [payment, setPayment] = useState({ status: "initial" });
-  const [errorMessage, setErrorMessage] = useState("");
-  const stripe = useStripe();
-  const elements = useElements();
+    cardholderName: '',
+  })
+  const [payment, setPayment] = useState({ status: 'initial' })
+  const [errorMessage, setErrorMessage] = useState('')
+  const stripe = useStripe()
+  const elements = useElements()
 
   const PaymentStatus = ({ status }: { status: string }) => {
     switch (status) {
-      case "processing":
-      case "requires_payment_method":
-      case "requires_confirmation":
-        return <h2>Processing...</h2>;
+      case 'processing':
+      case 'requires_payment_method':
+      case 'requires_confirmation':
+        return <h2>Processing...</h2>
 
-      case "requires_action":
-        return <h2>Authenticating...</h2>;
+      case 'requires_action':
+        return <h2>Authenticating...</h2>
 
-      case "succeeded":
-        return <h2>Payment Succeeded 🥳</h2>;
+      case 'succeeded':
+        return <h2>Payment Succeeded 🥳</h2>
 
-      case "error":
+      case 'error':
         return (
           <>
             <h2>Error 😭</h2>
             <p className="error-message">{errorMessage}</p>
           </>
-        );
+        )
 
       default:
-        return null;
+        return null
     }
-  };
+  }
 
   const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) =>
     setInput({
       ...input,
       [e.currentTarget.name]: e.currentTarget.value,
-    });
+    })
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     // Abort if form isn't valid
-    if (!e.currentTarget.reportValidity()) return;
-    setPayment({ status: "processing" });
+    if (!e.currentTarget.reportValidity()) return
+    setPayment({ status: 'processing' })
 
     // Create a PaymentIntent with the specified amount.
-    const response = await request("/api/payment_intents", "POST", {
+    const response = await request('/api/payment_intents', 'POST', {
       amount: input.customDonation,
-    });
+    })
 
-    setPayment(response);
+    setPayment(response)
 
     if (response.statusCode === 500) {
-      setPayment({ status: "error" });
-      setErrorMessage(response.message);
-      return;
+      setPayment({ status: 'error' })
+      setErrorMessage(response.message)
+      return
     }
 
-    const cardElement = elements!.getElement(CardElement);
+    const cardElement = elements!.getElement(CardElement)
     const { error, paymentIntent } = await stripe!.confirmCardPayment(
       response.client_secret,
       {
@@ -92,20 +92,20 @@ const RegularForm: React.FC<Props> = (props) => {
           billing_details: { name: input.cardholderName },
         },
       }
-    );
+    )
 
     if (error) {
-      setPayment({ status: "error" });
-      setErrorMessage(error.message ?? "An unknown error occurred");
+      setPayment({ status: 'error' })
+      setErrorMessage(error.message ?? 'An unknown error occurred')
     } else if (paymentIntent) {
-      setPayment(paymentIntent);
+      setPayment(paymentIntent)
     }
-  };
+  }
 
   const getDiscountAmount =
     data && data.percent_off
       ? (input.customDonation / 100) * data.percent_off
-      : 0;
+      : 0
 
   return (
     <>
@@ -114,7 +114,7 @@ const RegularForm: React.FC<Props> = (props) => {
           <Input
             id="newPasswordConfirm"
             name="cardholderName"
-            label={"Cardholder name"}
+            label={'Cardholder name'}
             type="text"
             onChange={handleInputChange}
             autoFocus
@@ -129,10 +129,10 @@ const RegularForm: React.FC<Props> = (props) => {
                 options={CARD_OPTIONS}
                 onChange={(e) => {
                   if (e.error) {
-                    setPayment({ status: "error" });
+                    setPayment({ status: 'error' })
                     setErrorMessage(
-                      e.error.message ?? "An unknown error occurred"
-                    );
+                      e.error.message ?? 'An unknown error occurred'
+                    )
                   }
                 }}
               />
@@ -147,7 +147,7 @@ const RegularForm: React.FC<Props> = (props) => {
             <div className="py__3 pt__0 flex__align_center mute">
               <p>Coupon discount</p>
               <div className="flex__left"></div>
-              <div className={"flex"}>
+              <div className={'flex'}>
                 (- <Price price={getDiscountAmount} />)
               </div>
             </div>
@@ -156,7 +156,7 @@ const RegularForm: React.FC<Props> = (props) => {
           <div className="py__3 pt__0 flex__align_center mute">
             <p>Yearly plan</p>
             <div className="flex__left"></div>
-            <div className={"flex"}>
+            <div className={'flex'}>
               <Price price={input.customDonation + getDiscountAmount} />
             </div>
           </div>
@@ -169,8 +169,8 @@ const RegularForm: React.FC<Props> = (props) => {
           <ActionItem
             block
             submit
-            text={"Confirm secure payment"}
-            type={"btn__primary"}
+            text={'Confirm secure payment'}
+            type={'btn__primary'}
             onClick={() => {}}
           />
         </div>
@@ -178,7 +178,7 @@ const RegularForm: React.FC<Props> = (props) => {
       </form>
       <PaymentStatus status={payment.status} />
     </>
-  );
-};
+  )
+}
 
-export default RegularForm;
+export default RegularForm

@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-import { Space } from "components/atoms";
+import { Space } from 'components/atoms'
 
-type Props = {};
+type Props = {}
 
 const Mobile: React.FC<Props> = ({}) => {
   return (
@@ -11,7 +11,7 @@ const Mobile: React.FC<Props> = ({}) => {
       <h3 className="text__center mute">Welcome to Zendy</h3>
       <h1 className="text__center">“Research is creating new knowledge.”</h1>
     </section>
-  );
-};
+  )
+}
 
-export default Mobile;
+export default Mobile

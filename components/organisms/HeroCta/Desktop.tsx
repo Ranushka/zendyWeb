@@ -1,21 +1,21 @@
-import React, { useContext } from "react";
-import classnames from "classnames";
-import styles from "./index.module.scss";
-import DeviceTypeContext from "context/DeviceTypeContext";
+import React, { useContext } from 'react'
+import classnames from 'classnames'
+import styles from './index.module.scss'
+import DeviceTypeContext from 'context/DeviceTypeContext'
 
-import { ActionItem, Space } from "components/atoms";
-import { url } from "inspector";
+import { ActionItem, Space } from 'components/atoms'
+import { url } from 'inspector'
 
-type Props = {};
+type Props = {}
 
 const HeroCta: React.FC<Props> = ({}) => {
-  const { isMobile } = useContext(DeviceTypeContext);
+  const { isMobile } = useContext(DeviceTypeContext)
 
   return (
     <>
       <Space size={5} />
       <section className="mw__6 flex px__3">
-        <div className={"mw__3  px__4  pl__0"}>
+        <div className={'mw__3  px__4  pl__0'}>
           <h3>Welcome to Zendy</h3>
           <Space size={3} />
           <h1>
@@ -31,8 +31,8 @@ const HeroCta: React.FC<Props> = ({}) => {
           </p>
           <Space size={4} />
           <ActionItem
-            text={"Start your Free Trial"}
-            href={"#"}
+            text={'Start your Free Trial'}
+            href={'#'}
             type="btn__primary"
           />
           <Space size={3} />
@@ -40,13 +40,13 @@ const HeroCta: React.FC<Props> = ({}) => {
         </div>
         {!isMobile && (
           <div
-            className={"mw__3 px__4  pr__0"}
+            className={'mw__3 px__4  pr__0'}
             style={{
-              width: "100%",
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              backgroundImage: "url(/img/landingImg.png)",
+              width: '100%',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+              backgroundImage: 'url(/img/landingImg.png)',
             }}
           />
           // <img
@@ -57,7 +57,7 @@ const HeroCta: React.FC<Props> = ({}) => {
         )}
       </section>
     </>
-  );
-};
+  )
+}
 
-export default HeroCta;
+export default HeroCta

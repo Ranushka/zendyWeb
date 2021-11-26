@@ -1,21 +1,21 @@
-import classnames from "classnames";
-import { ActionItem } from "components/atoms";
-import styles from "./index.module.scss";
+import classnames from 'classnames'
+import { ActionItem } from 'components/atoms'
+import styles from './index.module.scss'
 
 type Props = {
-  flag?: boolean;
-  className?: string;
-};
+  flag?: boolean
+  className?: string
+}
 
 const Logo: React.FC<Props> = ({ className, flag = false }) => {
   return (
     <ActionItem
       href="/"
-      className={classnames("block py__1", styles.wrapper, className)}
+      className={classnames('block py__1', styles.wrapper, className)}
     >
       <>
         <svg
-          style={{ maxWidth: "7.5rem", width: "100%" }}
+          style={{ maxWidth: '7.5rem', width: '100%' }}
           className=""
           viewBox="0 0 96 32"
           fill="none"
@@ -77,7 +77,7 @@ const Logo: React.FC<Props> = ({ className, flag = false }) => {
         )}
       </>
     </ActionItem>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo

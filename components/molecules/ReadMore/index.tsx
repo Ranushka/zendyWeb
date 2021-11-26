@@ -1,36 +1,36 @@
-import React from "react";
-import styles from "./index.module.scss";
-import classnames from "classnames";
+import React from 'react'
+import styles from './index.module.scss'
+import classnames from 'classnames'
 
 type Props = {
-  id: string;
-  content: React.ReactNode;
-  height?: number;
-};
+  id: string
+  content: React.ReactNode
+  height?: number
+}
 
 function isOverflownY(element, height) {
-  return element.scrollHeight > height;
+  return element.scrollHeight > height
 }
 
 const ReadMore: React.FC<Props> = (props) => {
-  const { id, content, height = 100 } = props;
-  const contentRef = React.useRef(null);
-  const [isOpen, isOpenSet] = React.useState(null);
+  const { id, content, height = 100 } = props
+  const contentRef = React.useRef(null)
+  const [isOpen, isOpenSet] = React.useState(null)
 
   React.useEffect(() => {
-    const overFlowState = isOverflownY(contentRef.current, height);
+    const overFlowState = isOverflownY(contentRef.current, height)
 
     if (overFlowState) {
-      isOpenSet(overFlowState);
+      isOpenSet(overFlowState)
     }
-  }, []);
+  }, [])
 
   return (
     <div className={classnames(styles.wrapper)}>
       <div
         className={styles.content}
         ref={contentRef}
-        style={{ height: isOpen ? height : "unset" }}
+        style={{ height: isOpen ? height : 'unset' }}
       >
         {content}
       </div>
@@ -38,7 +38,7 @@ const ReadMore: React.FC<Props> = (props) => {
       {isOpen !== null && (
         <label
           className={classnames(
-            "pointer block text__right py__2",
+            'pointer block text__right py__2',
             styles.readMoreWrapper
           )}
           htmlFor={id}
@@ -49,11 +49,11 @@ const ReadMore: React.FC<Props> = (props) => {
             onChange={() => isOpenSet(!isOpen)}
             id={id}
           />
-          <small>More filters [{isOpen ? "+" : "-"}]</small>
+          <small>More filters [{isOpen ? '+' : '-'}]</small>
         </label>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default ReadMore;
+export default ReadMore

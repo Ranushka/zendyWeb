@@ -1,16 +1,16 @@
-import React from "react";
-import { ActionItem } from "components/atoms";
-import styles from "./mobile.module.scss";
-import classnames from "classnames";
-import { CardMagazineProps } from "types";
+import React from 'react'
+import { ActionItem } from 'components/atoms'
+import styles from './mobile.module.scss'
+import classnames from 'classnames'
+import { CardMagazineProps } from 'types'
 
 const CardMagazine: React.FC<CardMagazineProps> = (props) => {
-  const { href, img, title, content, className } = props;
+  const { href, img, title, content, className } = props
   const __finalClassNames = classnames(
     styles.magazine,
-    "bg__white rounded__1 stage__2 mx__2 my__2",
+    'bg__white rounded__1 stage__2 mx__2 my__2',
     className && className
-  );
+  )
 
   return (
     <ActionItem href={href} className={__finalClassNames}>
@@ -28,7 +28,7 @@ const CardMagazine: React.FC<CardMagazineProps> = (props) => {
         </div>
       </article>
     </ActionItem>
-  );
-};
+  )
+}
 
-export default CardMagazine;
+export default CardMagazine

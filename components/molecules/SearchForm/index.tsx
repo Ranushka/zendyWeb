@@ -1,42 +1,42 @@
-import React, { useState } from "react";
-import classnames from "classnames";
-import { useRouter } from "next/router";
-import styles from "./index.module.scss";
-import { ButtonFab, Space } from "components/atoms";
-import { IconSearch, IconClear } from "components/icons";
-import DeviceTypeContext from "context/DeviceTypeContext";
-import { attributes as Data } from "data/header.md";
+import React, { useState } from 'react'
+import classnames from 'classnames'
+import { useRouter } from 'next/router'
+import styles from './index.module.scss'
+import { ButtonFab, Space } from 'components/atoms'
+import { IconSearch, IconClear } from 'components/icons'
+import DeviceTypeContext from 'context/DeviceTypeContext'
+import { attributes as Data } from 'data/header.md'
 
 type Props = {
-  id?: string;
-};
+  id?: string
+}
 
-const SearchForm: React.FC<Props> = ({ id = "search" }) => {
-  const searchInput = React.useRef(null);
-  const [name, setName] = useState("");
-  const router = useRouter();
-  const { isMobile } = React.useContext(DeviceTypeContext);
+const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
+  const searchInput = React.useRef(null)
+  const [name, setName] = useState('')
+  const router = useRouter()
+  const { isMobile } = React.useContext(DeviceTypeContext)
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     router.push({
-      pathname: "/search",
+      pathname: '/search',
       query: { q: name },
-    });
-  };
+    })
+  }
 
   const clearInput = () => {
-    setName("");
-    searchInput.current.focus();
-  };
+    setName('')
+    searchInput.current.focus()
+  }
 
   React.useEffect(() => {
-    const query = router.query && router.query.q;
+    const query = router.query && router.query.q
     if (query) {
-      setName(query.toString());
+      setName(query.toString())
     }
-  }, [router]);
+  }, [router])
 
   return (
     <form className={styles.searchWrapper} onSubmit={handleSubmit}>
@@ -49,17 +49,17 @@ const SearchForm: React.FC<Props> = ({ id = "search" }) => {
         placeholder={
           isMobile ? Data.search_placeholder_m : Data.search_placeholder_d
         }
-        className={classnames("bg__white", styles.searchInput)}
+        className={classnames('bg__white', styles.searchInput)}
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
       <div className={styles.actions}>
         {name && <ButtonFab icon={<IconClear />} onClick={clearInput} />}
         <div className={styles.separator} />
-        <ButtonFab href="/search" icon={<IconSearch />} classNames={"mx__2"} />
+        <ButtonFab href="/search" icon={<IconSearch />} classNames={'mx__2'} />
       </div>
     </form>
-  );
-};
+  )
+}
 
-export default SearchForm;
+export default SearchForm

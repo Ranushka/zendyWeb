@@ -1,13 +1,13 @@
-import Head from "next/head";
-import { Space } from "components/atoms";
-import QNA from "./QNA";
+import Head from 'next/head'
+import { Space } from 'components/atoms'
+import QNA from './QNA'
 
 import {
   Testimonials,
   SubscriptionPage,
   Publishers,
-} from "components/organisms";
-import { BaseTemplate } from "components/templates";
+} from 'components/organisms'
+import { BaseTemplate } from 'components/templates'
 
 export default function Home() {
   return (
@@ -20,5 +20,5 @@ export default function Home() {
       <Space size={4} />
       <QNA />
     </BaseTemplate>
-  );
+  )
 }
