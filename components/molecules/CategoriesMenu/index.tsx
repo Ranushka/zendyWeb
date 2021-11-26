@@ -1,9 +1,9 @@
-import React from "react";
-import styles from "./index.module.scss";
-import classnames from "classnames";
-import { IconArrowDown } from "components/icons";
-import { ActionItem } from "components/atoms";
-import { attributes as Data } from "data/header.md";
+import React from 'react'
+import styles from './index.module.scss'
+import classnames from 'classnames'
+import { IconArrowDown } from 'components/icons'
+import { ActionItem } from 'components/atoms'
+import { attributes as Data } from 'data/header.md'
 
 const CategoriesMenu: React.FC<{}> = (props) => {
   return (
@@ -14,12 +14,12 @@ const CategoriesMenu: React.FC<{}> = (props) => {
         type="btn__default"
         onClick={() => {}}
       />
-      <div className={classnames("bg__white rounded__1 stage__3", styles.menu)}>
+      <div className={classnames('bg__white rounded__1 stage__3', styles.menu)}>
         <div className="flex py__4">{__getMenuColumns()}</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const __getMenuColumns = () => {
   return (
@@ -31,18 +31,18 @@ const __getMenuColumns = () => {
           <div className="gaps__3"></div>
           {__getMenuItems(items)}
         </div>
-      );
+      )
     })
-  );
-};
+  )
+}
 
 const __getMenuItems = (list: []) => {
   return (
     list &&
     list.map(({ label, path }, key) => {
-      return <ActionItem key={key} text={label} href={path} />;
+      return <ActionItem key={key} text={label} href={path} />
     })
-  );
-};
+  )
+}
 
-export default CategoriesMenu;
+export default CategoriesMenu

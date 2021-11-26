@@ -1,25 +1,25 @@
-import React from "react";
-import classnames from "classnames";
-import debounce from "lodash/debounce";
-import Router from "next/router";
-import styles from "./mobile.module.scss";
-import Skeleton from "react-loading-skeleton";
-import get from "lodash/get";
-import useTitleDetail from "fetchHooks/useTitleDetail";
+import React from 'react'
+import classnames from 'classnames'
+import debounce from 'lodash/debounce'
+import Router from 'next/router'
+import styles from './mobile.module.scss'
+import Skeleton from 'react-loading-skeleton'
+import get from 'lodash/get'
+import useTitleDetail from 'fetchHooks/useTitleDetail'
 import {
   IconCite,
   IconBookmark,
   IconSocialLinkedIn,
   IconSocialTwitter,
   IconSocialFacebook,
-} from "components/icons";
-import { ActionItem, ButtonFab, Space, FeaturedChip } from "components/atoms";
-import { NextArticle } from "components/molecules";
-import PublicationIssueJsonLd from "analytics/PublicationIssueJsonLd";
+} from 'components/icons'
+import { ActionItem, ButtonFab, Space, FeaturedChip } from 'components/atoms'
+import { NextArticle } from 'components/molecules'
+import PublicationIssueJsonLd from 'analytics/PublicationIssueJsonLd'
 
 interface publicationTypeProps {
-  type: string;
-  id: string;
+  type: string
+  id: string
 }
 
 // interface pageProps {
@@ -32,16 +32,16 @@ interface publicationTypeProps {
 //   publicationType: publicationTypeProps;
 // }
 
-const __renderTitle = (title = "") => {
+const __renderTitle = (title = '') => {
   return (
     <>
-      <h1 className={classnames("first_letter_caps", styles.title)}>{title}</h1>
-      <div className={"pull__l1"}>
-        <FeaturedChip type={"reviewed"} /> <FeaturedChip type={"referenced"} />
+      <h1 className={classnames('first_letter_caps', styles.title)}>{title}</h1>
+      <div className={'pull__l1'}>
+        <FeaturedChip type={'reviewed'} /> <FeaturedChip type={'referenced'} />
       </div>
     </>
-  );
-};
+  )
+}
 
 const __renderContentType = (title, journal, year) => {
   return (
@@ -54,16 +54,16 @@ const __renderContentType = (title, journal, year) => {
         type="link__small"
       />
     </div>
-  );
-};
+  )
+}
 
 const __renderAbstract = (abstract) => {
   return (
     <div className="py__2 text__justify">
       <div dangerouslySetInnerHTML={{ __html: abstract }} />
     </div>
-  );
-};
+  )
+}
 
 const __renderAuthors = (authors: []) => {
   return (
@@ -72,13 +72,13 @@ const __renderAuthors = (authors: []) => {
         <small>By </small>
         {authors
           .map<React.ReactNode>(({ name }, id) => (
-            <ActionItem key={id} text={name} href={"/"} type="link__small" />
+            <ActionItem key={id} text={name} href={'/'} type="link__small" />
           ))
-          .reduce((prev, curr) => [prev, ", ", curr])}
+          .reduce((prev, curr) => [prev, ', ', curr])}
       </div>
     )
-  );
-};
+  )
+}
 
 const __renderKeywords = (keywords: []) => {
   return (
@@ -87,21 +87,21 @@ const __renderKeywords = (keywords: []) => {
         <span className="mute">keywords </span>
         {keywords
           .map<React.ReactNode>((name, id) => (
-            <ActionItem key={id} text={name} href={"/"} />
+            <ActionItem key={id} text={name} href={'/'} />
           ))
-          .reduce((prev, curr) => [prev, ", ", curr])}
+          .reduce((prev, curr) => [prev, ', ', curr])}
       </div>
     )
-  );
-};
+  )
+}
 
 const __renderHead = () => {
   return (
     <div
-      className={classnames("flex__align_center py__3", styles.headerAction)}
+      className={classnames('flex__align_center py__3', styles.headerAction)}
     >
       <ActionItem
-        text={"← Back to results"}
+        text={'← Back to results'}
         onClick={() => Router.back()}
         type="btn__small"
         className="pl__0"
@@ -112,37 +112,37 @@ const __renderHead = () => {
       <ButtonFab icon={<IconSocialLinkedIn />} small />
       <ButtonFab icon={<IconSocialTwitter />} small />
     </div>
-  );
-};
+  )
+}
 
 const FooterActions = ({ link }) => {
-  const href = get(link, "[0].url");
-  const [visible, visibleSet] = React.useState(true);
-  let oldPoss = 0;
+  const href = get(link, '[0].url')
+  const [visible, visibleSet] = React.useState(true)
+  let oldPoss = 0
 
   React.useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   const handleScroll = debounce(() => {
-    const newPoss = window.pageYOffset || document.documentElement.scrollTop;
+    const newPoss = window.pageYOffset || document.documentElement.scrollTop
 
     if (newPoss > oldPoss) {
-      visibleSet(true);
+      visibleSet(true)
     } else {
-      visibleSet(false);
+      visibleSet(false)
     }
-    oldPoss = newPoss <= 0 ? 0 : newPoss;
-  }, 200);
+    oldPoss = newPoss <= 0 ? 0 : newPoss
+  }, 200)
 
   return (
     <div
       className={classnames(
-        "px__3 stage__3",
+        'px__3 stage__3',
         styles.actions,
         visible && styles.actionsHide
       )}
@@ -150,14 +150,14 @@ const FooterActions = ({ link }) => {
       <ButtonFab icon={<IconCite />} />
       <ButtonFab icon={<IconBookmark />} />
       <Space size={2} />
-      <ActionItem text={"Download"} href={"#"} type="btn__secondary" />
-      <ActionItem newWindow text={"Read"} href={href} type="btn__primary" />
+      <ActionItem text={'Download'} href={'#'} type="btn__secondary" />
+      <ActionItem newWindow text={'Read'} href={href} type="btn__primary" />
     </div>
-  );
-};
+  )
+}
 
 const __renderContent = (props) => {
-  const { title, author, year, abstract, keywords, journal, link } = props;
+  const { title, author, year, abstract, keywords, journal, link } = props
 
   return (
     <div className="mw__3 px__3">
@@ -194,12 +194,12 @@ const __renderContent = (props) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const __renderLoading = () => {
   return (
-    <div className={"mw__3 px__3"}>
+    <div className={'mw__3 px__3'}>
       <div className="gaps__5" />
       <Skeleton />
       <div className="gaps__3" />
@@ -213,17 +213,17 @@ const __renderLoading = () => {
       <div className="gaps__4" />
       <Skeleton height="40px" />
     </div>
-  );
-};
+  )
+}
 
 const MobileTitleDetail: React.FC = () => {
-  const { data } = useTitleDetail();
+  const { data } = useTitleDetail()
 
   if (!data) {
-    return __renderLoading();
+    return __renderLoading()
   }
 
-  return <div>{__renderContent(data)}</div>;
-};
+  return <div>{__renderContent(data)}</div>
+}
 
-export default MobileTitleDetail;
+export default MobileTitleDetail

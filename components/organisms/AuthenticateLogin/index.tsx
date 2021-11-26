@@ -1,18 +1,18 @@
-import React from "react";
-import classnames from "classnames";
-import { ActionItem, Input, Space, Logo } from "components/atoms";
+import React from 'react'
+import classnames from 'classnames'
+import { ActionItem, Input, Space, Logo } from 'components/atoms'
 
-import styles from "./index.module.scss";
+import styles from './index.module.scss'
 
-type Props = {};
+type Props = {}
 
 const Login: React.FC<Props> = ({}) => {
-  const [value, setValue] = React.useState();
+  const [value, setValue] = React.useState()
 
   return (
     <>
-      <div className={classnames("flex__align_center", styles.wrapper)}>
-        <div className={classnames("mw__1 block", styles.phoneNumber)}>
+      <div className={classnames('flex__align_center', styles.wrapper)}>
+        <div className={classnames('mw__1 block', styles.phoneNumber)}>
           <div className="text__center">
             <Space size={4} />
             <Logo className={styles.logo} />
@@ -24,15 +24,15 @@ const Login: React.FC<Props> = ({}) => {
           <Input
             id="cardNumber"
             name="cardNumber"
-            label={"Your password"}
+            label={'Your password'}
             type="password"
             autoFocus
             required
           />
           <div className="flex">
             <ActionItem
-              text={"Login"}
-              href={"/authenticate/otp"}
+              text={'Login'}
+              href={'/authenticate/otp'}
               type="btn__primary"
               block
             />
@@ -40,8 +40,8 @@ const Login: React.FC<Props> = ({}) => {
           <Space size={4} />
           <div className="flex">
             <ActionItem
-              text={"Forgot password"}
-              href={"/authenticate/forgot_password"}
+              text={'Forgot password'}
+              href={'/authenticate/forgot_password'}
               type="link__small"
             />
             <div className="flex__left"></div>
@@ -54,7 +54,7 @@ const Login: React.FC<Props> = ({}) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

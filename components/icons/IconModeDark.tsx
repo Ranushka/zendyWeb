@@ -1,5 +1,5 @@
-import * as React from "react";
-import Svg from "./Svg";
+import * as React from 'react'
+import Svg from './Svg'
 
 const IconModeDark: React.FC<{}> = () => {
   return (
@@ -11,7 +11,7 @@ const IconModeDark: React.FC<{}> = () => {
         fill="currentColor"
       />
     </Svg>
-  );
-};
+  )
+}
 
-export default IconModeDark;
+export default IconModeDark

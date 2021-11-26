@@ -1,14 +1,14 @@
-import React from "react";
-import classnames from "classnames";
-import styles from "./index.module.scss";
-import { ActionItem, Input, Space, Select } from "components/atoms";
+import React from 'react'
+import classnames from 'classnames'
+import styles from './index.module.scss'
+import { ActionItem, Input, Space, Select } from 'components/atoms'
 
-type Props = {};
+type Props = {}
 
 const GetStartedWithUs: React.FC<Props> = ({}) => {
   return (
-    <section className={classnames("bg__white py__5 stage__2")}>
-      <div className={"mw__4 px__3"}>
+    <section className={classnames('bg__white py__5 stage__2')}>
+      <div className={'mw__4 px__3'}>
         <h2>
           Subscribe to your own weekly briefing of research publications in your
           field.
@@ -23,7 +23,7 @@ const GetStartedWithUs: React.FC<Props> = ({}) => {
             block
             id="primaryInterest"
             name="name"
-            data={["Researcher", "Mathematics"]}
+            data={['Researcher', 'Mathematics']}
           />
           <Input
             id="subscribeEmail"
@@ -34,7 +34,7 @@ const GetStartedWithUs: React.FC<Props> = ({}) => {
             block
             required
           />
-          <ActionItem text={"Count me in"} href={"#"} type="btn__secondary" />
+          <ActionItem text={'Count me in'} href={'#'} type="btn__secondary" />
         </form>
         <Space size={3} />
         <small>
@@ -44,7 +44,7 @@ const GetStartedWithUs: React.FC<Props> = ({}) => {
         </small>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default GetStartedWithUs;
+export default GetStartedWithUs

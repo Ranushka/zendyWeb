@@ -1,5 +1,5 @@
-import React from "react";
-import { Space } from "components/atoms";
+import React from 'react'
+import { Space } from 'components/atoms'
 
 const WhatWeOffer: React.FC<{}> = ({}) => {
   return (
@@ -33,7 +33,7 @@ const WhatWeOffer: React.FC<{}> = ({}) => {
         </li>
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default WhatWeOffer;
+export default WhatWeOffer

@@ -1,17 +1,17 @@
-import React from "react";
-import { Space, Switch } from "components/atoms";
-import { Pricing, WhatWeOffer, SecurityStripBlock } from "components/molecules";
-import { attributes as Data } from "data/pagers/pricing.md";
-import { analyticEvent } from "analytics";
+import React from 'react'
+import { Space, Switch } from 'components/atoms'
+import { Pricing, WhatWeOffer, SecurityStripBlock } from 'components/molecules'
+import { attributes as Data } from 'data/pagers/pricing.md'
+import { analyticEvent } from 'analytics'
 
 const Desktop: React.FC<{}> = ({}) => {
-  const [plan, planSet] = React.useState(true);
-  const currentPlan = Data.planTypes[plan ? "monthly" : "yearly"];
+  const [plan, planSet] = React.useState(true)
+  const currentPlan = Data.planTypes[plan ? 'monthly' : 'yearly']
 
   const __onChange = () => {
-    analyticEvent("select_plan", "checkout", "select_plan", plan);
-    planSet(!plan);
-  };
+    analyticEvent('select_plan', 'checkout', 'select_plan', plan)
+    planSet(!plan)
+  }
 
   return (
     <>
@@ -44,7 +44,7 @@ const Desktop: React.FC<{}> = ({}) => {
       <SecurityStripBlock />
       <Space size={4} />
     </>
-  );
-};
+  )
+}
 
-export default Desktop;
+export default Desktop

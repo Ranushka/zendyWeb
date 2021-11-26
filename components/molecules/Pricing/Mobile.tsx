@@ -1,17 +1,17 @@
-import React from "react";
-import { ActionItem, Space } from "components/atoms";
-import { SidePopup, StripeElementsForm } from "components/molecules";
+import React from 'react'
+import { ActionItem, Space } from 'components/atoms'
+import { SidePopup, StripeElementsForm } from 'components/molecules'
 
 type Props = {
-  id?: string;
-  price?: string;
-  paying?: string;
-  content?: string;
-};
+  id?: string
+  price?: string
+  paying?: string
+  content?: string
+}
 
 const Pricing: React.FC<Props> = (props) => {
-  const { id, price = "48", paying = "48", content = "" } = props;
-  const [modelOpen, setModelOpenState] = React.useState(false);
+  const { id, price = '48', paying = '48', content = '' } = props
+  const [modelOpen, setModelOpenState] = React.useState(false)
 
   return (
     <>
@@ -24,8 +24,8 @@ const Pricing: React.FC<Props> = (props) => {
         <Space />
         <ActionItem
           block
-          text={"Subscribe"}
-          type={"btn__primary"}
+          text={'Subscribe'}
+          type={'btn__primary'}
           onClick={() => setModelOpenState(true)}
         />
         <Space size={3} />
@@ -33,12 +33,12 @@ const Pricing: React.FC<Props> = (props) => {
       <SidePopup
         content={SidePopupContent(paying)}
         open={modelOpen}
-        openLocation={"bottom"}
+        openLocation={'bottom'}
         closeFunc={() => setModelOpenState(false)}
       />
     </>
-  );
-};
+  )
+}
 
 const SidePopupContent = (paying) => (
   <div className="block">
@@ -46,6 +46,6 @@ const SidePopupContent = (paying) => (
     <Space />
     <StripeElementsForm paying={paying} />
   </div>
-);
+)
 
-export default Pricing;
+export default Pricing

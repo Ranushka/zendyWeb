@@ -1,19 +1,14 @@
-import card from "./mobile.module.scss";
-import classnames from "classnames";
-import Ellipsis from "react-ellipsis-pjs";
-import get from "lodash/get";
-import striptags from "striptags";
-import { IconBookmark, IconCite, IconLink } from "components/icons";
-import { SearchResultItemProps } from "types";
-import { useRouter } from "next/router";
-import {
-  CheckBox,
-  ActionItem,
-  ButtonFab,
-  FeaturedChip,
-} from "components/atoms";
+import card from './mobile.module.scss'
+import classnames from 'classnames'
+import Ellipsis from 'react-ellipsis-pjs'
+import get from 'lodash/get'
+import striptags from 'striptags'
+import { IconBookmark, IconCite, IconLink } from 'components/icons'
+import { SearchResultItemProps } from 'types'
+import { useRouter } from 'next/router'
+import { CheckBox, ActionItem, ButtonFab, FeaturedChip } from 'components/atoms'
 
-const __renderTitle = (title = "", href = "/") => {
+const __renderTitle = (title = '', href = '/') => {
   return (
     <div className="first_letter_caps py__2">
       <ActionItem
@@ -22,12 +17,12 @@ const __renderTitle = (title = "", href = "/") => {
         as={`/title/${href}`}
         type="link__title"
       />
-      <div className={"pull__l1"}>
-        <FeaturedChip type={"reviewed"} /> <FeaturedChip type={"referenced"} />
+      <div className={'pull__l1'}>
+        <FeaturedChip type={'reviewed'} /> <FeaturedChip type={'referenced'} />
       </div>
     </div>
-  );
-};
+  )
+}
 
 const __renderContentType = (title, journal, year) => {
   return (
@@ -35,22 +30,22 @@ const __renderContentType = (title, journal, year) => {
       <strong className="color__nut7">Journal - {year}</strong>
       <small className="px__2 color__nut7 italic">{title}</small>
     </div>
-  );
-};
+  )
+}
 
 const __renderAbstract = (content) => {
   return (
     <div className="py__2">
       <div
-        className={classnames(card.article__abstract, "color__nut7")}
+        className={classnames(card.article__abstract, 'color__nut7')}
         dangerouslySetInnerHTML={{ __html: content }}
       />
     </div>
-  );
-};
+  )
+}
 
 const __renderAuthors = (authors: []) => {
-  const authorsList = authors.map(({ name }) => name).join("; ");
+  const authorsList = authors.map(({ name }) => name).join('; ')
 
   return (
     authors && (
@@ -61,8 +56,8 @@ const __renderAuthors = (authors: []) => {
         </small>
       </div>
     )
-  );
-};
+  )
+}
 
 const __renderSubjects = (keywords: [string]) => {
   return (
@@ -71,47 +66,38 @@ const __renderSubjects = (keywords: [string]) => {
         <small className="mute">Subject - </small>
         {keywords
           .map<React.ReactNode>((name, id) => <small key={id}>{name}</small>)
-          .reduce((prev, curr) => [prev, ", ", curr])}
+          .reduce((prev, curr) => [prev, ', ', curr])}
       </div>
     )
-  );
-};
+  )
+}
 
 const __renderActions = (link: [], id) => {
-  const href = get(link, "[0].url");
+  const href = get(link, '[0].url')
 
   return (
     <div className={card.article__actions__sub}>
-      <CheckBox id={"it_id" + id} />
+      <CheckBox id={'it_id' + id} />
       <ButtonFab icon={<IconCite />} small classNames="bg__nut1" />
       <ButtonFab icon={<IconLink />} small classNames="bg__nut1" />
       <ButtonFab icon={<IconBookmark />} small classNames="bg__nut1" />
       <ActionItem
-        text={"⠀⠀Read⠀⠀"}
+        text={'⠀⠀Read⠀⠀'}
         onClick={() => window.open(href)}
-        type={"btn__secondary"}
+        type={'btn__secondary'}
       />
     </div>
-  );
-};
+  )
+}
 
 const CardCurated: React.FC<SearchResultItemProps> = (props) => {
-  const {
-    id,
-    href,
-    title,
-    abstract,
-    journal,
-    year,
-    author,
-    link,
-    subjects,
-  } = props;
-  const router = useRouter();
+  const { id, href, title, abstract, journal, year, author, link, subjects } =
+    props
+  const router = useRouter()
 
   const onclick = () => {
-    router.push("/title/[id]", `/title/${href}`);
-  };
+    router.push('/title/[id]', `/title/${href}`)
+  }
 
   return (
     <article>
@@ -126,7 +112,7 @@ const CardCurated: React.FC<SearchResultItemProps> = (props) => {
         {__renderActions(link, id)}
       </div>
     </article>
-  );
-};
+  )
+}
 
-export default CardCurated;
+export default CardCurated

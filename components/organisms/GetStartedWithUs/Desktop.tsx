@@ -1,21 +1,21 @@
-import classnames from "classnames";
-import { ActionItem, Space } from "components/atoms";
+import classnames from 'classnames'
+import { ActionItem, Space } from 'components/atoms'
 
-type Props = {};
+type Props = {}
 
 const GetStartedWithUs: React.FC<Props> = ({}) => {
   return (
-    <section className={"mw__6 px__3 py__5"}>
+    <section className={'mw__6 px__3 py__5'}>
       <Space />
       <div
         style={{
           backgroundImage: `url(/img/lastCallBackground.png)`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
         }}
         className={classnames(
-          "stage__4 rounded__2 text__center bg__white px__3 py__5"
+          'stage__4 rounded__2 text__center bg__white px__3 py__5'
         )}
       >
         <h2>Get Started with a Free Trial</h2>
@@ -25,13 +25,13 @@ const GetStartedWithUs: React.FC<Props> = ({}) => {
         </p>
         <Space />
         <ActionItem
-          text={"Start your Free Trial"}
-          href={"#"}
+          text={'Start your Free Trial'}
+          href={'#'}
           type="btn__primary"
         />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default GetStartedWithUs;
+export default GetStartedWithUs

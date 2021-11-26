@@ -1,10 +1,10 @@
-import React from "react";
-import classnames from "classnames";
-import styles from "./index.module.scss";
+import React from 'react'
+import classnames from 'classnames'
+import styles from './index.module.scss'
 
-type Props = {};
+type Props = {}
 
-const data = ["ebsco", "sage", "openAccess", "ieee", "wiley"];
+const data = ['ebsco', 'sage', 'openAccess', 'ieee', 'wiley']
 
 const Publishers: React.FC<Props> = ({}) => {
   return (
@@ -14,7 +14,7 @@ const Publishers: React.FC<Props> = ({}) => {
       </h3>
       <section
         className={classnames(
-          "mw__6 text__center overflowScroll",
+          'mw__6 text__center overflowScroll',
           styles.wrapper
         )}
       >
@@ -27,7 +27,7 @@ const Publishers: React.FC<Props> = ({}) => {
         ))}
       </section>
     </div>
-  );
-};
+  )
+}
 
-export default Publishers;
+export default Publishers

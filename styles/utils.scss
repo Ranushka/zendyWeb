@@ -108,7 +108,7 @@ Background
   background-color: var(--c-black);
 }
 */
-$colors: "black", "white", secondary, primary, overlay, nut1, nut2, nut3, nut4,
+$colors: 'black', 'white', secondary, primary, overlay, nut1, nut2, nut3, nut4,
   nut5, nut6, nut7, nut8, success, error, warning, info;
 
 @each $color in $colors {

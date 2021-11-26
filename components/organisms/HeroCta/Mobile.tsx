@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-import { ActionItem, Space } from "components/atoms";
+import { ActionItem, Space } from 'components/atoms'
 
-type Props = {};
+type Props = {}
 
 const HeroCta: React.FC<Props> = ({}) => {
   return (
@@ -23,8 +23,8 @@ const HeroCta: React.FC<Props> = ({}) => {
         <Space size={4} />
         <div className="text__center">
           <ActionItem
-            text={"Start your Free Trial"}
-            href={"#"}
+            text={'Start your Free Trial'}
+            href={'#'}
             type="btn__primary"
           />
           <Space size={3} />
@@ -32,7 +32,7 @@ const HeroCta: React.FC<Props> = ({}) => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default HeroCta;
+export default HeroCta

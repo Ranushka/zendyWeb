@@ -1,5 +1,5 @@
-import React from "react";
-import { Provider } from "next-auth/client";
+import React from 'react'
+import { Provider } from 'next-auth/client'
 
 export const LoggedInUserProvider = ({ children, session }) => {
   return (
@@ -12,5 +12,5 @@ export const LoggedInUserProvider = ({ children, session }) => {
     >
       {children}
     </Provider>
-  );
-};
+  )
+}

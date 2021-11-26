@@ -1,5 +1,5 @@
-import fetch from "lib/request";
-import { tempPublicationUrl } from "lib/helpers";
+import fetch from 'lib/request'
+import { tempPublicationUrl } from 'lib/helpers'
 
 // const __makeItRand = () => Math.random() >= 0.5;
 
@@ -36,13 +36,13 @@ import { tempPublicationUrl } from "lib/helpers";
 // };
 
 const getTitleDetail = async (article_id: string) => {
-  const data = await fetch(`https://doaj.org/api/v1/articles/${article_id}`);
+  const data = await fetch(`https://doaj.org/api/v1/articles/${article_id}`)
 
   if (data) {
-    return data;
+    return data
   }
 
-  return null;
-};
+  return null
+}
 
-export default getTitleDetail;
+export default getTitleDetail

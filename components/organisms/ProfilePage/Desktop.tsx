@@ -1,16 +1,16 @@
-import React from "react";
-import Skeleton from "react-loading-skeleton";
-import { useSession } from "next-auth/client";
-import { IconLogout } from "components/icons";
-import { Space, ActionItem, CheckBox, Input } from "components/atoms";
-import { SelectTheme, SearchResultDensity } from "components/molecules";
-import { signOut } from "next-auth/client";
-import styles from "./index.module.scss";
+import React from 'react'
+import Skeleton from 'react-loading-skeleton'
+import { useSession } from 'next-auth/client'
+import { IconLogout } from 'components/icons'
+import { Space, ActionItem, CheckBox, Input } from 'components/atoms'
+import { SelectTheme, SearchResultDensity } from 'components/molecules'
+import { signOut } from 'next-auth/client'
+import styles from './index.module.scss'
 
-type Props = {};
+type Props = {}
 
 const Desktop: React.FC<Props> = ({}) => {
-  const [session, loading] = useSession();
+  const [session, loading] = useSession()
 
   return (
     <>
@@ -19,10 +19,10 @@ const Desktop: React.FC<Props> = ({}) => {
         <h1 className="text__center color__nut6">My Profile</h1>
         <div className="flex__left"></div>
         <ActionItem
-          text={"Sign out"}
-          type={"btn__default"}
+          text={'Sign out'}
+          type={'btn__default'}
           icon={<IconLogout />}
-          className={"pr__0"}
+          className={'pr__0'}
           onClick={() => signOut()}
         />
       </div>
@@ -41,7 +41,7 @@ const Desktop: React.FC<Props> = ({}) => {
             <p>pinto@gmail.com.ae</p>
             <p>+971 588 034 743</p>
             <Space size={3} />
-            <ActionItem text={"Edit profile"} href={"/"} />
+            <ActionItem text={'Edit profile'} href={'/'} />
           </>
         )}
       </ProfileBlock>
@@ -62,22 +62,22 @@ const Desktop: React.FC<Props> = ({}) => {
         {session && (
           <>
             <CheckBox
-              key={"subscribe_to_newsletter"}
-              id={"subscribe_to_newsletter"}
-              name={"subscribe_to_newsletter"}
-              label={"Subscribe to Newsletter"}
+              key={'subscribe_to_newsletter'}
+              id={'subscribe_to_newsletter'}
+              name={'subscribe_to_newsletter'}
+              label={'Subscribe to Newsletter'}
             />
             <CheckBox
-              key={"emails_on_interests"}
-              id={"emails_on_interests"}
-              name={"emails_on_interests"}
-              label={"Emails on your interests"}
+              key={'emails_on_interests'}
+              id={'emails_on_interests'}
+              name={'emails_on_interests'}
+              label={'Emails on your interests'}
             />
             <CheckBox
-              key={"notification_on_interests"}
-              id={"notification_on_interests"}
-              name={"notification_on_interests"}
-              label={"Notifications on your interests"}
+              key={'notification_on_interests'}
+              id={'notification_on_interests'}
+              name={'notification_on_interests'}
+              label={'Notifications on your interests'}
             />
           </>
         )}
@@ -93,7 +93,7 @@ const Desktop: React.FC<Props> = ({}) => {
             <small className="mute">What you'll be charged</small>
             <p>AED 198.00 ( for year )</p>
             <Space size={3} />
-            <ActionItem text={"Cancel subscription"} href={"/"} />
+            <ActionItem text={'Cancel subscription'} href={'/'} />
           </>
         )}
       </ProfileBlock>
@@ -104,21 +104,21 @@ const Desktop: React.FC<Props> = ({}) => {
             <Input
               id="cardNumber"
               name="cardNumber"
-              label={"Subscribed with"}
+              label={'Subscribed with'}
               type="text"
               content={<InputContent />}
               required
             />
             <div className="flex">
               <ActionItem
-                text={"Update payment"}
-                href={"/"}
+                text={'Update payment'}
+                href={'/'}
                 type="link__small"
               />
               <div className="flex__left"></div>
               <ActionItem
-                text={"Payment history"}
-                href={"/"}
+                text={'Payment history'}
+                href={'/'}
                 type="link__small"
               />
             </div>
@@ -126,8 +126,8 @@ const Desktop: React.FC<Props> = ({}) => {
         )}
       </ProfileBlock>
     </>
-  );
-};
+  )
+}
 
 const InputContent = () => (
   <div className={styles.paymentTypeWrapper}>
@@ -135,9 +135,9 @@ const InputContent = () => (
       Card ending <strong>1537</strong>
     </div>
     <div>07/17</div>
-    <img className={styles.paymentTypeImg} src={"cardTypes/paymentVisa.png"} />
+    <img className={styles.paymentTypeImg} src={'cardTypes/paymentVisa.png'} />
   </div>
-);
+)
 
 const ProfileBlock = ({ children, title }) => (
   <>
@@ -149,15 +149,15 @@ const ProfileBlock = ({ children, title }) => (
     </section>
     <Space size={5} />
   </>
-);
+)
 
 const __skeletonProfileBlocks = () => {
   return [1, 2, 3].map((id) => (
-    <article key={"skeletonCollection" + id} className="mw__5 ml__0">
+    <article key={'skeletonCollection' + id} className="mw__5 ml__0">
       <Skeleton height={30} />
       <Space size={3} />
     </article>
-  ));
-};
+  ))
+}
 
-export default Desktop;
+export default Desktop

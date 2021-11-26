@@ -1,7 +1,7 @@
-import React from "react";
-import { Select } from "components/atoms";
+import React from 'react'
+import { Select } from 'components/atoms'
 
-type Props = {};
+type Props = {}
 
 const SearchResultDensity: React.FC<Props> = () => {
   return (
@@ -9,12 +9,12 @@ const SearchResultDensity: React.FC<Props> = () => {
       <Select
         id="SearchResultDensity"
         name="name"
-        label={"Search result density"}
-        className={"mb__0"}
-        data={["Compact", "Detailed", "Essential"]}
+        label={'Search result density'}
+        className={'mb__0'}
+        data={['Compact', 'Detailed', 'Essential']}
       />
     </div>
-  );
-};
+  )
+}
 
-export default SearchResultDensity;
+export default SearchResultDensity

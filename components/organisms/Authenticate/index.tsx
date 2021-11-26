@@ -1,16 +1,16 @@
-import React from "react";
-import PhoneInput from "react-phone-number-input";
-import classnames from "classnames";
-import { IconSocialLinkedIn } from "components/icons";
-import { ActionItem, Space, Logo } from "components/atoms";
-import Head from "next/head";
-import { signIn } from "next-auth/client";
-import styles from "./index.module.scss";
+import React from 'react'
+import PhoneInput from 'react-phone-number-input'
+import classnames from 'classnames'
+import { IconSocialLinkedIn } from 'components/icons'
+import { ActionItem, Space, Logo } from 'components/atoms'
+import Head from 'next/head'
+import { signIn } from 'next-auth/client'
+import styles from './index.module.scss'
 
-type Props = {};
+type Props = {}
 
 const Authenticate: React.FC<Props> = ({}) => {
-  const [value, setValue] = React.useState();
+  const [value, setValue] = React.useState()
 
   return (
     <>
@@ -18,8 +18,8 @@ const Authenticate: React.FC<Props> = ({}) => {
         <link rel="stylesheet" href="/css/react_input.css" />
       </Head>
 
-      <div className={classnames("flex__align_center block", styles.wrapper)}>
-        <div className={classnames("mw__1 block", styles.phoneNumber)}>
+      <div className={classnames('flex__align_center block', styles.wrapper)}>
+        <div className={classnames('mw__1 block', styles.phoneNumber)}>
           <div className="text__center">
             <Space size={4} />
             <Logo className={styles.logo} />
@@ -33,7 +33,7 @@ const Authenticate: React.FC<Props> = ({}) => {
             international
             defaultCountry="AE"
             addInternationalOption={false}
-            countries={["AE", "TN", "DZ"]}
+            countries={['AE', 'TN', 'DZ']}
             placeholder="Enter phone number"
             value={value}
             onChange={setValue}
@@ -41,8 +41,8 @@ const Authenticate: React.FC<Props> = ({}) => {
           <Space size={3} />
           <div className="flex">
             <ActionItem
-              text={"Login / Register"}
-              href={"/authenticate/login"}
+              text={'Login / Register'}
+              href={'/authenticate/login'}
               type="btn__primary"
               block
             />
@@ -52,10 +52,10 @@ const Authenticate: React.FC<Props> = ({}) => {
           <Space size={4} />
           <div className="block text__center">
             <ActionItem
-              text={"Sign in with LinkedIn"}
-              type={"btn__default"}
+              text={'Sign in with LinkedIn'}
+              type={'btn__default'}
               className="color__primary"
-              onClick={() => signIn("linkedin")}
+              onClick={() => signIn('linkedin')}
               icon={<IconSocialLinkedIn />}
             />
           </div>
@@ -67,7 +67,7 @@ const Authenticate: React.FC<Props> = ({}) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Authenticate;
+export default Authenticate

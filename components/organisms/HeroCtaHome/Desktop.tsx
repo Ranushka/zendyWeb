@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
-import { Space } from "components/atoms";
+import { Space } from 'components/atoms'
 
-type Props = {};
+type Props = {}
 
 const Desktop: React.FC<Props> = ({}) => {
   return (
@@ -12,7 +12,7 @@ const Desktop: React.FC<Props> = ({}) => {
       <h1 className="text__center">“Research is creating new knowledge.”</h1>
       <Space size={4} />
     </section>
-  );
-};
+  )
+}
 
-export default Desktop;
+export default Desktop

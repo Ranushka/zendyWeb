@@ -1,22 +1,22 @@
-import React from "react";
-import { useRouter } from "next/router";
-import { useSession } from "next-auth/client";
-import { Space, ButtonFab } from "components/atoms";
-import { ProfileTabs } from "components/molecules";
-import { IconMore } from "components/icons";
-import { BaseTemplate } from "components/templates";
+import React from 'react'
+import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/client'
+import { Space, ButtonFab } from 'components/atoms'
+import { ProfileTabs } from 'components/molecules'
+import { IconMore } from 'components/icons'
+import { BaseTemplate } from 'components/templates'
 
 type DataRowProps = {
-  id: number;
-  name: string;
-};
+  id: number
+  name: string
+}
 
 const Downloads = () => {
-  const [session, loading] = useSession();
-  const router = useRouter();
+  const [session, loading] = useSession()
+  const router = useRouter()
 
   if (!loading && !session) {
-    router.push("/authenticate");
+    router.push('/authenticate')
   }
 
   return (
@@ -26,8 +26,8 @@ const Downloads = () => {
         {dataSet.map((data: DataRowProps) => __dataRow(data))}
       </div>
     </BaseTemplate>
-  );
-};
+  )
+}
 
 const __dataRow = ({ id, name }: DataRowProps) => (
   <div key={id}>
@@ -42,22 +42,21 @@ const __dataRow = ({ id, name }: DataRowProps) => (
     </div>
     <Space size={2} />
   </div>
-);
+)
 
 const dataSet = [
   {
     id: 23,
-    name:
-      "optio ipsam molestias necessitatibus occaecati facilis veritatis dolores aut",
+    name: 'optio ipsam molestias necessitatibus occaecati facilis veritatis dolores aut',
   },
   {
     id: 24,
-    name: "dolore veritatis porro provident adipisci blanditiis et sunt",
+    name: 'dolore veritatis porro provident adipisci blanditiis et sunt',
   },
   {
     id: 25,
-    name: "quaerat velit veniam amet cupiditate aut numquam ut sequi",
+    name: 'quaerat velit veniam amet cupiditate aut numquam ut sequi',
   },
-];
+]
 
-export default Downloads;
+export default Downloads

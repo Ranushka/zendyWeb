@@ -1,4 +1,4 @@
-const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GTM_ID;
+const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GTM_ID
 
 const GtmScript: React.FC = (props) => {
   return (
@@ -33,7 +33,7 @@ const GtmScript: React.FC = (props) => {
         }}
       />
     </>
-  );
-};
+  )
+}
 
-export default GtmScript;
+export default GtmScript

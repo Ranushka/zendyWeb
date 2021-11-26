@@ -1,5 +1,5 @@
-import * as React from "react";
-import Svg from "./Svg";
+import * as React from 'react'
+import Svg from './Svg'
 
 const IconEdit: React.FC<{}> = () => {
   return (
@@ -11,7 +11,7 @@ const IconEdit: React.FC<{}> = () => {
         fill="currentColor"
       />
     </Svg>
-  );
-};
+  )
+}
 
-export default IconEdit;
+export default IconEdit

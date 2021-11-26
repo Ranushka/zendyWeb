@@ -38,7 +38,7 @@ news_list:
     path: /
 privacy_list:
   - label: Privacy
-    path: " /privacy"
+    path: ' /privacy'
   - label: Terms
     path: /terms
   - label: Feedback

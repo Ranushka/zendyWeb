@@ -1,5 +1,5 @@
-import { Space } from "components/atoms";
-import { SeeAll, SubTitle } from "components//molecules";
+import { Space } from 'components/atoms'
+import { SeeAll, SubTitle } from 'components//molecules'
 
 import {
   HeroCtaHome,
@@ -9,9 +9,9 @@ import {
   GetStartedWithUs,
   Testimonials,
   Subjects,
-} from "components/organisms";
+} from 'components/organisms'
 
-import { BaseTemplate } from "components/templates";
+import { BaseTemplate } from 'components/templates'
 
 export default function Home() {
   return (
@@ -31,5 +31,5 @@ export default function Home() {
       <EmailSubscription />
       <GetStartedWithUs />
     </BaseTemplate>
-  );
+  )
 }

@@ -1,28 +1,28 @@
-import React from "react";
-import { Input, ActionItem } from "components/atoms";
-import styles from "./index.module.scss";
-import useDiscountCode, { setDiscountCode } from "fetchHooks/useDiscountCode";
+import React from 'react'
+import { Input, ActionItem } from 'components/atoms'
+import styles from './index.module.scss'
+import useDiscountCode, { setDiscountCode } from 'fetchHooks/useDiscountCode'
 
 const DiscountCodeBlock = () => {
-  const [showInput, showInputSet] = React.useState(false);
-  const [inputVal, inputValSet] = React.useState("");
-  const { data } = useDiscountCode();
+  const [showInput, showInputSet] = React.useState(false)
+  const [inputVal, inputValSet] = React.useState('')
+  const { data } = useDiscountCode()
 
   const inputDiscountChange = (e) => {
-    inputValSet(e.target.value);
-  };
+    inputValSet(e.target.value)
+  }
 
   const getInit = () => {
     if (!showInput) {
       return (
         <div className="text__right">
           <ActionItem
-            text={"I have Discount code"}
-            type={"btn__small"}
+            text={'I have Discount code'}
+            type={'btn__small'}
             onClick={() => showInputSet(true)}
           />
         </div>
-      );
+      )
     }
 
     return (
@@ -30,8 +30,8 @@ const DiscountCodeBlock = () => {
         <Input
           id="discountCode"
           name="discountCode"
-          label={"Discount Code"}
-          placeholder={"YOUR_CODE"}
+          label={'Discount Code'}
+          placeholder={'YOUR_CODE'}
           value={inputVal}
           type="text"
           onChange={(e) => inputDiscountChange(e)}
@@ -41,8 +41,8 @@ const DiscountCodeBlock = () => {
           block
         />
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <div>
@@ -59,32 +59,32 @@ const DiscountCodeBlock = () => {
             </div>
             <div className="flex__left"></div>
             <ActionItem
-              text={"Remove"}
-              type={"btn__small"}
+              text={'Remove'}
+              type={'btn__small'}
               className="pr__0"
               onClick={() => {
-                inputValSet("");
-                setDiscountCode("");
+                inputValSet('')
+                setDiscountCode('')
               }}
             />
           </div>
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
 const __getActionBtn = (inputVal) => {
   return (
     <ActionItem
       className={styles.discountApplyBtn}
-      text={"Apply code"}
-      type={"btn__small"}
+      text={'Apply code'}
+      type={'btn__small'}
       onClick={() => {
-        setDiscountCode(inputVal);
+        setDiscountCode(inputVal)
       }}
     />
-  );
-};
+  )
+}
 
-export default DiscountCodeBlock;
+export default DiscountCodeBlock

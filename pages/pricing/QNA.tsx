@@ -1,8 +1,8 @@
-import React from "react";
-import { Space } from "components/atoms";
-import { SeeAll } from "components/molecules";
+import React from 'react'
+import { Space } from 'components/atoms'
+import { SeeAll } from 'components/molecules'
 
-import { Accordion } from "components/molecules";
+import { Accordion } from 'components/molecules'
 
 export default function QNA() {
   return (
@@ -12,24 +12,24 @@ export default function QNA() {
       <Space />
       <SeeAll href="/qna" text="See all Questions" />
     </div>
-  );
+  )
 }
 
 const questionsList = () => {
   return data.map(({ title, content }, id) => {
     return (
-      <React.Fragment key={"qa" + id}>
+      <React.Fragment key={'qa' + id}>
         <Space />
         <Accordion
-          id={"qa" + id}
+          id={'qa' + id}
           open={id === 0}
           title={<h4>{title}</h4>}
           content={accordionContent(content)}
         />
       </React.Fragment>
-    );
-  });
-};
+    )
+  })
+}
 
 const accordionContent = (content: string) => {
   return (
@@ -37,28 +37,28 @@ const accordionContent = (content: string) => {
       <Space size={3} />
       <div>{content}</div>
     </div>
-  );
-};
+  )
+}
 
 const data = [
   {
-    title: "How does the free trial work?",
+    title: 'How does the free trial work?',
     content:
       "There are many variations of passages of Lorem Ipsum available,but the majority have suffered alteration in some form,  humour, or randomized words which don't look  believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.  Lorem Ipsum, you ne Lorem Ipsum.",
   },
   {
-    title: "When do I get billed?",
+    title: 'When do I get billed?',
     content:
       "There are many variations of passages of Lorem Ipsum available,but the majority have suffered alteration in some form,  humour, or randomized words which don't look  believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.  Lorem Ipsum, you ne Lorem Ipsum.",
   },
   {
-    title: "Can I cancel my subscription anytime?",
+    title: 'Can I cancel my subscription anytime?',
     content:
       "There are many variations of passages of Lorem Ipsum available,but the majority have suffered alteration in some form,  humour, or randomized words which don't look  believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.  Lorem Ipsum, you ne Lorem Ipsum.",
   },
   {
-    title: "What happens when my trial ends?",
+    title: 'What happens when my trial ends?',
     content:
       "There are many variations of passages of Lorem Ipsum available,but the majority have suffered alteration in some form,  humour, or randomized words which don't look  believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.  Lorem Ipsum, you ne Lorem Ipsum.",
   },
-];
+]

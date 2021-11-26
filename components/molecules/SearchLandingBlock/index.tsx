@@ -1,20 +1,20 @@
-import React, { useContext } from "react";
-import dynamic from "next/dynamic";
-import DeviceTypeContext from "context/DeviceTypeContext";
+import React, { useContext } from 'react'
+import dynamic from 'next/dynamic'
+import DeviceTypeContext from 'context/DeviceTypeContext'
 
 type Props = {
-  id?: string;
-  price?: string;
-  content?: string;
-};
+  id?: string
+  price?: string
+  content?: string
+}
 
-const Mobile = dynamic(() => import("./Mobile"));
-const Desktop = dynamic(() => import("./Desktop"));
+const Mobile = dynamic(() => import('./Mobile'))
+const Desktop = dynamic(() => import('./Desktop'))
 
 const Pricing: React.FC<Props> = (props) => {
-  const { isMobile } = useContext(DeviceTypeContext);
+  const { isMobile } = useContext(DeviceTypeContext)
 
-  return isMobile ? <Mobile {...props} /> : <Desktop {...props} />;
-};
+  return isMobile ? <Mobile {...props} /> : <Desktop {...props} />
+}
 
-export default Pricing;
+export default Pricing

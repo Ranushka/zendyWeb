@@ -1,11 +1,11 @@
-import React from "react";
-import classnames from "classnames";
-import { Testimonial } from "components/molecules";
-import { Space } from "components/atoms";
-import styles from "./mobile.module.scss";
-import { attributes as Data } from "data/widgets/testimonials.md";
+import React from 'react'
+import classnames from 'classnames'
+import { Testimonial } from 'components/molecules'
+import { Space } from 'components/atoms'
+import styles from './mobile.module.scss'
+import { attributes as Data } from 'data/widgets/testimonials.md'
 
-type Props = {};
+type Props = {}
 
 const Testimonials: React.FC<Props> = ({}) => {
   return (
@@ -20,7 +20,7 @@ const Testimonials: React.FC<Props> = ({}) => {
 
       <Space size={5} />
       <div
-        className={classnames(styles.testimonialsWrap, "mw__6 sliderScroll")}
+        className={classnames(styles.testimonialsWrap, 'mw__6 sliderScroll')}
       >
         {Data.testimonials &&
           Data.testimonials.map(({ name, quote, title }, id) => (
@@ -33,7 +33,7 @@ const Testimonials: React.FC<Props> = ({}) => {
           ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Testimonials;
+export default Testimonials

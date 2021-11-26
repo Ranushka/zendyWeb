@@ -1,16 +1,16 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import { GtmScript } from "analytics";
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { GtmScript } from 'analytics'
 
-import React from "react";
+import React from 'react'
 
 const data = {
-  applicationName: "zendy.io",
-  url: "https://zendy.io",
-  title: "Zendy, Premium research publications library",
+  applicationName: 'zendy.io',
+  url: 'https://zendy.io',
+  title: 'Zendy, Premium research publications library',
   description:
-    "Research is creating new knowledge, join with us and create new knowledge",
-  image: "https://zendy.io/icons/favicon-96x96.png",
-};
+    'Research is creating new knowledge, join with us and create new knowledge',
+  image: 'https://zendy.io/icons/favicon-96x96.png',
+}
 
 export default class MyDocument extends Document {
   public render() {
@@ -54,6 +54,6 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }

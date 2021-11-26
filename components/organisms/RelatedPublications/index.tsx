@@ -1,6 +1,6 @@
-import { NextPage } from "next";
-import { Space } from "components/atoms";
-import { SearchResultItem, SubTitle } from "components/molecules";
+import { NextPage } from 'next'
+import { Space } from 'components/atoms'
+import { SearchResultItem, SubTitle } from 'components/molecules'
 
 const RelatedPublications: NextPage<any> = () => {
   return (
@@ -10,12 +10,12 @@ const RelatedPublications: NextPage<any> = () => {
       <div className="px__3">
         <SearchResultItem
           id="dasda"
-          href={"/"}
+          href={'/'}
           journal="abc title"
           year="2020"
           author={[]}
-          keywords={["keyword"]}
-          subjects={["subject"]}
+          keywords={['keyword']}
+          subjects={['subject']}
           link={[]}
           title="Platform Competition in the Sharing Economy: Understanding How Ride-Hailing Services Influence New Car Purchases."
           abstract="Ride-hailing services provide not only alternative transportation for passengers but also job opportunities for potential drivers,  in both negative and positive effects on new car purchases. Our study assesses the impact of ride-hailing platforms' market entry on new car purchases in the presence. Entry on new ca..."
@@ -23,12 +23,12 @@ const RelatedPublications: NextPage<any> = () => {
 
         <SearchResultItem
           id="dasds"
-          href={"/"}
+          href={'/'}
           journal="abc title"
           year="2020"
           author={[]}
-          keywords={["keyword"]}
-          subjects={["subject"]}
+          keywords={['keyword']}
+          subjects={['subject']}
           link={[]}
           title="Platform Competition in the Sharing Economy: Understanding How Ride-Hailing Services Influence New Car Purchases."
           abstract="Ride-hailing services provide not only alternative transportation for passengers but also job opportunities for potential drivers,  in both negative and positive effects on new car purchases. Our study assesses the impact of ride-hailing platforms' market entry on new car purchases in the presence. Entry on new ca..."
@@ -36,12 +36,12 @@ const RelatedPublications: NextPage<any> = () => {
 
         <SearchResultItem
           id="dasdd"
-          href={"/"}
+          href={'/'}
           journal="abc title"
           year="2020"
           author={[]}
-          keywords={["keyword"]}
-          subjects={["subject"]}
+          keywords={['keyword']}
+          subjects={['subject']}
           link={[]}
           title="Platform Competition in the Sharing Economy: Understanding How Ride-Hailing Services Influence New Car Purchases."
           abstract="Ride-hailing services provide not only alternative transportation for passengers but also job opportunities for potential drivers,  in both negative and positive effects on new car purchases. Our study assesses the impact of ride-hailing platforms' market entry on new car purchases in the presence. Entry on new ca..."
@@ -49,19 +49,19 @@ const RelatedPublications: NextPage<any> = () => {
 
         <SearchResultItem
           id="dasdf"
-          href={"/"}
+          href={'/'}
           journal="abc title"
           year="2020"
           author={[]}
-          keywords={["keyword"]}
-          subjects={["subject"]}
+          keywords={['keyword']}
+          subjects={['subject']}
           link={[]}
           title="Platform Competition in the Sharing Economy: Understanding How Ride-Hailing Services Influence New Car Purchases."
           abstract="Ride-hailing services provide not only alternative transportation for passengers but also job opportunities for potential drivers,  in both negative and positive effects on new car purchases. Our study assesses the impact of ride-hailing platforms' market entry on new car purchases in the presence. Entry on new ca..."
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default RelatedPublications;
+export default RelatedPublications

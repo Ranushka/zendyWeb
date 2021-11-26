@@ -22,7 +22,7 @@
 }
 
 .phoneNumber {
-  [class~="PhoneInput"] {
+  [class~='PhoneInput'] {
     padding: 0 var(--sp3);
     line-height: var(--sp4);
     border-radius: var(--radius-1);
@@ -34,7 +34,7 @@
     --PhoneInputCountrySelectArrow-marginTop: -0.2rem;
   }
 
-  [class~="PhoneInputCountryIcon--border"] {
+  [class~='PhoneInputCountryIcon--border'] {
     box-shadow: unset;
     margin-right: 5px;
   }

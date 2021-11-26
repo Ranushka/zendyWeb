@@ -1,18 +1,18 @@
-import React from "react";
-import classnames from "classnames";
-import { ActionItem, Input, Space, Logo } from "components/atoms";
+import React from 'react'
+import classnames from 'classnames'
+import { ActionItem, Input, Space, Logo } from 'components/atoms'
 
-import styles from "./index.module.scss";
+import styles from './index.module.scss'
 
-type Props = {};
+type Props = {}
 
 const AuthenticateRegister: React.FC<Props> = ({}) => {
-  const [value, setValue] = React.useState();
+  const [value, setValue] = React.useState()
 
   return (
     <>
-      <div className={classnames("flex__align_center", styles.wrapper)}>
-        <div className={classnames("mw__1 block", styles.phoneNumber)}>
+      <div className={classnames('flex__align_center', styles.wrapper)}>
+        <div className={classnames('mw__1 block', styles.phoneNumber)}>
           <div className="text__center">
             <Space size={4} />
             <Logo className={styles.logo} />
@@ -29,7 +29,7 @@ const AuthenticateRegister: React.FC<Props> = ({}) => {
             <Input
               id="newPassword"
               name="newPassword"
-              label={"New password"}
+              label={'New password'}
               type="password"
               autoFocus
               required
@@ -38,7 +38,7 @@ const AuthenticateRegister: React.FC<Props> = ({}) => {
             <Input
               id="newPasswordConfirm"
               name="newPasswordConfirm"
-              label={"Confirm password"}
+              label={'Confirm password'}
               type="password"
               autoFocus
               required
@@ -47,7 +47,7 @@ const AuthenticateRegister: React.FC<Props> = ({}) => {
             <Input
               id="email"
               name="email"
-              label={"Your Email"}
+              label={'Your Email'}
               type="text"
               autoFocus
               required
@@ -65,8 +65,8 @@ const AuthenticateRegister: React.FC<Props> = ({}) => {
 
           <div className="flex">
             <ActionItem
-              text={"Create Account"}
-              href={"/authenticate/register"}
+              text={'Create Account'}
+              href={'/authenticate/register'}
               type="btn__primary"
               block
             />
@@ -80,7 +80,7 @@ const AuthenticateRegister: React.FC<Props> = ({}) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default AuthenticateRegister;
+export default AuthenticateRegister
