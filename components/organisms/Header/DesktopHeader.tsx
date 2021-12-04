@@ -19,8 +19,8 @@ const DesktopHeader: React.FC = ({}) => {
         className="edgeContainer bg__white relative z__2"
       >
         <section className="mw__6">
-          <div className={'px__3 py__3 flex__align_center'}>
-            <Logo flag className={'flex__align_center mw__1'} />
+          <div className={'px__3 py__3 flex__center'}>
+            <Logo flag className={'flex__center mw__1'} />
             <CategoriesMenu />
             <ActionItem text={'Magazines'} href={'/magazines'} />
             <div className="flex__left" />
@@ -39,7 +39,7 @@ const DesktopHeader: React.FC = ({}) => {
             <SearchForm id="mainSearch" />
             <Space />
             <ActionItem
-              className="flex__wrap__no"
+              className="flex__shrink"
               text={t.advanced_search}
               href={'/advanced_search'}
             />

@@ -11,7 +11,7 @@ const Login: React.FC<Props> = ({}) => {
 
   return (
     <>
-      <div className={classnames('flex__align_center', styles.wrapper)}>
+      <div className={classnames('flex__center', styles.wrapper)}>
         <div className={classnames('mw__1 block', styles.phoneNumber)}>
           <div className="text__center">
             <Space size={4} />

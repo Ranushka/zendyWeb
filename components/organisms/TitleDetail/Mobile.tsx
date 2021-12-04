@@ -97,9 +97,7 @@ const __renderKeywords = (keywords: []) => {
 
 const __renderHead = () => {
   return (
-    <div
-      className={classnames('flex__align_center py__3', styles.headerAction)}
-    >
+    <div className={classnames('flex__center py__3', styles.headerAction)}>
       <ActionItem
         text={'← Back to results'}
         onClick={() => Router.back()}
@@ -177,7 +175,7 @@ const __renderContent = (props) => {
       {__renderAuthors(author)}
       {__renderKeywords(keywords)}
       <FooterActions {...props} />
-      <div className="py__3 flex__space_between">
+      <div className="py__3 flex__between">
         <div className={styles.prevPublication}>
           <NextArticle
             url="/"

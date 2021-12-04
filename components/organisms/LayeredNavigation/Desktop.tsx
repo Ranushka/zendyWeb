@@ -9,7 +9,7 @@ type Props = {}
 
 const LayeredNavigationTitle = () => {
   return (
-    <div className="flex flex__align_center">
+    <div className="flex flex__center">
       <h3 className="mute">Narrow by</h3>
       <div className="flex__left" />
       <small className="mute"> 30K Results</small>
