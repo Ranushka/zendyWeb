@@ -1,16 +1,4 @@
-// const withCSS = require("@zeit/next-css");
-
-// const cssRules = withCSS({
-//   cssLoaderOptions: {
-//     url: false,
-//   },
-// });
-// const path = require("path");
-
-// const sassOptions = {
-//   includePaths: [path.join(__dirname, "styles")],
-// };
-
+const path = require('path')
 const withPWA = require('next-pwa')
 
 const redirects = {
@@ -41,19 +29,13 @@ const redirects = {
   },
 }
 
-module.exports = withPWA(redirects)
+// module.exports = withPWA(redirects)
 
-// module.exports = withCSS({
-//   cssLoaderOptions: {
-//     url: false,
-//   },
-//   async redirects() {
-//     return [
-//       {
-//         source: "/library",
-//         destination: "/library/collections",
-//         permanent: true,
-//       },
-//     ];
-//   },
-// });
+module.exports = {
+  experimental: { optimizeCss: true },
+  // sassOptions: {
+  //   cssModules: true,
+  //   includePaths: [path.join(__dirname, 'styles')],
+  // },
+  ...withPWA(redirects),
+}

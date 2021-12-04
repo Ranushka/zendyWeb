@@ -330,3 +330,27 @@ $columns: 7;
 }
 
 @include gapsList;
+
+/* 
+Positions
+*/
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+/* 
+Z-index
+*/
+@mixin zIndexList {
+  @for $i from 1 through 4 {
+    .z__#{$i} {
+      z-index: $i;
+    }
+  }
+}
+
+@include zIndexList;

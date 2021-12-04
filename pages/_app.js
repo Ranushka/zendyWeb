@@ -7,8 +7,6 @@ import 'styles/stripe.scss'
 import 'styles/actionItems.scss'
 import 'styles/utils.scss'
 
-import 'tailwindcss/tailwind.css'
-
 import React from 'react'
 import Head from 'next/head'
 import { DeviceTypeContextProvider } from 'context/DeviceTypeContext'
