@@ -7,8 +7,9 @@ nav_items:
     path: /pricing
   - label: News
     path: /news
+  - label: My Library
+    path: /library/collections
 advanced_search: Advanced Search
-my_library: My Library
 search_placeholder_m: Search by title, author
 search_placeholder_d: Search by title, author, ISBN or Collection
 mega_menu_btn: Browse by

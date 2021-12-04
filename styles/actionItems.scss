@@ -15,7 +15,7 @@ Buttons
   transition: 0.2s;
 
   &:active {
-    transform: scale3d(0.95, 0.95, 0.95);
+    transform: var(--scale1);
   }
 }
 
@@ -33,7 +33,13 @@ Buttons
   @include btn_default;
   background: var(--c-white);
   color: var(--c-primary);
-  box-shadow: var(--sha-secondary);
+  border: 1px solid;
+  border-color: var(--c-primary);
+
+  &:hover {
+    color: var(--c-secondary);
+    border-color: var(--c-secondary);
+  }
 }
 
 .btn__primary {
@@ -76,17 +82,20 @@ Links
   transition: 0.2s;
 
   &:hover {
-    text-decoration: underline;
+    // text-decoration: underline;
+    // text-shadow: 0px 0px 1px var(--c-highlightAccent);
+    color: var(--c-secondary);
   }
 
   &:focus {
-    text-decoration: none;
+    color: var(--c-secondary);
+    // text-decoration: none;
     // text-decoration-color: var(--c-highlight);
-    box-shadow: inset 0px -8px 0 0 var(--c-highlightAccent);
+    // box-shadow: inset 0px -8px 0 0 var(--c-highlightAccent);
   }
 
   &:active {
-    transform: scale3d(0.95, 0.95, 0.95);
+    transform: var(--scale1);
   }
 }
 
@@ -94,7 +103,8 @@ Links
   @include link_default;
 
   &.active {
-    box-shadow: inset 0px -10px 0 0 var(--c-highlightAccent);
+    color: var(--c-secondary);
+    // box-shadow: inset 0px -10px 0 0 var(--c-highlightAccent);
   }
 }
 
@@ -126,7 +136,7 @@ Links
 
 .link__content > div {
   &:active {
-    transform: scale3d(0.95, 0.95, 0.95);
+    transform: var(--scale1);
   }
 }
 

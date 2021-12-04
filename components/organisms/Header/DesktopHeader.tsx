@@ -16,17 +16,11 @@ const DesktopHeader: React.FC = ({}) => {
     <>
       <header
         key="headerContainer"
-        className={classnames(
-          'edgeContainer bg__white',
-          styles.headerContainer
-        )}
+        className="edgeContainer bg__white relative z__2"
       >
         <section className="mw__6">
-          <div className={classnames('px__3 py__3 flex__align_center')}>
-            <Logo
-              flag
-              className={classnames('flex__align_center', styles.logo)}
-            />
+          <div className={'px__3 py__3 flex__align_center'}>
+            <Logo flag className={'flex__align_center mw__1'} />
             <CategoriesMenu />
             <ActionItem text={'Magazines'} href={'/magazines'} />
             <div className="flex__left" />
@@ -41,19 +35,13 @@ const DesktopHeader: React.FC = ({}) => {
       >
         <section className="mw__6">
           <Space size={2} />
-          <div className={classnames('flex flex__space_between px__3')}>
+          <div className="flex flex__center px__3">
             <SearchForm id="mainSearch" />
             <Space />
             <ActionItem
               className="flex__wrap__no"
               text={t.advanced_search}
               href={'/advanced_search'}
-            />
-            <Space />
-            <ActionItem
-              text={t.my_library}
-              href={'/library/collections'}
-              icon={<IconLibrary />}
             />
           </div>
           <Space size={2} />
