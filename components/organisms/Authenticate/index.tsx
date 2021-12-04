@@ -18,7 +18,7 @@ const Authenticate: React.FC<Props> = ({}) => {
         <link rel="stylesheet" href="/css/react_input.css" />
       </Head>
 
-      <div className={classnames('flex__align_center block', styles.wrapper)}>
+      <div className={classnames('flex__center block', styles.wrapper)}>
         <div className={classnames('mw__1 block', styles.phoneNumber)}>
           <div className="text__center">
             <Space size={4} />

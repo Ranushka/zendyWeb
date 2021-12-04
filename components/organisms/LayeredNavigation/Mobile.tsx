@@ -14,7 +14,7 @@ const filterActions = () => {
   return (
     <div
       className={classnames(
-        'flex__align_center stage__3 mx__3',
+        'flex__center stage__3 mx__3',
         styles.filterActions
       )}
     >
@@ -28,9 +28,7 @@ const filterActions = () => {
 const LayeredNavigationTitle = () => {
   return (
     <>
-      <div
-        className={classnames(styles.titleWrapper, 'flex flex__align_center')}
-      >
+      <div className={classnames(styles.titleWrapper, 'flex flex__center')}>
         <h3 className="mute">Narrow by</h3>
         <div className="flex__left" />
         {/* <small className="mute"> 30K Results</small> */}

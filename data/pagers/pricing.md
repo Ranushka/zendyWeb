@@ -22,7 +22,7 @@ planTypes:
 
       <div class="gaps__3"></div>
 
-      <div class="flex__align_center">
+      <div class="flex__center">
          <h4>AED</h4>
          <span class="price px__2">29</span>
          <small>/ mo</small>
@@ -44,7 +44,7 @@ planTypes:
 
       <div class="gaps__3"></div>
 
-      <div class="flex__align_center">
+      <div class="flex__center">
          <h4>AED</h4>
          <span class="price px__2">63</span>
          <small>/ mo</small>

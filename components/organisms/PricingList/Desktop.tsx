@@ -38,7 +38,7 @@ const PricingList: React.FC<Props> = (props) => {
       <Space size={4} />
       <div dangerouslySetInnerHTML={{ __html: title }} />
       <Space size={5} />
-      <div className="flex__align_center mw__4">{planCards}</div>
+      <div className="flex__center mw__4">{planCards}</div>
       <Space size={4} />
     </div>
   )

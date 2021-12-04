@@ -91,7 +91,7 @@ const __renderKeywords = (keywords: []) => {
 
 const __renderHead = () => {
   return (
-    <div className={classnames('flex__align_center', styles.headerAction)}>
+    <div className={classnames('flex__center', styles.headerAction)}>
       <ActionItem
         text={'← Back to results'}
         onClick={() => Router.back()}

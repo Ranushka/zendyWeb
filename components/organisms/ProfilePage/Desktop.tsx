@@ -15,7 +15,7 @@ const Desktop: React.FC<Props> = ({}) => {
   return (
     <>
       <Space size={5} />
-      <div className="mw__4 flex__align_center">
+      <div className="mw__4 flex__center">
         <h1 className="text__center color__nut6">My Profile</h1>
         <div className="flex__left"></div>
         <ActionItem
