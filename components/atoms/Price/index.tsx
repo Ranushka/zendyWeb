@@ -14,7 +14,7 @@ const Price: React.FC<Props> = ({ large, price }) => {
 
   if (large) {
     return (
-      <div className={'flex__align_center'}>
+      <div className={'flex__center'}>
         <span className={styles.currency}>{currency}</span>
         <span className={styles.number}>{priceNumber}</span>
         <span className={styles.float}>.{priceFloat}</span>
@@ -23,7 +23,7 @@ const Price: React.FC<Props> = ({ large, price }) => {
   }
 
   return (
-    <div className={'flex__align_center'}>
+    <div className={'flex__center'}>
       {currency} {priceNumber}.{priceFloat}
     </div>
   )

@@ -47,7 +47,7 @@ const __dataCollection = (data) => {
 
 const __dataRow = ({ id, name, count }) => (
   <div key={id}>
-    <div className="px__3 flex flex__space_between bg__white stage__2 rounded__1">
+    <div className="px__3 flex flex__between bg__white stage__2 rounded__1">
       <span className="first_letter_caps">{name}</span>
       <div className="flex__left"></div>
       <span>{count}</span>

@@ -8,7 +8,7 @@ const SubTitle: React.FC<SubTitleProps> = (props) => {
   return (
     <div className="mw__6 px__3">
       <Space size={5} />
-      <div className={'flex__space_between'}>
+      <div className={'flex__between'}>
         <h4 className="mute">{title}</h4>
         {linkText && (
           <strong>

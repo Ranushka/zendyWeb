@@ -69,7 +69,7 @@ const __headerContent = () => {
   return (
     <>
       <section className={classnames('py__2 bg__white stage__2')}>
-        <div className={classnames('px__3 flex flex__space_between')}>
+        <div className={classnames('px__3 flex flex__between')}>
           <ActionItem
             text=""
             className={styles.menuBtn}
@@ -77,10 +77,7 @@ const __headerContent = () => {
             icon={<IconMenu />}
           />
           <Space size={2} />
-          <Logo
-            flag
-            className={classnames('flex__align_center', styles.logo)}
-          />
+          <Logo flag className={classnames('flex__center', styles.logo)} />
           <div className="flex__left" />
           {loading ? <Skeleton height={48} width={60} /> : btnGuestOrUser}
         </div>

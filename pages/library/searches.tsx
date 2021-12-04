@@ -27,7 +27,7 @@ const Searches = () => {
 
 const __dataRow = ({ id, name, keyWord, filters }) => (
   <div key={id}>
-    <div className="px__3 py__3 flex flex__space_between bg__white stage__2 rounded__1">
+    <div className="px__3 py__3 flex flex__between bg__white stage__2 rounded__1">
       <div className="first_letter_caps">
         <h3>{name}</h3>
         <Space size={2} />

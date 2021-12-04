@@ -12,7 +12,7 @@ const Mobile: React.FC<{}> = ({}) => {
       <Space size={4} />
       <div dangerouslySetInnerHTML={{ __html: Data.title }} />
       <Space size={4} />
-      <div className="flex__align_center mw__3">
+      <div className="flex__center mw__3">
         <Switch
           id="subscriptionType"
           name="subscriptionType"

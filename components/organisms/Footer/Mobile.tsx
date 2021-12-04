@@ -35,7 +35,7 @@ const Footer: React.FC<Props> = ({}) => {
             <Space />
             <p>Reach us</p>
             {/* <Space size={3} /> */}
-            <div className="py__3 flex__align_center">
+            <div className="py__3 flex__center">
               <ButtonFab icon={<IconSocialFacebook />} small />
               <ButtonFab icon={<IconSocialInstagram />} small />
               <ButtonFab icon={<IconSocialLinkedIn />} small />
