@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { GtmScript } from 'analytics'
+// import InlineStylesHead from './inlineStylesHead'
 
 import React from 'react'
 

@@ -9,10 +9,7 @@ type Props = {
 
 const Logo: React.FC<Props> = ({ className, flag = false }) => {
   return (
-    <ActionItem
-      href="/"
-      className={classnames('block py__1', styles.wrapper, className)}
-    >
+    <ActionItem href="/" className="py__1 relative">
       <>
         <svg
           style={{ maxWidth: '7.5rem', width: '100%' }}
