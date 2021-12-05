@@ -32,7 +32,7 @@ const redirects = {
 // module.exports = withPWA(redirects)
 
 module.exports = {
-  experimental: { optimizeCss: true },
+  // experimental: { optimizeCss: true },
   // sassOptions: {
   //   cssModules: true,
   //   includePaths: [path.join(__dirname, 'styles')],

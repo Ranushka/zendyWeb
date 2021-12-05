@@ -16,9 +16,6 @@
   padding-right: var(--sp5);
   line-height: 3rem;
   border: 0;
-  // box-shadow: var(--sha-sm);
-  // box-shadow: var(--stage1);
-  // background-color: var(--c-nut2);
   box-shadow: 0 0 0 1px var(--c-primary);
   outline: 0;
   color: var(--c-primary);
@@ -29,7 +26,7 @@
 
   &:focus {
     outline: none;
-    box-shadow: 0 2px 6px 1px var(--c-nut4);
+    box-shadow: 0 0 0 1px var(--c-primary), 0 2px 6px 1px var(--c-nut4);
     background-color: var(--c-white);
   }
 }

@@ -44,8 +44,9 @@ const __renderTitle = (props) => {
         href="/title/[id]"
         as={`/title/${href}`}
         type="link__title"
+        className="block__inline"
       />
-      {__renderChips(isReviewed, isReferenced)}
+      {/* {__renderChips(isReviewed, isReferenced)} */}
     </div>
   )
 }
@@ -76,15 +77,31 @@ const __renderAbstract = (content) => {
 }
 
 const __renderAuthors = (authors: []) => {
-  const authorsList = authors.map(({ name }) => name).join('; ')
+  // const authorsList = authors.map(({ name }) => name).join('; ')
+  // const authorsList =
+  //   authors &&
+  //   authors.map<React.ReactNode>((name, id) => (
+  //     <ActionItem key={id} text={name} href={'/'} type="link__small" />
+  //   ))
 
   return (
     authors && (
       <div className="py__1">
-        <small className="flex">
-          <small className="px__2 pl__0 mute">By - </small>
-          <Ellipsis text={authorsList} suffix="...[et al.]" />
-        </small>
+        <small className="px__2 pl__0 mute">By - </small>
+        {authors
+          .map<React.ReactNode>(({ name }, id) => {
+            if (name) {
+              return (
+                <ActionItem
+                  key={id}
+                  text={name}
+                  href={'/'}
+                  type="link__small"
+                />
+              )
+            }
+          })
+          .reduce((prev, curr) => [prev, ', ', curr])}
       </div>
     )
   )
@@ -124,7 +141,7 @@ const __renderActions = (link: [], id) => {
   const href = get(link, '[0].url')
 
   return (
-    <section className={classnames('px__4 pr__0', card.article__actions)}>
+    <section className={classnames('px__4 pr__0')}>
       <div className={card.article__actions__sub}>
         <Space size={1} />
         <CheckBox className={'my__0'} id={'it_id' + id} />
@@ -134,6 +151,7 @@ const __renderActions = (link: [], id) => {
           <ButtonFab icon={<IconBookmark />} small />
         </div>
       </div>
+      <Space size={3} />
       <ActionItem text={'Download'} href={'#'} type="btn__secondary" block />
       <Space size={3} />
       <ActionItem
@@ -165,7 +183,7 @@ const CardCurated: React.FC<SearchResultItemProps> = (props) => {
 
   return (
     <article>
-      <div className="flex py__4">
+      <div className="flex__center py__3">
         <section className="mw__3 ml__0 mr__0">
           {__renderTitle({ title, href, isReviewed, isReferenced })}
           {__renderContentType(title, journal, year)}

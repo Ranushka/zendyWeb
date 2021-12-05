@@ -39,10 +39,11 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
   }, [router])
 
   return (
-    <form className={styles.searchWrapper} onSubmit={handleSubmit}>
+    <form className="block relative" onSubmit={handleSubmit}>
       <input
         id={id}
         name="search_term_string"
+        autoComplete="off"
         ref={searchInput}
         type="search"
         accessKey="s"
