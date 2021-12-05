@@ -2,7 +2,8 @@ import React, { useContext } from 'react'
 import classnames from 'classnames'
 import styles from './desktop.module.scss'
 
-import { Space, CheckBox, ButtonFab } from 'components/atoms'
+import { Space, CheckBox, ActionItem } from 'components/atoms'
+import { IconSavedSearch } from 'components/icons'
 import { ReadMore } from 'components/molecules'
 
 type Props = {}
@@ -13,6 +14,15 @@ const LayeredNavigationTitle = () => {
       <h3 className="mute">Narrow by</h3>
       <div className="flex__left" />
       <small className="mute"> 30K Results</small>
+    </div>
+  )
+}
+
+const LayeredNavigationActions = () => {
+  return (
+    <div>
+      <ActionItem text={'Save search'} href={'/'} icon={<IconSavedSearch />} />
+      <Space size={3} />
     </div>
   )
 }
@@ -45,7 +55,8 @@ const FilterGroups = (items) => {
 const LayeredNavigation: React.FC<Props> = ({}) => {
   return (
     <>
-      <section className={classnames('px__4 pr__0', styles.wrapper)}>
+      <section className={classnames('px__4 pl__0', styles.wrapper)}>
+        {LayeredNavigationActions()}
         {LayeredNavigationTitle()}
         <Space size={3} />
         {FilterGroups(data)}

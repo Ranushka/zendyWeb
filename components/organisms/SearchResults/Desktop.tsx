@@ -10,13 +10,7 @@ import Skeleton from 'react-loading-skeleton'
 
 const SearchResultActions = () => {
   return (
-    <div
-      className={classnames(
-        'flex mw__4 ml__0 py__4',
-        styles.searchResultActions
-      )}
-    >
-      <ActionItem text={'Save search'} href={'/'} icon={<IconSavedSearch />} />
+    <div className="flex">
       <div className="flex__left"></div>
       <ActionItem
         text={'Sort by : Relevance'}
@@ -135,8 +129,10 @@ const DesktopSearchResults: React.FC<any> = () => {
   return (
     <>
       <section className={classnames('block text__left')}>
+        <Space size={4} />
+
         {SearchResultActions()}
-        {AppliedSearchFilters()}
+        {/* {AppliedSearchFilters()} */}
         {__resultData()}
       </section>
       <div className="flex__left" />
