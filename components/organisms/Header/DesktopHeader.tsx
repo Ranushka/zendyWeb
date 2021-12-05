@@ -35,7 +35,7 @@ const DesktopHeader: React.FC = ({}) => {
       >
         <section className="mw__6">
           <Space size={2} />
-          <div className="flex flex__center px__3">
+          <div className="flex flex__center px__3 mw__5">
             <SearchForm id="mainSearch" />
             <Space />
             <ActionItem

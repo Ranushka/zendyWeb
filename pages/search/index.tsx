@@ -22,8 +22,8 @@ const Search: React.FC = () => {
     <BaseTemplate isSearchPage>
       {queryString && (
         <div className="mw__6 px__3 flex">
-          <SearchResults />
           <LayeredNavigation />
+          <SearchResults />
         </div>
       )}
 
