@@ -1,12 +1,16 @@
 import React from 'react'
 import { BaseTemplate } from 'components/templates'
-import { LayeredNavigation, SearchResults } from 'components/organisms'
+import {
+  LayeredNavigation,
+  SearchResults,
+  AuthorDetails,
+} from 'components/organisms'
 import { SearchLandingBlock } from 'components/molecules'
 import { useRouter } from 'next/router'
 
 const Search: React.FC = () => {
   const router = useRouter()
-  const queryString: any = router.query.q
+  const queryString: any = router.query.q || router.query.author
 
   React.useEffect(() => {
     const searchBoxElement = document.getElementById('mainSearch')
@@ -21,10 +25,13 @@ const Search: React.FC = () => {
   return (
     <BaseTemplate isSearchPage>
       {queryString && (
-        <div className="mw__6 px__3 flex">
-          <LayeredNavigation />
-          <SearchResults />
-        </div>
+        <>
+          <AuthorDetails />
+          <div className="mw__6 px__3 flex">
+            <LayeredNavigation />
+            <SearchResults />
+          </div>
+        </>
       )}
 
       {!queryString && <SearchLandingBlock />}

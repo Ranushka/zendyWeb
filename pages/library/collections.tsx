@@ -1,7 +1,7 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { useRouter } from 'next/router'
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 import { Space, ActionItem, ButtonFab } from 'components/atoms'
 import { ProfileTabs } from 'components/molecules'
 import { IconAdd, IconMore } from 'components/icons'
@@ -10,7 +10,8 @@ import { BaseTemplate } from 'components/templates'
 
 const Collections = () => {
   const { data } = getCollections()
-  const [session, loading] = useSession()
+  const { data: session, status } = useSession()
+  const loading = status === 'loading'
   const router = useRouter()
 
   if (!loading && !session) {

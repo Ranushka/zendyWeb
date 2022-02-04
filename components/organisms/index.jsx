@@ -19,6 +19,7 @@ export { default as SubscriptionPage } from './SubscriptionPage'
 export { default as PricingList } from './PricingList'
 export { default as ProfilePage } from './ProfilePage'
 export { default as MagazinesPage } from './MagazinesPage'
+export { default as AuthorDetails } from './AuthorDetails'
 
 export { default as AuthenticateRegister } from './AuthenticateRegister'
 export { default as AuthenticateLogin } from './AuthenticateLogin'

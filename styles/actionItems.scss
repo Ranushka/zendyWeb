@@ -3,7 +3,7 @@ Buttons
 */
 @mixin btn_default {
   display: inline-block;
-  line-height: 3.45;
+  line-height: 3;
   padding: 0 1.5rem;
   border-radius: 0.5rem;
   text-decoration: none;
@@ -12,6 +12,8 @@ Buttons
   flex-shrink: 0;
   outline: none;
   color: var(--c-primary);
+  border: 1px solid;
+  border-color: transparent;
   transition: 0.2s;
 
   &:active {
@@ -31,10 +33,8 @@ Buttons
 
 .btn__secondary {
   @include btn_default;
-  background: var(--c-white);
-  color: var(--c-primary);
-  border: 1px solid;
   border-color: var(--c-primary);
+  background: var(--c-white);
 
   &:hover {
     color: var(--c-secondary);
@@ -47,8 +47,8 @@ Buttons
   background: var(--c-primary);
   color: var(--c-white);
   box-shadow: var(--sha-primary);
-  padding: 0 2rem;
-  font-weight: 600;
+  // padding: 0 2rem;
+  // font-weight: 600;
 
   &:focus {
     outline: none;
@@ -118,7 +118,7 @@ Links
   &:focus {
     text-decoration: none;
     // text-decoration-color: var(--c-highlight);
-    box-shadow: inset 0px -10px 0 0 var(--c-highlightAccent);
+    // box-shadow: inset 0px -10px 0 0 var(--c-highlightAccent);
   }
 }
 

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import classnames from 'classnames'
 import { useRouter } from 'next/router'
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 import DeviceTypeContext from 'context/DeviceTypeContext'
 
 type Props = {
@@ -10,7 +10,8 @@ type Props = {
 }
 
 const LoginRegisterTemplate: React.FC<Props> = ({ children }) => {
-  const [session, loading] = useSession()
+  const { data: session, status } = useSession()
+  const loading = status === 'loading'
   const router = useRouter()
 
   console.log(session)

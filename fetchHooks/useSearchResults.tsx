@@ -48,7 +48,7 @@ const __processData = (data) => {
 
 const useSearchResults = () => {
   const router = useRouter()
-  const queryString: any = router.query.q
+  const queryString: any = router.query.q || router.query.author
 
   const url = `https://doaj.org/api/v1/search/articles/${queryString}`
 

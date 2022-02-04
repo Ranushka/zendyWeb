@@ -21,9 +21,9 @@ const CheckBox: React.FC<Props> = ({
   return (
     <div
       className={classnames(
-        'my__3 mx__2 mt__0 mr__0',
-        className && className,
-        styles.checkBoxWrapper
+        // 'my__3 mx__2 mt__0 mr__0',
+        styles.checkBoxWrapper,
+        className && className
       )}
     >
       <input

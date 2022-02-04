@@ -3,9 +3,10 @@ import classnames from 'classnames'
 import Mark from 'mark.js'
 import { SearchResultItem } from 'components/molecules'
 import { Space, ActionItem } from 'components/atoms'
-import { IconSavedSearch, IconArrowDown } from 'components/icons'
+import { IconArrowDown } from 'components/icons'
 import styles from './desktop.module.scss'
 import useSearchResults from 'fetchHooks/useSearchResults'
+import useAuthorDetails from 'fetchHooks/useAuthorDetails'
 import Skeleton from 'react-loading-skeleton'
 
 const SearchResultActions = () => {
@@ -19,35 +20,6 @@ const SearchResultActions = () => {
       />
       <Space size={3} />
       <ActionItem text={'Bulk actions'} href={'/'} icon={<IconArrowDown />} />
-    </div>
-  )
-}
-
-const AppliedSearchFilters = () => {
-  return (
-    <div className={classnames('flex', styles.appliedSearchFilters)}>
-      <span className="small mute px__2 pl__0">Filters applied :</span>
-
-      <ActionItem
-        text={'Conference Materials   |  ×'}
-        href={'/'}
-        type="link__small"
-        className="px__2"
-      />
-
-      <ActionItem
-        text={'References available   |  ×'}
-        href={'/'}
-        type="link__small"
-        className="px__2"
-      />
-
-      <ActionItem
-        text={'Clear filters'}
-        href={'/'}
-        type="link__small"
-        className="px__2"
-      />
     </div>
   )
 }
@@ -130,9 +102,7 @@ const DesktopSearchResults: React.FC<any> = () => {
     <>
       <section className={classnames('block text__left')}>
         <Space size={4} />
-
         {SearchResultActions()}
-        {/* {AppliedSearchFilters()} */}
         {__resultData()}
       </section>
       <div className="flex__left" />
