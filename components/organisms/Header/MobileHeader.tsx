@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import Skeleton from 'react-loading-skeleton'
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 import styles from './mobile.module.scss'
 import { SidePopup } from 'components/molecules'
 import { ActionItem, Space, Logo } from 'components/atoms'
@@ -63,8 +63,10 @@ const __searchContent = () => (
 
 const __headerContent = () => {
   const [modelOpen, setModelOpen] = React.useState(false)
-  const [session, loading] = useSession()
+  const { data: session, status } = useSession()
+
   const btnGuestOrUser = session ? __getLoggedInUser(session) : __getLoginBtn()
+  const loading = status === 'loading'
 
   return (
     <>

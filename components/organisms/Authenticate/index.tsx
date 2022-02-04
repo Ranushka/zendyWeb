@@ -1,10 +1,10 @@
 import React from 'react'
-import PhoneInput from 'react-phone-number-input'
+// import PhoneInput from 'react-phone-number-input'
 import classnames from 'classnames'
 import { IconSocialLinkedIn } from 'components/icons'
 import { ActionItem, Space, Logo } from 'components/atoms'
 import Head from 'next/head'
-import { signIn } from 'next-auth/client'
+import { signIn } from 'next-auth/react'
 import styles from './index.module.scss'
 
 type Props = {}
@@ -29,7 +29,7 @@ const Authenticate: React.FC<Props> = ({}) => {
           </div>
           <p>Your phone number</p>
           <Space size={1} />
-          <PhoneInput
+          {/* <PhoneInput
             international
             defaultCountry="AE"
             addInternationalOption={false}
@@ -37,7 +37,7 @@ const Authenticate: React.FC<Props> = ({}) => {
             placeholder="Enter phone number"
             value={value}
             onChange={setValue}
-          />
+          /> */}
           <Space size={3} />
           <div className="flex">
             <ActionItem

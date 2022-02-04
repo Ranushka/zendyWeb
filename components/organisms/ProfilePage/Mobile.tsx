@@ -1,5 +1,5 @@
 import React from 'react'
-import { signOut } from 'next-auth/client'
+import { signOut } from 'next-auth/react'
 import { IconLogout } from 'components/icons'
 import { Space, ActionItem, CheckBox, Input } from 'components/atoms'
 import { SelectTheme, SearchResultDensity } from 'components/molecules'

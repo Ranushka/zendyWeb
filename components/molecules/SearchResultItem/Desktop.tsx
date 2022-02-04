@@ -26,6 +26,7 @@ const __renderChips = (isReviewed, isReferenced) => {
 
 const __renderTitle = (props) => {
   const {
+    id,
     title = '',
     href = '/',
     isReviewed = true,
@@ -33,12 +34,9 @@ const __renderTitle = (props) => {
   } = props
 
   return (
-    <div
-      className={classnames(
-        'first_letter_caps py__2 pt__0',
-        card.article__title
-      )}
-    >
+    <div className="first_letter_caps py__2 pt__0">
+      <CheckBox className={'my__1 pull__l4 absolute'} id={'it_id' + id} />
+
       <ActionItem
         text={striptags(title.toString())}
         href="/title/[id]"
@@ -77,13 +75,6 @@ const __renderAbstract = (content) => {
 }
 
 const __renderAuthors = (authors: []) => {
-  // const authorsList = authors.map(({ name }) => name).join('; ')
-  // const authorsList =
-  //   authors &&
-  //   authors.map<React.ReactNode>((name, id) => (
-  //     <ActionItem key={id} text={name} href={'/'} type="link__small" />
-  //   ))
-
   return (
     authors && (
       <div className="py__1">
@@ -95,7 +86,9 @@ const __renderAuthors = (authors: []) => {
                 <ActionItem
                   key={id}
                   text={name}
-                  href={'/'}
+                  as={`/search?author=${name}`}
+                  href={`/search?author=${name}`}
+                  // href={'/'}
                   type="link__small"
                 />
               )
@@ -143,8 +136,6 @@ const __renderActions = (link: [], id) => {
   return (
     <section className={classnames('px__4 pr__0')}>
       <div className={card.article__actions__sub}>
-        <Space size={1} />
-        <CheckBox className={'my__0'} id={'it_id' + id} />
         <div className="flex">
           <ButtonFab icon={<IconCite />} small />
           <ButtonFab icon={<IconLink />} small />
@@ -184,8 +175,8 @@ const CardCurated: React.FC<SearchResultItemProps> = (props) => {
   return (
     <article>
       <div className="flex__center py__3">
-        <section className="mw__3 ml__0 mr__0">
-          {__renderTitle({ title, href, isReviewed, isReferenced })}
+        <section className="mw__3 ml__0 mr__0 block">
+          {__renderTitle({ id, title, href, isReviewed, isReferenced })}
           {__renderContentType(title, journal, year)}
           {abstract && __renderAbstract(abstract)}
           {keywords && __renderKeywords(keywords)}

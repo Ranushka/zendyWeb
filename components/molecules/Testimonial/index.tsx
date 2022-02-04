@@ -16,7 +16,7 @@ const Testimonial: React.FC<Props> = (props) => {
   return (
     <div className={'mw__2'}>
       <div className={'bg__white rounded__1 stage__1 my__2  mx__2 py__3 px__3'}>
-        <h4 className="color__nut7">{quote}</h4>
+        <p className="color__nut7">{quote}</p>
         <Space size={3} />
         <p>{name}</p>
         <p className="small">{title}</p>

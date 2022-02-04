@@ -53,6 +53,7 @@ const __btn = (props: Props) => {
     type,
     icon && 'btn__icon',
     block && 'block',
+    'pointer',
     className
   )
 
@@ -61,14 +62,14 @@ const __btn = (props: Props) => {
   }
 
   return (
-    <button
+    <a
       className={finalClassNames}
       onClick={() => handleClick()}
       type={submit ? 'submit' : 'button'}
     >
       {text}
       {icon && icon}
-    </button>
+    </a>
   )
 }
 
@@ -124,7 +125,9 @@ const __linkWithChildren = (props: Props) => {
 
   return (
     <NextLink href={href} as={as}>
-      <a className={finalClassNames}>{children}</a>
+      <a aria-label="Get Help" className={finalClassNames}>
+        {children}
+      </a>
     </NextLink>
   )
 }

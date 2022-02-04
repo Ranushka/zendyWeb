@@ -6,7 +6,7 @@ const SubTitle: React.FC<SubTitleProps> = (props) => {
   const { title, linkHref = '#', linkText = '' } = props
 
   return (
-    <div className="mw__6 px__3">
+    <section className="mw__6 px__3">
       <Space size={5} />
       <div className={'flex__between'}>
         <h4 className="mute">{title}</h4>
@@ -17,7 +17,7 @@ const SubTitle: React.FC<SubTitleProps> = (props) => {
         )}
       </div>
       <Space size={2} />
-    </div>
+    </section>
   )
 }
 

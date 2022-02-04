@@ -55,7 +55,7 @@ const Footer: React.FC<Props> = ({}) => {
           <small>{Data.rights_text}</small>
           <div className={styles.privacy}>{__privacyList()}</div>
           <div className={styles.seals}>
-            <img src="/img/powered_by_stripe.svg" />
+            <img alt="stripe_payment_logo" src="/img/powered_by_stripe.svg" />
           </div>
         </div>
         <Space size={6} />

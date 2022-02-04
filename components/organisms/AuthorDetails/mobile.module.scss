@@ -1,0 +1,39 @@
+.wrapper {
+  opacity: 1;
+  position: fixed;
+  background: var(--c-white);
+  z-index: 9;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: calc(100% - 4.125rem);
+  overflow-y: scroll;
+}
+
+.titleWrapper {
+  padding: 1rem 0;
+}
+
+.filterActions {
+  position: sticky;
+  bottom: 0;
+  right: 0;
+  background: var(--c-white);
+  padding: var(--sp2) var(--sp3);
+  margin: 0 -1rem;
+}
+
+.refineSearchBtnWrap {
+  position: fixed;
+  bottom: 36vh;
+  z-index: 9;
+
+  right: 0;
+  background: var(--c-nut4);
+  box-shadow: var(--stage2);
+  border-radius: var(--radius-3) 0 0 var(--radius-3);
+
+  // [role="button"] {
+  //   box-shadow: var(--stage4);
+  // }
+}

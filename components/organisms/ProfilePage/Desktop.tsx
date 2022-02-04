@@ -1,16 +1,16 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
-import { useSession } from 'next-auth/client'
+import { useSession, signOut } from 'next-auth/react'
 import { IconLogout } from 'components/icons'
 import { Space, ActionItem, CheckBox, Input } from 'components/atoms'
 import { SelectTheme, SearchResultDensity } from 'components/molecules'
-import { signOut } from 'next-auth/client'
 import styles from './index.module.scss'
 
 type Props = {}
 
 const Desktop: React.FC<Props> = ({}) => {
-  const [session, loading] = useSession()
+  const { data: session, status } = useSession()
+  const loading = status === 'loading'
 
   return (
     <>
