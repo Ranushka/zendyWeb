@@ -33,6 +33,12 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
 
   React.useEffect(() => {
     const query = router.query && router.query.q
+    const queryAuthor = router.query && router.query.author
+
+    if (queryAuthor) {
+      setName(`author: ${queryAuthor.toString()}`)
+    }
+
     if (query) {
       setName(query.toString())
     }

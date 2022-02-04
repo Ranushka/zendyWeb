@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { ActionItem } from 'components/atoms'
 import styles from './index.module.scss'
 import classnames from 'classnames'
@@ -23,12 +24,15 @@ const CardCurated: React.FC<Props> = (props) => {
         )}
         style={style}
       >
-        <div
-          className={styles.curated__img}
-          style={{ backgroundImage: `url(${img})` }}
+        <Image
+          src={`/${img}`}
+          alt="Picture of the author"
+          placeholder="empty"
+          width={656}
+          height={400}
         />
         <div className={styles.curated__title}>
-          <h3>{title}</h3>
+          <div className="h3">{title}</div>
         </div>
         <div className={styles.curated__content}>
           <p>{content}</p>

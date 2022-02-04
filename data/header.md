@@ -3,7 +3,7 @@ login_btn_name: Login / Register
 nav_items:
   - label: Platform
     path: /platform
-  - label: Pricing
+  - label: Zendy Plus
     path: /pricing
   - label: News
     path: /news
@@ -49,7 +49,7 @@ mega_menu_items:
       - label: Primary Source Documents
         path: /primary_source_documents
       - label: Reports
-        path: reports
+        path: /reports
       - label: Reviews
         path: /reviews
 ---

@@ -16,7 +16,7 @@ const data = {
 export default class MyDocument extends Document {
   public render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
 

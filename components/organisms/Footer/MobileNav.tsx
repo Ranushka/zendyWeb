@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 import styles from './mobileNav.module.scss'
 import { useRouter } from 'next/router'
 import { MobileNaveItem } from 'components/atoms'
@@ -18,7 +18,7 @@ type Props = {}
 
 const MobileNav: React.FC<Props> = ({}) => {
   const router = useRouter()
-  const [session] = useSession()
+  const { data: session } = useSession()
 
   React.useEffect(() => {
     router.prefetch('/search')
