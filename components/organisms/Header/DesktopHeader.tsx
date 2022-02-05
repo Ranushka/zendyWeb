@@ -22,7 +22,7 @@ const DesktopHeader: React.FC = ({}) => {
         <section className="mw__6">
           <div className={'px__3 py__3 flex__center'}>
             <Logo flag className={'flex__center mw__1'} />
-            <Space />
+            <Space size={2} />
             <CategoriesMenu />
             {/* <ActionItem text={'Magazines'} href={'/magazines'} /> */}
             <div className="flex__left" />

@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { ActionItem } from 'components/atoms'
 import styles from './desktop.module.scss'
 import classnames from 'classnames'
@@ -15,9 +16,16 @@ const CardMagazine: React.FC<CardMagazineProps> = (props) => {
   return (
     <ActionItem href={href}>
       <div className={__finalClassNames}>
-        <div
+        {/* <div
           className={styles.magazine__img}
           style={{ backgroundImage: `url(${img})` }}
+        /> */}
+        <Image
+          src={`/${img}`}
+          alt="Picture of the author"
+          placeholder="empty"
+          width={208 * 2}
+          height={272 * 2}
         />
         <div className={styles.magazine__title}>
           <p>{title}</p>

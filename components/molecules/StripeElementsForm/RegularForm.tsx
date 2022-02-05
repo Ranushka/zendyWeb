@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import request from 'lib/request'
-import styles from './index.module.scss'
 import { Input, ActionItem, Price, Space } from 'components/atoms'
 import { DiscountCodeBlock, SecurityStripBlock } from 'components/molecules'
 import useDiscountCode from 'fetchHooks/useDiscountCode'
@@ -109,7 +108,7 @@ const RegularForm: React.FC<Props> = (props) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className={styles.wrapper}>
+      <form onSubmit={handleSubmit}>
         <fieldset className="block mw__2">
           <Input
             id="newPasswordConfirm"
@@ -142,7 +141,7 @@ const RegularForm: React.FC<Props> = (props) => {
           <DiscountCodeBlock />
           <Space size={4} />
         </fieldset>
-        <div className="stage__2 mw__2 py__4 px__4  bg__white rounded__1 block">
+        <div className="stage__2 mw__2 py__4 px__4 bg__white rounded__1 block">
           {data && data.percent_off && (
             <div className="py__3 pt__0 flex__center mute">
               <p>Coupon discount</p>

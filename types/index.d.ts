@@ -6,7 +6,7 @@ export interface SearchResultItemProps {
   journal: string
   year: string
   author: []
-  keywords: [string]
+  keywords: string
   subjects: [string]
   link: []
   isReviewed?: boolean

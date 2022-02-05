@@ -1,80 +1,55 @@
 {
+  "name": "Zendy - Your premium research partner.",
   "short_name": "Zendy",
-  "name": "Zendy research.",
+  "description": "Zendy plus powered by aggregating content from world renowned publishers and their premium content, Our subscription helps to take your research to next level and keep you up to date with information.",
   "lang": "en",
-  "description": "One stop premium research tool.",
   "start_url": "/",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#FAFCFE",
+  "theme_color": "#E36B1F",
   "dir": "auto",
   "display": "standalone",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/icons/android-icon-192x192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
     },
     {
-      "src": "/icons/apple-icon-180x180.png",
-      "type": "image/png",
-      "sizes": "180x180"
+      "src": "icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
     },
     {
-      "src": "/icons/apple-icon-152x152.png",
-      "type": "image/png",
-      "sizes": "152x152"
+      "src": "icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
     },
     {
-      "src": "/icons/apple-icon-144x144.png",
-      "type": "image/png",
-      "sizes": "144x144"
+      "src": "icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
     },
     {
-      "src": "/icons/apple-icon-120x120.png",
-      "type": "image/png",
-      "sizes": "120x120"
+      "src": "icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
     },
     {
-      "src": "/icons/apple-icon-114x114.png",
-      "type": "image/png",
-      "sizes": "114x114"
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "purpose": "any maskable",
+      "type": "image/png"
     },
     {
-      "src": "/icons/favicon-96x96.png",
-      "type": "image/png",
-      "sizes": "96x96"
+      "src": "icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
     },
     {
-      "src": "/icons/apple-icon-76x76.png",
-      "type": "image/png",
-      "sizes": "76x76"
-    },
-    {
-      "src": "/icons/apple-icon-72x72.png",
-      "type": "image/png",
-      "sizes": "72x72"
-    },
-    {
-      "src": "/icons/apple-icon-60x60.png",
-      "type": "image/png",
-      "sizes": "60x60"
-    },
-    {
-      "src": "/icons/apple-icon-57x57.png",
-      "type": "image/png",
-      "sizes": "57x57"
-    },
-    {
-      "src": "/icons/favicon-32x32.png",
-      "type": "image/png",
-      "sizes": "32x32"
-    },
-    {
-      "src": "/icons/favicon-16x16.png",
-      "type": "image/png",
-      "sizes": "16x16"
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
-  ],
-  "prefer_related_applications": false
+  ]
 }

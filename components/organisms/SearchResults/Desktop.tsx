@@ -1,12 +1,14 @@
 import React from 'react'
 import classnames from 'classnames'
 import Mark from 'mark.js'
+import get from 'lodash/get'
 import { SearchResultItem } from 'components/molecules'
 import { Space, ActionItem } from 'components/atoms'
 import { IconArrowDown } from 'components/icons'
 import styles from './desktop.module.scss'
 import useSearchResults from 'fetchHooks/useSearchResults'
-import useAuthorDetails from 'fetchHooks/useAuthorDetails'
+
+// import useAuthorDetails from 'fetchHooks/useAuthorDetails'
 import Skeleton from 'react-loading-skeleton'
 
 const SearchResultActions = () => {
@@ -66,9 +68,10 @@ const __resultData = () => {
   if (!data) {
     return __searchResultLoading()
   }
+  const searchResults = get(data, 'data.searchResults', null)
 
-  if (data.results && data.results.length) {
-    return <ResultsWithData results={data.results} />
+  if (searchResults) {
+    return <ResultsWithData {...searchResults} />
   }
 
   return __noResultData()
@@ -89,7 +92,6 @@ const ResultsWithData: React.FC<any> = ({ results }) => {
 
   return (
     <div ref={searchResultContainer}>
-      {/* {__KeywordsList(keywords)} */}
       {results.map((data, id) => {
         return <SearchResultItem {...data} key={`searchResult${id}`} />
       })}

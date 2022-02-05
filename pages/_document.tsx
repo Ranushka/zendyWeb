@@ -25,6 +25,7 @@ export default class MyDocument extends Document {
 
           <meta name="application-name" content={data.applicationName} />
           <meta name="apple-mobile-web-app-capable" content="yes" />
+          <link rel="apple-touch-icon" href="/icons/icon-192x192.png"></link>
 
           <meta name="description" content="Best PWA App in the world" />
           <meta name="format-detection" content="telephone=no" />
