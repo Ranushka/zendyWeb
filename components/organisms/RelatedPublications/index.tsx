@@ -14,7 +14,7 @@ const RelatedPublications: NextPage<any> = () => {
           journal="abc title"
           year="2020"
           author={[]}
-          keywords={['keyword']}
+          keywords={'keyword'}
           subjects={['subject']}
           link={[]}
           title="Platform Competition in the Sharing Economy: Understanding How Ride-Hailing Services Influence New Car Purchases."
@@ -27,7 +27,7 @@ const RelatedPublications: NextPage<any> = () => {
           journal="abc title"
           year="2020"
           author={[]}
-          keywords={['keyword']}
+          keywords={'keyword'}
           subjects={['subject']}
           link={[]}
           title="Platform Competition in the Sharing Economy: Understanding How Ride-Hailing Services Influence New Car Purchases."
@@ -40,7 +40,7 @@ const RelatedPublications: NextPage<any> = () => {
           journal="abc title"
           year="2020"
           author={[]}
-          keywords={['keyword']}
+          keywords={'keyword'}
           subjects={['subject']}
           link={[]}
           title="Platform Competition in the Sharing Economy: Understanding How Ride-Hailing Services Influence New Car Purchases."
@@ -53,7 +53,7 @@ const RelatedPublications: NextPage<any> = () => {
           journal="abc title"
           year="2020"
           author={[]}
-          keywords={['keyword']}
+          keywords={'keyword'}
           subjects={['subject']}
           link={[]}
           title="Platform Competition in the Sharing Economy: Understanding How Ride-Hailing Services Influence New Car Purchases."

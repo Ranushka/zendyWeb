@@ -1,8 +1,7 @@
 .switchWrapper {
   display: flex;
   align-items: center;
-  max-width: var(--mw1);
-  margin-bottom: var(--sp3);
+  max-width: var(--mw2);
 
   input {
     & + label {

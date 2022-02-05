@@ -1,5 +1,16 @@
-import fetch from 'lib/request'
+import useSWR from 'swr'
+import { useRouter } from 'next/router'
 import { tempPublicationUrl } from 'lib/helpers'
+
+const fetcher = (url) => {
+  return fetch(url)
+    .then((res) => {
+      return res.json()
+    })
+    .then((data) => {
+      return __processData(data)
+    })
+}
 
 const __makeItRand = () => Math.random() >= 0.5
 
@@ -35,12 +46,13 @@ const __processData = (data) => {
   return { ...data, results, keywords }
 }
 
-export default async function searchResults(query) {
-  const data = await fetch(`https://api.staging-oa.zendy.io/search/oa/search${query}`)
+const useSearchResults = () => {
+  const router = useRouter()
+  const queryString: any = router.query.q || router.query.author
 
-  if (data) {
-    return __processData(data)
-  }
+  const url = `https://doaj.org/api/v1/search/articles/${queryString}`
 
-  return null
+  return useSWR(url, fetcher)
 }
+
+export default useSearchResults

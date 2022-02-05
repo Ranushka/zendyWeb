@@ -15,13 +15,12 @@ const GetStartedWithUs: React.FC<Props> = ({}) => {
         //   backgroundSize: 'cover',
         // }}
         className={
-          'relative stage__4 rounded__2 text__center bg__white px__3 py__5'
+          'relative stage__2 rounded__2 text__center bg__white px__3 py__5'
           // 'relative stage__4 rounded__2 text__center bg__white px__3 py__5'
         }
       >
         <Image
           placeholder="empty"
-          // blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB4PSIyIiB5PSIyIiB3aWR0aD0iMjk2IiBoZWlnaHQ9IjI5NiIgc3R5bGU9ImZpbGw6I2RlZGVkZTtzdHJva2U6IzU1NTU1NTtzdHJva2Utd2lkdGg6MiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LXNpemU9IjE4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBhbGlnbm1lbnQtYmFzZWxpbmU9Im1pZGRsZSIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSwgc2Fucy1zZXJpZiIgZmlsbD0iIzU1NTU1NSI+Y2FyPC90ZXh0Pjwvc3ZnPg=="
           objectFit="cover"
           className="rounded__2"
           layout="fill"

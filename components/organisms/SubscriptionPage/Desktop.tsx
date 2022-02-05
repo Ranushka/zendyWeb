@@ -18,14 +18,22 @@ const Desktop: React.FC<{}> = ({}) => {
       <Space size={5} />
       <div dangerouslySetInnerHTML={{ __html: Data.title }} />
       <Space size={4} />
-      <div className="flex__center mw__3">
+      <div className="flex__center mw__3 py__2">
         <Switch
           id="selectPlan"
           name="selectPlan"
           checked={plan}
           onChange={__onChange}
-          leftLabel={<strong>{Data.planTypes.monthly.name}</strong>}
-          rightLabel={<strong>{Data.planTypes.yearly.name}</strong>}
+          leftLabel={
+            <strong className={`h3 px__2 ${!plan && 'mute'}`}>
+              {Data.planTypes.monthly.name}
+            </strong>
+          }
+          rightLabel={
+            <strong className={`h3 px__2 ${plan && 'mute'}`}>
+              {Data.planTypes.yearly.name}
+            </strong>
+          }
         />
       </div>
 

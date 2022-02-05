@@ -1,4 +1,3 @@
-import classnames from 'classnames'
 import styles from './index.module.scss'
 
 type Props = {
