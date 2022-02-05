@@ -6,6 +6,7 @@ import 'styles/nprogress.scss'
 import 'styles/stripe.scss'
 import 'styles/actionItems.scss'
 import 'styles/utils.scss'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 import React from 'react'
 import Head from 'next/head'

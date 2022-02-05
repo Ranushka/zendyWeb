@@ -5,7 +5,6 @@ import get from 'lodash/get'
 import { SearchResultItem } from 'components/molecules'
 import { Space, ActionItem } from 'components/atoms'
 import { IconArrowDown } from 'components/icons'
-import styles from './desktop.module.scss'
 import useSearchResults from 'fetchHooks/useSearchResults'
 
 // import useAuthorDetails from 'fetchHooks/useAuthorDetails'
