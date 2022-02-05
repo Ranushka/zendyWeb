@@ -5,8 +5,8 @@ about_text: We help you to broaden your research horizons and we help you to
 rights_text: All Rights Reserved with Knowledge E © 2020.
 explore_title: Explore
 explore_list:
-  - label: Upgrade
-    path: /upgrade
+  - label: Zendy Plus
+    path: /pricing
   - label: FAQs
     path: /faq
   - label: Contact

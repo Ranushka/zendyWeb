@@ -1,15 +1,89 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 // import PhoneInput from 'react-phone-number-input'
 import classnames from 'classnames'
 import { IconSocialLinkedIn } from 'components/icons'
-import { ActionItem, Space, Logo } from 'components/atoms'
+import { ActionItem, Space, Logo, Input } from 'components/atoms'
+
 import Head from 'next/head'
 import { signIn } from 'next-auth/react'
 import styles from './index.module.scss'
 
-type Props = {}
+const onSubmitSignUp = async (values) => {
+  const res = await signIn('credentials', {
+    redirect: false,
+    email: values.email,
+    password: values.password,
+    callbackUrl: `${window.location.origin}`,
+  })
 
-const Authenticate: React.FC<Props> = ({}) => {
+  if (res?.error) {
+    console.log('custom credtials fail')
+    // setError(res.error)
+  }
+
+  console.log('custom credtials Success', res)
+}
+
+const EmailAndPassword: React.FC<{}> = ({}) => {
+  const [formData, setFormData] = React.useState({
+    email: '',
+    password: '',
+  })
+
+  const onSubmitForm = (e) => {
+    e.preventDefault()
+    onSubmitSignUp(formData)
+  }
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.name
+    const value = e.target.value
+
+    setFormData({ ...formData, [name]: value })
+  }
+
+  return (
+    <form onSubmit={onSubmitForm}>
+      <Input
+        id="email"
+        name="email"
+        label={'Your Email'}
+        type="text"
+        value={formData.email}
+        onChange={onChange}
+        autoFocus
+        required
+      />
+      <Input
+        id="password"
+        name="password"
+        label={'New password'}
+        type="password"
+        value={formData.password}
+        onChange={onChange}
+        required
+      />
+      <Space size={3} />
+      <div className="flex">
+        {/* <ActionItem
+          text={'Login'}
+          type="btn__primary"
+          block
+          onClick={() => {
+            console.log('sdasd')
+          }}
+        /> */}
+        <input
+          className="btn__primary block pointer"
+          type="submit"
+          value="Submit"
+        />
+      </div>
+      <Space size={4} />
+    </form>
+  )
+}
+const Authenticate: React.FC<{}> = ({}) => {
   const [value, setValue] = React.useState()
 
   return (
@@ -27,8 +101,11 @@ const Authenticate: React.FC<Props> = ({}) => {
             <h2>Login / Register</h2>
             <Space size={4} />
           </div>
-          <p>Your phone number</p>
-          <Space size={1} />
+
+          <EmailAndPassword />
+          {/* <p>Your phone number</p>
+          <Space size={1} /> */}
+
           {/* <PhoneInput
             international
             defaultCountry="AE"
@@ -38,7 +115,7 @@ const Authenticate: React.FC<Props> = ({}) => {
             value={value}
             onChange={setValue}
           /> */}
-          <Space size={3} />
+          {/* <Space size={3} />
           <div className="flex">
             <ActionItem
               text={'Login / Register'}
@@ -46,7 +123,7 @@ const Authenticate: React.FC<Props> = ({}) => {
               type="btn__primary"
               block
             />
-          </div>
+          </div> */}
           <Space size={4} />
           <small className="block text__center mute">---- or ----</small>
           <Space size={4} />

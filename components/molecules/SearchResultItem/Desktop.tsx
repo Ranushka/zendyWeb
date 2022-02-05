@@ -55,8 +55,8 @@ const __renderContentType = (title, journal, year) => {
       <strong className="color__nut7 small">Journal - {year}</strong>
       <ActionItem
         className="px__2"
-        text={title}
-        href={`/search?q=${journal.title}`}
+        text={<span dangerouslySetInnerHTML={{ __html: title }} />}
+        // href={`/search?q=${journal.title}`}
         type="link__small"
       />
     </div>
@@ -100,12 +100,13 @@ const __renderAuthors = (authors: []) => {
   )
 }
 
-const __renderKeywords = (keywords: [string]) => {
+const __renderKeywords = (keywords: string) => {
   return (
     keywords && (
       <div className="py__1">
         <small className="px__2 pl__0 mute">keywords - </small>
         {keywords
+          .split(',')
           .map<React.ReactNode>((name, id) => (
             <ActionItem key={id} text={name} href={'/'} type="link__small" />
           ))

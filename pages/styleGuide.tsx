@@ -311,7 +311,7 @@ export default function Home() {
           journal="abc title"
           year="2020"
           author={[]}
-          keywords={['key']}
+          keywords={'key'}
           subjects={['subject']}
           link={[]}
           title="Platform Competition in the Sharing Economy: Understanding How Ride-Hailing Services Influence New Car Purchases."
