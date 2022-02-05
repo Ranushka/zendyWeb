@@ -23,11 +23,11 @@ const DesktopHeader: React.FC = ({}) => {
           <div className={'px__3 py__3 flex__center'}>
             <Logo flag className={'flex__center mw__1'} />
             <Space size={2} />
-            <CategoriesMenu />
-            {/* <ActionItem text={'Magazines'} href={'/magazines'} /> */}
             <div className="flex__left" />
+            <CategoriesMenu />
             <NavItems />
-            {loading ? <Skeleton height={48} width={60} /> : btnGuestOrUser}
+            <div className="flex__left" />
+            {loading ? <Skeleton height={48} width={158} /> : btnGuestOrUser}
           </div>
         </section>
       </header>

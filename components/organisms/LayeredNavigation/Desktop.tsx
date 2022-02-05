@@ -1,7 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import classnames from 'classnames'
+import Skeleton from 'react-loading-skeleton'
+import get from 'lodash/get'
 import styles from './desktop.module.scss'
 
+import useSearchResults from 'fetchHooks/useSearchResults'
+import labelMapping from 'data/labelMapping'
 import { Space, CheckBox, ActionItem } from 'components/atoms'
 import { IconSavedSearch } from 'components/icons'
 import { ReadMore } from 'components/molecules'
@@ -29,22 +33,61 @@ const LayeredNavigationActions = () => {
 
 const FilterItems = (items) => {
   return items.map((item, id) => (
-    <CheckBox key={id} id={item.id} name={item.name} label={item.name} />
+    <CheckBox
+      className="py__1"
+      key={id}
+      id={item.id}
+      name={item.facetLabel}
+      label={labelMapping(item.facetLabel)}
+    />
   ))
 }
 
-const FilterGroups = (items) => {
-  return items.map((item, id) => {
+const __searchResultLoading = () => {
+  return [1, 2, 3].map((id) => (
+    <article key={'skeletonSearchResult' + id} className="mw__4 ml__0">
+      <Space size={3} />
+      <Skeleton height={30} />
+      <Space size={2} />
+      <div className="flex">
+        <Skeleton height={10} width={60} />
+        <Space size={4} />
+        <Skeleton height={10} width={60} />
+      </div>
+      <Space size={2} />
+      <Skeleton count={5} />
+      <Space size={2} />
+      <div className="flex">
+        <Skeleton height={10} width={60} />
+        <Space size={4} />
+        <Skeleton height={10} width={60} />
+        <Space size={4} />
+        <Skeleton height={10} width={60} />
+      </div>
+      <Space size={5} />
+    </article>
+  ))
+}
+
+const FilterGroups = () => {
+  const { data } = useSearchResults()
+
+  if (!data) {
+    return __searchResultLoading()
+  }
+  const availableFacets = get(data, 'data.searchResults.availableFacets', null)
+
+  return availableFacets.map((item, id) => {
     const accordionContent = (
       <div>
         <Space size={2} />
-        {FilterItems(item.items)}
+        {FilterItems(item.facets)}
       </div>
     )
 
     return (
       <div key={id}>
-        <h5 className="color__nut6">{item.title}</h5>
+        <h5 className="color__nut6">{labelMapping(item.categoryLabel)}</h5>
         <ReadMore height={208} id={id} content={accordionContent} />
         <Space size={3} />
       </div>
@@ -59,59 +102,10 @@ const LayeredNavigation: React.FC<Props> = ({}) => {
         {LayeredNavigationActions()}
         {LayeredNavigationTitle()}
         <Space size={3} />
-        {FilterGroups(data)}
+        {FilterGroups()}
       </section>
     </>
   )
 }
 
 export default LayeredNavigation
-
-const data = [
-  {
-    title: 'Filter Title',
-    items: [
-      { id: 'fill0', name: 'some name', amount: '10k' },
-      { id: 'fill1', name: 'other name', amount: '10k' },
-      { id: 'fill2', name: 'totally deferent', amount: '10k' },
-      { id: 'fill3', name: 'same name name', amount: '10k' },
-      { id: 'fill4', name: 'deferent name', amount: '10k' },
-    ],
-  },
-  {
-    title: 'Filter Title',
-    items: [
-      { id: 'fill5', name: 'some name', amount: '10k' },
-      { id: 'fill6', name: 'other name', amount: '10k' },
-      { id: 'fill62', name: 'other name', amount: '10k' },
-      { id: 'fill7', name: 'totally deferent', amount: '10k' },
-      { id: 'fill7', name: 'totally deferent', amount: '10k' },
-      { id: 'fill82', name: 'same name name', amount: '10k' },
-      { id: 'fill83', name: 'same name name', amount: '10k' },
-      { id: 'fill9', name: 'deferent name', amount: '10k' },
-      { id: 'fill91', name: 'deferent name', amount: '10k' },
-      { id: 'fill92', name: 'deferent name', amount: '10k' },
-      { id: 'fill93', name: 'deferent name', amount: '10k' },
-    ],
-  },
-  {
-    title: 'Filter Title',
-    items: [
-      { id: 'fill10', name: 'some name', amount: '10k' },
-      { id: 'fill11', name: 'other name', amount: '10k' },
-      { id: 'fill12', name: 'totally deferent', amount: '10k' },
-      { id: 'fill13', name: 'same name name', amount: '10k' },
-      { id: 'fill14', name: 'deferent name', amount: '10k' },
-    ],
-  },
-  {
-    title: 'Filter Title',
-    items: [
-      { id: 'fill15', name: 'some name', amount: '10k' },
-      { id: 'fill16', name: 'other name', amount: '10k' },
-      { id: 'fill17', name: 'totally deferent', amount: '10k' },
-      { id: 'fill18', name: 'same name name', amount: '10k' },
-      { id: 'fill19', name: 'deferent name', amount: '10k' },
-    ],
-  },
-]
