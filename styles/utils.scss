@@ -124,7 +124,7 @@ Container
   max-width: var(--mw6);
 }
 */
-$maxWidths: 6;
+$maxWidths: 7;
 
 @mixin maxWidthList {
   @for $a from 1 through $maxWidths {
