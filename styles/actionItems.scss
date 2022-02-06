@@ -145,6 +145,11 @@ Links
   align-items: center;
   justify-content: center;
   border-radius: 100%;
+
+  &:active {
+    transform: var(--scale1);
+    background-color: var(--c-nut2);
+  }
 }
 
 .fab {

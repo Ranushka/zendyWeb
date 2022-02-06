@@ -85,6 +85,10 @@
 /* 
   Radius
 */
+.rounded {
+  border-radius: 100px;
+}
+
 .rounded__1 {
   border-radius: var(--radius-1);
 }

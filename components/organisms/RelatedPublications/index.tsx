@@ -13,6 +13,8 @@ const RelatedPublications: NextPage<any> = () => {
           href={'/'}
           journal="abc title"
           year="2020"
+          downloadLink="/"
+          permanentLinkId="uid"
           author={[]}
           keywords={'keyword'}
           subjects={['subject']}
@@ -26,6 +28,8 @@ const RelatedPublications: NextPage<any> = () => {
           href={'/'}
           journal="abc title"
           year="2020"
+          downloadLink="/"
+          permanentLinkId="uid"
           author={[]}
           keywords={'keyword'}
           subjects={['subject']}
@@ -39,6 +43,8 @@ const RelatedPublications: NextPage<any> = () => {
           href={'/'}
           journal="abc title"
           year="2020"
+          downloadLink="/"
+          permanentLinkId="uid"
           author={[]}
           keywords={'keyword'}
           subjects={['subject']}
@@ -52,6 +58,8 @@ const RelatedPublications: NextPage<any> = () => {
           href={'/'}
           journal="abc title"
           year="2020"
+          downloadLink="/"
+          permanentLinkId="uid"
           author={[]}
           keywords={'keyword'}
           subjects={['subject']}
