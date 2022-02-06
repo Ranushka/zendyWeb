@@ -1,7 +1,7 @@
 import React from 'react'
 import { ActionItem } from 'components/atoms'
 import classnames from 'classnames'
-import styles from './index.module.scss'
+// import styles from './index.module.scss'
 
 type Props = {
   icon?: React.ReactNode
@@ -15,8 +15,8 @@ const BtnFab: React.FC<Props> = (props) => {
   const { href = '#', icon, small, onClick, classNames } = props
 
   const className = classnames(
-    styles.fab,
-    small && styles.fab__small,
+    'fab',
+    small && 'fab__small',
     classNames && classNames
   )
 

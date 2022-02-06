@@ -1,6 +1,5 @@
 import React from 'react'
 import classnames from 'classnames'
-import Mark from 'mark.js'
 import useSearchResults from 'fetchHooks/useSearchResults'
 import Skeleton from 'react-loading-skeleton'
 import styles from './mobile.module.scss'
@@ -103,20 +102,9 @@ const ResultsWithData: React.FC<any> = () => {
   const {
     data: { keywords, results },
   } = useSearchResults()
-  const searchResultContainer = React.useRef()
-
-  React.useEffect(() => {
-    let mainSearch = document.getElementById('mainSearch') as HTMLInputElement
-    let mainSearchValue = mainSearch.value
-
-    if (mainSearchValue) {
-      var markInstance = new Mark(searchResultContainer.current)
-      markInstance.mark(mainSearchValue)
-    }
-  }, [results])
 
   return (
-    <div ref={searchResultContainer}>
+    <div>
       {__KeywordsList(keywords)}
       {results.map((data, id) => {
         return <SearchResultItem {...data} key={`searchResult${id}`} />

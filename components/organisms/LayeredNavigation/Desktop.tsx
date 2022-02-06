@@ -13,11 +13,23 @@ import { ReadMore } from 'components/molecules'
 type Props = {}
 
 const LayeredNavigationTitle = () => {
+  const { data } = useSearchResults()
+
+  if (!data) {
+    return __layeredNavigationTitleLoading()
+  }
+
+  const totalResults = get(data, 'data.searchResults.totalResults', null)
+  let totalResultsFormated = new Intl.NumberFormat('en-GB', {
+    notation: 'compact',
+    compactDisplay: 'short',
+  }).format(totalResults)
+
   return (
     <div className="flex flex__center">
       <h3 className="mute">Narrow by</h3>
       <div className="flex__left" />
-      <small className="mute"> 30K Results</small>
+      <small className="mute"> {totalResultsFormated}+ Results</small>
     </div>
   )
 }
@@ -43,37 +55,33 @@ const FilterItems = (items) => {
   ))
 }
 
-const __searchResultLoading = () => {
-  return [1, 2, 3].map((id) => (
+const __searchFiltersLoading = () => {
+  return [1, 2, 3, 4].map((id) => (
     <article key={'skeletonSearchResult' + id} className="mw__4 ml__0">
       <Space size={3} />
       <Skeleton height={30} />
       <Space size={2} />
-      <div className="flex">
-        <Skeleton height={10} width={60} />
-        <Space size={4} />
-        <Skeleton height={10} width={60} />
-      </div>
+      <Skeleton height={14} count={8} />
       <Space size={2} />
-      <Skeleton count={5} />
-      <Space size={2} />
-      <div className="flex">
-        <Skeleton height={10} width={60} />
-        <Space size={4} />
-        <Skeleton height={10} width={60} />
-        <Space size={4} />
-        <Skeleton height={10} width={60} />
-      </div>
-      <Space size={5} />
     </article>
   ))
+}
+
+const __layeredNavigationTitleLoading = () => {
+  return (
+    <div className="flex">
+      <Skeleton height={10} width={180} />
+      <Space size={4} />
+      <Skeleton height={10} width={60} />
+    </div>
+  )
 }
 
 const FilterGroups = () => {
   const { data } = useSearchResults()
 
   if (!data) {
-    return __searchResultLoading()
+    return __searchFiltersLoading()
   }
   const availableFacets = get(data, 'data.searchResults.availableFacets', null)
 

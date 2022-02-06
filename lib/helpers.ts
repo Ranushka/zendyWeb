@@ -1,13 +1,27 @@
-export const tempPublicationUrl = (name: string, id: string) => {
-  let res = name && name.replace(/[^A-Z0-9]/gi, '_')
+export const genarateTitleUrlPath = (name: string, id: string) => {
+  /* 
+    Replace all underscores
+    Replace non A-Z with underscores
+    get only 60 carctors
+    remove duplicate underscore
 
-  res = `${res}_${id}`
+    remove forverd slash with underscore
 
-  return res
+    join id with title by star
+  */
+
+  let res = name && name.replace(/[^a-zA-Z]/g, "_").replace(/_+/g, '_').substring(0,60);
+  let newId = id && id.replace('/', '_')
+
+  return `${res}*${newId}`
 }
 
 export const getPublicationId = (id: string) => {
-  const pubId = id.split('_').pop()
+  /* 
+    get the id by spliting url by star
+    remove underscore with slash unicode %2F = /
+  */
+  const pubId = id.split('*').pop().replace('_', '%2F')
 
   return pubId
 }
@@ -51,17 +65,6 @@ export const lockBody = (state: boolean) => {
   $body.style.removeProperty('width')
   // window.scrollTo(0, scrollPosition);
 }
-
-// export const lockBody = (state: boolean) => {
-//   if (state) {
-//     document.body.classList.add("noScroll");
-//     document.getElementsByTagName("html")[0].classList.add("noScroll");
-//     return;
-//   }
-
-//   document.body.classList.remove("noScroll");
-//   document.getElementsByTagName("html")[0].classList.remove("noScroll");
-// };
 
 export const clickVibrate = () => {
   if (window && window.navigator && window.navigator.vibrate) {

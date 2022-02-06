@@ -310,6 +310,8 @@ export default function Home() {
           href={'/'}
           journal="abc title"
           year="2020"
+          downloadLink="/"
+          permanentLinkId="uid"
           author={[]}
           keywords={'key'}
           subjects={['subject']}

@@ -12,35 +12,33 @@ import {
   FeaturedChip,
 } from 'components/atoms'
 import { IconCite, IconBookmark, IconLink } from 'components/icons'
+import { genarateTitleUrlPath } from 'lib/helpers'
 
-const __renderChips = (isReviewed, isReferenced) => {
-  if (!isReviewed && !isReferenced) return
+// const __renderChips = (isReviewed, isReferenced) => {
+//   if (!isReviewed && !isReferenced) return
 
-  return (
-    <div className={'pull__l1'}>
-      {isReviewed && <FeaturedChip type={'reviewed'} />}
-      {isReferenced && <FeaturedChip type={'referenced'} />}
-    </div>
-  )
-}
+//   return (
+//     <div className={'pull__l1'}>
+//       {isReviewed && <FeaturedChip type={'reviewed'} />}
+//       {isReferenced && <FeaturedChip type={'referenced'} />}
+//     </div>
+//   )
+// }
 
-const __renderTitle = (props) => {
-  const {
-    id,
-    title = '',
-    href = '/',
-    isReviewed = true,
-    isReferenced = true,
-  } = props
+const __renderTitle = (title = '', permanentLinkId) => {
+  const titleId = genarateTitleUrlPath(title, permanentLinkId)
 
   return (
     <div className="first_letter_caps py__2 pt__0">
-      <CheckBox className={'my__1 pull__l4 absolute'} id={'it_id' + id} />
+      <CheckBox
+        className={'my__1 pull__l4 absolute'}
+        id={'it_id' + permanentLinkId}
+      />
 
       <ActionItem
         text={striptags(title.toString())}
         href="/title/[id]"
-        as={`/title/${href}`}
+        as={`/title/${titleId}`}
         type="link__title"
         className="block__inline"
       />
@@ -131,7 +129,7 @@ const __renderSubjects = (keywords: [string]) => {
   )
 }
 
-const __renderActions = (link: [], id) => {
+const __renderActions = (link: [], id, downloadLink: string) => {
   const href = get(link, '[0].url')
 
   return (
@@ -144,7 +142,12 @@ const __renderActions = (link: [], id) => {
         </div>
       </div>
       <Space size={3} />
-      <ActionItem text={'Download'} href={'#'} type="btn__secondary" block />
+      <ActionItem
+        text={'Download'}
+        onClick={() => window.open(downloadLink)}
+        type="btn__secondary"
+        block
+      />
       <Space size={3} />
       <ActionItem
         text={'⠀⠀Read⠀⠀'}
@@ -157,27 +160,27 @@ const __renderActions = (link: [], id) => {
   )
 }
 
-const CardCurated: React.FC<SearchResultItemProps> = (props) => {
-  const {
-    id,
-    href,
-    title,
-    abstract,
-    journal,
-    year,
-    author,
-    keywords,
-    link,
-    isReviewed,
-    isReferenced,
-    subjects,
-  } = props
-
+const CardCurated: React.FC<SearchResultItemProps> = ({
+  id,
+  href,
+  title,
+  abstract,
+  journal,
+  year,
+  author,
+  keywords,
+  link,
+  downloadLink,
+  permanentLinkId,
+  isReviewed,
+  isReferenced,
+  subjects,
+}) => {
   return (
     <article>
       <div className="flex__center py__3">
         <section className="mw__3 ml__0 mr__0 block">
-          {__renderTitle({ id, title, href, isReviewed, isReferenced })}
+          {__renderTitle(title, permanentLinkId)}
           {__renderContentType(title, journal, year)}
           {abstract && __renderAbstract(abstract)}
           {keywords && __renderKeywords(keywords)}
@@ -185,7 +188,7 @@ const CardCurated: React.FC<SearchResultItemProps> = (props) => {
           {author && __renderAuthors(author)}
         </section>
 
-        {__renderActions(link, id)}
+        {__renderActions(link, id, downloadLink)}
       </div>
     </article>
   )
