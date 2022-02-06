@@ -12,7 +12,7 @@
 .searchInput {
   width: 100%;
   border-radius: 4rem;
-  padding-left: var(--sp4);
+  padding-left: 4rem;
   padding-right: var(--sp5);
   line-height: 3rem;
   border: 0;
@@ -43,11 +43,20 @@
   display: inline-flex;
   position: absolute;
   // right: 1rem;
-  right: 0.2rem;
+  right: 0;
 
   a,
   div {
     cursor: pointer;
     background-color: transparent;
   }
+}
+
+.searchBtn {
+  width: 4rem;
+}
+
+.searchAdvancedBtn {
+  width: 4rem;
+  color: var(--c-nut6);
 }

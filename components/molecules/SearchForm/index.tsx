@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import classnames from 'classnames'
 import { useRouter } from 'next/router'
 import styles from './index.module.scss'
-import { ButtonFab, Space } from 'components/atoms'
-import { IconSearch, IconClear } from 'components/icons'
+import { ButtonFab } from 'components/atoms'
+import { IconSearch, IconClear, IconAdvanceSearch } from 'components/icons'
 import DeviceTypeContext from 'context/DeviceTypeContext'
 import { attributes as Data } from 'data/header.md'
 
@@ -46,6 +46,13 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
 
   return (
     <form className="block relative" onSubmit={handleSubmit}>
+      <div className="absolute">
+        <ButtonFab
+          href="/search"
+          icon={<IconSearch />}
+          classNames={'rounded ' + styles.searchBtn}
+        />
+      </div>
       <input
         id={id}
         name="search_term_string"
@@ -63,7 +70,11 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
       <div className={styles.actions}>
         {name && <ButtonFab icon={<IconClear />} onClick={clearInput} />}
         <div className={styles.separator} />
-        <ButtonFab href="/search" icon={<IconSearch />} classNames={'mx__2'} />
+        <ButtonFab
+          href="/search"
+          icon={<IconAdvanceSearch />}
+          classNames={'rounded ' + styles.searchAdvancedBtn}
+        />
       </div>
     </form>
   )

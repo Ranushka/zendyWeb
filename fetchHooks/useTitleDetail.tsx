@@ -2,26 +2,17 @@ import useSWR from 'swr'
 import { useRouter } from 'next/router'
 import { getPublicationId } from 'lib/helpers'
 
-const fetcher = (url) =>
-  fetch(url)
-    .then((res) => {
-      return res.json()
-    })
-    .then((data) => {
-      const dataOptions = data.bibjson
-
-      // if (dataOptions.author) {
-      //   dataOptions.author = dataOptions.author.flatMap((item) => item.name);
-      // }
-
-      return dataOptions
-    })
+const fetcher = (url: string) => {
+  return fetch(url).then((res) => {
+    return res.json()
+  })
+}
 
 const useTitleDetail = () => {
   const router = useRouter()
   const queryId = router.query.id.toString()
-  const article_id = getPublicationId(queryId)
-  const url = `https://doaj.org/api/v1/articles/${article_id}`
+  const publicatonId = getPublicationId(queryId)
+  const url = `https://api.staging-oa.zendy.io/search/oa/permanent-link/${publicatonId}`
 
   return useSWR(url, fetcher)
 }

@@ -37,14 +37,8 @@ const DesktopHeader: React.FC = ({}) => {
       >
         <section className="mw__6">
           <Space size={2} />
-          <div className="flex flex__center px__3 mw__5">
+          <div className="flex flex__center px__3 mw__4">
             <SearchForm id="mainSearch" />
-            <Space />
-            <ActionItem
-              className="flex__shrink"
-              text={t.advanced_search}
-              href={'/advanced_search'}
-            />
           </div>
           <Space size={2} />
         </section>

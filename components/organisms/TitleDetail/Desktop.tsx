@@ -74,12 +74,27 @@ const __renderAuthors = (authors: []) => {
   )
 }
 
-const __renderKeywords = (keywords: []) => {
+const __renderKeywords = (keywords: string) => {
   return (
     keywords && (
       <div className="py__2">
         <span className="mute">keywords </span>
         {keywords
+          .split(',')
+          .map<React.ReactNode>((name, id) => (
+            <ActionItem key={id} text={name} href={'/'} />
+          ))
+          .reduce((prev, curr) => [prev, ', ', curr])}
+      </div>
+    )
+  )
+}
+const __renderSubjects = (subjects: []) => {
+  return (
+    subjects && (
+      <div className="py__2">
+        <span className="mute">Subjects </span>
+        {subjects
           .map<React.ReactNode>((name, id) => (
             <ActionItem key={id} text={name} href={'/'} />
           ))
@@ -107,34 +122,76 @@ const __renderHead = () => {
   )
 }
 
-const __renderContent = (props) => {
-  const { title, author, year, abstract, keywords, journal, link } = props
-  const href = get(link, '[0].url')
+const __renderContent = ({
+  abstract,
+  authors,
+  doi,
+  downloadLink,
+  eISSN,
+  hIndex,
+  header,
+  isActiveSubscription,
+  isOpenAccess,
+  isPreview,
+  isbn,
+  issn,
+  issue,
+  journalTitle,
+  keywords,
+  language,
+  licenseType,
+  pISSN,
+  permanentLinkId,
+  publicationDate,
+  publicationName,
+  publicationType,
+  publicationYear,
+  resultId,
+  resultScore,
+  sjr,
+  snip,
+  snipYear,
+  subjects,
+  title,
+  volume,
+  zendyLink,
+}) => {
+  // const href = get(link, '[0].url')
 
   return (
     <>
       <article className={'mw__3'}>
         <PublicationIssueJsonLd
-          authorName={author && author.flatMap((auObj) => auObj.name)}
+          authorName={authors && authors.flatMap((auObj) => auObj.name)}
           name={title}
-          datePublished={year}
+          datePublished={publicationYear}
           description={abstract}
-          issueNumber={year}
-          publisher={journal.publisher}
+          issueNumber={volume}
+          publisher={publicationName}
         />
         {__renderHead()}
         {__renderTitle(title)}
-        {__renderContentType(title, journal, year)}
+        {__renderContentType(title, journalTitle, publicationYear)}
         {__renderAbstract(abstract)}
-        {__renderAuthors(author)}
+        {__renderAuthors(authors)}
         {__renderKeywords(keywords)}
+        {__renderSubjects(subjects)}
         <div className={styles.actions}>
           <div>
             <ButtonFab icon={<IconBookmark />} />
             <ButtonFab icon={<IconCite />} />
           </div>
-          <ActionItem text={'Download'} href={'#'} type="btn__secondary" />
-          <ActionItem newWindow text={'Read'} href={href} type="btn__primary" />
+          <ActionItem
+            text={'Download'}
+            href={downloadLink}
+            type="btn__secondary"
+          />
+          <ActionItem
+            newWindow
+            text={'Read'}
+            href={zendyLink}
+            type="btn__primary"
+          />
         </div>
       </article>
       <div className={styles.nextPrevWrapper}>
@@ -183,7 +240,7 @@ const DesktopTitleDetail: React.FC = () => {
     return __renderLoading()
   }
 
-  return <div>{__renderContent(data)}</div>
+  return <div>{__renderContent(data.data)}</div>
 }
 
 export default DesktopTitleDetail

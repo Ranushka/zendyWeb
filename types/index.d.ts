@@ -5,6 +5,8 @@ export interface SearchResultItemProps {
   abstract: string
   journal: string
   year: string
+  downloadLink: string
+  permanentLinkId: string
   author: []
   keywords: string
   subjects: [string]

@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
-import { tempPublicationUrl } from 'lib/helpers'
+import { genarateTitleUrlPath } from 'lib/helpers'
 
 const fetcher = (url) => {
   return fetch(url)
@@ -18,7 +18,7 @@ const __processData = (data) => {
   let keywords = []
 
   const results = data.results.map((item) => {
-    const href = tempPublicationUrl(item.bibjson.title, item.id)
+    const href = genarateTitleUrlPath(item.bibjson.title, item.id)
     let subjects = []
 
     if (item.bibjson && item.bibjson.subject) {
