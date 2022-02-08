@@ -1,6 +1,7 @@
 import useSWR from 'swr'
+import isEmpty from 'lodash/isEmpty'
 
-const useSearchResults = (queryAuthor) => {
+const useAuthorDetails = (queryAuthor) => {
   const url = 'https://api.staging-oa.zendy.io/search/oa/author'
   const swrKey = url + queryAuthor
   const bodyData = JSON.stringify({
@@ -18,11 +19,10 @@ const useSearchResults = (queryAuthor) => {
     fetch(url, options).then((res) => {
       return res.json()
     })
-  // .then((data) => {
-  //   return __processData(data)
-  // })
 
-  return useSWR(swrKey, fetcher)
+  const shouldFetch = isEmpty(queryAuthor)
+
+  return useSWR(shouldFetch ? swrKey : null, fetcher)
 }
 
-export default useSearchResults
+export default useAuthorDetails

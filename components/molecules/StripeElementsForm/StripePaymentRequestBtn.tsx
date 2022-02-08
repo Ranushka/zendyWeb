@@ -28,7 +28,7 @@ const StripePaymentRequestBtn: React.FC<Props> = ({ price }) => {
         }
       })
     }
-  }, [stripe])
+  }, [stripe, price])
 
   if (paymentRequest) {
     return (

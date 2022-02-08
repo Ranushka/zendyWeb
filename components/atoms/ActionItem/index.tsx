@@ -95,7 +95,12 @@ const __link = (props: Props) => {
 
   if (newWindow) {
     return (
-      <a className={finalClassNames} target="_blank" href={href}>
+      <a
+        className={finalClassNames}
+        target="_blank"
+        href={href}
+        rel="noreferrer"
+      >
         {text}
         {icon && icon}
       </a>

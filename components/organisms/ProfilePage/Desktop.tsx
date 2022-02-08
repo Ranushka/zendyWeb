@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { useSession, signOut } from 'next-auth/react'
@@ -90,7 +91,7 @@ const Desktop: React.FC<Props> = ({}) => {
             <small className="mute">Subscription renewal date</small>
             <p>October 16, 2020 (in 170 days)</p>
             <Space size={3} />
-            <small className="mute">What you'll be charged</small>
+            <small className="mute">What you&apos;ll be charged</small>
             <p>AED 198.00 ( for year )</p>
             <Space size={3} />
             <ActionItem text={'Cancel subscription'} href={'/'} />

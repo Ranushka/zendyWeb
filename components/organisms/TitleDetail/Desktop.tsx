@@ -4,7 +4,6 @@ import Router from 'next/router'
 import styles from './desktop.module.scss'
 import useTitleDetail from 'fetchHooks/useTitleDetail'
 import Skeleton from 'react-loading-skeleton'
-import get from 'lodash/get'
 import {
   IconBookmark,
   IconSocialLinkedIn,

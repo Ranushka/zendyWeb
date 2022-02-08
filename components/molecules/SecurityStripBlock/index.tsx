@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 import { Space } from 'components/atoms'
 
@@ -9,7 +10,13 @@ const SecurityStripBlock: React.FC<{}> = ({}) => {
         encrypted with SSL
       </span>
       <Space size={2} />
-      <img className="mw__1 block" src="/img/trust.png" />
+      <Image
+        width={256}
+        height={28}
+        src="/img/trust.png"
+        alt="you can pay by card"
+        placeholder="empty"
+      />
     </div>
   )
 }

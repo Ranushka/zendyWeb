@@ -124,7 +124,7 @@ const FooterActions = ({ link }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  })
 
   const handleScroll = debounce(() => {
     const newPoss = window.pageYOffset || document.documentElement.scrollTop
