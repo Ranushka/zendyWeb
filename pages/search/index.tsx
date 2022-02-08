@@ -20,7 +20,7 @@ const Search: React.FC = () => {
     } else {
       searchBoxElement && searchBoxElement.focus()
     }
-  }, [router])
+  }, [queryString])
 
   return (
     <BaseTemplate isSearchPage>

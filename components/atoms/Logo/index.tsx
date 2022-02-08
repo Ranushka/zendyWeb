@@ -1,6 +1,6 @@
-import classnames from 'classnames'
+import Image from 'next/image'
 import { ActionItem } from 'components/atoms'
-import styles from './index.module.scss'
+import useGetCountry from 'fetchHooks/useGetCountry'
 
 type Props = {
   flag?: boolean
@@ -8,11 +8,13 @@ type Props = {
 }
 
 const Logo: React.FC<Props> = ({ className, flag = false }) => {
+  const { data } = useGetCountry()
+
   return (
-    <ActionItem href="/" className="py__1 relative">
+    <ActionItem href="/" className="relative">
       <>
         <svg
-          style={{ maxWidth: '7.5rem', width: '100%' }}
+          style={{ maxWidth: '7rem', width: '100%', verticalAlign: 'middle' }}
           className=""
           viewBox="0 0 96 32"
           fill="none"
@@ -65,12 +67,16 @@ const Logo: React.FC<Props> = ({ className, flag = false }) => {
           </defs>
         </svg>
         {flag && (
-          <img
-            className={styles.countryFlag}
-            alt="United Arab Emirates"
-            role="presentation"
-            src="https://catamphetamine.gitlab.io/country-flag-icons/3x2/AE.svg"
-          />
+          <span
+            style={{
+              position: 'absolute',
+              top: '-4px',
+              right: '-8px',
+              lineHeight: '12px',
+            }}
+          >
+            {data && data.country_code}
+          </span>
         )}
       </>
     </ActionItem>

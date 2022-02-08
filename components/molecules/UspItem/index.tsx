@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import styles from './index.module.scss'
 import { Space } from 'components/atoms'
@@ -14,6 +15,7 @@ const UspItem: React.FC<Props> = (props) => {
   return (
     <div className={styles.wrapper}>
       <img src={src} />
+
       <Space size={3} />
       <h3>{title}</h3>
       <Space size={2} />
