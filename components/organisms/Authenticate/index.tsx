@@ -65,14 +65,6 @@ const EmailAndPassword: React.FC<{}> = ({}) => {
       />
       <Space size={3} />
       <div className="flex">
-        {/* <ActionItem
-          text={'Login'}
-          type="btn__primary"
-          block
-          onClick={() => {
-            console.log('sdasd')
-          }}
-        /> */}
         <input
           className="btn__primary block pointer"
           type="submit"
@@ -88,9 +80,7 @@ const Authenticate: React.FC<{}> = ({}) => {
 
   return (
     <>
-      <Head>
-        <link rel="stylesheet" href="/css/react_input.css" />
-      </Head>
+      {/* <Head><link rel="stylesheet" href="/css/react_input.css" /></Head> */}
 
       <div className={classnames('flex__center block', styles.wrapper)}>
         <div className={classnames('mw__1 block', styles.phoneNumber)}>
@@ -103,30 +93,9 @@ const Authenticate: React.FC<{}> = ({}) => {
           </div>
 
           <EmailAndPassword />
-          {/* <p>Your phone number</p>
-          <Space size={1} /> */}
 
-          {/* <PhoneInput
-            international
-            defaultCountry="AE"
-            addInternationalOption={false}
-            countries={['AE', 'TN', 'DZ']}
-            placeholder="Enter phone number"
-            value={value}
-            onChange={setValue}
-          /> */}
-          {/* <Space size={3} />
-          <div className="flex">
-            <ActionItem
-              text={'Login / Register'}
-              href={'/authenticate/login'}
-              type="btn__primary"
-              block
-            />
-          </div> */}
-          <Space size={4} />
-          <small className="block text__center mute">---- or ----</small>
-          <Space size={4} />
+          <small className="block text__center mute mx__2">---- or ----</small>
+
           <div className="block text__center">
             <ActionItem
               text={'Sign in with LinkedIn'}

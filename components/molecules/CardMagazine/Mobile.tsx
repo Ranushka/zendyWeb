@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 import { ActionItem } from 'components/atoms'
 import styles from './mobile.module.scss'
@@ -15,11 +16,14 @@ const CardMagazine: React.FC<CardMagazineProps> = (props) => {
   return (
     <ActionItem href={href} className={__finalClassNames}>
       <article>
-        {/* <div
-          className={classnames(styles.magazine__img, "img")}
-          style={{ backgroundImage: `url(${img})` }}
-        /> */}
-        <img src={img} alt={title.toString()} />
+        <Image src={img} alt={title.toString()} placeholder="empty" />
+        <Image
+          src={`/${img}`}
+          alt={title.toString()}
+          placeholder="empty"
+          width={208 * 2}
+          height={272 * 2}
+        />
         <div className={styles.magazine__title}>
           <p>{title}</p>
         </div>

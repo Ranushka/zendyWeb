@@ -1,4 +1,3 @@
-const path = require('path')
 const withPWA = require('next-pwa')
 
 const redirects = {
@@ -29,13 +28,6 @@ const redirects = {
   },
 }
 
-// module.exports = withPWA(redirects)
-
 module.exports = {
-  // experimental: { optimizeCss: true },
-  // sassOptions: {
-  //   cssModules: true,
-  //   includePaths: [path.join(__dirname, 'styles')],
-  // },
   ...withPWA(redirects),
 }

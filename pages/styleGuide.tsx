@@ -258,20 +258,20 @@ export default function Home() {
               <p>
                 There are many variations of passages of Lorem Ipsum available,
                 but the majority have suffered alteration in some form, by
-                injected humour, or randomized words which don't look even
+                injected humour, or randomized words which dont look even
                 slightly believable. If you are going to use a passage of Lorem
-                Ipsum, you need to be sure there isn't anything embarrassing
+                Ipsum, you need to be sure there isnt anything embarrassing
                 hidden in the middle of text.There are many variations of
                 passages of Lorem Ipsum available, but the majority have
                 suffered alteration in some form, by injected humour, or
-                randomized words which don't look even slightly believable. If
+                randomized words which dont look even slightly believable. If
                 you are going to use a passage of Lorem Ipsum, you need to be
-                sure there isn't anything embarrassing hidden in the middle of
+                sure there isnt anything embarrassing hidden in the middle of
                 text.There are many variations of passages of Lorem Ipsum
                 available, but the majority have suffered alteration in some
-                form, by injected humour, or randomized words which don't look
+                form, by injected humour, or randomized words which dont look
                 even slightly believable. If you are going to use a passage of
-                Lorem Ipsum, you need to be sure there isn't anything
+                Lorem Ipsum, you need to be sure there isnt anything
                 embarrassing hidden in the middle of text.
               </p>
             </div>
@@ -288,9 +288,9 @@ export default function Home() {
               <p>
                 There are many variations of passages of Lorem Ipsum available,
                 but the majority have suffered alteration in some form, by
-                injected humour, or randomized words which don't look even
+                injected humour, or randomized words which dont look even
                 slightly believable. If you are going to use a passage of Lorem
-                Ipsum, you need to be sure there isn't anything embarrassing
+                Ipsum, you need to be sure there isnt anything embarrassing
                 hidden in the middle of text.
               </p>
             </div>

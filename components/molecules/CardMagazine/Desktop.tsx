@@ -16,13 +16,9 @@ const CardMagazine: React.FC<CardMagazineProps> = (props) => {
   return (
     <ActionItem href={href}>
       <div className={__finalClassNames}>
-        {/* <div
-          className={styles.magazine__img}
-          style={{ backgroundImage: `url(${img})` }}
-        /> */}
         <Image
           src={`/${img}`}
-          alt="Picture of the author"
+          alt={title.toString()}
           placeholder="empty"
           width={208 * 2}
           height={272 * 2}

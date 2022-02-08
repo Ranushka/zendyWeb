@@ -32,15 +32,15 @@ const ResultsWithData = ({ data }) => {
       <Space size={4} />
       <div>
         <small className="mute">Organizations</small>
-        {organizations.map(({ organization }) => (
-          <div>{organization}</div>
+        {organizations.map(({ organization }, key) => (
+          <div key={key}>{organization}</div>
         ))}
       </div>
       <Space size={4} />
       <div>
         <small className="mute">Education</small>
-        {education.map(({ organization, startYear }) => (
-          <div>
+        {education.map(({ organization, startYear }, key) => (
+          <div key={key}>
             {organization}-{startYear}
           </div>
         ))}
@@ -54,8 +54,6 @@ const ResultsWithData = ({ data }) => {
 const AuthorDetails: React.FC<Props> = ({}) => {
   const router = useRouter()
   const queryAuthor: any = router.query.author
-  if (!queryAuthor) return <></>
-
   const { data } = useAuthorDetails(queryAuthor)
 
   if (!data || data.error) {

@@ -12,7 +12,7 @@ type Props = {
 const BaseTemplate: React.FC<Props> = ({ isSearchPage, children }) => {
   const { isMobile } = useContext(DeviceTypeContext)
   const finalClassNames = classnames(
-    'bg__nut1',
+    // 'bg__nut1',
     isMobile ? 'contain__mobile' : 'contain__desktop'
   )
 

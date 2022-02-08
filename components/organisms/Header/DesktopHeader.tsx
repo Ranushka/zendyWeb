@@ -72,22 +72,24 @@ const __getLoginBtn = () => {
 }
 
 const __getLoggedInUser = (session) => {
+  console.log(session.user)
+
   return (
     <ActionItem
-      text={__getUserNameInitials(session.user.name)}
+      text={__getUserNameInitials(session.user)}
       href={'/profile'}
       type="btn__secondary"
-      className={styles.profilePic}
+      // className={styles.profilePic}
     />
   )
 }
 
-const __getUserNameInitials = (name) => {
-  if (name) {
-    return name.substring(0, 2)
+const __getUserNameInitials = ({ firstName, lastName }) => {
+  if (firstName || lastName) {
+    return `${firstName} ${lastName}`
   }
 
-  return 'na'
+  return 'Good day Sir,'
 }
 
 export default DesktopHeader

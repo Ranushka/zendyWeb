@@ -23,7 +23,7 @@ const ReadMore: React.FC<Props> = (props) => {
     if (overFlowState) {
       isOpenSet(overFlowState)
     }
-  }, [])
+  }, [height])
 
   return (
     <div className={classnames(styles.wrapper)}>
