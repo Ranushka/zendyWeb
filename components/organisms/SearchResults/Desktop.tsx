@@ -18,7 +18,7 @@ const SearchResultActions = () => {
   const { selectionMode } = state
 
   return (
-    <div className="flex__center px__3 rounded__1 my__3 mt__0 mw__5">
+    <div className="flex__center px__3 pl__0 rounded__1 my__3 mt__0 mw__5">
       <ButtonFab
         title="Toggle selection mode"
         icon={<IconSelectionMode />}
@@ -74,7 +74,7 @@ const SearchResultActions = () => {
 
 const __searchResultLoading = () => {
   return [1, 2, 3].map((id) => (
-    <article key={'skeletonSearchResult' + id} className="mw__4">
+    <article key={'skeletonSearchResult' + id} className="mw__5">
       <Space size={3} />
       <Skeleton height={30} />
       <Space size={2} />

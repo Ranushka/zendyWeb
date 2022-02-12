@@ -1,9 +1,9 @@
 import classnames from 'classnames'
-import styles from './index.module.scss'
 
 type Props = {
   label?: string
   name?: string
+  checked?: boolean
   id: string
   value?: string
   className?: string
@@ -13,22 +13,18 @@ type Props = {
 const CheckBox: React.FC<Props> = ({
   label,
   name,
+  checked = false,
   id,
   value,
   className,
   onChange = () => {},
 }) => {
   return (
-    <div
-      className={classnames(
-        // 'my__3 mx__2 mt__0 mr__0',
-        styles.checkBoxWrapper,
-        className && className
-      )}
-    >
+    <div className={classnames('checkbox', className && className)}>
       <input
         className={'input__hide'}
         type="checkbox"
+        checked={checked}
         name={name}
         id={id}
         value={value}
@@ -37,7 +33,6 @@ const CheckBox: React.FC<Props> = ({
 
       <label htmlFor={id}>
         <div />
-        {/* {name && <small>{label}</small>} */}
         {name && <span className="labelText">{label}</span>}
       </label>
     </div>
