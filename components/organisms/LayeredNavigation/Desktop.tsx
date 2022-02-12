@@ -2,11 +2,13 @@ import React from 'react'
 import classnames from 'classnames'
 import Skeleton from 'react-loading-skeleton'
 import get from 'lodash/get'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import styles from './desktop.module.scss'
 
 import useSearchResults from 'fetchHooks/useSearchResults'
 import labelMapping from 'data/labelMapping'
-import { Space, CheckBox, ActionItem } from 'components/atoms'
+import { Space, CheckBox, ActionItem, Input } from 'components/atoms'
 import { IconSavedSearch, IconNotifications } from 'components/icons'
 import { ReadMore, DateRangeFilter, SortByFilter } from 'components/molecules'
 
@@ -34,16 +36,42 @@ const LayeredNavigationTitle = () => {
   )
 }
 
-const FilterItems = (items) => {
-  return items.map((item, id) => (
-    <CheckBox
-      className="py__1"
-      key={id}
-      id={item.id}
-      name={item.facetLabel}
-      label={labelMapping(item.facetLabel)}
-    />
-  ))
+const FilterItems = (items, groupId) => {
+  const router = useRouter()
+  const queryString = router.query
+
+  return items.map((item, id) => {
+    const facetLabel = item.facetLabel
+    const checked = queryString[groupId] === facetLabel
+    const onClick = () => {
+      let query = {}
+
+      if (checked) {
+        delete queryString[groupId]
+        query = queryString
+      } else {
+        query = { ...queryString, [groupId]: facetLabel }
+      }
+
+      router.push({
+        pathname: '/search',
+        query: query,
+      })
+    }
+
+    return (
+      <div key={'filter' + id} className="py__1" onClick={onClick}>
+        <CheckBox
+          checked={checked}
+          className="py__1"
+          key={id}
+          id={item.id}
+          name={item.facetLabel}
+          label={labelMapping(item.facetLabel)}
+        />
+      </div>
+    )
+  })
 }
 
 const __searchFiltersLoading = () => {
@@ -77,17 +105,24 @@ const FilterGroups = () => {
   const availableFacets = get(data, 'data.searchResults.availableFacets', null)
 
   return availableFacets.map((item, id) => {
+    const categoryLabel = labelMapping(item.categoryLabel + 'Url')
+
     const accordionContent = (
       <div>
         <Space size={2} />
-        {FilterItems(item.facets)}
+        {FilterItems(item.facets, categoryLabel)}
       </div>
     )
 
     return (
       <div key={id}>
         <h5 className="color__nut6">{labelMapping(item.categoryLabel)}</h5>
-        <ReadMore height={208} id={id} content={accordionContent} />
+        {item.facets.length > 6 ? (
+          <ReadMore height={208} id={id} content={accordionContent} />
+        ) : (
+          accordionContent
+        )}
+
         <Space size={3} />
       </div>
     )
@@ -95,13 +130,11 @@ const FilterGroups = () => {
 }
 
 const GetSortBy = () => {
-  const [sortBy, setSortBy] = React.useState('')
-
   return (
     <div className="my__2">
       <Space size={2} />
       <h5 className="color__nut6">Sort by</h5>
-      <SortByFilter sortBy={sortBy} setSortBy={setSortBy} />
+      <SortByFilter />
     </div>
   )
 }

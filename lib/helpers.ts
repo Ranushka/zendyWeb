@@ -11,7 +11,7 @@ export const genarateTitleUrlPath = (name: string, id: string) => {
   */
 
   let res = name && name.replace(/[^a-zA-Z]/g, "_").replace(/_+/g, '_').substring(0,60);
-  let newId = id && id.replace('/', '_')
+  let newId = id && id.replaceAll('/', '_')
 
   return `${res}*${newId}`
 }
@@ -21,7 +21,7 @@ export const getPublicationId = (id: string) => {
     get the id by spliting url by star
     remove underscore with slash unicode %2F = /
   */
-  const pubId = id.split('*').pop().replace('_', '%2F')
+  const pubId = id.split('*').pop().replaceAll('_', '%2F')
 
   return pubId
 }
