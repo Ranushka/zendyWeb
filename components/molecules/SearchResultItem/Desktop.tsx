@@ -51,16 +51,44 @@ const __renderTitle = (title = '', permanentLinkId) => {
   )
 }
 
-const __renderContentType = (title, journal, year) => {
+const __renderContentType = (
+  journalTitle,
+  publicationYear,
+  publicationName
+) => {
   return (
     <div className="py__3 pt__0 lh__5">
-      <strong className="color__nut7 small">Journal - {year}</strong>
-      <ActionItem
-        className="px__2"
-        text={<span dangerouslySetInnerHTML={{ __html: title }} />}
-        // href={`/search?q=${journal.title}`}
-        type="link__small"
-      />
+      <strong className="color__nut7 small px__2 pl__0">Journal</strong>
+      {publicationYear && (
+        <span>
+          -
+          <ActionItem
+            className="px__2"
+            text={publicationYear}
+            type="link__small"
+          />
+        </span>
+      )}
+      {journalTitle && (
+        <span>
+          -
+          <ActionItem
+            className="px__2"
+            text={journalTitle}
+            type="link__small"
+          />
+        </span>
+      )}
+      {publicationName && (
+        <span>
+          -
+          <ActionItem
+            className="px__2"
+            text={publicationName}
+            type="link__small"
+          />
+        </span>
+      )}
     </div>
   )
 }
@@ -169,8 +197,9 @@ const CardCurated: React.FC<SearchResultItemProps> = ({
   href,
   title,
   abstract,
-  journal,
-  year,
+  journalTitle,
+  publicationYear,
+  publicationName,
   authors,
   keywords,
   link,
@@ -182,10 +211,10 @@ const CardCurated: React.FC<SearchResultItemProps> = ({
 }) => {
   return (
     <article className="flex__center rounded__1 my__3 mb__0 mw__5 bg__white stage__2">
-      <div className="flex__center py__3 px__4">
+      <div className="flex py__3 px__4 block">
         <section className="mw__4 ml__0 mr__0 block">
           {__renderTitle(title, permanentLinkId)}
-          {__renderContentType(title, journal, year)}
+          {__renderContentType(journalTitle, publicationYear, publicationName)}
           {abstract && __renderAbstract(abstract)}
           {keywords && __renderKeywords(keywords)}
           {subjects && __renderSubjects(subjects)}

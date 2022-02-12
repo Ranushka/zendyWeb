@@ -232,11 +232,35 @@ const __renderLoading = () => {
   )
 }
 
+const __renderSomethingWentWrong = () => {
+  return (
+    <div className={'mw__3 px__3 py__6'}>
+      <h2>We are sorry,</h2>
+      <h3>something went wrong. with this artical</h3>
+      <div className="gaps__4" />
+      <p>We have allready sent an alert to our devolopers on behalf of you</p>
+      <div className="gaps__2" />
+      <small>Thanks in advance for your patients</small>
+      <div className="gaps__4" />
+      <ActionItem
+        text={'← Back to results'}
+        onClick={() => Router.back()}
+        type="btn__primary"
+        // className="pl__0"
+      />
+    </div>
+  )
+}
+
 const DesktopTitleDetail: React.FC = () => {
   const { data } = useTitleDetail()
 
   if (!data) {
     return __renderLoading()
+  }
+
+  if (data.status === 500) {
+    return __renderSomethingWentWrong()
   }
 
   return <div>{__renderContent(data.data)}</div>

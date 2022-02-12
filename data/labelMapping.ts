@@ -10,10 +10,16 @@ const names = {
   publishersFull: 'Publishers',
   subjectsFull: 'Subjects',
   genlanguage: 'Languages',
-  publicationTypeFull: 'Publications',
+  publicationTypeFull: 'Material type',
   journalTitleFull: 'Journals',
+  
+  publishersFullUrl: 'publisher',
+  subjectsFullUrl: 'subject',
+  genlanguageUrl: 'language',
+  publicationTypeFullUrl: 'material',
+  journalTitleFullUrl: 'journals',
 }
 
-export default (label: string) => {
+export default function labelMapping(label: string){
   return names[label] || label
 }
