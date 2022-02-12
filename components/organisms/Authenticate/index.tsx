@@ -4,7 +4,6 @@ import classnames from 'classnames'
 import { IconSocialLinkedIn } from 'components/icons'
 import { ActionItem, Space, Logo, Input } from 'components/atoms'
 
-import Head from 'next/head'
 import { signIn } from 'next-auth/react'
 import styles from './index.module.scss'
 
@@ -57,7 +56,7 @@ const EmailAndPassword: React.FC<{}> = ({}) => {
       <Input
         id="password"
         name="password"
-        label={'New password'}
+        label={'Password'}
         type="password"
         value={formData.password}
         onChange={onChange}

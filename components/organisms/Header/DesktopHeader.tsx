@@ -4,7 +4,7 @@ import Skeleton from 'react-loading-skeleton'
 import styles from './desktop.module.scss'
 import { ActionItem, Space, Logo } from 'components/atoms'
 import { SearchForm, CategoriesMenu } from 'components/molecules'
-import { IconLibrary } from 'components/icons'
+import { IconArrowDown } from 'components/icons'
 import { attributes as t } from 'data/header.md'
 import { useSession } from 'next-auth/react'
 
@@ -19,15 +19,19 @@ const DesktopHeader: React.FC = ({}) => {
         key="headerContainer"
         className="edgeContainer bg__white relative z__2"
       >
-        <section className="mw__6">
+        <section className="mw__7">
           <div className={'px__3 py__3 flex__center'}>
             <Logo flag className={'flex__center mw__1'} />
             <Space size={2} />
-            <div className="flex__left" />
+            {/* <div className="flex__left" /> */}
             <CategoriesMenu />
             <NavItems />
             <div className="flex__left" />
-            {loading ? <Skeleton height={48} width={158} /> : btnGuestOrUser}
+            <ActionItem text="My Library" href="/library/collections" />
+            <Space size={3} />
+            <div className="text__right" style={{ width: '160px' }}>
+              {loading ? <Skeleton height={40} width={156} /> : btnGuestOrUser}
+            </div>
           </div>
         </section>
       </header>
@@ -77,9 +81,9 @@ const __getLoggedInUser = (session) => {
   return (
     <ActionItem
       text={__getUserNameInitials(session.user)}
+      icon={<IconArrowDown />}
       href={'/profile'}
-      type="btn__secondary"
-      // className={styles.profilePic}
+      type="btn__default"
     />
   )
 }
@@ -89,7 +93,7 @@ const __getUserNameInitials = ({ firstName, lastName }) => {
     return `${firstName} ${lastName}`
   }
 
-  return 'Good day Sir,'
+  return 'Good day,'
 }
 
 export default DesktopHeader

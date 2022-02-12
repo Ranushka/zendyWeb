@@ -7,7 +7,7 @@ export interface SearchResultItemProps {
   year: string
   downloadLink: string
   permanentLinkId: string
-  author: []
+  authors: []
   keywords: string
   subjects: [string]
   link: []
@@ -26,4 +26,8 @@ export interface CardMagazineProps {
   title: React.ReactNode
   content: React.ReactNode
   className?: string
+}
+
+export interface AuthorDetailsProps {
+  authorName: string
 }

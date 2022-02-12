@@ -1,11 +1,5 @@
 .wrapper {
-  opacity: 0.7;
   margin-top: var(--sp4);
   width: 100%;
   max-width: 18rem;
-
-  &:focus-within,
-  &:hover {
-    opacity: 1;
-  }
 }

@@ -24,7 +24,7 @@ const Desktop: React.FC<Props> = ({}) => {
           type={'btn__default'}
           icon={<IconLogout />}
           className={'pr__0'}
-          onClick={() => signOut()}
+          onClick={() => signOut({ callbackUrl: '/' })}
         />
       </div>
       <Space size={5} />

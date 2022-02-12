@@ -15,6 +15,8 @@ export { default as CardSubject } from './CardSubject'
 export { default as NextArticle } from './NextArticle'
 
 export { default as SearchResultItem } from './SearchResultItem'
+export { default as DateRangeFilter } from './DateRangeFilter'
+export { default as SortByFilter } from './SortByFilter'
 
 export { default as SidePopup } from './SidePopup'
 export { default as ProfileTabs } from './ProfileTabs'

@@ -1,9 +1,11 @@
 import React from 'react'
 import { ActionItem } from 'components/atoms'
 import classnames from 'classnames'
+import { title } from 'process'
 // import styles from './index.module.scss'
 
 type Props = {
+  title?: string
   icon?: React.ReactNode
   href?: string
   small?: boolean
@@ -11,9 +13,14 @@ type Props = {
   classNames?: string
 }
 
-const BtnFab: React.FC<Props> = (props) => {
-  const { href = '#', icon, small, onClick, classNames } = props
-
+const BtnFab: React.FC<Props> = ({
+  title,
+  href = '#',
+  icon,
+  small,
+  onClick,
+  classNames,
+}) => {
   const className = classnames(
     'fab',
     small && 'fab__small',
@@ -22,7 +29,12 @@ const BtnFab: React.FC<Props> = (props) => {
 
   if (onClick) {
     return (
-      <div onClick={() => onClick()} className={className} role="button">
+      <div
+        onClick={() => onClick()}
+        className={className}
+        role="button"
+        title={title}
+      >
         {icon}
       </div>
     )
