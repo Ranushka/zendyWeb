@@ -13,6 +13,7 @@ import {
 } from 'components/atoms'
 import { IconCite, IconBookmark, IconLink } from 'components/icons'
 import { genarateTitleUrlPath } from 'lib/helpers'
+import useGlobel from 'context/GlobelContext'
 
 // const __renderChips = (isReviewed, isReferenced) => {
 //   if (!isReviewed && !isReferenced) return
@@ -27,13 +28,16 @@ import { genarateTitleUrlPath } from 'lib/helpers'
 
 const __renderTitle = (title = '', permanentLinkId) => {
   const titleId = genarateTitleUrlPath(title, permanentLinkId)
+  const [state, setState] = useGlobel()
+  const { selectionMode } = state
 
   return (
     <div className="first_letter_caps py__2 pt__0">
-      <CheckBox
-        className={'my__1 pull__l4 absolute'}
-        id={'it_id' + permanentLinkId}
-      />
+      {selectionMode && (
+        <div className="pull__l5 absolute stage__2 px__3 py__2 rounded__1 bg__white">
+          <CheckBox className={''} id={'it_id' + permanentLinkId} />
+        </div>
+      )}
 
       <ActionItem
         text={striptags(title.toString())}
@@ -78,7 +82,7 @@ const __renderAuthors = (authors: []) => {
       <div className="py__1">
         <small className="px__2 pl__0 mute">By - </small>
         {authors
-          .map<React.ReactNode>(({ name }, id) => {
+          .map<React.ReactNode>((name, id) => {
             if (name) {
               return (
                 <ActionItem
@@ -167,7 +171,7 @@ const CardCurated: React.FC<SearchResultItemProps> = ({
   abstract,
   journal,
   year,
-  author,
+  authors,
   keywords,
   link,
   downloadLink,
@@ -177,15 +181,15 @@ const CardCurated: React.FC<SearchResultItemProps> = ({
   subjects,
 }) => {
   return (
-    <article>
-      <div className="flex__center py__3">
-        <section className="mw__3 ml__0 mr__0 block">
+    <article className="flex__center rounded__1 my__3 mb__0 mw__5 bg__white stage__2">
+      <div className="flex__center py__3 px__4">
+        <section className="mw__4 ml__0 mr__0 block">
           {__renderTitle(title, permanentLinkId)}
           {__renderContentType(title, journal, year)}
           {abstract && __renderAbstract(abstract)}
           {keywords && __renderKeywords(keywords)}
           {subjects && __renderSubjects(subjects)}
-          {author && __renderAuthors(author)}
+          {authors && __renderAuthors(authors)}
         </section>
 
         {__renderActions(link, id, downloadLink)}

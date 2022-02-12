@@ -3,21 +3,71 @@ import classnames from 'classnames'
 import Skeleton from 'react-loading-skeleton'
 import get from 'lodash/get'
 import { SearchResultItem } from 'components/molecules'
-import { Space, ActionItem } from 'components/atoms'
-import { IconArrowDown } from 'components/icons'
+import { Space, ActionItem, ButtonFab } from 'components/atoms'
+import {
+  IconArrowDown,
+  IconSelectionMode,
+  IconSavedSearch,
+  IconNotifications,
+} from 'components/icons'
 import useSearchResults from 'fetchHooks/useSearchResults'
+import useGlobel from 'context/GlobelContext'
 
 const SearchResultActions = () => {
+  const [state, setState] = useGlobel()
+  const { selectionMode } = state
+
   return (
-    <div className="flex">
-      <div className="flex__left" />
-      <ActionItem
-        text={'Sort by : Relevance'}
-        href={'/'}
-        icon={<IconArrowDown />}
+    <div className="flex__center px__3 rounded__1 my__3 mt__0 mw__5">
+      <ButtonFab
+        title="Toggle selection mode"
+        icon={<IconSelectionMode />}
+        classNames={`pointer rounded__1 ${selectionMode && 'bg__nut4'}`}
+        onClick={() => {
+          setState({ ...state, selectionMode: !selectionMode })
+        }}
       />
-      <Space size={3} />
-      <ActionItem text={'Bulk actions'} href={'/'} icon={<IconArrowDown />} />
+      {selectionMode && (
+        <>
+          <Space size={3} />
+          <ActionItem text={'Select All'} href={'/'} className="mx__3" />
+          <ActionItem
+            text={'Export selected'}
+            href={'/'}
+            className="mx__2"
+            disabled
+          />
+          <ActionItem
+            text={'Add to library'}
+            href={'/'}
+            className="mx__2"
+            disabled
+          />
+          <ActionItem
+            text={'Open in new tabs'}
+            href={'/'}
+            className="mx__2"
+            disabled
+          />
+        </>
+      )}
+      <div className="flex__left" />
+
+      {!selectionMode && (
+        <>
+          <ActionItem
+            text={'Create alert'}
+            onClick={() => {}}
+            icon={<IconNotifications />}
+          />
+          <Space size={4} />
+          <ActionItem
+            text={'Save search'}
+            onClick={() => {}}
+            icon={<IconSavedSearch />}
+          />
+        </>
+      )}
     </div>
   )
 }

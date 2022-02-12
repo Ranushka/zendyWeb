@@ -12,6 +12,7 @@ import React from 'react'
 import Head from 'next/head'
 import { DeviceTypeContextProvider } from 'context/DeviceTypeContext'
 import { LoggedInUserProvider } from 'context/LoggedInUserContext'
+import { GlobelProvider } from 'context/GlobelContext'
 import { checkIsMobile } from 'lib/helpers'
 import { pageView } from 'analytics'
 import NProgress from 'nprogress'
@@ -29,7 +30,7 @@ Router.events.on('routeChangeComplete', (url) => {
 })
 Router.events.on('routeChangeError', () => NProgress.done())
 
-const NewApp = ({ Component, pageProps, isMobile, session }) => {
+const AppRoot = ({ Component, pageProps, isMobile, session }) => {
   React.useEffect(() => {
     if (window) {
       window.onbeforeunload = (e) => {
@@ -41,20 +42,22 @@ const NewApp = ({ Component, pageProps, isMobile, session }) => {
   return (
     <DeviceTypeContextProvider isMobile={isMobile}>
       <LoggedInUserProvider session={session}>
-        <Head>
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
-          <title>Zendy, Premium research publications library</title>
-        </Head>
-        <Component {...pageProps} />
+        <GlobelProvider>
+          <Head>
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0"
+            />
+            <title>Zendy, Premium research publications library</title>
+          </Head>
+          <Component {...pageProps} />
+        </GlobelProvider>
       </LoggedInUserProvider>
     </DeviceTypeContextProvider>
   )
 }
 
-NewApp.getInitialProps = async (appContext) => {
+AppRoot.getInitialProps = async (appContext) => {
   const appInitProps = await App.getInitialProps(appContext)
   const request = appContext.ctx.req
 
@@ -69,8 +72,4 @@ NewApp.getInitialProps = async (appContext) => {
   return { ...appInitProps, isMobile }
 }
 
-export default NewApp
-
-// export function reportWebVitals(metric) {
-//   console.log(metric);
-// }
+export default AppRoot

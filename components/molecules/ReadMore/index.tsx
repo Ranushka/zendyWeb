@@ -37,10 +37,7 @@ const ReadMore: React.FC<Props> = (props) => {
 
       {isOpen !== null && (
         <label
-          className={classnames(
-            'pointer block text__right py__2',
-            styles.readMoreWrapper
-          )}
+          className={classnames('pointer block py__2', styles.readMoreWrapper)}
           htmlFor={id}
         >
           <input
@@ -49,7 +46,7 @@ const ReadMore: React.FC<Props> = (props) => {
             onChange={() => isOpenSet(!isOpen)}
             id={id}
           />
-          <small>More filters [{isOpen ? '+' : '-'}]</small>
+          <small className="mute">More filters [{isOpen ? '+' : '-'}]</small>
         </label>
       )}
     </div>
