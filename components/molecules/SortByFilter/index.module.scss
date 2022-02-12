@@ -1,0 +1,23 @@
+// @type
+
+.wrapper {
+  input[type='radio'] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    & ~ small {
+      border: 1px solid;
+      border-color: var(--c-nut4);
+    }
+
+    &:checked ~ small {
+      background-color: var(--c-nut4);
+    }
+  }
+
+  label {
+    margin-bottom: var(--sp1);
+    margin-right: var(--sp1);
+  }
+}

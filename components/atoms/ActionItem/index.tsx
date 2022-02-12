@@ -21,6 +21,7 @@ type Props = {
   newWindow?: boolean
   block?: boolean
   submit?: boolean
+  disabled?: boolean
   children?: React.ReactChild
 }
 
@@ -46,6 +47,7 @@ const __btn = (props: Props) => {
     icon,
     block,
     submit,
+    disabled,
     className,
   } = props
 
@@ -53,7 +55,7 @@ const __btn = (props: Props) => {
     type,
     icon && 'btn__icon',
     block && 'block',
-    'pointer',
+    disabled ? 'disabled' : 'pointer',
     className
   )
 
@@ -82,14 +84,18 @@ const __link = (props: Props) => {
     type = 'link',
     icon,
     block,
+    disabled,
     className,
     newWindow,
   } = props
+
   const finalClassNames = classnames(
     type,
     icon && 'btn__icon',
     block && 'block',
     router.pathname === href && 'active',
+    disabled ? 'disabled' : 'pointer',
+    disabled && 'mute',
     className
   )
 

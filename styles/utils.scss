@@ -16,6 +16,11 @@
   cursor: pointer;
 }
 
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
 .hide {
   display: hide;
 }
@@ -42,6 +47,10 @@
 */
 .flex {
   display: flex;
+}
+
+.flex__wrap {
+  flex-wrap: wrap;
 }
 
 .flex__center {

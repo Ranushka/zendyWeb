@@ -7,8 +7,8 @@ import styles from './desktop.module.scss'
 import useSearchResults from 'fetchHooks/useSearchResults'
 import labelMapping from 'data/labelMapping'
 import { Space, CheckBox, ActionItem } from 'components/atoms'
-import { IconSavedSearch } from 'components/icons'
-import { ReadMore } from 'components/molecules'
+import { IconSavedSearch, IconNotifications } from 'components/icons'
+import { ReadMore, DateRangeFilter, SortByFilter } from 'components/molecules'
 
 type Props = {}
 
@@ -26,19 +26,10 @@ const LayeredNavigationTitle = () => {
   }).format(totalResults)
 
   return (
-    <div className="flex flex__center">
-      <h3 className="mute">Narrow by</h3>
+    <div className="flex flex__center py__2">
+      <h3 className="color__nut7">Refine search</h3>
       <div className="flex__left" />
-      <small className="mute"> {totalResultsFormated}+ Results</small>
-    </div>
-  )
-}
-
-const LayeredNavigationActions = () => {
-  return (
-    <div>
-      <ActionItem text={'Save search'} href={'/'} icon={<IconSavedSearch />} />
-      <Space size={3} />
+      <small className="mute">{totalResultsFormated}+ Results</small>
     </div>
   )
 }
@@ -103,13 +94,38 @@ const FilterGroups = () => {
   })
 }
 
+const GetSortBy = () => {
+  const [sortBy, setSortBy] = React.useState('')
+
+  return (
+    <div className="my__2">
+      <Space size={2} />
+      <h5 className="color__nut6">Sort by</h5>
+      <SortByFilter sortBy={sortBy} setSortBy={setSortBy} />
+    </div>
+  )
+}
+
+const GetYearRange = () => {
+  const [year, setYear] = React.useState('')
+
+  return (
+    <div className="my__2">
+      <Space size={2} />
+      <h5 className="color__nut6">Year range</h5>
+      <DateRangeFilter year={year} setYear={setYear} />
+    </div>
+  )
+}
+
 const LayeredNavigation: React.FC<Props> = ({}) => {
   return (
     <>
       <section className={classnames('px__4 pl__0', styles.wrapper)}>
-        {LayeredNavigationActions()}
         {LayeredNavigationTitle()}
-        <Space size={3} />
+        {GetSortBy()}
+        {GetYearRange()}
+        <Space size={2} />
         {FilterGroups()}
       </section>
     </>
