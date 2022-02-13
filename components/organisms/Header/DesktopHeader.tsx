@@ -17,34 +17,34 @@ const DesktopHeader: React.FC = ({}) => {
     <>
       <header
         key="headerContainer"
-        className="edgeContainer bg__white relative z__2"
+        className="edgeContainer bg__nut8 relative z__2"
       >
         <section className="mw__7">
-          <div className={'px__3 py__3 flex__center'}>
-            <Logo flag className={'flex__center mw__1'} />
-            <Space size={2} />
-            {/* <div className="flex__left" /> */}
-            <CategoriesMenu />
-            <NavItems />
+          <div className={'px__3 py__1 flex__center'}>
             <div className="flex__left" />
-            <ActionItem text="My Library" href="/library/collections" />
-            <Space size={3} />
-            <div className="text__right" style={{ width: '160px' }}>
-              {loading ? <Skeleton height={40} width={156} /> : btnGuestOrUser}
-            </div>
+            <NavItems />
           </div>
         </section>
       </header>
       <div
         key="searchContainer"
-        className={classnames('bg__white stage__2', styles.searchContainer)}
+        className={classnames('bg__white stage__2 ', styles.searchContainer)}
       >
-        <section className="mw__6">
-          <Space size={2} />
-          <div className="flex flex__center px__3 mw__4">
+        <section className="flex__center mw__7 px__3 py__3">
+          <Logo flag className={'flex__center mw__1'} />
+          <CategoriesMenu />
+          <div className="flex flex__center mw__4 block">
             <SearchForm id="mainSearch" />
           </div>
-          <Space size={2} />
+
+          <ActionItem
+            className="px__3"
+            text="My Library"
+            href="/library/collections"
+          />
+          <div className="text__right" style={{ width: '160px' }}>
+            {loading ? <Skeleton height={40} width={156} /> : btnGuestOrUser}
+          </div>
         </section>
       </div>
     </>
@@ -57,7 +57,7 @@ const NavItems = () => {
     t.nav_items.map(({ label, path }, key) => {
       return (
         <React.Fragment key={key}>
-          <ActionItem text={label} href={path} />
+          <ActionItem text={label} href={path} className="color__white" />
           <Space />
         </React.Fragment>
       )
@@ -68,6 +68,7 @@ const NavItems = () => {
 const __getLoginBtn = () => {
   return (
     <ActionItem
+      className="textNoWrap"
       text={t.login_btn_name}
       href={'/authenticate'}
       type="btn__secondary"
@@ -76,24 +77,27 @@ const __getLoginBtn = () => {
 }
 
 const __getLoggedInUser = (session) => {
-  console.log(session.user)
-
   return (
     <ActionItem
       text={__getUserNameInitials(session.user)}
       icon={<IconArrowDown />}
       href={'/profile'}
+      className={styles.userProfile}
       type="btn__default"
     />
   )
 }
 
-const __getUserNameInitials = ({ firstName, lastName }) => {
+const __getUserNameInitials = ({ firstName, lastName, email }) => {
   if (firstName || lastName) {
     return `${firstName} ${lastName}`
   }
 
-  return 'Good day,'
+  if (email) {
+    return `${email}${email}`
+  }
+
+  return 'Good, day!'
 }
 
 export default DesktopHeader

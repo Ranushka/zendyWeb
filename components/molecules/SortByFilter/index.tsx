@@ -31,7 +31,7 @@ const SortByFilter: React.FC = () => {
         style={{
           border: '1px solid',
           borderColor: 'var(--c-nut4)',
-          padding: '4px 12px;',
+          padding: '4px 12px',
         }}
         onClick={() => onClick(item.value)}
       >

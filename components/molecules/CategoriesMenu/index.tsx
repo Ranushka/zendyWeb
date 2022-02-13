@@ -7,8 +7,9 @@ import { attributes as Data } from 'data/header.md'
 
 const CategoriesMenu: React.FC<{}> = (props) => {
   return (
-    <div className={classnames(styles.wrapper)}>
+    <div className={classnames(styles.wrapper, 'textNoWrap')}>
       <ActionItem
+        href="/"
         text={Data.mega_menu_btn}
         icon={<IconArrowDown />}
         type="btn__default"

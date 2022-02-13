@@ -90,9 +90,17 @@ const __renderActions = (link: [], id) => {
   )
 }
 
-const CardCurated: React.FC<SearchResultItemProps> = (props) => {
-  const { id, href, title, abstract, journal, year, author, link, subjects } =
-    props
+const CardCurated: React.FC<SearchResultItemProps> = ({
+  id,
+  href,
+  title,
+  abstract,
+  journalTitle,
+  publicationYear,
+  authors,
+  link,
+  subjects,
+}) => {
   const router = useRouter()
 
   const onclick = () => {
@@ -104,10 +112,10 @@ const CardCurated: React.FC<SearchResultItemProps> = (props) => {
       <div className={card.article}>
         <section className="mw__3 ml__0 mr__0" onClick={onclick}>
           {__renderTitle(title, href)}
-          {__renderContentType(title, journal, year)}
+          {__renderContentType(title, journalTitle, publicationYear)}
           {abstract && __renderAbstract(abstract)}
           {subjects && __renderSubjects(subjects)}
-          {author && __renderAuthors(author)}
+          {authors && __renderAuthors(authors)}
         </section>
         {__renderActions(link, id)}
       </div>

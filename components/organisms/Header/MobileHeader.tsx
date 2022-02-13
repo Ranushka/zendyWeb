@@ -115,14 +115,20 @@ const __getLoginBtn = () => {
 const __getLoggedInUser = (session) => {
   return (
     <ActionItem
-      text={__getUserNameInitials(session.user.name)}
+      text={__getUserNameInitials(session.user)}
       href={'/profile'}
       type="btn__secondary"
-      className={styles.profilePic}
+      className={styles.userProfile}
     />
   )
 }
 
-const __getUserNameInitials = (name) => name.substring(0, 2)
+const __getUserNameInitials = ({ firstName, lastName }) => {
+  if (firstName || lastName) {
+    return `${firstName} ${lastName}`
+  }
+
+  return 'Good day,'
+}
 
 export default MobileHeader
