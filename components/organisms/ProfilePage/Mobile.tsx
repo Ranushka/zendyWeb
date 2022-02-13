@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { signOut } from 'next-auth/react'
 import { IconLogout } from 'components/icons'
 import { Space, ActionItem, CheckBox, Input } from 'components/atoms'
@@ -112,7 +113,13 @@ const InputContent = () => (
       Card ending <strong>1537</strong>
     </div>
     <div>07/17</div>
-    <img className={styles.paymentTypeImg} src={'cardTypes/paymentVisa.png'} />
+    <Image
+      width={120}
+      height={26}
+      src="/img/powered_by_stripe.svg"
+      alt="zendy stripe payment logo"
+      placeholder="empty"
+    />
   </div>
 )
 

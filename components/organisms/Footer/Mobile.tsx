@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import styles from './mobile.module.scss'
 import { ActionItem, Space, Logo, ButtonFab } from 'components/atoms'
 import MobileNav from './MobileNav'
@@ -55,7 +56,13 @@ const Footer: React.FC<Props> = ({}) => {
           <small>{Data.rights_text}</small>
           <div className={styles.privacy}>{__privacyList()}</div>
           <div className={styles.seals}>
-            <img alt="stripe_payment_logo" src="/img/powered_by_stripe.svg" />
+            <Image
+              width={120}
+              height={26}
+              src="/img/powered_by_stripe.svg"
+              alt="zendy stripe payment logo"
+              placeholder="empty"
+            />
           </div>
         </div>
         <Space size={6} />

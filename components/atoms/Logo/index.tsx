@@ -12,9 +12,9 @@ const Logo: React.FC<Props> = ({ className, flag = false }) => {
 
   return (
     <ActionItem href="/" className="relative">
-      <>
+      <div>
         <svg
-          style={{ maxWidth: '7rem', width: '100%', verticalAlign: 'middle' }}
+          style={{ width: '7rem', verticalAlign: 'middle' }}
           className=""
           viewBox="0 0 96 32"
           fill="none"
@@ -78,7 +78,7 @@ const Logo: React.FC<Props> = ({ className, flag = false }) => {
             {data && data.country_code}
           </span>
         )}
-      </>
+      </div>
     </ActionItem>
   )
 }

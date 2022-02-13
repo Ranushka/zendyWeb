@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import classnames from 'classnames'
 import styles from './index.module.scss'
 
@@ -14,16 +15,20 @@ const Publishers: React.FC<Props> = ({}) => {
       </h3>
       <section
         className={classnames(
-          'mw__6 text__center overflowScroll',
+          'mw__6 text__center overflowScroll flex__center',
           styles.wrapper
         )}
       >
         {data.map((item, id) => (
-          <img
-            key={`publisher${id}`}
-            src={`/publishers/${item}.png`}
-            alt={item}
-          />
+          <div key={`publisher${id}`} className="mx__3">
+            <Image
+              width={200}
+              height={70}
+              src={`/publishers/${item}.png`}
+              alt={item}
+              placeholder="empty"
+            />
+          </div>
         ))}
       </section>
     </div>
