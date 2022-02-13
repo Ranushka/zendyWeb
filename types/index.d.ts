@@ -5,7 +5,7 @@ export interface SearchResultItemProps {
   abstract: string
   journalTitle: string
   publicationYear: string
-  publicationName: number
+  publicationName: string
   downloadLink: string
   permanentLinkId: string
   authors: []

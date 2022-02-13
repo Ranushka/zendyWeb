@@ -308,11 +308,12 @@ export default function Home() {
         <SearchResultItem
           id="313sa21"
           href={'/'}
-          journal="abc title"
-          year="2020"
+          publicationName={'dsad'}
+          journalTitle="abc title"
+          publicationYear="2020"
           downloadLink="/"
           permanentLinkId="uid"
-          author={[]}
+          authors={[]}
           keywords={'key'}
           subjects={['subject']}
           link={[]}

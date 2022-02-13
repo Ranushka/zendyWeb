@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
+import Image from 'next/image'
 import { useSession, signOut } from 'next-auth/react'
 import { IconLogout } from 'components/icons'
 import { Space, ActionItem, CheckBox, Input } from 'components/atoms'
@@ -136,7 +137,13 @@ const InputContent = () => (
       Card ending <strong>1537</strong>
     </div>
     <div>07/17</div>
-    <img className={styles.paymentTypeImg} src={'cardTypes/paymentVisa.png'} />
+    <Image
+      width={24}
+      height={18}
+      src="/cardTypes/paymentVisa.png"
+      alt="zendy stripe payment logo"
+      placeholder="empty"
+    />
   </div>
 )
 

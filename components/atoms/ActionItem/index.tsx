@@ -22,6 +22,7 @@ type Props = {
   block?: boolean
   submit?: boolean
   disabled?: boolean
+  style?: React.CSSProperties
   children?: React.ReactChild
 }
 
@@ -44,6 +45,7 @@ const __btn = (props: Props) => {
     text = 'Button text',
     onClick = () => {},
     type,
+    style,
     icon,
     block,
     submit,
@@ -64,14 +66,15 @@ const __btn = (props: Props) => {
   }
 
   return (
-    <a
+    <button
+      style={style}
       className={finalClassNames}
       onClick={() => handleClick()}
       type={submit ? 'submit' : 'button'}
     >
       {text}
       {icon && icon}
-    </a>
+    </button>
   )
 }
 
@@ -116,7 +119,7 @@ const __link = (props: Props) => {
   return (
     <NextLink href={href} as={as}>
       <a className={finalClassNames}>
-        {text}
+        <span>{text}</span>
         {icon && icon}
       </a>
     </NextLink>

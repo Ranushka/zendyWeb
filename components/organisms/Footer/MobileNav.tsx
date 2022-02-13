@@ -22,7 +22,7 @@ const MobileNav: React.FC<Props> = ({}) => {
 
   React.useEffect(() => {
     router.prefetch('/search')
-  }, [])
+  }, [router])
 
   const _clickOnSearch = () => {
     clickVibrate()

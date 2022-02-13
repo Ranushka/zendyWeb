@@ -1,7 +1,7 @@
 ---
 login_btn_name: Login / Register
 nav_items:
-  - label: Platform
+  - label: About platform
     path: /platform
   - label: Zendy Plus
     path: /pricing

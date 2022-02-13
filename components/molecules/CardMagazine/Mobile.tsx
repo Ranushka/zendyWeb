@@ -16,7 +16,6 @@ const CardMagazine: React.FC<CardMagazineProps> = (props) => {
   return (
     <ActionItem href={href} className={__finalClassNames}>
       <article>
-        <Image src={img} alt={title.toString()} placeholder="empty" />
         <Image
           src={`/${img}`}
           alt={title.toString()}

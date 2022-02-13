@@ -48,12 +48,9 @@
   margin-left: -1rem;
 }
 
-.profilePic {
-  font-size: 1.3rem;
-  font-family: var(--f-title);
-  line-height: 3rem;
-  padding: 0;
-  width: 3rem;
-  border-radius: 100%;
-  text-transform: uppercase;
+.userProfile {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 92px;
 }

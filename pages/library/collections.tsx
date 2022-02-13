@@ -5,11 +5,11 @@ import { useSession } from 'next-auth/react'
 import { Space, ActionItem, ButtonFab } from 'components/atoms'
 import { ProfileTabs } from 'components/molecules'
 import { IconAdd, IconMore } from 'components/icons'
-import { getCollections } from 'fetchHooks/useCollections'
+import { useCollections } from 'fetchHooks/useCollections'
 import { BaseTemplate } from 'components/templates'
 
 const Collections = () => {
-  const { data } = getCollections()
+  const { data } = useCollections()
   const { data: session, status } = useSession()
   const loading = status === 'loading'
   const router = useRouter()
