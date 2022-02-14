@@ -8,11 +8,18 @@ type Props = {
   data?: string[]
   block?: boolean
   className?: string
+  onChange?: React.ChangeEventHandler
 }
 
-const Select: React.FC<Props> = (props) => {
-  const { label, name, id, data, block, className } = props
-
+const Select: React.FC<Props> = ({
+  label,
+  name,
+  id,
+  data,
+  block,
+  className,
+  onChange,
+}) => {
   return (
     <div
       className={classnames(
@@ -23,7 +30,7 @@ const Select: React.FC<Props> = (props) => {
     >
       {label && <label htmlFor={id}>{label}</label>}
 
-      <select id={id} name={name}>
+      <select id={id} name={name} onChange={onChange}>
         {data.map((item) => (
           <option key={item} value={item}>
             {item}
