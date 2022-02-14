@@ -84,3 +84,34 @@
   /* zoom */
   --scale1: scale3d(0.98, 0.98, 0.98);
 }
+
+[data-theme='dark'] {
+  --c-nut1: rgba(40, 50, 60, 1);
+  --c-nut2: rgba(70, 80, 90, 1);
+  --c-nut3: rgba(100, 120, 120, 1);
+  --c-nut4: rgba(160, 174, 192, 1);
+  --c-nut5: rgba(203, 213, 224, 1);
+  --c-nut6: rgba(226, 232, 240, 1);
+  --c-nut7: rgba(237, 242, 247, 1);
+  --c-nut8: rgba(250, 252, 254, 1);
+
+  --c-white: #232323;
+
+  --c-secondary: rgba(227, 107, 31, 1);
+  --c-primary: rgb(147 184 231);
+
+  --stageColor: rgba(167, 195, 230, 0.06);
+
+  --stage1: inset 1px 0px 0px var(--c-nut4), inset 0px 1px 0px var(--c-nut4),
+    inset 0px -1px 0px var(--c-nut4), inset -1px 0px 0px var(--c-nut4);
+
+  --stage2: 0px 1px 2px var(--stageColor), 0px 1px 4px var(--stageColor);
+  --stage3: 0px 1px 10px var(--stageColor), 0px 10px 15px var(--stageColor),
+    0px 30px 20px var(--stageColor);
+  --stage4: 0px 1px 10px var(--stageColor), 0px 10px 15px var(--stageColor),
+    0px 20px 20px var(--stageColor), 0px 20px 20px var(--stageColor);
+
+  --sha-secondary: inset 1px -1px 0px var(--c-primary),
+    inset 1px 1px 0px var(--c-primary), inset -1px 1px 0px var(--c-primary),
+    inset -1px -1px 0px var(--c-primary);
+}
