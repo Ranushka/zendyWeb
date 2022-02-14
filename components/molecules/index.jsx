@@ -1,6 +1,7 @@
 export { default as Accordion } from './Accordion'
 export { default as ReadMore } from './ReadMore'
 export { default as SearchForm } from './SearchForm'
+export { default as SearchFormAdvanced } from './SearchFormAdvanced'
 export { default as SearchLandingBlock } from './SearchLandingBlock'
 export { default as ContentStats } from './ContentStats'
 export { default as UspItem } from './UspItem'

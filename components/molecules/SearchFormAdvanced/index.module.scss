@@ -1,0 +1,100 @@
+.searchWrapper {
+  max-width: var(--mw4);
+  margin-left: -2rem;
+  position: relative;
+  width: 100%;
+
+  @media only screen and (max-width: 1204px) {
+    margin-left: 0;
+  }
+}
+
+.searchInput {
+  width: 100%;
+  border-radius: 4rem;
+  padding-left: 5rem;
+  padding-right: 7rem;
+  line-height: 3rem;
+  border: 0;
+  box-shadow: 0 0 0 1px var(--c-primary);
+  outline: 0;
+  color: var(--c-primary);
+
+  &:hover {
+    background-color: var(--c-nut1);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px var(--c-primary), 0 2px 6px 1px var(--c-nut4);
+    background-color: var(--c-white);
+  }
+}
+
+.searchInputFirst {
+  padding-left: 1rem;
+}
+
+.separator {
+  border-left: 1px solid var(--c-nut4);
+  height: 2rem;
+  margin: 0.5rem 0;
+  // padding-right: var(--sp2);
+  // margin-left: var(--sp3);
+}
+
+.actions {
+  display: inline-flex;
+  position: absolute;
+  // right: 1rem;
+  right: 0;
+
+  a,
+  div {
+    cursor: pointer;
+    background-color: transparent;
+  }
+}
+
+.searchBtn {
+  width: 4rem;
+}
+
+.searchAdvancedBtn {
+  width: 4rem;
+  color: var(--c-nut6);
+}
+
+.advancedSearchWrapper {
+  select {
+    color: var(--c-nut6);
+    // border: 1px solid;
+    // border-color: var(--c-primary);
+    background: var(--c-white)
+      url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 0.5rem) center !important;
+    padding: 4px 24px 4px 12px;
+    // border: 1px solid;
+    // border-color: var(--c-primary);
+    // padding: 3px 8px;
+    // border-radius: 4px;
+    // outline-color: var(--c-nut7);
+  }
+}
+
+.scope {
+  // padding: 3px 8px;
+  border-radius: 4px;
+  outline-color: var(--c-nut7);
+  position: absolute;
+  right: 1rem;
+}
+
+.operator {
+  // padding: 3px 8px;
+  border-radius: 4px;
+  outline-color: var(--c-nut7);
+  position: absolute;
+  left: 1rem;
+}
