@@ -56,12 +56,14 @@ const SearchResultActions = () => {
       {!selectionMode && (
         <>
           <ActionItem
+            className="color__primary"
             text={'Create alert'}
             onClick={() => {}}
             icon={<IconNotifications />}
           />
           <Space size={4} />
           <ActionItem
+            className="color__primary"
             text={'Save search'}
             onClick={() => {}}
             icon={<IconSavedSearch />}

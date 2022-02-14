@@ -5,11 +5,8 @@ const globelContext = createContext(null)
 export const GlobelProvider = ({ children }) => {
   const [state, setState] = useState({
     selectionMode: false,
+    toggleAdvanceSearch: false,
   })
-
-  // const justNewValue = (key, value) => {
-  //   setState({ ...state, [key]: value })
-  // }
 
   const darkValue = useMemo(() => [state, setState], [state])
 
