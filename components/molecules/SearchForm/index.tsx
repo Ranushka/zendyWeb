@@ -73,6 +73,7 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
         {name && <ButtonFab icon={<IconClear />} onClick={clearInput} />}
         <div className={styles.separator} />
         <ButtonFab
+          title="To perfome a complex search"
           onClick={() => {
             setState({
               ...state,
