@@ -5,7 +5,11 @@ import Image from 'next/image'
 import { useSession, signOut } from 'next-auth/react'
 import { IconLogout } from 'components/icons'
 import { Space, ActionItem, CheckBox, Input } from 'components/atoms'
-import { SelectTheme, SearchResultDensity } from 'components/molecules'
+import {
+  SelectTheme,
+  SelectFontSize,
+  SearchResultDensity,
+} from 'components/molecules'
 import styles from './index.module.scss'
 
 type Props = {}
@@ -55,6 +59,8 @@ const Desktop: React.FC<Props> = ({}) => {
             <SelectTheme />
             <Space size={4} />
             <SearchResultDensity />
+            <Space size={4} />
+            <SelectFontSize />
           </>
         )}
       </ProfileBlock>
@@ -68,18 +74,21 @@ const Desktop: React.FC<Props> = ({}) => {
               id={'subscribe_to_newsletter'}
               name={'subscribe_to_newsletter'}
               label={'Subscribe to Newsletter'}
+              className="my__3 mt__0"
             />
             <CheckBox
               key={'emails_on_interests'}
               id={'emails_on_interests'}
               name={'emails_on_interests'}
               label={'Emails on your interests'}
+              className="my__3 mt__0"
             />
             <CheckBox
               key={'notification_on_interests'}
               id={'notification_on_interests'}
               name={'notification_on_interests'}
               label={'Notifications on your interests'}
+              className="my__3 mt__0"
             />
           </>
         )}

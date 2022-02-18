@@ -10,6 +10,9 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 import React from 'react'
 import Head from 'next/head'
+import { applyTheme } from 'lib/theme'
+import { applyFontSize } from 'lib/fontSize'
+import Script from 'next/script'
 import { DeviceTypeContextProvider } from 'context/DeviceTypeContext'
 import { LoggedInUserProvider } from 'context/LoggedInUserContext'
 import { GlobelProvider } from 'context/GlobelContext'
@@ -50,6 +53,12 @@ const AppRoot = ({ Component, pageProps, isMobile, session }) => {
             />
             <title>Zendy, Premium research publications library</title>
           </Head>
+          <Script
+            onLoad={() => {
+              applyTheme()
+              applyFontSize()
+            }}
+          />
           <Component {...pageProps} />
         </GlobelProvider>
       </LoggedInUserProvider>
