@@ -1,21 +1,25 @@
 import React from 'react'
-import styles from './index.module.scss'
-import classnames from 'classnames'
 import { Select } from 'components/atoms'
+import { applyTheme, saveTheme, getTheme } from 'lib/theme'
 
 type Props = {}
 
 const SelectTheme: React.FC<Props> = () => {
-  function onChange(params: string) {}
+  function onChange(params) {
+    const newTheme = params.target.value
+    applyTheme(newTheme)
+    saveTheme(newTheme)
+  }
 
   return (
-    <div className={classnames(styles.wrapper, 'noSelect')}>
+    <div className={'noSelect'}>
       <Select
         id="selectTheme"
-        name="name"
+        name="selectTheme"
+        value={getTheme()}
         label={'App theme'}
         className={'mb__0'}
-        onChange={() => onChange}
+        onChange={(data) => onChange(data)}
         data={['Light', 'Dark', 'Paper']}
       />
     </div>

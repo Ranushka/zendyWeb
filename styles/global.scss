@@ -2,6 +2,7 @@
   /* font */
   --f-title: 'Source Serif Pro', serif;
   --f-body: 'Poppins', sans-serif;
+  --zoom: 1;
 
   /* fontSize */
   --fs-1: 2.625rem; /* 42px */
@@ -85,8 +86,8 @@
   --scale1: scale3d(0.98, 0.98, 0.98);
 }
 
-[data-theme='dark'] {
-  --c-nut1: rgba(40, 50, 60, 1);
+[data-theme='Dark'] {
+  --c-nut1: rgb(36 38 40);
   --c-nut2: rgba(70, 80, 90, 1);
   --c-nut3: rgba(100, 120, 120, 1);
   --c-nut4: rgba(160, 174, 192, 1);
@@ -114,4 +115,23 @@
   --sha-secondary: inset 1px -1px 0px var(--c-primary),
     inset 1px 1px 0px var(--c-primary), inset -1px 1px 0px var(--c-primary),
     inset -1px -1px 0px var(--c-primary);
+}
+
+[data-theme='Paper'] {
+  --c-primary: #444;
+  --c-white: #fbfaf5;
+  --c-nut1: #efedda;
+  --c-nut2: #dbd9c2;
+}
+
+[data-font-size='Small'] {
+  --zoom: 0.9;
+}
+
+[data-font-size='Larg'] {
+  --zoom: 1.1;
+}
+
+body {
+  zoom: var(--zoom);
 }
