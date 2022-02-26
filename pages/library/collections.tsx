@@ -7,8 +7,9 @@ import { ProfileTabs } from 'components/molecules'
 import { IconAdd, IconMore } from 'components/icons'
 import { useCollections } from 'fetchHooks/useCollections'
 import { BaseTemplate } from 'components/templates'
+import { commonMessages } from 'lib/getMessages'
 
-const Collections = () => {
+const Collections: React.FC = () => {
   const { data } = useCollections()
   const { data: session, status } = useSession()
   const loading = status === 'loading'
@@ -68,6 +69,18 @@ const __skeletonCollection = () => {
       <Space size={3} />
     </article>
   ))
+}
+
+export async function getStaticProps({ locale }) {
+  const commonMsg = await commonMessages(locale)
+
+  return {
+    props: {
+      messages: {
+        ...commonMsg,
+      },
+    },
+  }
 }
 
 export default Collections

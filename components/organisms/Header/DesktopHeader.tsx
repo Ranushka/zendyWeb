@@ -1,6 +1,8 @@
 import React from 'react'
 import classnames from 'classnames'
 import Skeleton from 'react-loading-skeleton'
+import isArray from 'lodash/isArray'
+import { useTranslations } from 'next-intl'
 import styles from './desktop.module.scss'
 import { ActionItem, Space, Logo, ButtonFab } from 'components/atoms'
 import {
@@ -9,13 +11,13 @@ import {
   CategoriesMenu,
 } from 'components/molecules'
 import { IconArrowDown, IconClear } from 'components/icons'
-import { attributes as t } from 'data/header.md'
 import { useSession } from 'next-auth/react'
 import useGlobel from 'context/GlobelContext'
 
 const DesktopHeader: React.FC = ({}) => {
+  const trans = useTranslations('header')
   const { data: session, status } = useSession()
-  const btnGuestOrUser = session ? __getLoggedInUser(session) : __getLoginBtn()
+  const btnGuestOrUser = session ? __getLoggedInUser(session) : <GetLoginBtn />
   const [state, setState] = useGlobel()
   const loading = status === 'loading'
 
@@ -46,7 +48,7 @@ const DesktopHeader: React.FC = ({}) => {
           <div className="flex flex__center mw__4 block">
             {state.toggleAdvanceSearch ? (
               <div className="flex__center">
-                <h2 className="color__nut7">Advanced Search</h2>
+                <h2 className="color__nut7">{trans('advanced_search')}</h2>
                 <ButtonFab
                   href="/search"
                   icon={<IconClear />}
@@ -63,7 +65,7 @@ const DesktopHeader: React.FC = ({}) => {
 
           <ActionItem
             className="px__3"
-            text="My Library"
+            text={trans('my_link')}
             href="/library/collections"
           />
           <div className="text__right" style={{ width: '160px' }}>
@@ -71,38 +73,51 @@ const DesktopHeader: React.FC = ({}) => {
           </div>
         </section>
       </div>
-      {state.toggleAdvanceSearch && (
-        <div key="advancedSearch" className={classnames('bg__white stage__2 ')}>
-          <section className="flex__center mw__7 px__3 py__3">
-            <div className="flex flex__center block">
-              <SearchFormAdvanced id="advancedSearch" />
-            </div>
-          </section>
-        </div>
-      )}
+      <AdvanceSearchBlock show={state.toggleAdvanceSearch} />
     </>
   )
 }
 
-const NavItems = () => {
+const AdvanceSearchBlock = ({ show }) => {
   return (
-    t.nav_items &&
-    t.nav_items.map(({ label, path }, key) => {
-      return (
-        <React.Fragment key={key}>
-          <ActionItem text={label} href={path} className="color__white" />
-          <Space />
-        </React.Fragment>
-      )
-    })
+    show && (
+      <div key="advancedSearch" className="bg__white stage__2 ">
+        <section className="flex__center mw__7 px__3 py__3">
+          <div className="flex flex__center block">
+            <SearchFormAdvanced id="advancedSearch" />
+          </div>
+        </section>
+      </div>
+    )
   )
 }
 
-const __getLoginBtn = () => {
+const NavItems = () => {
+  const trans = useTranslations('header')
+  const nav_items = trans.raw('nav_items')
+
+  return (
+    <>
+      {isArray(nav_items) &&
+        nav_items.map(({ label, path }, key) => {
+          return (
+            <React.Fragment key={key}>
+              <ActionItem text={label} href={path} className="color__white" />
+              <Space />
+            </React.Fragment>
+          )
+        })}
+    </>
+  )
+}
+
+const GetLoginBtn = () => {
+  const trans = useTranslations('header')
+
   return (
     <ActionItem
       className="textNoWrap"
-      text={t.login_btn_name}
+      text={trans('login_btn_name')}
       href={'/authenticate'}
       type="btn__secondary"
     />

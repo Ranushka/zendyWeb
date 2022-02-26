@@ -104,7 +104,7 @@ const __renderAbstract = (content) => {
   )
 }
 
-const __renderAuthors = (authors: []) => {
+const __renderAuthors = (authors: [string]) => {
   return (
     authors && (
       <div className="py__1">

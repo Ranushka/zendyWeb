@@ -187,6 +187,18 @@ Paddings
   padding-right: 0;
 }
 
+html[dir='rtl'] {
+  .pl__0 {
+    padding-left: inherit;
+    padding-right: 0;
+  }
+
+  .pr__0 {
+    padding-right: inherit;
+    padding-left: 0;
+  }
+}
+
 .pt__0 {
   padding-top: 0;
 }

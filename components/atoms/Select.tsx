@@ -30,7 +30,11 @@ const Select: React.FC<Props> = ({
         className && className
       )}
     >
-      {label && <label htmlFor={id}>{label}</label>}
+      {label && (
+        <label htmlFor={id} className="py__1 pt__0">
+          {label}
+        </label>
+      )}
 
       <select id={id} name={name} onChange={onChange} value={value}>
         {data.map((item) => (

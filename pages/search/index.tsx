@@ -1,5 +1,6 @@
 import React from 'react'
 import { BaseTemplate } from 'components/templates'
+import { commonMessages } from 'lib/getMessages'
 import {
   LayeredNavigation,
   SearchResults,
@@ -38,6 +39,20 @@ const Search: React.FC = () => {
       {!queryString && <SearchLandingBlock />}
     </BaseTemplate>
   )
+}
+
+export async function getStaticProps({ locale }) {
+  console.log('-----Search.getStaticProps-->')
+
+  const commonMsg = await commonMessages(locale)
+
+  return {
+    props: {
+      messages: {
+        ...commonMsg,
+      },
+    },
+  }
 }
 
 export default Search

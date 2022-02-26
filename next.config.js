@@ -1,15 +1,17 @@
 const withPWA = require('next-pwa')
+const CMS_IMG_HOSTNAME = new URL(process.env.NEXT_PUBLIC_CMS_BASE_URL).hostname
 
-const redirects = {
-  async redirects() {
-    return [
-      {
-        source: '/library',
-        destination: '/library/collections',
-        permanent: true,
-      },
-    ]
-  },
+const config = {
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/library',
+  //       destination: '/library/collections',
+  //       permanent: true,
+  //     },
+  //   ]
+  // },
+
   webpack: (configuration) => {
     configuration.module.rules.push({
       test: /\.md$/,
@@ -29,5 +31,12 @@ const redirects = {
 }
 
 module.exports = {
-  ...withPWA(redirects),
+  images: {
+    domains: [CMS_IMG_HOSTNAME, 'picsum.photos'],
+  },
+  i18n: {
+    locales: ['en', 'ar'],
+    defaultLocale: 'en',
+  },
+  ...withPWA(config),
 }

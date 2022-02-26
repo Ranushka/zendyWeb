@@ -1,5 +1,8 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { GtmScript } from 'analytics'
+import { getDir } from 'lib/helpers'
+import { applyTheme } from 'lib/theme'
+import { applyFontSize } from 'lib/fontSize'
 
 import React from 'react'
 
@@ -12,10 +15,10 @@ const data = {
   image: 'https://zendy.io/icons/favicon-96x96.png',
 }
 
-export default class MyDocument extends Document {
+class MyDocument extends Document {
   public render() {
     return (
-      <Html lang="en">
+      <Html dir={getDir(this.props.locale)}>
         <Head>
           <meta charSet="utf-8" />
 
@@ -58,3 +61,11 @@ export default class MyDocument extends Document {
     )
   }
 }
+
+MyDocument.getInitialProps = async (appContext) => {
+  const initialProps = await Document.getInitialProps(appContext)
+
+  return { ...initialProps, locale: appContext?.locale || 'en' }
+}
+
+export default MyDocument

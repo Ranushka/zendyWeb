@@ -1,10 +1,25 @@
 import { MagazinesPage } from 'components/organisms'
 import { BaseTemplate } from 'components/templates'
+import { commonMessages } from 'lib/getMessages'
 
-export default function Home() {
+const Magazines: React.FC = () => {
   return (
     <BaseTemplate>
       <MagazinesPage />
     </BaseTemplate>
   )
 }
+
+export async function getStaticProps({ locale }) {
+  const commonMsg = await commonMessages(locale)
+
+  return {
+    props: {
+      messages: {
+        ...commonMsg,
+      },
+    },
+  }
+}
+
+export default Magazines
