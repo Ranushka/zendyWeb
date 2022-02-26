@@ -5,8 +5,15 @@ import { applyFontSize, saveFontSize, getFontSize } from 'lib/fontSize'
 type Props = {}
 
 const SelectFontSize: React.FC<Props> = () => {
+  const [size, setSize] = React.useState('')
+
+  React.useEffect(() => {
+    setSize(getFontSize())
+  }, [])
+
   function onChange(params) {
     const newFontSize = params.target.value
+    setSize(newFontSize)
     applyFontSize(newFontSize)
     saveFontSize(newFontSize)
   }
@@ -16,7 +23,7 @@ const SelectFontSize: React.FC<Props> = () => {
       <Select
         id="SelectFontSize"
         name="SelectFontSize"
-        value={getFontSize()}
+        value={size}
         label={'Font size'}
         className={'mb__0'}
         onChange={(data) => onChange(data)}

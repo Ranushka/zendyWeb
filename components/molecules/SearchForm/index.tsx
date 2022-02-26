@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import classnames from 'classnames'
 import { useRouter } from 'next/router'
+import { useTranslations } from 'next-intl'
 import styles from './index.module.scss'
 import { ButtonFab } from 'components/atoms'
 import { IconSearch, IconClear, IconAdvanceSearch } from 'components/icons'
@@ -14,7 +15,8 @@ type Props = {
 
 const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
   const searchInput = React.useRef(null)
-  const [name, setName] = useState('')
+  const trans = useTranslations('header')
+  const [searchText, setSearchText] = useState('')
   const router = useRouter()
   const [state, setState] = useGlobel()
   const { isMobile } = React.useContext(DeviceTypeContext)
@@ -24,12 +26,12 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
 
     router.push({
       pathname: '/search',
-      query: { q: name },
+      query: { q: searchText },
     })
   }
 
   const clearInput = () => {
-    setName('')
+    setSearchText('')
     searchInput.current.focus()
   }
 
@@ -38,16 +40,16 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
     const queryAuthor = router.query && router.query.author
 
     if (queryAuthor) {
-      setName(`author: ${queryAuthor.toString()}`)
+      setSearchText(`author: ${queryAuthor.toString()}`)
     }
 
     if (query) {
-      setName(query.toString())
+      setSearchText(query.toString())
     }
   }, [router])
 
   return (
-    <form className="block relative" onSubmit={handleSubmit}>
+    <form className="block relative flex__inline" onSubmit={handleSubmit}>
       <div className="absolute">
         <ButtonFab
           href="/search"
@@ -62,15 +64,13 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
         ref={searchInput}
         type="search"
         accessKey="s"
-        placeholder={
-          isMobile ? Data.search_placeholder_m : Data.search_placeholder_d
-        }
+        placeholder={trans(`search_placeholder_${isMobile ? 'm' : 'd'}`)}
         className={classnames('bg__white', styles.searchInput)}
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
       />
       <div className={styles.actions}>
-        {name && <ButtonFab icon={<IconClear />} onClick={clearInput} />}
+        {searchText && <ButtonFab icon={<IconClear />} onClick={clearInput} />}
         <div className={styles.separator} />
         <ButtonFab
           title="To perfome a complex search"

@@ -1,4 +1,5 @@
-import React from 'react'
+import isArray from 'lodash/isArray'
+import { useTranslations } from 'next-intl'
 import classnames from 'classnames'
 import { Testimonial } from 'components/molecules'
 import { Space } from 'components/atoms'
@@ -8,20 +9,20 @@ import { attributes as Data } from 'data/widgets/testimonials.md'
 type Props = {}
 
 const Testimonials: React.FC<Props> = ({}) => {
+  const trans = useTranslations('testimonial')
+  const testimonialsList = trans.raw('testimonials')
+
   return (
     <section className="my__5">
       <div className="text__center">
-        <h2>We are trusted by professionals around the world</h2>
-        <p>
-          Our library is trusted by many universities and government
-          organization in GCC.
-        </p>
+        <h2>{trans('title')}</h2>
+        <p>{trans('subtitle')}</p>
       </div>
 
       <Space size={4} />
       <div className={classnames(styles.testimonialsWrap, 'mw__6 px__3')}>
-        {Data.testimonials &&
-          Data.testimonials.map(({ name, quote, title }, id) => (
+        {isArray(testimonialsList) &&
+          testimonialsList.map(({ name, quote, title }, id) => (
             <Testimonial
               key={`uspItem${id}`}
               quote={quote}

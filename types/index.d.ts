@@ -8,7 +8,7 @@ export interface SearchResultItemProps {
   publicationName: string
   downloadLink: string
   permanentLinkId: string
-  authors: []
+  authors: [string]
   keywords: string
   subjects: [string]
   link: []

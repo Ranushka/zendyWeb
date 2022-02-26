@@ -2,8 +2,9 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { ProfilePage } from 'components/organisms'
 import { BaseTemplate } from 'components/templates'
+import { commonMessages } from 'lib/getMessages'
 
-export default function Home() {
+const Profile: React.FC = () => {
   const { data: session, status } = useSession()
   const loading = status === 'loading'
   const router = useRouter()
@@ -18,3 +19,17 @@ export default function Home() {
     </BaseTemplate>
   )
 }
+
+export async function getStaticProps({ locale }) {
+  const commonMsg = await commonMessages(locale)
+
+  return {
+    props: {
+      messages: {
+        ...commonMsg,
+      },
+    },
+  }
+}
+
+export default Profile

@@ -58,9 +58,9 @@ const Desktop: React.FC<Props> = ({}) => {
           <>
             <SelectTheme />
             <Space size={4} />
-            <SearchResultDensity />
-            <Space size={4} />
             <SelectFontSize />
+            <Space size={4} />
+            <SearchResultDensity />
           </>
         )}
       </ProfileBlock>

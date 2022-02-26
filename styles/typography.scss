@@ -151,6 +151,16 @@ mark {
   text-align: right;
 }
 
+html[dir='rtl'] {
+  .text__left {
+    text-align: right;
+  }
+
+  .text__right {
+    text-align: left;
+  }
+}
+
 .text__justify {
   text-align: justify;
 }

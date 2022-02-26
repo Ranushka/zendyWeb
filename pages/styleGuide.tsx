@@ -313,7 +313,7 @@ export default function Home() {
           publicationYear="2020"
           downloadLink="/"
           permanentLinkId="uid"
-          authors={[]}
+          authors={['author name']}
           keywords={'key'}
           subjects={['subject']}
           link={[]}

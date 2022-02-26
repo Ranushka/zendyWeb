@@ -71,3 +71,8 @@ export const clickVibrate = () => {
     window.navigator.vibrate(25)
   }
 }
+
+export const getDir = (local) => {
+  const isRtl = /ar|fa/.test(local)
+  return isRtl ? 'rtl': 'ltr';
+}

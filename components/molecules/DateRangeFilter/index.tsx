@@ -26,7 +26,10 @@ const SortByFilter: React.FC<SortByFilterProps> = ({ year, setYear }) => {
 
   const customYears = yearsList.map((item, id) => {
     return (
-      <label key={id} className={styles.wrapper + ' py__2 px__2 pt__0 pl__0'}>
+      <label
+        key={id}
+        className={styles.wrapper + ' py__2 pl__0 mx__2 ml__0 pt__0'}
+      >
         <input
           type="radio"
           checked={item === year}

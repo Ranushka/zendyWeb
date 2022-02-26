@@ -5,8 +5,9 @@ import { Space, ButtonFab } from 'components/atoms'
 import { ProfileTabs } from 'components/molecules'
 import { IconMore } from 'components/icons'
 import { BaseTemplate } from 'components/templates'
+import { commonMessages } from 'lib/getMessages'
 
-const Searches = () => {
+const Searches: React.FC = () => {
   const { data: session, status } = useSession()
   const loading = status === 'loading'
   const router = useRouter()
@@ -74,5 +75,17 @@ const dataSet = [
     filters: ['Books'],
   },
 ]
+
+export async function getStaticProps({ locale }) {
+  const commonMsg = await commonMessages(locale)
+
+  return {
+    props: {
+      messages: {
+        ...commonMsg,
+      },
+    },
+  }
+}
 
 export default Searches
