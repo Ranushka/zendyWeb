@@ -25,8 +25,8 @@ const CardCurated: React.FC<Props> = (props) => {
         style={style}
       >
         <Image
-          src={`/${img}`}
-          alt="Picture of the author"
+          src={img}
+          alt={title.toString()}
           placeholder="empty"
           width={656}
           height={400}

@@ -1,4 +1,4 @@
-import React from 'react'
+import { useTranslations } from 'next-intl'
 import classnames from 'classnames'
 import styles from './index.module.scss'
 import { ActionItem, Input, Space, Select } from 'components/atoms'
@@ -6,17 +6,13 @@ import { ActionItem, Input, Space, Select } from 'components/atoms'
 type Props = {}
 
 const GetStartedWithUs: React.FC<Props> = ({}) => {
+  const trans = useTranslations('subscribe')
+
   return (
     <section className={classnames('bg__white py__5 stage__2')}>
       <div className={'mw__4 px__3'}>
-        <h2>
-          Subscribe to your own weekly briefing of research publications in your
-          field.
-        </h2>
-        <p>
-          Be on your toes, stay ahead the cave, get your weekly briefing in to
-          your Email.
-        </p>
+        <h2>{trans('title')}</h2>
+        <p>{trans('subtitle')}</p>
         <Space />
         <form className={styles.formWrapper}>
           <Select
@@ -34,14 +30,10 @@ const GetStartedWithUs: React.FC<Props> = ({}) => {
             block
             required
           />
-          <ActionItem text={'Count me in'} href={'#'} type="btn__secondary" />
+          <ActionItem text={trans('btn')} href={'#'} type="btn__secondary" />
         </form>
         <Space size={3} />
-        <small>
-          We take privacy very seriously we will not sure your or sell your
-          email to any third party.You can easily unsubscribe or easily manage
-          subscription upon your sign up
-        </small>
+        <small>{trans('description')}</small>
       </div>
     </section>
   )

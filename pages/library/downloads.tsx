@@ -5,13 +5,14 @@ import { Space, ButtonFab } from 'components/atoms'
 import { ProfileTabs } from 'components/molecules'
 import { IconMore } from 'components/icons'
 import { BaseTemplate } from 'components/templates'
+import { commonMessages } from 'lib/getMessages'
 
 type DataRowProps = {
   id: number
   name: string
 }
 
-const Downloads = () => {
+const Downloads: React.FC = () => {
   const { data: session, status } = useSession()
   const loading = status === 'loading'
   const router = useRouter()
@@ -59,5 +60,17 @@ const dataSet = [
     name: 'quaerat velit veniam amet cupiditate aut numquam ut sequi',
   },
 ]
+
+export async function getStaticProps({ locale }) {
+  const commonMsg = await commonMessages(locale)
+
+  return {
+    props: {
+      messages: {
+        ...commonMsg,
+      },
+    },
+  }
+}
 
 export default Downloads

@@ -42,8 +42,12 @@
 .actions {
   display: inline-flex;
   position: absolute;
-  // right: 1rem;
   right: 0;
+
+  html[dir='rtl'] & {
+    right: unset;
+    left: 0;
+  }
 
   a,
   div {

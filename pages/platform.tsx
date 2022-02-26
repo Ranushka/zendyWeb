@@ -1,5 +1,5 @@
 import { Space } from 'components/atoms'
-
+import { commonMessages } from 'lib/getMessages'
 import {
   HeroCta,
   Publishers,
@@ -13,7 +13,7 @@ import {
 
 import { BaseTemplate } from 'components/templates'
 
-export default function Learn() {
+const Platform: React.FC = () => {
   return (
     <BaseTemplate>
       <HeroCta />
@@ -31,3 +31,17 @@ export default function Learn() {
     </BaseTemplate>
   )
 }
+
+export async function getStaticProps({ locale }) {
+  const commonMsg = await commonMessages(locale)
+
+  return {
+    props: {
+      messages: {
+        ...commonMsg,
+      },
+    },
+  }
+}
+
+export default Platform

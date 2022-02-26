@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Space } from 'components/atoms'
 import QNA from './QNA'
-
+import { commonMessages } from 'lib/getMessages'
 import {
   Testimonials,
   SubscriptionPage,
@@ -9,7 +9,7 @@ import {
 } from 'components/organisms'
 import { BaseTemplate } from 'components/templates'
 
-export default function Home() {
+const Pricing: React.FC = () => {
   return (
     <BaseTemplate>
       <SubscriptionPage />
@@ -22,3 +22,17 @@ export default function Home() {
     </BaseTemplate>
   )
 }
+
+export async function getStaticProps({ locale }) {
+  const commonMsg = await commonMessages(locale)
+
+  return {
+    props: {
+      messages: {
+        ...commonMsg,
+      },
+    },
+  }
+}
+
+export default Pricing

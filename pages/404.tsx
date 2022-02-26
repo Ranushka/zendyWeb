@@ -1,7 +1,8 @@
 import { BaseTemplate } from 'components/templates'
 import { ActionItem, Space } from 'components/atoms'
+import { commonMessages } from 'lib/getMessages'
 
-export default function PageNotFound() {
+const PageNotFound: React.FC = () => {
   return (
     <BaseTemplate>
       <section className="mw__6 text__center">
@@ -15,3 +16,17 @@ export default function PageNotFound() {
     </BaseTemplate>
   )
 }
+
+export async function getStaticProps({ locale }) {
+  const commonMsg = await commonMessages(locale)
+
+  return {
+    props: {
+      messages: {
+        ...commonMsg,
+      },
+    },
+  }
+}
+
+export default PageNotFound

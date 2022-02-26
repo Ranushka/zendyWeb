@@ -1,16 +1,20 @@
 import React from 'react'
 import Image from 'next/image'
+import isArray from 'lodash/isArray'
+import { useTranslations } from 'next-intl'
 import styles from './desktop.module.scss'
 import { ActionItem, Space, Logo, ButtonFab } from 'components/atoms'
+import { PrivacyList, ExploreList, NewsList } from './Common'
 import {
   IconSocialLinkedIn,
   IconSocialInstagram,
   IconSocialTwitter,
   IconSocialFacebook,
 } from 'components/icons'
-import { attributes as Data } from 'data/footer.md'
 
 const Footer: React.FC<{}> = ({}) => {
+  const trans = useTranslations('footer')
+
   return (
     <>
       <Space size={5} />
@@ -20,15 +24,17 @@ const Footer: React.FC<{}> = ({}) => {
         <div className={styles.footerTop}>
           <section className={styles.company}>
             <Logo className="pt__0 pb__0" />
-            <div className="mw__1 my__4 small ml__0">{Data.about_text}</div>
+            <div className="mw__1 my__4 small ml__0">{trans('about_text')}</div>
           </section>
 
           <section className={styles.explore}>
-            <p>{Data.explore_title}</p>
+            <p>{trans('explore_title')}</p>
             <Space size={3} />
-            <div className="mw__1 pull__l2">{__exploreList()}</div>
+            <div className="mw__1 pull__l2">
+              <ExploreList />
+            </div>
             <Space />
-            <p>{Data.reach_title}</p>
+            <p>{trans('reach_title')}</p>
             <Space size={3} />
 
             <div className="mw__1 pull__l2">
@@ -40,15 +46,17 @@ const Footer: React.FC<{}> = ({}) => {
           </section>
 
           <section className={styles.fromNews}>
-            <p>{Data.news_title}</p>
+            <p>{trans('news_title')}</p>
             <Space size={3} />
-            {__newsList()}
+            <NewsList />
           </section>
         </div>
         <Space size={5} />
         <div className={styles.footerBottom}>
-          <small>{Data.rights_text}</small>
-          <div className={styles.privacy}>{__privacyList()}</div>
+          <small>{trans('rights_text')}</small>
+          <div className={styles.privacy}>
+            <PrivacyList />
+          </div>
           <div className={styles.seals}>
             <Image
               width={120}
@@ -62,50 +70,6 @@ const Footer: React.FC<{}> = ({}) => {
         <Space size={5} />
       </footer>
     </>
-  )
-}
-
-const __exploreList = () => {
-  return (
-    Data.explore_list &&
-    Data.explore_list.map(({ label, path }, key) => {
-      return (
-        <React.Fragment key={key}>
-          <ActionItem text={label} href={path} type="link__small" />
-        </React.Fragment>
-      )
-    })
-  )
-}
-
-const __newsList = () => {
-  return (
-    Data.news_list &&
-    Data.news_list.map(({ label, path }, key) => {
-      return (
-        <React.Fragment key={key}>
-          <ActionItem text={label} href={path} type="link__small" />
-        </React.Fragment>
-      )
-    })
-  )
-}
-
-const __privacyList = () => {
-  return (
-    Data.privacy_list &&
-    Data.privacy_list.map(({ label, path }, key) => {
-      return (
-        <React.Fragment key={key}>
-          <ActionItem
-            text={label}
-            href={path}
-            type="link__small"
-            className="mx__3"
-          />
-        </React.Fragment>
-      )
-    })
   )
 }
 

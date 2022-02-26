@@ -13,6 +13,7 @@ import Head from 'next/head'
 import { applyTheme } from 'lib/theme'
 import { applyFontSize } from 'lib/fontSize'
 import Script from 'next/script'
+import { NextIntlProvider } from 'next-intl'
 import { DeviceTypeContextProvider } from 'context/DeviceTypeContext'
 import { LoggedInUserProvider } from 'context/LoggedInUserContext'
 import { GlobelProvider } from 'context/GlobelContext'
@@ -21,6 +22,11 @@ import { pageView } from 'analytics'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import App from 'next/app'
+
+if (typeof window !== 'undefined') {
+  applyTheme(null)
+  applyFontSize(null)
+}
 
 NProgress.configure({ trickleSpeed: 300, showSpinner: false })
 Router.events.on('routeChangeStart', () => {
@@ -51,15 +57,10 @@ const AppRoot = ({ Component, pageProps, isMobile, session }) => {
               name="viewport"
               content="width=device-width, initial-scale=1.0"
             />
-            <title>Zendy, Premium research publications library</title>
           </Head>
-          <Script
-            onLoad={() => {
-              applyTheme()
-              applyFontSize()
-            }}
-          />
-          <Component {...pageProps} />
+          <NextIntlProvider messages={pageProps.messages}>
+            <Component {...pageProps} />
+          </NextIntlProvider>
         </GlobelProvider>
       </LoggedInUserProvider>
     </DeviceTypeContextProvider>
@@ -68,17 +69,20 @@ const AppRoot = ({ Component, pageProps, isMobile, session }) => {
 
 AppRoot.getInitialProps = async (appContext) => {
   const appInitProps = await App.getInitialProps(appContext)
-  const request = appContext.ctx.req
 
+  const req = appContext.ctx.req
   let isMobile
 
-  if (request) {
-    isMobile = checkIsMobile(request)
+  if (req) {
+    isMobile = checkIsMobile(req)
   } else {
     isMobile = checkIsMobile()
   }
 
-  return { ...appInitProps, isMobile }
+  return {
+    ...appInitProps,
+    isMobile,
+  }
 }
 
 export default AppRoot

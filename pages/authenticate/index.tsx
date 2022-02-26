@@ -1,10 +1,12 @@
 import { Authenticate } from 'components/organisms'
 import { LoginRegisterTemplate } from 'components/templates'
 
-export default function Index() {
+const Index: React.FC = () => {
   return (
     <LoginRegisterTemplate>
       <Authenticate />
     </LoginRegisterTemplate>
   )
 }
+
+export default Index

@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react'
-// import PhoneInput from 'react-phone-number-input'
+
 import classnames from 'classnames'
 import { IconSocialLinkedIn } from 'components/icons'
 import { ActionItem, Space, Logo, Input } from 'components/atoms'
@@ -79,8 +79,6 @@ const Authenticate: React.FC<{}> = ({}) => {
 
   return (
     <>
-      {/* <Head><link rel="stylesheet" href="/css/react_input.css" /></Head> */}
-
       <div className={classnames('flex__center block', styles.wrapper)}>
         <div className={classnames('mw__1 block', styles.phoneNumber)}>
           <div className="text__center">
