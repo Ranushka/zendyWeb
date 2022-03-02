@@ -19,7 +19,7 @@ const RelatedPublications: NextPage<any> = () => {
               publicationYear="2020"
               downloadLink="/"
               permanentLinkId="uid"
-              authors={[]}
+              authors={['name one']}
               keywords={'key'}
               subjects={['subject']}
               link={[]}

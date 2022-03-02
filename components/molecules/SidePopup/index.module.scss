@@ -7,14 +7,10 @@
   height: 100%;
   top: 0;
   right: 0;
-  overflow: auto;
+  overflow-y: scroll;
 }
 
 .wrapper {
-  -webkit-overflow-scrolling: touch;
-  background: var(--c-nut1);
-  z-index: 9;
-
   &.left {
     left: 0;
     max-width: calc(100% - var(--sp6));
@@ -32,17 +28,10 @@
   }
 
   &.bottom {
-    // bottom: 0;
     margin-top: 30vh;
     position: absolute;
-    // bottom: 0;
     width: 100%;
     border-radius: var(--radius-2) var(--radius-2) 0 0;
-    // right: 0;
-    // left: 0;
-    // height: auto;
-    // height: 100%;
-    // width: 100%;
   }
 }
 
@@ -52,8 +41,6 @@
   margin-left: calc(100% - 3rem);
   width: 3rem;
   padding-top: 1rem;
-
-  // position: fixed;
   cursor: pointer;
   bottom: var(--sp2);
   z-index: 9;
@@ -73,9 +60,8 @@
   }
 
   &.center {
-    top: 0;
-    // top: var(--sp3);
-    // right: var(--sp3);
+    top: -40px;
+    position: relative;
   }
 
   &.bottom {

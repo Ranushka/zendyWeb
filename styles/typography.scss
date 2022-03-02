@@ -172,8 +172,7 @@ Color
   color: var(--c-black);
 }
 */
-$colors: 'white', secondary, primary, nut6, nut7, nut8, success, error, warning,
-  info;
+$colors: secondary, primary, nut6, nut7, nut8, success, error, warning, info;
 
 @each $color in $colors {
   .color__#{$color} {

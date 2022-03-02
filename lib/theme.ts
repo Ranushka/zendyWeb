@@ -1,6 +1,4 @@
 export function applyTheme(data) {
-  console.log('applyTheme-->', data)
-
   try {
     var d = document.documentElement
     var e = data || getTheme()

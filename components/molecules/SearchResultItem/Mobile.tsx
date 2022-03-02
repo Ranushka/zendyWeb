@@ -44,16 +44,42 @@ const __renderAbstract = (content) => {
   )
 }
 
-const __renderAuthors = (authors: []) => {
-  const authorsList = authors.map(({ name }) => name).join('; ')
+// const __renderAuthors = (authors: [string]) => {
+//   const authorsList = authors.map(({ name }) => name).join('; ')
 
+//   return (
+//     authors && (
+//       <div className="py__2">
+//         <small className="flex">
+//           <small className="px__2 pl__0 mute">By - </small>
+//           <Ellipsis text={authorsList} suffix="...[et al.]" />
+//         </small>
+//       </div>
+//     )
+//   )
+// }
+
+const __renderAuthors = (authors: [string]) => {
   return (
     authors && (
-      <div className="py__2">
-        <small className="flex">
-          <small className="px__2 pl__0 mute">By - </small>
-          <Ellipsis text={authorsList} suffix="...[et al.]" />
-        </small>
+      <div className="py__1">
+        <small className="px__2 pl__0 mute">By - </small>
+        {authors
+          .map<React.ReactNode>((name, id) => {
+            if (name) {
+              return (
+                <ActionItem
+                  key={id}
+                  text={name}
+                  as={`/search?author=${name}`}
+                  href={`/search?author=${name}`}
+                  // href={'/'}
+                  type="link__small"
+                />
+              )
+            }
+          })
+          .reduce((prev, curr) => [prev, ', ', curr])}
       </div>
     )
   )
