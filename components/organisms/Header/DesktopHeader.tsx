@@ -3,14 +3,24 @@ import classnames from 'classnames'
 import Skeleton from 'react-loading-skeleton'
 import isArray from 'lodash/isArray'
 import { useTranslations } from 'next-intl'
+
 import styles from './desktop.module.scss'
 import { ActionItem, Space, Logo, ButtonFab } from 'components/atoms'
 import {
+  SelectLanguage,
+  SelectTheme,
+  SelectFontSize,
   SearchForm,
   SearchFormAdvanced,
   CategoriesMenu,
+  SidePopup,
 } from 'components/molecules'
-import { IconArrowDown, IconClear } from 'components/icons'
+import {
+  IconArrowDown,
+  IconClear,
+  IconSettings,
+  IconGlobal,
+} from 'components/icons'
 import { useSession } from 'next-auth/react'
 import useGlobel from 'context/GlobelContext'
 
@@ -21,16 +31,25 @@ const DesktopHeader: React.FC = ({}) => {
   const [state, setState] = useGlobel()
   const loading = status === 'loading'
 
+  const [open, setOpen] = React.useState(false)
   return (
     <>
       <header
         key="headerContainer"
-        className="edgeContainer bg__nut8 relative z__2"
+        className="edgeContainer bg__nut3 relative z__2"
       >
         <section className="mw__7">
-          <div className={'px__3 py__1 flex__center'}>
+          <div className={'px__3 flex__center'}>
             <div className="flex__left" />
-            <NavItems />
+            <NavItems />|<Space size={3} />
+            <div
+              className="pointer rounded"
+              onClick={() => setOpen(true)}
+              title="set language, theme, font size"
+            >
+              <ButtonFab small icon={<IconSettings />} />
+              <ButtonFab small icon={<IconGlobal />} />
+            </div>
           </div>
         </section>
       </header>
@@ -74,7 +93,29 @@ const DesktopHeader: React.FC = ({}) => {
         </section>
       </div>
       <AdvanceSearchBlock show={state.toggleAdvanceSearch} />
+      <SidePopup
+        small
+        content={<SettingsPopUpContent />}
+        open={open}
+        openLocation={'center'}
+        closeFunc={() => setOpen(false)}
+      />
     </>
+  )
+}
+
+const SettingsPopUpContent = () => {
+  return (
+    <div className="px__4 py__4">
+      <h2 className="text__center">Customize appearance</h2>
+      <Space size={3} />
+      <SelectLanguage />
+      <Space size={3} />
+      <SelectTheme />
+      <Space size={3} />
+      <SelectFontSize />
+      <Space size={3} />
+    </div>
   )
 }
 
@@ -102,7 +143,7 @@ const NavItems = () => {
         nav_items.map(({ label, path }, key) => {
           return (
             <React.Fragment key={key}>
-              <ActionItem text={label} href={path} className="color__white" />
+              <ActionItem text={label} href={path} />
               <Space />
             </React.Fragment>
           )

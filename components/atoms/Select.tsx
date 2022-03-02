@@ -4,6 +4,8 @@ import classnames from 'classnames'
 type Props = {
   label?: string
   name?: string
+  small?: boolean
+  // dark?: boolean
   id: string
   data?: string[]
   block?: boolean
@@ -15,6 +17,8 @@ type Props = {
 const Select: React.FC<Props> = ({
   label,
   name,
+  small,
+  // dark,
   id,
   data,
   block,
@@ -26,6 +30,8 @@ const Select: React.FC<Props> = ({
     <div
       className={classnames(
         'input__wrapper',
+        // dark && 'dark',
+        small && 'selectSmall small',
         block && 'block',
         className && className
       )}
