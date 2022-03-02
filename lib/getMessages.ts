@@ -1,8 +1,10 @@
 import request from 'lib/request'
 
+const CMS_BASE_URL = process.env.NEXT_PUBLIC_CMS_BASE_URL
+
 export async function commonMessages(locale = 'en') {
   const data = await request(
-    `http://localhost:1337/api/common?locale=${locale}`
+    `${CMS_BASE_URL}/api/common?locale=${locale}`
   ).then((data) => data.data.attributes)
 
   return data
@@ -10,7 +12,7 @@ export async function commonMessages(locale = 'en') {
 
 export async function homeMessages(locale = 'en') {
   const data = await request(
-    `http://localhost:1337/api/page-home?locale=${locale}`
+    `${CMS_BASE_URL}/api/page-home?locale=${locale}`
   ).then((data) => data.data.attributes)
 
   return data
@@ -19,7 +21,7 @@ export async function homeMessages(locale = 'en') {
 export async function curatedMessages(locale = 'en') {
   const fomatedData = []
   await request(
-    `http://localhost:1337/api/curated-contents?populate=*&&locale=${locale}`
+    `${CMS_BASE_URL}/api/curated-contents?populate=*&&locale=${locale}`
   ).then((data) => {
     try {
       data.data.map((item) => {

@@ -7,28 +7,29 @@ import { ButtonFab } from 'components/atoms'
 
 type Props = {
   content: React.ReactNode
+  small?: boolean
   open?: boolean
   fullHeight?: boolean
   closeFunc?: Function
   openLocation?: 'left' | 'right' | 'center' | 'bottom' | 'none'
 }
 
-const SidePopup: React.FC<Props> = (props) => {
-  const {
-    content,
-    open,
-    fullHeight = false,
-    closeFunc,
-    openLocation = 'left',
-  } = props
-
+const SidePopup: React.FC<Props> = ({
+  small,
+  content,
+  open,
+  fullHeight = false,
+  closeFunc,
+  openLocation = 'left',
+}) => {
   const closeBtnStyle = classnames(
     styles.refineSearchBtnClose,
     styles[openLocation]
   )
   const contentStyle = classnames(
-    'px__3',
+    'px__3 bg__white z__4',
     styles.wrapper,
+    small && 'mw__2',
     fullHeight && styles.fullHeight,
     styles[openLocation]
   )
