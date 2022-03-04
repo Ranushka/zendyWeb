@@ -19,7 +19,7 @@ const Curated: React.FC<Props> = ({}) => {
             style={{ width: '18rem' }}
             key={`curatedItem${id}`}
             href={href}
-            img={process.env.NEXT_PUBLIC_CMS_BASE_URL + image}
+            imgUrl={image}
             title={title}
             content={content}
           />
