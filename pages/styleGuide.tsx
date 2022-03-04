@@ -300,7 +300,7 @@ export default function Home() {
       <section>
         <CardCurated
           href={'/'}
-          img={'https://picsum.photos/300/200'}
+          imgUrl={'https://picsum.photos/300/200'}
           title="Water : towards a culture of supper responsibility long text"
           content="Ride-hailing services provide not only alternative transportation for passengers but also job opportunities for potential drivers,  in both negative and positive ef..."
         />
