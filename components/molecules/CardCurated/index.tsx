@@ -6,14 +6,14 @@ import classnames from 'classnames'
 
 type Props = {
   href: string
-  img: string
+  imgUrl: string
   title: React.ReactNode
   content: React.ReactNode
   style?: React.CSSProperties
 }
 
 const CardCurated: React.FC<Props> = (props) => {
-  const { href, img, title, content, style } = props
+  const { href, imgUrl, title, content, style } = props
 
   return (
     <ActionItem href={href}>
@@ -25,7 +25,7 @@ const CardCurated: React.FC<Props> = (props) => {
         style={style}
       >
         <Image
-          src={img}
+          src={imgUrl}
           alt={title.toString()}
           placeholder="empty"
           width={656}

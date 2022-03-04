@@ -32,7 +32,7 @@ const config = {
 
 module.exports = {
   images: {
-    domains: [CMS_IMG_HOSTNAME, 'picsum.photos'],
+    domains: [CMS_IMG_HOSTNAME, 'picsum.photos', 'storage.googleapis.com'],
   },
   i18n: {
     locales: ['en', 'ar'],
