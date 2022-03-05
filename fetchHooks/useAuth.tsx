@@ -1,5 +1,4 @@
 import useSWR from 'swr'
-import { useRouter } from 'next/router'
 
 const useAuth = (email, password) => {
   const url = 'https://api.staging-oa.zendy.io/auth/auth/'

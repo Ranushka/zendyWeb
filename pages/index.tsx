@@ -1,10 +1,7 @@
 import { useTranslations } from 'next-intl'
 import Head from 'next/head'
-import useSWR from 'swr'
-import { Space } from 'components/atoms'
-import { SeeAll, SubTitle } from 'components//molecules'
+import { SubTitle } from 'components//molecules'
 import { commonMessages, curatedMessages, homeMessages } from 'lib/getMessages'
-import request from 'lib/request'
 
 import {
   HeroCtaHome,
