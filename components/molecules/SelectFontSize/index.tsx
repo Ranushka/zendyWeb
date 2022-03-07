@@ -1,10 +1,12 @@
 import React from 'react'
+import { useTranslations } from 'next-intl'
 import { Select } from 'components/atoms'
 import { applyFontSize, saveFontSize, getFontSize } from 'lib/fontSize'
 
 type Props = {}
 
 const SelectFontSize: React.FC<Props> = () => {
+  const trans = useTranslations('settings')
   const [size, setSize] = React.useState('')
 
   React.useEffect(() => {
@@ -24,7 +26,7 @@ const SelectFontSize: React.FC<Props> = () => {
         id="SelectFontSize"
         name="SelectFontSize"
         value={size}
-        label={'Font size'}
+        label={trans('select_size')}
         className={'mb__0'}
         onChange={(data) => onChange(data)}
         data={['Small', 'Medium', 'Larg']}

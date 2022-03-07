@@ -42,8 +42,6 @@ const Search: React.FC = () => {
 }
 
 export async function getStaticProps({ locale }) {
-  console.log('-----Search.getStaticProps-->')
-
   const commonMsg = await commonMessages(locale)
 
   return {

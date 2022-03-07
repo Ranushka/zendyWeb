@@ -105,9 +105,11 @@ const DesktopHeader: React.FC = ({}) => {
 }
 
 const SettingsPopUpContent = () => {
+  const trans = useTranslations('settings')
+
   return (
     <div className="px__4 py__4">
-      <h2 className="text__center">Customize appearance</h2>
+      <h2 className="text__center">{trans('title')}</h2>
       <Space size={3} />
       <SelectLanguage />
       <Space size={3} />
@@ -123,7 +125,7 @@ const AdvanceSearchBlock = ({ show }) => {
   return (
     show && (
       <div key="advancedSearch" className="bg__white stage__2 ">
-        <section className="flex__center mw__7 px__3 py__3">
+        <section className="flex__center mw__7 px__3 py__2">
           <div className="flex flex__center block">
             <SearchFormAdvanced id="advancedSearch" />
           </div>
