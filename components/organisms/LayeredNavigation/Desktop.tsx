@@ -36,7 +36,7 @@ const LayeredNavigationTitle = () => {
   )
 }
 
-const FilterItems = (items, groupId) => {
+const FilterItems = ({ items, groupId }) => {
   const router = useRouter()
   const queryString = router.query
 
@@ -110,7 +110,7 @@ const FilterGroups = () => {
     const accordionContent = (
       <div>
         <Space size={2} />
-        {FilterItems(item.facets, categoryLabel)}
+        <FilterItems items={item.facets} groupId={categoryLabel} />
       </div>
     )
 
@@ -153,15 +153,13 @@ const GetYearRange = () => {
 
 const LayeredNavigation: React.FC<Props> = ({}) => {
   return (
-    <>
-      <section className={classnames('px__4 pl__0', styles.wrapper)}>
-        {LayeredNavigationTitle()}
-        {GetSortBy()}
-        {GetYearRange()}
-        <Space size={2} />
-        {FilterGroups()}
-      </section>
-    </>
+    <section className={classnames('px__4 pl__0', styles.wrapper)}>
+      <LayeredNavigationTitle />
+      <GetSortBy />
+      <GetYearRange />
+      <Space size={2} />
+      <FilterGroups />
+    </section>
   )
 }
 
