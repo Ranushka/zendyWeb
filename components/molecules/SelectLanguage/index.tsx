@@ -1,10 +1,12 @@
 import React from 'react'
+import { useTranslations } from 'next-intl'
 import { Select } from 'components/atoms'
 import { applyTheme, saveTheme, getTheme } from 'lib/theme'
 import { useRouter } from 'next/router'
 import { getDir } from 'lib/helpers'
 
 const SelectLanguage = () => {
+  const trans = useTranslations('settings')
   const langPlaceholder = 'Ab عرب සිං'
   const { locale, pathname, asPath, push } = useRouter()
   const [currentLang, setCurrentLang] = React.useState('')
@@ -30,7 +32,7 @@ const SelectLanguage = () => {
   return (
     <div key="selectLang">
       <Select
-        label="Select language"
+        label={trans('select_lang')}
         id="selectLang"
         name="selectLang"
         value={currentLang}

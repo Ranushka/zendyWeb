@@ -11,6 +11,8 @@ type Props = {
   id?: string
 }
 
+const scopeList = ['keyword', 'title', 'author', 'subject', 'journal']
+
 const SearchFormAdvanced: React.FC<Props> = ({ id = 'search' }) => {
   const searchInput = React.useRef(null)
   const [name, setName] = useState('')
@@ -47,60 +49,21 @@ const SearchFormAdvanced: React.FC<Props> = ({ id = 'search' }) => {
     }
   }, [router])
 
-  function searchBox(index, data) {
-    const isFirst = index === 0
-
-    const [keyword, operator, scope] = data.split('|')
-
-    return (
-      <article className="flex__center relative px__2">
-        {!isFirst && (
-          <select
-            className={styles.operator}
-            name="operator"
-            id="operator"
-            value={operator}
-          >
-            <option value="AND">AND</option>
-            <option value="OR">OR</option>
-            <option value="NOT">NOT</option>
-          </select>
-        )}
-        <input
-          id={id}
-          name="search_term_string"
-          autoComplete="off"
-          ref={searchInput}
-          type="search"
-          accessKey="s"
-          placeholder={
-            isMobile ? Data.search_placeholder_m : Data.search_placeholder_d
-          }
-          className={classnames(
-            'bg__white',
-            styles.searchInput,
-            isFirst && styles.searchInputFirst
-          )}
-          value={keyword}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <select className={styles.scope} name="scope" id="scope" value={scope}>
-          <option value="keyword">keyword</option>
-          <option value="title">title</option>
-          <option value="author">author</option>
-          <option value="subject">subject</option>
-          <option value="journal">journal</option>
-        </select>
-      </article>
-    )
-  }
-
   return (
     <form
       onSubmit={handleSubmit}
-      className={'flex__center ' + styles.advancedSearchWrapper}
+      className={'flex__center flex__wrap ' + styles.advancedSearchWrapper}
     >
-      {searchList.map((data, index) => searchBox(index, data))}
+      {searchList.map((data, index) => {
+        return (
+          <SearchBox
+            key={index}
+            index={index}
+            searchInput={searchInput}
+            data={data}
+          />
+        )
+      })}
 
       <ButtonFab
         onClick={() => {
@@ -117,6 +80,58 @@ const SearchFormAdvanced: React.FC<Props> = ({ id = 'search' }) => {
         type={'btn__primary'}
       />
     </form>
+  )
+}
+
+const SearchBox: React.FC<any> = ({ index, data, searchInput }) => {
+  const isFirst = index === 0
+
+  const [keyword, operator, scope] = data.split('|')
+
+  return (
+    <article className="flex__center relative px__2 py__2">
+      {!isFirst && (
+        <select
+          className={styles.operator}
+          name="operator"
+          id="operator"
+          value={operator}
+        >
+          <option value="AND">AND</option>
+          <option value="OR">OR</option>
+          <option value="NOT">NOT</option>
+        </select>
+      )}
+      <input
+        id={index}
+        name="search_term_string"
+        autoComplete="off"
+        ref={searchInput}
+        type="search"
+        accessKey="s"
+        placeholder={`Enter ${scope}`}
+        className={classnames(
+          'bg__white',
+          styles.searchInput,
+          isFirst && styles.searchInputFirst
+        )}
+        value={keyword}
+        // onChange={(e) => setName(e.target.value)}
+      />
+      <select
+        className={styles.scope}
+        name="scope"
+        id="scope"
+        // value={itemScope}
+        // onChange={(e) => setItemScope(e.target.value)}
+      >
+        {scopeList.map((item, key) => (
+          <option key={key} value={item}>
+            {item}
+          </option>
+        ))}
+      </select>
+    </article>
   )
 }
 
