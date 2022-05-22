@@ -16,7 +16,7 @@ import Script from 'next/script'
 import { NextIntlProvider } from 'next-intl'
 import { DeviceTypeContextProvider } from 'context/DeviceTypeContext'
 import { LoggedInUserProvider } from 'context/LoggedInUserContext'
-import { GlobelProvider } from 'context/GlobelContext'
+import { GlobalProvider } from 'context/GlobalContext'
 import { checkIsMobile } from 'lib/helpers'
 import { pageView } from 'analytics'
 import NProgress from 'nprogress'
@@ -51,7 +51,7 @@ const AppRoot = ({ Component, pageProps, isMobile, session }) => {
   return (
     <DeviceTypeContextProvider isMobile={isMobile}>
       <LoggedInUserProvider session={session}>
-        <GlobelProvider>
+        <GlobalProvider>
           <Head>
             <meta
               name="viewport"
@@ -61,7 +61,7 @@ const AppRoot = ({ Component, pageProps, isMobile, session }) => {
           <NextIntlProvider messages={pageProps.messages}>
             <Component {...pageProps} />
           </NextIntlProvider>
-        </GlobelProvider>
+        </GlobalProvider>
       </LoggedInUserProvider>
     </DeviceTypeContextProvider>
   )
@@ -79,9 +79,11 @@ AppRoot.getInitialProps = async (appContext) => {
     isMobile = checkIsMobile()
   }
 
+  console.log('isMobile --> ', isMobile)
+
   return {
     ...appInitProps,
-    isMobile,
+    isMobile
   }
 }
 

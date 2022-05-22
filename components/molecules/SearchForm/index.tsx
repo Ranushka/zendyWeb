@@ -6,7 +6,7 @@ import styles from './index.module.scss'
 import { ButtonFab } from 'components/atoms'
 import { IconSearch, IconClear, IconAdvanceSearch } from 'components/icons'
 import DeviceTypeContext from 'context/DeviceTypeContext'
-import useGlobel from 'context/GlobelContext'
+import useGlobal from 'context/GlobalContext'
 import { attributes as Data } from 'data/header.md'
 
 type Props = {
@@ -18,7 +18,7 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
   const trans = useTranslations('header')
   const [searchText, setSearchText] = useState('')
   const router = useRouter()
-  const [state, setState] = useGlobel()
+  const [state, setState] = useGlobal()
   const { isMobile } = React.useContext(DeviceTypeContext)
 
   const handleSubmit = (e) => {
@@ -26,7 +26,7 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
 
     router.push({
       pathname: '/search',
-      query: { q: searchText },
+      query: { q: searchText }
     })
   }
 
@@ -77,7 +77,7 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
           onClick={() => {
             setState({
               ...state,
-              toggleAdvanceSearch: true,
+              toggleAdvanceSearch: true
             })
           }}
           icon={<IconAdvanceSearch />}
