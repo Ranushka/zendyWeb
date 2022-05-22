@@ -13,22 +13,22 @@ import {
   SearchForm,
   SearchFormAdvanced,
   CategoriesMenu,
-  SidePopup,
+  SidePopup
 } from 'components/molecules'
 import {
   IconArrowDown,
   IconClear,
   IconSettings,
-  IconGlobal,
+  IconGlobal
 } from 'components/icons'
 import { useSession } from 'next-auth/react'
-import useGlobel from 'context/GlobelContext'
+import useGlobal from 'context/GlobalContext'
 
 const DesktopHeader: React.FC = ({}) => {
   const trans = useTranslations('header')
   const { data: session, status } = useSession()
   const btnGuestOrUser = session ? __getLoggedInUser(session) : <GetLoginBtn />
-  const [state, setState] = useGlobel()
+  const [state, setState] = useGlobal()
   const loading = status === 'loading'
 
   const [open, setOpen] = React.useState(false)
