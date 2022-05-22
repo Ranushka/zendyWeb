@@ -8,13 +8,13 @@ import {
   IconArrowDown,
   IconSelectionMode,
   IconSavedSearch,
-  IconNotifications,
+  IconNotifications
 } from 'components/icons'
 import useSearchResults from 'fetchHooks/useSearchResults'
-import useGlobel from 'context/GlobelContext'
+import useGlobal from 'context/GlobalContext'
 
 const SearchResultActions = () => {
-  const [state, setState] = useGlobel()
+  const [state, setState] = useGlobal()
   const { selectionMode } = state
 
   return (

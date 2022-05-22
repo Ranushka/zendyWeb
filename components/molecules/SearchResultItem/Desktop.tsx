@@ -9,11 +9,11 @@ import {
   ActionItem,
   ButtonFab,
   Space,
-  FeaturedChip,
+  FeaturedChip
 } from 'components/atoms'
 import { IconCite, IconBookmark, IconLink } from 'components/icons'
 import { genarateTitleUrlPath } from 'lib/helpers'
-import useGlobel from 'context/GlobelContext'
+import useGlobal from 'context/GlobalContext'
 
 // const __renderChips = (isReviewed, isReferenced) => {
 //   if (!isReviewed && !isReferenced) return
@@ -28,7 +28,7 @@ import useGlobel from 'context/GlobelContext'
 
 const __renderTitle = (title = '', permanentLinkId) => {
   const titleId = genarateTitleUrlPath(title, permanentLinkId)
-  const [state, setState] = useGlobel()
+  const [state, setState] = useGlobal()
   const { selectionMode } = state
 
   return (
@@ -207,7 +207,7 @@ const CardCurated: React.FC<SearchResultItemProps> = ({
   permanentLinkId,
   isReviewed,
   isReferenced,
-  subjects,
+  subjects
 }) => {
   return (
     <article className="flex__center rounded__1 my__3 mb__0 mw__5 bg__white stage__2">
