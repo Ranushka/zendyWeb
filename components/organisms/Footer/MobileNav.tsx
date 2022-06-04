@@ -11,7 +11,7 @@ import {
   IconUser,
   IconSearch,
   IconLibrary,
-  IconHome,
+  IconHome
 } from 'components/icons'
 
 type Props = {}
@@ -41,7 +41,7 @@ const MobileNav: React.FC<Props> = ({}) => {
 
   return (
     <>
-      <section className={classnames('bg__white', styles.wrapper)}>
+      <section className="bg-white fixed bottom-0 w-full flex md:hidden">
         <MobileNaveItem
           onClick={() => __routeOnClick('/')}
           text="Home"

@@ -10,7 +10,7 @@ const Magazines: React.FC<Props> = ({}) => {
   const magData = data.magazines.slice(0, 9)
 
   return (
-    <section className={classnames('mw__6 text__center', styles.wrapper)}>
+    <section className="md:container p-4 text-center whitespace-nowrap md:whitespace-normal overflow-y-scroll hideScrollBar">
       {magData.map(({ title, image, href }, id) => (
         <CardMagazine
           key={`magazineItem${id}`}

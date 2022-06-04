@@ -11,7 +11,7 @@ import {
   IconBookmark,
   IconSocialLinkedIn,
   IconSocialTwitter,
-  IconSocialFacebook,
+  IconSocialFacebook
 } from 'components/icons'
 import { ActionItem, ButtonFab, Space, FeaturedChip } from 'components/atoms'
 import { NextArticle } from 'components/molecules'
@@ -45,7 +45,7 @@ const __renderTitle = (title = '') => {
 
 const __renderContentType = (title, journal, year) => {
   return (
-    <div className="py__2">
+    <div className="py-2">
       <strong className="color__nut7">Journal - {year}</strong>
       <ActionItem
         className="px__2"
@@ -59,7 +59,7 @@ const __renderContentType = (title, journal, year) => {
 
 const __renderAbstract = (abstract) => {
   return (
-    <div className="py__2 text__justify">
+    <div className="py-2 text__justify">
       <div dangerouslySetInnerHTML={{ __html: abstract }} />
     </div>
   )
@@ -68,7 +68,7 @@ const __renderAbstract = (abstract) => {
 const __renderAuthors = (authors: []) => {
   return (
     authors && (
-      <div className="py__2">
+      <div className="py-2">
         <small>By </small>
         {authors
           .map<React.ReactNode>(({ name }, id) => (
@@ -83,7 +83,7 @@ const __renderAuthors = (authors: []) => {
 const __renderKeywords = (keywords: []) => {
   return (
     keywords && (
-      <div className="py__2">
+      <div className="py-2">
         <span className="mute">keywords </span>
         {keywords
           .map<React.ReactNode>((name, id) => (
@@ -140,7 +140,7 @@ const FooterActions = ({ link }) => {
   return (
     <div
       className={classnames(
-        'px__3 stage__3',
+        'px-4 stage__3',
         styles.actions,
         visible && styles.actionsHide
       )}
@@ -158,7 +158,7 @@ const __renderContent = (props) => {
   const { title, author, year, abstract, keywords, journal, link } = props
 
   return (
-    <div className="mw__3 px__3">
+    <div className="mw__3 px-4">
       <PublicationIssueJsonLd
         authorName={author}
         name={title}
@@ -197,7 +197,7 @@ const __renderContent = (props) => {
 
 const __renderLoading = () => {
   return (
-    <div className={'mw__3 px__3'}>
+    <div className={'mw__3 px-4'}>
       <div className="gaps__5" />
       <Skeleton />
       <div className="gaps__3" />

@@ -67,13 +67,13 @@ const __KeywordsList = (keywords: []) => {
       <div
         className={classnames(
           styles.keyWordsWrapper,
-          'py__2 pt__0 px__3 overflowScroll pull__r3 pull__l3'
+          'py-2 pt__0 px-4 overflowScroll pull__r3 pull__l3'
         )}
       >
         <span className="mute">keywords </span>
         {keywords.map<React.ReactNode>((name, id) => (
           <ActionItem
-            className="link__small px__3 py__2 mx__1 stage__1 rounded__1 block__inline"
+            className="link__small px-4 py-2 mx__1 stage__1 rounded__1 block__inline"
             key={id}
             text={name}
             href={`/search?q=${name}`}
@@ -100,7 +100,7 @@ const __resultData = () => {
 
 const ResultsWithData: React.FC<any> = () => {
   const {
-    data: { keywords, results },
+    data: { keywords, results }
   } = useSearchResults()
 
   return (

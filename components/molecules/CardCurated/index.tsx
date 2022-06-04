@@ -16,12 +16,28 @@ const CardCurated: React.FC<Props> = (props) => {
   const { href, imgUrl, title, content, style } = props
 
   return (
-    <ActionItem href={href}>
-      <div
-        className={classnames(
-          styles.curated,
-          'bg__white rounded__1 stage__2 mute'
-        )}
+    <ActionItem
+      href={href}
+      className="inline-block cursor-pointer text-left mx-2"
+    >
+      <div className="overflow-hidden shadow rounded-lg h-90 w-80 m-auto whitespace-pre-wrap">
+        <div className="w-full block h-full">
+          <Image
+            src={imgUrl}
+            alt={title.toString()}
+            placeholder="empty"
+            width={656}
+            height={400}
+          />
+          <div className="bg-white w-full p-4">
+            <p className="text-indigo-500 text-md font-medium"></p>
+            <p className="text-xl font-medium mb-2 font-serif">{title}</p>
+            <p className="text-gray-400 line-clamp-4">{content}</p>
+          </div>
+        </div>
+      </div>
+      {/* <div
+        className={classnames(styles.curated, 'bg-white shadow rounded')}
         style={style}
       >
         <Image
@@ -37,7 +53,7 @@ const CardCurated: React.FC<Props> = (props) => {
         <div className={styles.curated__content}>
           <p>{content}</p>
         </div>
-      </div>
+      </div> */}
     </ActionItem>
   )
 }

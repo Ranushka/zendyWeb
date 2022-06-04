@@ -4,7 +4,6 @@ import classnames from 'classnames'
 import { Testimonial } from 'components/molecules'
 import { Space } from 'components/atoms'
 import styles from './desktop.module.scss'
-import { attributes as Data } from 'data/widgets/testimonials.md'
 
 type Props = {}
 
@@ -13,14 +12,13 @@ const Testimonials: React.FC<Props> = ({}) => {
   const testimonialsList = trans.raw('testimonials')
 
   return (
-    <section className="my__5">
-      <div className="text__center">
-        <h2>{trans('title')}</h2>
+    <section className="container my-16">
+      <div className="text-center m-4">
+        <h2 className="text-3xl font-serif">{trans('title')}</h2>
         <p>{trans('subtitle')}</p>
       </div>
 
-      <Space size={4} />
-      <div className={classnames(styles.testimonialsWrap, 'mw__6 px__3')}>
+      <div className="md:flex justify-center items-stretch mx-4 mt-8">
         {isArray(testimonialsList) &&
           testimonialsList.map(({ name, quote, title }, id) => (
             <Testimonial

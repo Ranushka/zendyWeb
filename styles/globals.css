@@ -1,0 +1,44 @@
+[data-font-size='Small'] {
+  --zoom: 0.9;
+}
+
+[data-font-size='Larg'] {
+  --zoom: 1.1;
+}
+
+body {
+  zoom: var(--zoom);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+
+.hideScrollBar {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hideScrollBar::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+.min-h {
+  min-height: 60vh;
+}
+
+select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: center;
+}

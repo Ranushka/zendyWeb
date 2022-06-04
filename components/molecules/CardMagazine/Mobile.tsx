@@ -9,7 +9,7 @@ const CardMagazine: React.FC<CardMagazineProps> = (props) => {
   const { href, img, title, content, className } = props
   const __finalClassNames = classnames(
     styles.magazine,
-    'bg__white rounded__1 stage__2 mx__2 my__2',
+    'bg-white rounded__1 shadow mx__2 my__2',
     className && className
   )
 

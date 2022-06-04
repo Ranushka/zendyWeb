@@ -8,8 +8,7 @@ import { CardMagazineProps } from 'types'
 const CardMagazine: React.FC<CardMagazineProps> = (props) => {
   const { href, img, title, content, className } = props
   const __finalClassNames = classnames(
-    styles.magazine,
-    'bg__white rounded__1 stage__2',
+    'bg-white rounded shadow inline-block cursor-pointer text-left m-3 w-56 pb-3',
     className && className
   )
 
@@ -23,12 +22,8 @@ const CardMagazine: React.FC<CardMagazineProps> = (props) => {
           width={208 * 2}
           height={272 * 2}
         />
-        <div className={styles.magazine__title}>
-          <p>{title}</p>
-        </div>
-        <div className={styles.magazine__content}>
-          <small>{content}</small>
-        </div>
+        <p className="px-3">{title}</p>
+        <small className="px-3">{content}</small>
       </div>
     </ActionItem>
   )

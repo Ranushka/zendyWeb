@@ -8,9 +8,8 @@ const GetStartedWithUs: React.FC<Props> = ({}) => {
   const trans = useTranslations('cta_final')
 
   return (
-    <section className={'mw__6 px__3 py__5 text__center'}>
-      <Space />
-      <div className={'relative stage__2 rounded__2 bg__white px__3 py__5'}>
+    <section className={'container px-5 py-10 text-center'}>
+      <div className="relative rounded-xl shadow overflow-hidden max-w-5xl m-auto">
         <Image
           placeholder="empty"
           objectFit="cover"
@@ -19,11 +18,15 @@ const GetStartedWithUs: React.FC<Props> = ({}) => {
           alt="water_portrait"
           src="/img/lastCallBackground.png"
         />
-        <div className="relative z__1">
-          <h2>{trans('title')}</h2>
+        <div className="relative py-16 px-4">
+          <h2 className="text-3xl font-serif mb-2">{trans('title')}</h2>
           <p>{trans('subtitle')}</p>
-          <Space />
-          <ActionItem text={trans('btn')} href={'#'} type="btn__primary" />
+          <ActionItem
+            text={trans('btn')}
+            href={'#'}
+            type="btn__primary"
+            className="max-w-xs m-auto mt-4"
+          />
         </div>
       </div>
     </section>

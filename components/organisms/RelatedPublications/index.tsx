@@ -7,7 +7,7 @@ const RelatedPublications: NextPage<any> = () => {
     <div className="mw__5">
       <Space size={4} />
       <SubTitle title="Related publications" />
-      <div className="px__3">
+      <div className="px-4">
         {[1, 2, 3, 4].map((id) => {
           return (
             <SearchResultItem

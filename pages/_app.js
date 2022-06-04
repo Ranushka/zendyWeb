@@ -1,11 +1,13 @@
-import 'styles/global.scss'
-import 'styles/reset.scss'
-import 'styles/typography.scss'
-import 'styles/inputs.scss'
+// import 'styles/global.scss'
+// import 'styles/reset.scss'
+// import 'styles/typography.scss'
+// import 'styles/inputs.scss'
 import 'styles/nprogress.scss'
 import 'styles/stripe.scss'
-import 'styles/actionItems.scss'
-import 'styles/utils.scss'
+// import 'styles/actionItems.scss'
+// import 'styles/utils.scss'
+
+import 'styles/globals.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import React from 'react'
@@ -70,20 +72,20 @@ const AppRoot = ({ Component, pageProps, isMobile, session }) => {
 AppRoot.getInitialProps = async (appContext) => {
   const appInitProps = await App.getInitialProps(appContext)
 
-  const req = appContext.ctx.req
-  let isMobile
+  // const req = appContext.ctx.req
+  // let isMobile
 
-  if (req) {
-    isMobile = checkIsMobile(req)
-  } else {
-    isMobile = checkIsMobile()
-  }
+  // if (req) {
+  //   isMobile = checkIsMobile(req)
+  // } else {
+  //   isMobile = checkIsMobile()
+  // }
 
-  console.log('isMobile --> ', isMobile)
+  // console.log('isMobile --> ', isMobile)
 
   return {
-    ...appInitProps,
-    isMobile
+    ...appInitProps
+    // isMobile
   }
 }
 

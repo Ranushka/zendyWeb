@@ -9,7 +9,7 @@ import {
   IconSocialLinkedIn,
   IconSocialTwitter,
   IconSocialFacebook,
-  IconCite,
+  IconCite
 } from 'components/icons'
 import { ActionItem, ButtonFab } from 'components/atoms'
 import { NextArticle } from 'components/molecules'
@@ -52,7 +52,7 @@ const __renderContentType = (title, journal, year) => {
 
 const __renderAbstract = (abstract) => {
   return (
-    <div className="py__2 text__justify">
+    <div className="py-2 text__justify">
       <div dangerouslySetInnerHTML={{ __html: abstract }} />
     </div>
   )
@@ -61,7 +61,7 @@ const __renderAbstract = (abstract) => {
 const __renderAuthors = (authors: []) => {
   return (
     authors && (
-      <div className="py__2">
+      <div className="py-2">
         <small>By </small>
         {authors
           .map<React.ReactNode>(({ name }, id) => (
@@ -76,7 +76,7 @@ const __renderAuthors = (authors: []) => {
 const __renderKeywords = (keywords: string) => {
   return (
     keywords && (
-      <div className="py__2">
+      <div className="py-2">
         <span className="mute">keywords </span>
         {keywords
           .split(',')
@@ -91,7 +91,7 @@ const __renderKeywords = (keywords: string) => {
 const __renderSubjects = (subjects: []) => {
   return (
     subjects && (
-      <div className="py__2">
+      <div className="py-2">
         <span className="mute">Subjects </span>
         {subjects
           .map<React.ReactNode>((name, id) => (
@@ -153,7 +153,7 @@ const __renderContent = ({
   subjects,
   title,
   volume,
-  zendyLink,
+  zendyLink
 }) => {
   // const href = get(link, '[0].url')
 
@@ -215,7 +215,7 @@ const __renderContent = ({
 
 const __renderLoading = () => {
   return (
-    <div className={'mw__3 px__3'}>
+    <div className={'mw__3 px-4'}>
       <div className="gaps__5" />
       <Skeleton />
       <div className="gaps__3" />
@@ -234,7 +234,7 @@ const __renderLoading = () => {
 
 const __renderSomethingWentWrong = () => {
   return (
-    <div className={'mw__3 px__3 py__6'}>
+    <div className={'mw__3 px-4 py__6'}>
       <h2>We are sorry,</h2>
       <h3>something went wrong. with this artical</h3>
       <div className="gaps__4" />

@@ -5,11 +5,12 @@ import { useTranslations } from 'next-intl'
 import styles from './desktop.module.scss'
 import { ActionItem, Space, Logo, ButtonFab } from 'components/atoms'
 import { PrivacyList, ExploreList, NewsList } from './Common'
+import MobileNav from './MobileNav'
 import {
   IconSocialLinkedIn,
   IconSocialInstagram,
   IconSocialTwitter,
-  IconSocialFacebook,
+  IconSocialFacebook
 } from 'components/icons'
 
 const Footer: React.FC<{}> = ({}) => {
@@ -17,10 +18,8 @@ const Footer: React.FC<{}> = ({}) => {
 
   return (
     <>
-      <Space size={5} />
       <svg
-        style={{ height: 'var(--sp5)', color: 'var(--c-nut2)' }}
-        className="block"
+        className="block h-12 md:h-16 lg:h-24 text-gray-100 w-full"
         preserveAspectRatio="none"
         viewBox="0 0 4605 356"
         fill="none"
@@ -31,45 +30,55 @@ const Footer: React.FC<{}> = ({}) => {
           fill="currentColor"
         />
       </svg>
-      <footer className={styles.wrapper}>
-        <Space size={5} />
-        <div className={styles.footerTop}>
-          <section className={styles.company}>
-            <Logo className="pt__0 pb__0" />
-            <div className="mw__1 my__4 small ml__0">{trans('about_text')}</div>
+      <footer className="bg-gray-100">
+        <div className="container md:flex justify-between px-5 py-10">
+          <section className="max-w-xs pr-4 mb-8 md:mb-3">
+            <Logo className="" />
+            <div className="small mt-4">{trans('about_text')}</div>
           </section>
 
-          <section className={styles.explore}>
-            <p>{trans('explore_title')}</p>
-            <Space size={3} />
-            <div className="mw__1 pull__l2">
+          <section className="max-w-xs pr-4">
+            <p className="mb-4">{trans('explore_title')}</p>
+
+            <div className="block pb-4">
               <ExploreList />
             </div>
-            <Space />
-            <p>{trans('reach_title')}</p>
-            <Space size={3} />
 
-            <div className="mw__1 pull__l2">
-              <ButtonFab icon={<IconSocialFacebook />} small />
-              <ButtonFab icon={<IconSocialLinkedIn />} small />
-              <ButtonFab icon={<IconSocialInstagram />} small />
-              <ButtonFab icon={<IconSocialTwitter />} small />
+            <p className="mb-4">{trans('reach_title')}</p>
+
+            <div className="flex mb-8 md:mb-3">
+              <ButtonFab
+                classNames="mr-4"
+                icon={<IconSocialFacebook />}
+                small
+              />
+              <ButtonFab
+                classNames="mr-4"
+                icon={<IconSocialLinkedIn />}
+                small
+              />
+              <ButtonFab
+                classNames="mr-4"
+                icon={<IconSocialInstagram />}
+                small
+              />
+              <ButtonFab classNames="mr-4" icon={<IconSocialTwitter />} small />
             </div>
           </section>
 
-          <section className={styles.fromNews}>
-            <p>{trans('news_title')}</p>
-            <Space size={3} />
+          <section className="max-w-xs pr-4">
+            <p className="mb-4">{trans('news_title')}</p>
+
             <NewsList />
           </section>
         </div>
-        <Space size={5} />
-        <div className={styles.footerBottom}>
+
+        <div className="container px-5 pb-28 md:pb-4 justify-between md:flex text-center">
           <small>{trans('rights_text')}</small>
-          <div className={styles.privacy}>
+          <div className="my-4 md:my-0">
             <PrivacyList />
           </div>
-          <div className={styles.seals}>
+          <div>
             <Image
               width={120}
               height={26}
@@ -79,8 +88,8 @@ const Footer: React.FC<{}> = ({}) => {
             />
           </div>
         </div>
-        <Space size={5} />
       </footer>
+      <MobileNav />
     </>
   )
 }
