@@ -54,8 +54,8 @@ const __sidePopupContent = () => (
 )
 
 const __searchContent = () => (
-  <section className={classnames('mw__6 py__2 bg__white stage__2')}>
-    <div className={classnames(styles.searchContainerInner, 'px__3')}>
+  <section className={classnames('mw__6 py-2 bg-white shadow')}>
+    <div className={classnames(styles.searchContainerInner, 'px-4')}>
       <SearchForm id="mainSearch" />
     </div>
   </section>
@@ -70,8 +70,8 @@ const __headerContent = () => {
 
   return (
     <>
-      <section className={classnames('py__2 bg__white stage__2')}>
-        <div className={classnames('px__3 flex flex__between')}>
+      <section className={classnames('py-2 bg-white shadow')}>
+        <div className={classnames('px-4 flex flex__between')}>
           <ActionItem
             text=""
             className={styles.menuBtn}

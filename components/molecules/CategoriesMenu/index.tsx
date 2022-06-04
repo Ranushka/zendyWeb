@@ -11,16 +11,17 @@ const CategoriesMenu: React.FC<{}> = (props) => {
   const trans = useTranslations('header')
 
   return (
-    <div className={classnames(styles.wrapper, 'textNoWrap')}>
+    <div className={classnames(styles.wrapper, 'textNoWrap hidden md:flex')}>
       <ActionItem
         href="/"
         text={trans('mega_menu_btn')}
         icon={<IconArrowDown />}
         type="btn__default"
+        className="mx-3"
         onClick={() => {}}
       />
-      <div className={classnames('bg__white rounded__1 stage__3', styles.menu)}>
-        <div className="flex py__4">{__getMenuColumns()}</div>
+      <div className={classnames('bg-white rounded__1 stage__3', styles.menu)}>
+        <div className="flex py-8">{__getMenuColumns()}</div>
       </div>
     </div>
   )
@@ -34,7 +35,7 @@ const __getMenuColumns = () => {
     isArray(mega_menu_items) &&
     mega_menu_items.map(({ title, items }, key) => {
       return (
-        <div className="px__4" key={key}>
+        <div className="px-8" key={key}>
           <small className="mute">{title}</small>
           <div className="gaps__3"></div>
           {__getMenuItems(items)}

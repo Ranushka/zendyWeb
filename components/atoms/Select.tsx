@@ -24,25 +24,30 @@ const Select: React.FC<Props> = ({
   block,
   value,
   className,
-  onChange,
+  onChange
 }) => {
   return (
     <div
       className={classnames(
         'input__wrapper',
-        // dark && 'dark',
         small && 'selectSmall small',
         block && 'block',
         className && className
       )}
     >
       {label && (
-        <label htmlFor={id} className="py__1 pt__0">
+        <label htmlFor={id} className="pb-1 pt-4 block">
           {label}
         </label>
       )}
 
-      <select id={id} name={name} onChange={onChange} value={value}>
+      <select
+        className="h-12 appearance-none w-full bg-gray-200 border border-gray-400 py-2 px-4 pr-8 rounded block"
+        id={id}
+        name={name}
+        onChange={onChange}
+        value={value}
+      >
         {data.map((item) => (
           <option key={item} value={item}>
             {item}

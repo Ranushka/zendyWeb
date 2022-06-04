@@ -50,11 +50,11 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
 
   return (
     <form className="block relative flex__inline" onSubmit={handleSubmit}>
-      <div className="absolute">
+      <div className="absolute ">
         <ButtonFab
           href="/search"
           icon={<IconSearch />}
-          classNames={'rounded ' + styles.searchBtn}
+          classNames="rounded-full px-4 py-3 block active:bg-slate-400 hover:bg-slate-300"
         />
       </div>
       <input
@@ -65,12 +65,18 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
         type="search"
         accessKey="s"
         placeholder={trans(`search_placeholder_${isMobile ? 'm' : 'd'}`)}
-        className={classnames('bg__white', styles.searchInput)}
+        className="w-full h-12 rounded-full border border-slate-400 px-14 outline-blue-200 outline-1 outline-offset-4 appearance-none hover:shadow-md active:shadow-md focus:shadow-md"
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
-      <div className={styles.actions}>
-        {searchText && <ButtonFab icon={<IconClear />} onClick={clearInput} />}
+      <div className="inline-flex absolute right-0">
+        {searchText && (
+          <ButtonFab
+            // classNames="rounded-full px-4 py-3 block active:bg-slate-400 hover:bg-slate-300"
+            icon={<IconClear />}
+            onClick={clearInput}
+          />
+        )}
         <div className={styles.separator} />
         <ButtonFab
           title="To perfome a complex search"
@@ -81,7 +87,7 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
             })
           }}
           icon={<IconAdvanceSearch />}
-          classNames={'rounded ' + styles.searchAdvancedBtn}
+          classNames="rounded-full px-4 py-3 block active:bg-slate-400 hover:bg-slate-300"
         />
       </div>
     </form>

@@ -23,7 +23,7 @@ const Downloads: React.FC = () => {
 
   return (
     <BaseTemplate>
-      <div className="px__3 mw__5 min__h">
+      <div className="px-4 mw__5 min-h">
         <ProfileTabs />
         {dataSet.map((data: DataRowProps) => __dataRow(data))}
       </div>
@@ -33,13 +33,13 @@ const Downloads: React.FC = () => {
 
 const __dataRow = ({ id, name }: DataRowProps) => (
   <div key={id}>
-    <div className="px__3 py__3 flex flex__between bg__white stage__2 rounded__1">
+    <div className="px-4 py__3 flex flex__between bg-white shadow rounded__1">
       <span className="first_letter_caps">{name}</span>
       <div className="flex__left"></div>
 
       <Space size={3} />
       <span>
-        <ButtonFab classNames="bg__white" icon={<IconMore />} />
+        <ButtonFab classNames="bg-white" icon={<IconMore />} />
       </span>
     </div>
     <Space size={2} />
@@ -49,16 +49,17 @@ const __dataRow = ({ id, name }: DataRowProps) => (
 const dataSet = [
   {
     id: 23,
-    name: 'optio ipsam molestias necessitatibus occaecati facilis veritatis dolores aut',
+    name:
+      'optio ipsam molestias necessitatibus occaecati facilis veritatis dolores aut'
   },
   {
     id: 24,
-    name: 'dolore veritatis porro provident adipisci blanditiis et sunt',
+    name: 'dolore veritatis porro provident adipisci blanditiis et sunt'
   },
   {
     id: 25,
-    name: 'quaerat velit veniam amet cupiditate aut numquam ut sequi',
-  },
+    name: 'quaerat velit veniam amet cupiditate aut numquam ut sequi'
+  }
 ]
 
 export async function getStaticProps({ locale }) {
@@ -67,9 +68,9 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       messages: {
-        ...commonMsg,
-      },
-    },
+        ...commonMsg
+      }
+    }
   }
 }
 

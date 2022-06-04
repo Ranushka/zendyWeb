@@ -14,14 +14,14 @@ const ProfileTabs: React.FC = () => {
       />
       {searchShow && (
         <input
-          className="stage__1 rounded__1 px__3 py__2"
+          className="stage__1 rounded__1 px-4 py-2"
           type="search"
           name="magSearch"
           id="magSearch"
           placeholder="Search magazines"
         />
       )}
-      <div className="flex px__3">
+      <div className="flex px-4">
         <Tab href={'/magazines'}>All</Tab>
         <Tab href={'/magazines/#Nature'}>Nature</Tab>
         <Tab href={'/magazines/#Aviation'}>Aviation</Tab>

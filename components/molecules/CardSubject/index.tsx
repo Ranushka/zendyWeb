@@ -11,7 +11,7 @@ const CardSubject: React.FC<Props> = (props) => {
   return (
     <ActionItem
       href={href}
-      className="block__inline mx__1 my__1 rounded__1 bg__white stage__2 px__3 py__2"
+      className="inline-block bg-white mx-2 my-2 py-2 px-3 rounded-md shadow"
     >
       <>{title}</>
     </ActionItem>

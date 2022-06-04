@@ -17,7 +17,7 @@ const Pricing: React.FC<Props> = (props) => {
 
   return (
     <>
-      <div className="text__center block rounded__1 bg__white stage__3 px__4 py__4 mw__1">
+      <div className="text__center block rounded__1 bg-white stage__3 px-8 py-8 mw__1">
         <Space size={2} />
         <div
           className="text__center"
@@ -43,7 +43,7 @@ const Pricing: React.FC<Props> = (props) => {
 }
 
 const SidePopupContent = (price) => (
-  <div className="block px__3 py__3">
+  <div className="block px-4 py__3">
     <h2 className="text__center">Secure payment</h2>
     <div className="gaps__4"></div>
     <StripeElementsForm paying={price} />

@@ -21,7 +21,7 @@ const PricingList: React.FC<Props> = (props) => {
         href={`/pricing?subscribeAction=${plan}`}
         className="mx__4"
       >
-        <div className="text__center block rounded__1 bg__white stage__2 px__4 py__4 mw__1">
+        <div className="text__center block rounded__1 bg-white shadow px-8 py-8 mw__1">
           <Space size={2} />
           <div
             className="text__center"

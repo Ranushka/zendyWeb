@@ -18,7 +18,7 @@ const SearchResultActions = () => {
   const { selectionMode } = state
 
   return (
-    <div className="flex__center px__3 pl__0 rounded__1 my__3 mt__0 mw__5">
+    <div className="flex__center px-4 pl__0 rounded__1 my__3 mt__0 mw__5">
       <ButtonFab
         title="Toggle selection mode"
         icon={<IconSelectionMode />}

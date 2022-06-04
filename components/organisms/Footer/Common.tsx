@@ -12,7 +12,12 @@ export const ExploreList = () => {
     explore_list.map(({ label, path }, key) => {
       return (
         <React.Fragment key={key}>
-          <ActionItem text={label} href={path} type="link__small" />
+          <ActionItem
+            text={label}
+            href={path}
+            type="link__small"
+            className="inline-block pr-4 pb-3"
+          />
         </React.Fragment>
       )
     })
@@ -48,7 +53,7 @@ export const PrivacyList = () => {
             text={label}
             href={path}
             type="link__small"
-            className="mx__3"
+            className="mx-3"
           />
         </React.Fragment>
       )

@@ -17,13 +17,9 @@ const Header: React.FC<Props> = ({ children, isSearchPage }: Props) => {
   return (
     <>
       <SiteLinksSearchJsonLd />
-      {isMobile ? (
-        <DynamicComponentMobile isSearchPage={isSearchPage}>
-          {children}
-        </DynamicComponentMobile>
-      ) : (
-        <DynamicComponentDesktop>{children} </DynamicComponentDesktop>
-      )}
+      <DynamicComponentDesktop isSearchPage={isSearchPage}>
+        {children}{' '}
+      </DynamicComponentDesktop>
     </>
   )
 }

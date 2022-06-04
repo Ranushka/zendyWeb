@@ -10,7 +10,7 @@ import { CheckBox, ActionItem, ButtonFab, FeaturedChip } from 'components/atoms'
 
 const __renderTitle = (title = '', href = '/') => {
   return (
-    <div className="first_letter_caps py__2">
+    <div className="first_letter_caps py-2">
       <ActionItem
         text={striptags(title.toString())}
         href="/title/[id]"
@@ -35,7 +35,7 @@ const __renderContentType = (title, journal, year) => {
 
 const __renderAbstract = (content) => {
   return (
-    <div className="py__2">
+    <div className="py-2">
       <div
         className={classnames(card.article__abstract, 'color__nut7')}
         dangerouslySetInnerHTML={{ __html: content }}
@@ -49,7 +49,7 @@ const __renderAbstract = (content) => {
 
 //   return (
 //     authors && (
-//       <div className="py__2">
+//       <div className="py-2">
 //         <small className="flex">
 //           <small className="px__2 pl__0 mute">By - </small>
 //           <Ellipsis text={authorsList} suffix="...[et al.]" />
@@ -62,7 +62,7 @@ const __renderAbstract = (content) => {
 const __renderAuthors = (authors: [string]) => {
   return (
     authors && (
-      <div className="py__1">
+      <div className="py-1">
         <small className="px__2 pl__0 mute">By - </small>
         {authors
           .map<React.ReactNode>((name, id) => {
@@ -88,7 +88,7 @@ const __renderAuthors = (authors: [string]) => {
 const __renderSubjects = (keywords: [string]) => {
   return (
     keywords && (
-      <div className="py__1">
+      <div className="py-1">
         <small className="mute">Subject - </small>
         {keywords
           .map<React.ReactNode>((name, id) => <small key={id}>{name}</small>)
@@ -125,7 +125,7 @@ const CardCurated: React.FC<SearchResultItemProps> = ({
   publicationYear,
   authors,
   link,
-  subjects,
+  subjects
 }) => {
   const router = useRouter()
 

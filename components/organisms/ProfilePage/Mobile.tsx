@@ -12,7 +12,7 @@ const Mobile: React.FC<Props> = ({}) => {
   return (
     <>
       <Space size={4} />
-      <div className="mw__4 px__3 flex__center">
+      <div className="mw__4 px-4 flex__center">
         <h2 className="text__center color__nut6">My Profile</h2>
         <div className="flex__left"></div>
         <ActionItem
@@ -99,10 +99,10 @@ const Mobile: React.FC<Props> = ({}) => {
 }
 
 const ProfileBlock = ({ children, title }) => (
-  <section className="mw__3 px__3">
+  <section className="mw__3 px-4">
     <h4 className="mute">{title}</h4>
     <Space size={2} />
-    <div className="px__4 py__4 stage__2 bg__white rounded__1">{children}</div>
+    <div className="px-8 py-8 shadow bg-white rounded__1">{children}</div>
     <Space size={4} />
   </section>
 )

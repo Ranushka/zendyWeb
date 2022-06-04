@@ -14,24 +14,29 @@ type Props = {
   openLocation?: 'left' | 'right' | 'center' | 'bottom' | 'none'
 }
 
+const contentStyleGet = {
+  center: ''
+}
+
 const SidePopup: React.FC<Props> = ({
   small,
   content,
   open,
   fullHeight = false,
   closeFunc,
-  openLocation = 'left',
+  openLocation = 'left'
 }) => {
-  const closeBtnStyle = classnames(
-    styles.refineSearchBtnClose,
-    styles[openLocation]
-  )
+  const closeBtnStyle = classnames()
+  // styles.refineSearchBtnClose,
+  // styles[openLocation]
+  // styles[openLocation]
   const contentStyle = classnames(
-    'px__3 bg__white z__4',
+    'px-4 bg-white z-40',
     styles.wrapper,
     small && 'mw__2',
     fullHeight && styles.fullHeight,
-    styles[openLocation]
+    // styles[openLocation],
+    contentStyleGet[openLocation]
   )
 
   useEffect(() => {
@@ -45,15 +50,13 @@ const SidePopup: React.FC<Props> = ({
   return (
     open && (
       <>
-        <div className={styles.backDrop}>
-          <section className={contentStyle}>
-            <div className={closeBtnStyle}>
-              <ButtonFab
-                classNames={'bg__nut3 stage__0 color__primary'}
-                onClick={() => closeFunc(false)}
-                icon={<IconClear />}
-              />
-            </div>
+        <div className="z-50 absolute w-full top-0 flex justify-center items-center h-screen backdrop-blur-sm bg-black bg-opacity-25">
+          <section className="bg-white w-full max-w-md m-auto rounded shadow-md relative">
+            <ButtonFab
+              classNames="bg-white shadow rounded-full w-10 h-10 flex justify-center items-center -mt-4 absolute right-4"
+              onClick={() => closeFunc(false)}
+              icon={<IconClear />}
+            />
             {content}
           </section>
         </div>

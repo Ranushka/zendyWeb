@@ -15,7 +15,7 @@ const Pricing: React.FC<Props> = (props) => {
 
   return (
     <>
-      <div className="text__center block rounded__1 bg__white stage__4 px__4 py__4 mw__1">
+      <div className="text__center block rounded__1 bg-white stage__4 px-8 py-8 mw__1">
         <Space size={2} />
         <div
           className="text__center"

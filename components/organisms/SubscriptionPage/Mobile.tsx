@@ -8,7 +8,7 @@ const Mobile: React.FC<{}> = ({}) => {
   const currentPlan = Data.planTypes[plan ? 'yearly' : 'monthly']
 
   return (
-    <div className="px__3">
+    <div className="px-4">
       <Space size={4} />
       <div dangerouslySetInnerHTML={{ __html: Data.title }} />
       <Space size={4} />

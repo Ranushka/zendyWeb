@@ -14,8 +14,8 @@ const HeroCta: React.FC<Props> = ({}) => {
   return (
     <>
       <Space size={5} />
-      <section className="mw__6 flex px__3">
-        <div className={'mw__3  px__4  pl__0'}>
+      <section className="mw__6 flex px-4">
+        <div className={'mw__3  px-8  pl__0'}>
           <h3>Welcome to Zendy</h3>
           <Space size={3} />
           <h1>
@@ -40,17 +40,17 @@ const HeroCta: React.FC<Props> = ({}) => {
         </div>
         {!isMobile && (
           <div
-            className={'mw__3 px__4  pr__0'}
+            className={'mw__3 px-8  pr__0'}
             style={{
               width: '100%',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
-              backgroundImage: 'url(/img/landingImg.png)',
+              backgroundImage: 'url(/img/landingImg.png)'
             }}
           />
           // <img
-          //   className={"mw__3 px__4  pr__0"}
+          //   className={"mw__3 px-8  pr__0"}
           //   src={`/img/landingImg.png`}
           //   alt={"landing image"}
           // />

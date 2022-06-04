@@ -37,7 +37,7 @@ const ReadMore: React.FC<Props> = (props) => {
 
       {isOpen !== null && (
         <label
-          className={classnames('pointer block py__2', styles.readMoreWrapper)}
+          className={classnames('pointer block py-2', styles.readMoreWrapper)}
           htmlFor={id}
         >
           <input

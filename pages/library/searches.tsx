@@ -18,7 +18,7 @@ const Searches: React.FC = () => {
 
   return (
     <BaseTemplate>
-      <div className="px__3 mw__5 min__h">
+      <div className="px-4 mw__5 min-h">
         <ProfileTabs />
         <div>{dataSet.map((data) => __dataRow(data))}</div>
         <Space size={4} />
@@ -29,7 +29,7 @@ const Searches: React.FC = () => {
 
 const __dataRow = ({ id, name, keyWord, filters }) => (
   <div key={id}>
-    <div className="px__3 py__3 flex flex__between bg__white stage__2 rounded__1">
+    <div className="px-4 py__3 flex flex__between bg-white shadow rounded__1">
       <div className="first_letter_caps">
         <h3>{name}</h3>
         <Space size={2} />
@@ -40,7 +40,7 @@ const __dataRow = ({ id, name, keyWord, filters }) => (
       </div>
       <Space size={3} />
       <span>
-        <ButtonFab classNames="bg__white" icon={<IconMore />} />
+        <ButtonFab classNames="bg-white" icon={<IconMore />} />
       </span>
     </div>
     <Space size={2} />
@@ -60,20 +60,20 @@ const dataSet = [
     id: 12,
     name: 'Saved search name',
     keyWord: 'car',
-    filters: ['Books', 'journals'],
+    filters: ['Books', 'journals']
   },
   {
     id: 13,
     name: 'Trending on micro services',
     keyWord: 'micro services node js',
-    filters: ['journals'],
+    filters: ['journals']
   },
   {
     id: 14,
     name: 'Saved search name',
     keyWord: 'car',
-    filters: ['Books'],
-  },
+    filters: ['Books']
+  }
 ]
 
 export async function getStaticProps({ locale }) {
@@ -82,9 +82,9 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       messages: {
-        ...commonMsg,
-      },
-    },
+        ...commonMsg
+      }
+    }
   }
 }
 
