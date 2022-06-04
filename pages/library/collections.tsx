@@ -21,7 +21,7 @@ const Collections: React.FC = () => {
 
   return (
     <BaseTemplate>
-      <div className="px__3 mw__5 min__h">
+      <div className="px-4 mw__5 min-h">
         <ProfileTabs />
         {(loading || !data) && __skeletonCollection()}
         {session && data && __dataCollection(data)}
@@ -36,7 +36,7 @@ const __dataCollection = (data) => {
       {data.map((item) => __dataRow(item))}
 
       <Space size={4} />
-      <div className="px__3">
+      <div className="px-4">
         <ActionItem
           text={'Create new collection'}
           href={'/'}
@@ -49,13 +49,13 @@ const __dataCollection = (data) => {
 
 const __dataRow = ({ id, name, count }) => (
   <div key={id}>
-    <div className="px__3 flex flex__between bg__white stage__2 rounded__1">
+    <div className="px-4 flex flex__between bg-white shadow rounded__1">
       <span className="first_letter_caps">{name}</span>
       <div className="flex__left"></div>
       <span>{count}</span>
       <Space size={3} />
       <span>
-        <ButtonFab classNames="bg__white" icon={<IconMore />} />
+        <ButtonFab classNames="bg-white" icon={<IconMore />} />
       </span>
     </div>
     <Space size={2} />
@@ -77,9 +77,9 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       messages: {
-        ...commonMsg,
-      },
-    },
+        ...commonMsg
+      }
+    }
   }
 }
 

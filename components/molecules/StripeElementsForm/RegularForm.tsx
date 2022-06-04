@@ -9,9 +9,9 @@ const CARD_OPTIONS = {
   hidePostalCode: true,
   style: {
     base: {
-      fontSize: '16px',
-    },
-  },
+      fontSize: '16px'
+    }
+  }
 }
 
 type Props = {
@@ -24,7 +24,7 @@ const RegularForm: React.FC<Props> = (props) => {
 
   const [input, setInput] = useState({
     customDonation: parseInt(paying),
-    cardholderName: '',
+    cardholderName: ''
   })
   const [payment, setPayment] = useState({ status: 'initial' })
   const [errorMessage, setErrorMessage] = useState('')
@@ -60,7 +60,7 @@ const RegularForm: React.FC<Props> = (props) => {
   const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) =>
     setInput({
       ...input,
-      [e.currentTarget.name]: e.currentTarget.value,
+      [e.currentTarget.name]: e.currentTarget.value
     })
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
@@ -71,7 +71,7 @@ const RegularForm: React.FC<Props> = (props) => {
 
     // Create a PaymentIntent with the specified amount.
     const response = await request('/api/payment_intents', 'POST', {
-      amount: input.customDonation,
+      amount: input.customDonation
     })
 
     setPayment(response)
@@ -88,8 +88,8 @@ const RegularForm: React.FC<Props> = (props) => {
       {
         payment_method: {
           card: cardElement!,
-          billing_details: { name: input.cardholderName },
-        },
+          billing_details: { name: input.cardholderName }
+        }
       }
     )
 
@@ -123,7 +123,7 @@ const RegularForm: React.FC<Props> = (props) => {
 
           <div className="FormRow elements-style">
             <label>
-              <span className="py__1 pt__0">Card info</span>
+              <span className="py-1 pt__0">Card info</span>
               <CardElement
                 options={CARD_OPTIONS}
                 onChange={(e) => {
@@ -141,7 +141,7 @@ const RegularForm: React.FC<Props> = (props) => {
           <DiscountCodeBlock />
           <Space size={4} />
         </fieldset>
-        <div className="stage__2 mw__2 py__4 px__4 bg__white rounded__1 block">
+        <div className="shadow mw__2 py-8 px-8 bg-white rounded__1 block">
           {data && data.percent_off && (
             <div className="py__3 pt__0 flex__center mute">
               <p>Coupon discount</p>

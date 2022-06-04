@@ -18,7 +18,7 @@ const Desktop: React.FC<{}> = ({}) => {
       <Space size={5} />
       <div dangerouslySetInnerHTML={{ __html: Data.title }} />
       <Space size={4} />
-      <div className="flex__center mw__3 py__2">
+      <div className="flex__center mw__3 py-2">
         <Switch
           id="selectPlan"
           name="selectPlan"

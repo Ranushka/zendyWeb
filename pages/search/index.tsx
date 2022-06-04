@@ -4,7 +4,7 @@ import { commonMessages } from 'lib/getMessages'
 import {
   LayeredNavigation,
   SearchResults,
-  AuthorDetails,
+  AuthorDetails
 } from 'components/organisms'
 import { SearchLandingBlock } from 'components/molecules'
 import { useRouter } from 'next/router'
@@ -29,7 +29,7 @@ const Search: React.FC = () => {
       {queryString && (
         <>
           {queryAuthor && <AuthorDetails authorName={queryAuthor} />}
-          <div className="mw__7 px__3 flex">
+          <div className="mw__7 px-4 flex">
             <LayeredNavigation />
             <SearchResults />
           </div>
@@ -47,9 +47,9 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       messages: {
-        ...commonMsg,
-      },
-    },
+        ...commonMsg
+      }
+    }
   }
 }
 

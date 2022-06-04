@@ -11,7 +11,7 @@ const Logo: React.FC<Props> = ({ className, flag = false }) => {
   const { data } = useGetCountry()
 
   return (
-    <ActionItem href="/" className="relative">
+    <ActionItem href="/" className={`relative ${className}`}>
       <div>
         <svg
           style={{ width: '7rem', verticalAlign: 'middle' }}
@@ -72,7 +72,7 @@ const Logo: React.FC<Props> = ({ className, flag = false }) => {
               position: 'absolute',
               top: '-4px',
               right: '-8px',
-              lineHeight: '12px',
+              lineHeight: '12px'
             }}
           >
             {data && data.country_code}

@@ -12,11 +12,10 @@ const Curated: React.FC<Props> = ({}) => {
   const data = trans.raw('data')
 
   return (
-    <section className={classnames(styles.wrapper, 'text__center px__2')}>
+    <section className="p-4 text-center whitespace-nowrap overflow-y-scroll hideScrollBar">
       {isArray(data) &&
         data.map(({ id, href, image, title, content }) => (
           <CardCurated
-            style={{ width: '18rem' }}
             key={`curatedItem${id}`}
             href={href}
             imgUrl={image}

@@ -11,7 +11,7 @@ const ResultsWithData = ({ data }) => {
 
   return (
     <section className="mb__0 mw__7">
-      <div className="bg__nut2 rounded__1 px__4 py__4 my__4 mb__0 mx__3">
+      <div className="bg__nut2 rounded__1 px-8 py-8 my__4 mb__0 mx__3">
         <div className="flex">
           <div>
             <small className="mute">Name</small>
@@ -29,7 +29,7 @@ const ResultsWithData = ({ data }) => {
           <div>
             <small className="mute">Organizations</small>
             {organizations.map(({ organization }, key) => (
-              <div key={key} className="py__2 pb__0">
+              <div key={key} className="py-2 pb__0">
                 {organization}
               </div>
             ))}
@@ -38,7 +38,7 @@ const ResultsWithData = ({ data }) => {
           <div>
             <small className="mute">Education</small>
             {education.map(({ organization, startYear }, key) => (
-              <div key={key} className="py__2 pb__0">
+              <div key={key} className="py-2 pb__0">
                 {organization}-{startYear}
               </div>
             ))}
@@ -51,7 +51,7 @@ const ResultsWithData = ({ data }) => {
 
 const __authorDetailsLoading = () => {
   return (
-    <div className="mw__7  py__4 px__4 pb__0">
+    <div className="mw__7  py-8 px-8 pb__0">
       <Skeleton height={10} />
       <Space size={3} />
       <Skeleton height={10} count={5} />

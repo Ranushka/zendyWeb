@@ -24,11 +24,11 @@ const LayeredNavigationTitle = () => {
   const totalResults = get(data, 'data.searchResults.totalResults', null)
   let totalResultsFormated = new Intl.NumberFormat('en-GB', {
     notation: 'compact',
-    compactDisplay: 'short',
+    compactDisplay: 'short'
   }).format(totalResults)
 
   return (
-    <div className="flex flex__center py__2">
+    <div className="flex flex__center py-2">
       <h3 className="color__nut7">Refine search</h3>
       <div className="flex__left" />
       <small className="mute">{totalResultsFormated}+ Results</small>
@@ -55,15 +55,15 @@ const FilterItems = ({ items, groupId }) => {
 
       router.push({
         pathname: '/search',
-        query: query,
+        query: query
       })
     }
 
     return (
-      <div key={'filter' + id} className="py__1" onClick={onClick}>
+      <div key={'filter' + id} className="py-1" onClick={onClick}>
         <CheckBox
           checked={checked}
-          className="py__1"
+          className="py-1"
           key={id}
           id={item.id}
           name={item.facetLabel}
@@ -153,7 +153,7 @@ const GetYearRange = () => {
 
 const LayeredNavigation: React.FC<Props> = ({}) => {
   return (
-    <section className={classnames('px__4 pl__0', styles.wrapper)}>
+    <section className={classnames('px-8 pl__0', styles.wrapper)}>
       <LayeredNavigationTitle />
       <GetSortBy />
       <GetYearRange />

@@ -1,6 +1,5 @@
 .backDrop {
   backdrop-filter: blur(2px);
-  background-color: var(--c-overlay);
   position: fixed;
   z-index: 2;
   width: 100%;
@@ -23,7 +22,6 @@
   &.center {
     height: unset;
     margin: 10% auto;
-    width: var(--mw4);
     border-radius: var(--radius-1);
   }
 

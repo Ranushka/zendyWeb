@@ -10,7 +10,7 @@ const data = ['ebsco', 'sage', 'openAccess', 'ieee', 'wiley']
 const Publishers: React.FC<Props> = ({}) => {
   return (
     <div>
-      <h3 className="pt__0 py__4 px__3 color__nut6 text__center">
+      <h3 className="pt__0 py-8 px-4 color__nut6 text__center">
         You will get access to the premium and open content from
       </h3>
       <section

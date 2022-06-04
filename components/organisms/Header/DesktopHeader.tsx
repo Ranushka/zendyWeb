@@ -4,7 +4,6 @@ import Skeleton from 'react-loading-skeleton'
 import isArray from 'lodash/isArray'
 import { useTranslations } from 'next-intl'
 
-import styles from './desktop.module.scss'
 import { ActionItem, Space, Logo, ButtonFab } from 'components/atoms'
 import {
   SelectLanguage,
@@ -24,7 +23,11 @@ import {
 import { useSession } from 'next-auth/react'
 import useGlobal from 'context/GlobalContext'
 
-const DesktopHeader: React.FC = ({}) => {
+type Props = {
+  isSearchPage?: boolean
+}
+
+const DesktopHeader = ({ isSearchPage }: Props) => {
   const trans = useTranslations('header')
   const { data: session, status } = useSession()
   const btnGuestOrUser = session ? __getLoggedInUser(session) : <GetLoginBtn />
@@ -34,65 +37,61 @@ const DesktopHeader: React.FC = ({}) => {
   const [open, setOpen] = React.useState(false)
   return (
     <>
-      <header
-        key="headerContainer"
-        className="edgeContainer bg__nut3 relative z__2"
-      >
-        <section className="mw__7">
-          <div className={'px__3 flex__center'}>
-            <div className="flex__left" />
-            <NavItems />|<Space size={3} />
-            <div
-              className="pointer rounded"
-              onClick={() => setOpen(true)}
-              title="set language, theme, font size"
-            >
-              <ButtonFab small icon={<IconSettings />} />
-              <ButtonFab small icon={<IconGlobal />} />
-            </div>
+      <section className="bg-gray-200 hidden md:block">
+        <div className="flex justify-end px-4 py-1">
+          <NavItems />
+          <div className="mx-4">|</div>
+          <div
+            className="pointer flex"
+            onClick={() => setOpen(true)}
+            title="set language, theme, font size"
+          >
+            <ButtonFab small icon={<IconSettings />} />
+            <ButtonFab small icon={<IconGlobal />} />
           </div>
-        </section>
-      </header>
-      <div
-        key="searchContainer"
-        className={classnames(
-          'bg__white stage__2',
-          !state.toggleAdvanceSearch && 'sticky',
-          styles.searchContainer
-        )}
-      >
-        <section className="flex__center mw__7 px__3 py__3">
-          <Logo flag className={'flex__center mw__1'} />
-          <CategoriesMenu />
-          <div className="flex flex__center mw__4 block">
-            {state.toggleAdvanceSearch ? (
-              <div className="flex__center">
-                <h2 className="color__nut7">{trans('advanced_search')}</h2>
-                <ButtonFab
-                  href="/search"
-                  icon={<IconClear />}
-                  classNames={'pointer rounded'}
-                  onClick={() =>
-                    setState({ ...state, toggleAdvanceSearch: false })
-                  }
-                />
-              </div>
-            ) : (
-              <SearchForm id="mainSearch" />
+        </div>
+      </section>
+      <nav className="bg-white shadow dark:bg-gray-800 sticky top-0 z-10">
+        <div className="container px-4 py-2 flex items-center md:justify-between">
+          {!isSearchPage && <MobileToggleMenu />}
+
+          <Logo
+            flag
+            className={classnames(
+              'max-h-9 mr-3 pl-4 md:pl-0',
+              isSearchPage && 'hidden md:block'
             )}
+          />
+
+          <CategoriesMenu />
+
+          <div
+            className={classnames(
+              'w-full justify-center flex',
+              !isSearchPage && 'hidden md:flex'
+            )}
+          >
+            <div className="w-full max-w-2xl">
+              <SearchForm id="mainSearch" />
+            </div>
           </div>
 
           <ActionItem
-            className="px__3"
+            className={classnames(
+              'px-4 hidden md:block',
+              !isSearchPage && 'hidden md:flex'
+            )}
             text={trans('my_link')}
             href="/library/collections"
           />
-          <div className="text__right" style={{ width: '160px' }}>
+
+          <div
+            className={classnames('ml-auto', isSearchPage && 'hidden md:flex')}
+          >
             {loading ? <Skeleton height={40} width={156} /> : btnGuestOrUser}
           </div>
-        </section>
-      </div>
-      <AdvanceSearchBlock show={state.toggleAdvanceSearch} />
+        </div>
+      </nav>
       <SidePopup
         small
         content={<SettingsPopUpContent />}
@@ -108,15 +107,11 @@ const SettingsPopUpContent = () => {
   const trans = useTranslations('settings')
 
   return (
-    <div className="px__4 py__4">
-      <h2 className="text__center">{trans('title')}</h2>
-      <Space size={3} />
+    <div className="px-8 py-8">
+      <h2 className="text-xl font-medium mb-4 font-serif">{trans('title')}</h2>
       <SelectLanguage />
-      <Space size={3} />
       <SelectTheme />
-      <Space size={3} />
       <SelectFontSize />
-      <Space size={3} />
     </div>
   )
 }
@@ -124,14 +119,39 @@ const SettingsPopUpContent = () => {
 const AdvanceSearchBlock = ({ show }) => {
   return (
     show && (
-      <div key="advancedSearch" className="bg__white stage__2 ">
-        <section className="flex__center mw__7 px__3 py__2">
+      <div key="advancedSearch" className="bg-white shadow ">
+        <section className="flex__center mw__7 px-4 py-2">
           <div className="flex flex__center block">
             <SearchFormAdvanced id="advancedSearch" />
           </div>
         </section>
       </div>
     )
+  )
+}
+
+const MobileToggleMenu = () => {
+  return (
+    <div className="flex md:hidden">
+      <button
+        type="button"
+        className="text-gray-500
+                       dark:text-gray-200
+                       hover:text-gray-600
+                       dark:hover:text-gray-400
+                       focus:outline-none focus:text-gray-600
+                       dark:focus:text-gray-400
+                       "
+        aria-label="toggle menu"
+      >
+        <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
+          <path
+            fillRule="evenodd"
+            d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+          ></path>
+        </svg>
+      </button>
+    </div>
   )
 }
 
@@ -145,8 +165,7 @@ const NavItems = () => {
         nav_items.map(({ label, path }, key) => {
           return (
             <React.Fragment key={key}>
-              <ActionItem text={label} href={path} />
-              <Space />
+              <ActionItem className="mx-2" text={label} href={path} />
             </React.Fragment>
           )
         })}
@@ -159,7 +178,7 @@ const GetLoginBtn = () => {
 
   return (
     <ActionItem
-      className="textNoWrap"
+      className="whitespace-nowrap"
       text={trans('login_btn_name')}
       href={'/authenticate'}
       type="btn__secondary"
@@ -173,7 +192,7 @@ const __getLoggedInUser = (session) => {
       text={__getUserNameInitials(session.user)}
       icon={<IconArrowDown />}
       href={'/profile'}
-      className={styles.userProfile}
+      // className={styles.userProfile}
       type="btn__default"
     />
   )

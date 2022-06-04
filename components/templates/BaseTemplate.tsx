@@ -11,13 +11,9 @@ type Props = {
 
 const BaseTemplate: React.FC<Props> = ({ isSearchPage, children }) => {
   const { isMobile } = useContext(DeviceTypeContext)
-  const finalClassNames = classnames(
-    'bg__nut1',
-    isMobile ? 'contain__mobile' : 'contain__desktop'
-  )
 
   return (
-    <main className={finalClassNames}>
+    <main className="text-gray-600 bg-gray-50 text-sm">
       <Header isSearchPage={isSearchPage} />
       {children}
       <Footer />

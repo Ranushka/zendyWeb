@@ -7,7 +7,7 @@ type Props = {}
 const HeroCta: React.FC<Props> = ({}) => {
   return (
     <>
-      <section className="mw__3 px__3">
+      <section className="mw__3 px-4">
         <Space size={5} />
         <h3>Welcome to Zendy</h3>
         <Space size={3} />

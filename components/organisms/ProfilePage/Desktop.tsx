@@ -8,7 +8,7 @@ import { Space, ActionItem, CheckBox, Input } from 'components/atoms'
 import {
   SelectTheme,
   SelectFontSize,
-  SearchResultDensity,
+  SearchResultDensity
 } from 'components/molecules'
 import styles from './index.module.scss'
 
@@ -159,8 +159,8 @@ const InputContent = () => (
 const ProfileBlock = ({ children, title }) => (
   <>
     <section className="flex mw__4">
-      <h3 className="mw__1 py__3 block text__right px__4">{title}</h3>
-      <div className="stage__2 block px__4 py__4 rounded__1 text__left bg__white">
+      <h3 className="mw__1 py__3 block text__right px-8">{title}</h3>
+      <div className="shadow block px-8 py-8 rounded__1 text__left bg-white">
         {children}
       </div>
     </section>

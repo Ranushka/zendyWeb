@@ -10,7 +10,7 @@ const Subjects: React.FC<Props> = ({}) => {
   const subList = Data.subjects && Data.subjects.slice(0, 15)
 
   return (
-    <section className={classnames('mw__6 text__center', styles.wrapper)}>
+    <section className="container text-center py-4">
       {subList.map(({ title, image, href }, id) => (
         <CardSubject key={`subject${id}`} href={href} title={title} />
       ))}

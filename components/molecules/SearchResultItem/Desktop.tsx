@@ -32,9 +32,9 @@ const __renderTitle = (title = '', permanentLinkId) => {
   const { selectionMode } = state
 
   return (
-    <div className="first_letter_caps py__2 pt__0">
+    <div className="first_letter_caps py-2 pt__0">
       {selectionMode && (
-        <div className="pull__l5 absolute stage__2 px__3 py__2 rounded__1 bg__white">
+        <div className="pull__l5 absolute shadow px-4 py-2 rounded__1 bg-white">
           <CheckBox className={''} id={'it_id' + permanentLinkId} />
         </div>
       )}
@@ -95,7 +95,7 @@ const __renderContentType = (
 
 const __renderAbstract = (content) => {
   return (
-    <div className="block py__2 pt__0">
+    <div className="block py-2 pt__0">
       <div
         className={classnames(card.article__abstract, 'color__nut7')}
         dangerouslySetInnerHTML={{ __html: content }}
@@ -107,7 +107,7 @@ const __renderAbstract = (content) => {
 const __renderAuthors = (authors: [string]) => {
   return (
     authors && (
-      <div className="py__1">
+      <div className="py-1">
         <small className="px__2 pl__0 mute">By - </small>
         {authors
           .map<React.ReactNode>((name, id) => {
@@ -133,7 +133,7 @@ const __renderAuthors = (authors: [string]) => {
 const __renderKeywords = (keywords: string) => {
   return (
     keywords && (
-      <div className="py__1">
+      <div className="py-1">
         <small className="px__2 pl__0 mute">keywords - </small>
         {keywords
           .split(',')
@@ -149,7 +149,7 @@ const __renderKeywords = (keywords: string) => {
 const __renderSubjects = (keywords: [string]) => {
   return (
     keywords && (
-      <div className="py__1">
+      <div className="py-1">
         <small className="px__2 pl__0 mute">Subjects - </small>
         {keywords
           .map<React.ReactNode>((name, id) => (
@@ -165,7 +165,7 @@ const __renderActions = (link: [], id, downloadLink: string) => {
   const href = get(link, '[0].url')
 
   return (
-    <section className={classnames('px__4 pr__0')}>
+    <section className={classnames('px-8 pr__0')}>
       <div className={card.article__actions__sub}>
         <div className="flex">
           <ButtonFab icon={<IconCite />} small />
@@ -210,8 +210,8 @@ const CardCurated: React.FC<SearchResultItemProps> = ({
   subjects
 }) => {
   return (
-    <article className="flex__center rounded__1 my__3 mb__0 mw__5 bg__white stage__2">
-      <div className="flex py__3 px__4 block">
+    <article className="flex__center rounded__1 my__3 mb__0 mw__5 bg-white shadow">
+      <div className="flex py__3 px-8 block">
         <section className="mw__4 ml__0 mr__0 block">
           {__renderTitle(title, permanentLinkId)}
           {__renderContentType(journalTitle, publicationYear, publicationName)}

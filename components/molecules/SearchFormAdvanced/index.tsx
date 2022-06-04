@@ -25,7 +25,7 @@ const SearchFormAdvanced: React.FC<Props> = ({ id = 'search' }) => {
 
     router.push({
       pathname: '/search',
-      query: { q: name },
+      query: { q: name }
     })
   }
 
@@ -89,7 +89,7 @@ const SearchBox: React.FC<any> = ({ index, data, searchInput }) => {
   const [keyword, operator, scope] = data.split('|')
 
   return (
-    <article className="flex__center relative px__2 py__2">
+    <article className="flex__center relative px__2 py-2">
       {!isFirst && (
         <select
           className={styles.operator}
@@ -111,7 +111,7 @@ const SearchBox: React.FC<any> = ({ index, data, searchInput }) => {
         accessKey="s"
         placeholder={`Enter ${scope}`}
         className={classnames(
-          'bg__white',
+          'bg-white',
           styles.searchInput,
           isFirst && styles.searchInputFirst
         )}

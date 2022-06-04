@@ -30,17 +30,21 @@ const Input: React.FC<Props> = ({
   center,
   autoComplete,
   block,
-  content,
+  content
 }) => {
+  const inputClass = classnames(
+    'w-full h-12 rounded-md border border-slate-400 px-4 outline-blue-200 outline-1 outline-offset-4 appearance-none hover:shadow-md active:shadow-md focus:shadow-md',
+    center && 'text-center'
+  )
   return (
     <div className={classnames('input__wrapper', block && 'block')}>
       {label && (
-        <label className="py__1 pt__0" htmlFor={id}>
+        <label className="py-1 pt__0" htmlFor={id}>
           {label}
         </label>
       )}
       <input
-        className={center && 'text__center'}
+        className={inputClass}
         type={type}
         name={name}
         value={value}

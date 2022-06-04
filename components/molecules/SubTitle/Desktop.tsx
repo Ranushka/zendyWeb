@@ -6,19 +6,15 @@ const SubTitle: React.FC<SubTitleProps> = (props) => {
   const { title, linkHref = '#', linkText = '' } = props
 
   return (
-    // <div className="mw__6 px__3 py__4">
-    <section className="mw__6 px__3">
-      <Space size={5} />
-      <div className={'flex__center'}>
-        <div className="h4 mute px__3">{title}</div>/
+    <section className="container pt-16 pb-4">
+      <div className="flex justify-center items-center">
+        <div className="text-lg font-serif text-gray-500 px-4">{title}</div>/
         {linkText && (
-          <strong className={'px__3'}>
+          <strong className={'px-4'}>
             <ActionItem text={linkText} href={linkHref} />
           </strong>
         )}
       </div>
-      <div className="flex__left"></div>
-      <Space size={4} />
     </section>
   )
 }

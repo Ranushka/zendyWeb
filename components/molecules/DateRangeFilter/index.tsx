@@ -16,7 +16,7 @@ const SortByFilter: React.FC<SortByFilterProps> = ({ year, setYear }) => {
     'from 2020',
     '5 years back',
     '10 years back',
-    'custom',
+    'custom'
   ]
   React.useEffect(() => {
     if (!year) {
@@ -28,7 +28,7 @@ const SortByFilter: React.FC<SortByFilterProps> = ({ year, setYear }) => {
     return (
       <label
         key={id}
-        className={styles.wrapper + ' py__2 pl__0 mx__2 ml__0 pt__0'}
+        className={styles.wrapper + ' py-2 pl__0 mx__2 ml__0 pt__0'}
       >
         <input
           type="radio"
@@ -38,7 +38,7 @@ const SortByFilter: React.FC<SortByFilterProps> = ({ year, setYear }) => {
           onChange={() => setYear(item)}
           name="filterByDateRange"
         />
-        <small className="py__1 px__3 block rounded__1 pointer">{item}</small>
+        <small className="py-1 px-4 block rounded__1 pointer">{item}</small>
       </label>
     )
   })
@@ -84,7 +84,7 @@ const SortByFilter: React.FC<SortByFilterProps> = ({ year, setYear }) => {
   )
 
   return (
-    <form className="flex flex__wrap py__2 pb__0">
+    <form className="flex flex__wrap py-2 pb__0">
       {year === 'custom' ? customYearsRange : customYears}
     </form>
   )
