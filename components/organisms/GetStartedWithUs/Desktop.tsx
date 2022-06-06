@@ -1,6 +1,7 @@
+import React from 'react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { ActionItem, Space } from 'components/atoms'
+import { ActionItem } from 'components/atoms'
 
 type Props = {}
 

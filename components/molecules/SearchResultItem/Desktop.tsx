@@ -1,6 +1,7 @@
+import React from 'react'
 import classnames from 'classnames'
 import striptags from 'striptags'
-import Ellipsis from 'react-ellipsis-pjs'
+// import Ellipsis from 'react-ellipsis-pjs'
 import card from './desktop.module.scss'
 import get from 'lodash/get'
 import { SearchResultItemProps } from 'types'
@@ -8,8 +9,8 @@ import {
   CheckBox,
   ActionItem,
   ButtonFab,
-  Space,
-  FeaturedChip
+  Space
+  // FeaturedChip
 } from 'components/atoms'
 import { IconCite, IconBookmark, IconLink } from 'components/icons'
 import { genarateTitleUrlPath } from 'lib/helpers'
@@ -30,6 +31,8 @@ const __renderTitle = (title = '', permanentLinkId) => {
   const titleId = genarateTitleUrlPath(title, permanentLinkId)
   const [state, setState] = useGlobal()
   const { selectionMode } = state
+
+  console.log(setState)
 
   return (
     <div className="first_letter_caps py-2 pt__0">
@@ -194,7 +197,7 @@ const __renderActions = (link: [], id, downloadLink: string) => {
 
 const CardCurated: React.FC<SearchResultItemProps> = ({
   id,
-  href,
+  // href,
   title,
   abstract,
   journalTitle,
@@ -205,8 +208,8 @@ const CardCurated: React.FC<SearchResultItemProps> = ({
   link,
   downloadLink,
   permanentLinkId,
-  isReviewed,
-  isReferenced,
+  // isReviewed,
+  // isReferenced,
   subjects
 }) => {
   return (

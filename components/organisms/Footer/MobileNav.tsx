@@ -1,7 +1,5 @@
 import React from 'react'
-import classnames from 'classnames'
 import { useSession } from 'next-auth/react'
-import styles from './mobileNav.module.scss'
 import { useRouter } from 'next/router'
 import { MobileNaveItem } from 'components/atoms'
 import { clickVibrate } from 'lib/helpers'

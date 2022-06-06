@@ -1,3 +1,4 @@
+import React from 'react'
 import Image from 'next/image'
 import styles from './index.module.scss'
 import { Space } from 'components/atoms'

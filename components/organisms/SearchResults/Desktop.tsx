@@ -5,7 +5,6 @@ import get from 'lodash/get'
 import { SearchResultItem } from 'components/molecules'
 import { Space, ActionItem, ButtonFab } from 'components/atoms'
 import {
-  IconArrowDown,
   IconSelectionMode,
   IconSavedSearch,
   IconNotifications

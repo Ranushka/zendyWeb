@@ -1,3 +1,4 @@
+import React from 'react'
 import classnames from 'classnames'
 
 type Props = {
@@ -17,7 +18,7 @@ const CheckBox: React.FC<Props> = ({
   id,
   value,
   className,
-  onChange = () => {},
+  onChange = () => {}
 }) => {
   return (
     <div className={classnames('checkbox', className && className)}>

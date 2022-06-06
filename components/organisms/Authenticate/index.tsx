@@ -75,7 +75,7 @@ const EmailAndPassword: React.FC<{}> = () => {
   )
 }
 const Authenticate: React.FC<{}> = () => {
-  const [value, setValue] = React.useState()
+  // const [value, setValue] = React.useState()
 
   return (
     <>

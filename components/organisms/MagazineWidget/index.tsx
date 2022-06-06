@@ -1,6 +1,4 @@
 import React from 'react'
-import styles from './index.module.scss'
-import classnames from 'classnames'
 import { CardMagazine } from 'components/molecules'
 import { attributes as data } from 'data/widgets/magazines.md'
 

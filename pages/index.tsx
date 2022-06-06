@@ -1,3 +1,4 @@
+import React from 'react'
 import { useTranslations } from 'next-intl'
 import Head from 'next/head'
 import { SubTitle } from 'components//molecules'
@@ -10,7 +11,7 @@ import {
   EmailSubscription,
   GetStartedWithUs,
   Testimonials,
-  Subjects,
+  Subjects
 } from 'components/organisms'
 
 import { BaseTemplate } from 'components/templates'
@@ -59,9 +60,9 @@ export async function getStaticProps({ locale }) {
       messages: {
         ...commonMsg,
         ...curatedMsg,
-        ...homeMsg,
-      },
-    },
+        ...homeMsg
+      }
+    }
   }
 }
 

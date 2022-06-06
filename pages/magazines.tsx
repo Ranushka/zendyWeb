@@ -1,3 +1,4 @@
+import React from 'react'
 import { MagazinesPage } from 'components/organisms'
 import { BaseTemplate } from 'components/templates'
 import { commonMessages } from 'lib/getMessages'
@@ -16,9 +17,9 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       messages: {
-        ...commonMsg,
-      },
-    },
+        ...commonMsg
+      }
+    }
   }
 }
 

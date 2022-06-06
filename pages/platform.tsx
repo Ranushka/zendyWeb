@@ -1,3 +1,4 @@
+import React from 'react'
 import { Space } from 'components/atoms'
 import { commonMessages } from 'lib/getMessages'
 import {
@@ -8,7 +9,7 @@ import {
   EmailSubscription,
   GetStartedWithUs,
   Testimonials,
-  PricingList,
+  PricingList
 } from 'components/organisms'
 
 import { BaseTemplate } from 'components/templates'
@@ -38,9 +39,9 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       messages: {
-        ...commonMsg,
-      },
-    },
+        ...commonMsg
+      }
+    }
   }
 }
 

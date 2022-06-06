@@ -1,3 +1,4 @@
+import React from 'react'
 import { Authenticate } from 'components/organisms'
 import { LoginRegisterTemplate } from 'components/templates'
 

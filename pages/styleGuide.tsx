@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 
 import {
@@ -34,7 +35,7 @@ import {
   IconArrowDown,
   IconArrowUp,
   IconArrowLeft,
-  IconArrowRight,
+  IconArrowRight
 } from 'components/icons'
 
 import {
@@ -45,7 +46,7 @@ import {
   CheckBox,
   ActionItem,
   Space,
-  Logo,
+  Logo
 } from 'components/atoms'
 
 import {
@@ -62,7 +63,7 @@ import {
   Pricing,
   Testimonial,
   NextArticle,
-  SeeAll,
+  SeeAll
 } from 'components/molecules'
 
 import {
@@ -77,7 +78,7 @@ import {
   EmailSubscription,
   GetStartedWithUs,
   Testimonials,
-  Footer,
+  Footer
 } from 'components/organisms'
 
 export default function Home() {
@@ -250,6 +251,7 @@ export default function Home() {
         />
       </section>
       <section>
+        <SeeAll href="#" text="see all" />
         <ReadMore
           id="ReadMore1"
           content={
