@@ -8,13 +8,13 @@ type Props = {
 
 const ContentStats: React.FC<Props> = ({
   stat = '88.8 m',
-  title = 'Title',
+  title = 'Title'
 }) => {
   return (
     // <div className={styles.wrapper}>
     <div
       className={classnames(
-        'bg__nut2 mx__3 my__3 py__3 px__5 rounded__1',
+        'bg__nut2 mx-4 my__3 py__3 px__5 rounded__1',
         styles.wrapper
       )}
     >

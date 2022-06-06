@@ -8,13 +8,13 @@ import { url } from 'inspector'
 
 type Props = {}
 
-const HeroCta: React.FC<Props> = ({}) => {
+const HeroCta: React.FC<Props> = () => {
   const { isMobile } = useContext(DeviceTypeContext)
 
   return (
     <>
       <Space size={5} />
-      <section className="mw__6 flex px-4">
+      <section className="max-w-6xl flex px-4">
         <div className={'mw__3  px-8  pl__0'}>
           <h3>Welcome to Zendy</h3>
           <Space size={3} />

@@ -149,7 +149,7 @@ const __linkWithChildren = (props: Props) => {
 const getType = (type) => {
   const types = {
     link:
-      'whitespace-nowrap hover:text-yellow-700 active:text-yellow-700 duration-150',
+      'whitespace-nowrap hover:text-orange-600 active:text-orange-600 duration-150',
     link__title:
       'link__title hover:text-orange-500 active:text-orange-500 duration-150',
     link__small:
@@ -157,9 +157,9 @@ const getType = (type) => {
     btn__small: 'btn__small',
     btn__default: 'btn__default',
     btn__secondary:
-      'border text-yellow-900 py-2 px-3 rounded-md flex justify-center shadow-sm hover:shadow-md border-yellow-500 active:shadow-md bg-yellow-50 active:bg-yellow-100 duration-300',
+      'border py-2 px-3 rounded-md flex justify-center duration-300 shadow-sm hover:shadow-md active:shadow-md border-orange-500 bg-orange-50 active:bg-orange-100 text-orange-600',
     btn__primary:
-      'border py-2 px-3 rounded-md flex justify-center shadow-md active:shadow-sm border-yellow-500 text-yellow-900 bg-yellow-400 active:bg-yellow-500 duration-300 text-lg'
+      'border py-2 px-3 rounded-md flex justify-center duration-300 shadow-md active:shadow-sm tracking-wide text-base uppercase border-orange-600 text-orange-50 bg-orange-600 active:bg-orange-700'
   }
 
   return types[type] || ''

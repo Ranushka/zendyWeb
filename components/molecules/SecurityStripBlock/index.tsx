@@ -1,14 +1,14 @@
+import React from 'react'
 import Image from 'next/image'
-import { Space } from 'components/atoms'
 
-const SecurityStripBlock: React.FC<{}> = ({}) => {
+const SecurityStripBlock: React.FC<{}> = () => {
   return (
-    <div className="mw__2 my__4 text__center">
-      <span className="mute small">
+    <div className="max-w-sm my-8 text-center m-auto">
+      <div className="block mb-3 text-xs text-gray-500">
         Your transaction are secured by Stripe, and connection is secured and
         encrypted with SSL
-      </span>
-      <Space size={2} />
+      </div>
+
       <Image
         width={256}
         height={28}

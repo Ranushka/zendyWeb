@@ -17,10 +17,10 @@ import { ActionItem, ButtonFab, Space, FeaturedChip } from 'components/atoms'
 import { NextArticle } from 'components/molecules'
 import PublicationIssueJsonLd from 'analytics/PublicationIssueJsonLd'
 
-interface publicationTypeProps {
-  type: string
-  id: string
-}
+// interface publicationTypeProps {
+//   type: string
+//   id: string
+// }
 
 // interface pageProps {
 //   title: string;
@@ -97,7 +97,7 @@ const __renderKeywords = (keywords: []) => {
 
 const __renderHead = () => {
   return (
-    <div className={classnames('flex__center py__3', styles.headerAction)}>
+    <div className={classnames('flex items-center py__3', styles.headerAction)}>
       <ActionItem
         text={'← Back to results'}
         onClick={() => Router.back()}
@@ -155,7 +155,7 @@ const FooterActions = ({ link }) => {
 }
 
 const __renderContent = (props) => {
-  const { title, author, year, abstract, keywords, journal, link } = props
+  const { title, author, year, abstract, keywords, journal } = props
 
   return (
     <div className="mw__3 px-4">

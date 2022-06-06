@@ -15,20 +15,20 @@ import { ActionItem, ButtonFab } from 'components/atoms'
 import { NextArticle } from 'components/molecules'
 import PublicationIssueJsonLd from 'analytics/PublicationIssueJsonLd'
 
-interface publicationTypeProps {
-  type: string
-  id: string
-}
+// interface publicationTypeProps {
+//   type: string
+//   id: string
+// }
 
-interface pageProps {
-  title: string
-  type: string
-  authors: string[]
-  body: string
-  publicationYear: string
-  subjects: string[]
-  publicationType: publicationTypeProps
-}
+// interface pageProps {
+//   title: string
+//   type: string
+//   authors: string[]
+//   body: string
+//   publicationYear: string
+//   subjects: string[]
+//   publicationType: publicationTypeProps
+// }
 
 const __renderTitle = (title = '') => {
   return (
@@ -105,7 +105,7 @@ const __renderSubjects = (subjects: []) => {
 
 const __renderHead = () => {
   return (
-    <div className={classnames('flex__center', styles.headerAction)}>
+    <div className={classnames('flex items-center', styles.headerAction)}>
       <ActionItem
         text={'← Back to results'}
         onClick={() => Router.back()}
@@ -124,32 +124,32 @@ const __renderHead = () => {
 const __renderContent = ({
   abstract,
   authors,
-  doi,
+  // doi,
   downloadLink,
-  eISSN,
-  hIndex,
-  header,
-  isActiveSubscription,
-  isOpenAccess,
-  isPreview,
-  isbn,
-  issn,
-  issue,
+  // eISSN,
+  // hIndex,
+  // header,
+  // isActiveSubscription,
+  // isOpenAccess,
+  // isPreview,
+  // isbn,
+  // issn,
+  // issue,
   journalTitle,
   keywords,
-  language,
-  licenseType,
-  pISSN,
-  permanentLinkId,
-  publicationDate,
+  // language,
+  // licenseType,
+  // pISSN,
+  // permanentLinkId,
+  // publicationDate,
   publicationName,
-  publicationType,
+  // publicationType,
   publicationYear,
-  resultId,
-  resultScore,
-  sjr,
-  snip,
-  snipYear,
+  // resultId,
+  // resultScore,
+  // sjr,
+  // snip,
+  // snipYear,
   subjects,
   title,
   volume,

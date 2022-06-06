@@ -42,3 +42,21 @@ select {
   background-position-x: 100%;
   background-position-y: center;
 }
+
+input:checked ~ .dot {
+  transform: translateX(100%);
+}
+
+.accordion input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.accordion input:checked + label svg {
+      transform: rotate(90deg);
+}
+
+.accordion input:checked ~ div {
+      display: none;
+}

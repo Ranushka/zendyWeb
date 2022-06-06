@@ -21,10 +21,10 @@ const PricingList: React.FC<Props> = (props) => {
         href={`/pricing?subscribeAction=${plan}`}
         className="mx__4"
       >
-        <div className="text__center block rounded__1 bg-white shadow px-8 py-8 mw__1">
+        <div className="text-center block rounded__1 bg-white shadow px-8 py-8 mw__1">
           <Space size={2} />
           <div
-            className="text__center"
+            className="text-center"
             dangerouslySetInnerHTML={{ __html: content }}
           />
           <Space size={3} />
@@ -34,11 +34,11 @@ const PricingList: React.FC<Props> = (props) => {
   })
 
   return (
-    <div className="text__center">
+    <div className="text-center">
       <Space size={4} />
       <div dangerouslySetInnerHTML={{ __html: title }} />
       <Space size={5} />
-      <div className="flex__center mw__4">{planCards}</div>
+      <div className="flex items-center mw__4">{planCards}</div>
       <Space size={4} />
     </div>
   )

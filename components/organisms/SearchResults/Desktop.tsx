@@ -18,7 +18,7 @@ const SearchResultActions = () => {
   const { selectionMode } = state
 
   return (
-    <div className="flex__center px-4 pl__0 rounded__1 my__3 mt__0 mw__5">
+    <div className="flex items-center px-4 pl__0 rounded__1 my__3 mt__0 mw__5">
       <ButtonFab
         title="Toggle selection mode"
         icon={<IconSelectionMode />}
@@ -30,7 +30,7 @@ const SearchResultActions = () => {
       {selectionMode && (
         <>
           <Space size={3} />
-          <ActionItem text={'Select All'} href={'/'} className="mx__3" />
+          <ActionItem text={'Select All'} href={'/'} className="mx-4" />
           <ActionItem
             text={'Export selected'}
             href={'/'}
@@ -102,7 +102,7 @@ const __searchResultLoading = () => {
 
 const __noResultData = () => {
   return (
-    <h2 className="text__center">
+    <h2 className="text-center">
       <div className="gaps__6"></div>
       Oops...!, Unfortunately we could not found more results.
       <div className="gaps__6"></div>

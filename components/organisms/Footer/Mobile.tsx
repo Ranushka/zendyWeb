@@ -11,12 +11,12 @@ import {
   IconSocialLinkedIn,
   IconSocialInstagram,
   IconSocialTwitter,
-  IconSocialFacebook,
+  IconSocialFacebook
 } from 'components/icons'
 
 type Props = {}
 
-const Footer: React.FC<Props> = ({}) => {
+const Footer: React.FC<Props> = () => {
   const trans = useTranslations('footer')
 
   return (
@@ -50,7 +50,7 @@ const Footer: React.FC<Props> = ({}) => {
             <ExploreList />
             <Space />
             <p>Reach us</p>
-            <div className="py__3 flex__center">
+            <div className="py__3 flex items-center">
               <ButtonFab icon={<IconSocialFacebook />} small />
               <ButtonFab icon={<IconSocialInstagram />} small />
               <ButtonFab icon={<IconSocialLinkedIn />} small />

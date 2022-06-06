@@ -6,14 +6,14 @@ import styles from './index.module.scss'
 
 type Props = {}
 
-const Login: React.FC<Props> = ({}) => {
+const Login: React.FC<Props> = () => {
   const [value, setValue] = React.useState()
 
   return (
     <>
-      <div className={classnames('flex__center', styles.wrapper)}>
+      <div className={classnames('flex items-center', styles.wrapper)}>
         <div className={classnames('mw__1 block', styles.phoneNumber)}>
-          <div className="text__center">
+          <div className="text-center">
             <Space size={4} />
             <Logo className={styles.logo} />
             <Space size={4} />
@@ -47,7 +47,7 @@ const Login: React.FC<Props> = ({}) => {
             <div className="flex__left"></div>
           </div>
           <Space size={5} />
-          <small className="block text__center mute">
+          <small className="block text-center mute">
             Having issues? <a>support@zendy.io</a>
           </small>
           <Space size={4} />

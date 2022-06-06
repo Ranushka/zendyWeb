@@ -5,7 +5,7 @@ type Props = {}
 
 const SearchLandingBlock: React.FC<Props> = () => {
   return (
-    <div className="text__center px-4 min-h">
+    <div className="text-center px-4 min-h">
       <Space size={5} />
       <h2>Start Searching and create new knowledge.</h2>
       <Space size={4} />

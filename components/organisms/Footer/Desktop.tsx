@@ -1,9 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import isArray from 'lodash/isArray'
 import { useTranslations } from 'next-intl'
-import styles from './desktop.module.scss'
-import { ActionItem, Space, Logo, ButtonFab } from 'components/atoms'
+import { Logo, ButtonFab } from 'components/atoms'
 import { PrivacyList, ExploreList, NewsList } from './Common'
 import MobileNav from './MobileNav'
 import {
@@ -13,7 +11,7 @@ import {
   IconSocialFacebook
 } from 'components/icons'
 
-const Footer: React.FC<{}> = ({}) => {
+const Footer: React.FC<{}> = () => {
   const trans = useTranslations('footer')
 
   return (

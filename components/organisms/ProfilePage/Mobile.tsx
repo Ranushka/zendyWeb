@@ -8,12 +8,12 @@ import styles from './index.module.scss'
 
 type Props = {}
 
-const Mobile: React.FC<Props> = ({}) => {
+const Mobile: React.FC<Props> = () => {
   return (
     <>
       <Space size={4} />
-      <div className="mw__4 px-4 flex__center">
-        <h2 className="text__center color__nut6">My Profile</h2>
+      <div className="mw__4 px-4 flex items-center">
+        <h2 className="text-center color__nut6">My Profile</h2>
         <div className="flex__left"></div>
         <ActionItem
           text={'Sign out'}
