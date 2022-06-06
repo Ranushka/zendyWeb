@@ -12,7 +12,7 @@ const onSubmitSignUp = async (values) => {
     redirect: false,
     email: values.email,
     password: values.password,
-    callbackUrl: `${window.location.origin}`,
+    callbackUrl: `${window.location.origin}`
   })
 
   if (res?.error) {
@@ -23,10 +23,10 @@ const onSubmitSignUp = async (values) => {
   console.log('custom credtials Success', res)
 }
 
-const EmailAndPassword: React.FC<{}> = ({}) => {
+const EmailAndPassword: React.FC<{}> = () => {
   const [formData, setFormData] = React.useState({
     email: '',
-    password: '',
+    password: ''
   })
 
   const onSubmitForm = (e) => {
@@ -74,14 +74,14 @@ const EmailAndPassword: React.FC<{}> = ({}) => {
     </form>
   )
 }
-const Authenticate: React.FC<{}> = ({}) => {
+const Authenticate: React.FC<{}> = () => {
   const [value, setValue] = React.useState()
 
   return (
     <>
-      <div className={classnames('flex__center block', styles.wrapper)}>
+      <div className={classnames('flex items-center block', styles.wrapper)}>
         <div className={classnames('mw__1 block', styles.phoneNumber)}>
-          <div className="text__center">
+          <div className="text-center">
             <Space size={4} />
             <Logo className={styles.logo} />
             <Space size={3} />
@@ -91,9 +91,9 @@ const Authenticate: React.FC<{}> = ({}) => {
 
           <EmailAndPassword />
 
-          <small className="block text__center mute mx__2">---- or ----</small>
+          <small className="block text-center mute mx__2">---- or ----</small>
 
-          <div className="block text__center">
+          <div className="block text-center">
             <ActionItem
               text={'Sign in with LinkedIn'}
               type={'btn__default'}
@@ -103,7 +103,7 @@ const Authenticate: React.FC<{}> = ({}) => {
             />
           </div>
           <Space size={5} />
-          <small className="block text__center mute">
+          <small className="block text-center mute">
             Having issues? <a>support@zendy.io</a>
           </small>
           <Space size={4} />

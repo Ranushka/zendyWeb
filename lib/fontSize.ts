@@ -5,13 +5,17 @@ export function applyFontSize(data) {
         
         d.setAttribute("data-font-size", e);
        
-    } catch (t) {}   
+    } catch (t) {
+        console.error('FontSize apply fail');
+    }   
 }
 
 export function saveFontSize(data) {
     try {
         window.localStorage.setItem('fontSize', data)
-    } catch (t) {}   
+    } catch (t) {
+        console.error('FontSize save fail');
+    }   
 }
 
 export function getFontSize() {

@@ -6,14 +6,14 @@ import styles from './index.module.scss'
 
 type Props = {}
 
-const AuthenticateRegister: React.FC<Props> = ({}) => {
+const AuthenticateRegister: React.FC<Props> = () => {
   const [value, setValue] = React.useState()
 
   return (
     <>
-      <div className={classnames('flex__center', styles.wrapper)}>
+      <div className={classnames('flex items-center', styles.wrapper)}>
         <div className={classnames('mw__1 block', styles.phoneNumber)}>
-          <div className="text__center">
+          <div className="text-center">
             <Space size={4} />
             <Logo className={styles.logo} />
             <Space size={4} />
@@ -25,7 +25,7 @@ const AuthenticateRegister: React.FC<Props> = ({}) => {
             <strong> +971 588 057954</strong>
           </small>
           <Space size={4} />
-          <div className="flex text__center">
+          <div className="flex text-center">
             <Input
               center
               type="number"
@@ -64,7 +64,7 @@ const AuthenticateRegister: React.FC<Props> = ({}) => {
             />
           </div>
           <Space size={5} />
-          <small className="block text__center mute">
+          <small className="block text-center mute">
             Having issues? <a>support@zendy.io</a>
           </small>
           <Space size={4} />

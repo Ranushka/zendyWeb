@@ -4,7 +4,7 @@ import { ActionItem, Space } from 'components/atoms'
 
 type Props = {}
 
-const GetStartedWithUs: React.FC<Props> = ({}) => {
+const GetStartedWithUs: React.FC<Props> = () => {
   const trans = useTranslations('cta_final')
 
   return (

@@ -51,7 +51,7 @@ const __searchResultLoading = () => {
 
 const __noResultData = () => {
   return (
-    <h2 className="text__center">
+    <h2 className="text-center">
       <div className="gaps__6"></div>
       Oops...!, Unfortunately we could not found more results.
       <div className="gaps__6"></div>

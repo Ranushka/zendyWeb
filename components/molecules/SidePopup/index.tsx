@@ -33,7 +33,7 @@ const SidePopup: React.FC<Props> = ({
   const contentStyle = classnames(
     'px-4 bg-white z-40',
     styles.wrapper,
-    small && 'mw__2',
+    small && 'max-w-sm',
     fullHeight && styles.fullHeight,
     // styles[openLocation],
     contentStyleGet[openLocation]

@@ -14,15 +14,15 @@ import styles from './index.module.scss'
 
 type Props = {}
 
-const Desktop: React.FC<Props> = ({}) => {
+const Desktop: React.FC<Props> = () => {
   const { data: session, status } = useSession()
   const loading = status === 'loading'
 
   return (
     <>
       <Space size={5} />
-      <div className="mw__4 flex__center">
-        <h1 className="text__center color__nut6">My Profile</h1>
+      <div className="mw__4 flex items-center">
+        <h1 className="text-center color__nut6">My Profile</h1>
         <div className="flex__left"></div>
         <ActionItem
           text={'Sign out'}

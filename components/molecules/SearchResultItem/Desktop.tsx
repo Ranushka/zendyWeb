@@ -210,7 +210,7 @@ const CardCurated: React.FC<SearchResultItemProps> = ({
   subjects
 }) => {
   return (
-    <article className="flex__center rounded__1 my__3 mb__0 mw__5 bg-white shadow">
+    <article className="flex items-center rounded__1 my__3 mb__0 mw__5 bg-white shadow">
       <div className="flex py__3 px-8 block">
         <section className="mw__4 ml__0 mr__0 block">
           {__renderTitle(title, permanentLinkId)}

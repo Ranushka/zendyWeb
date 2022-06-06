@@ -16,7 +16,7 @@ import {
 
 type Props = {}
 
-const MobileNav: React.FC<Props> = ({}) => {
+const MobileNav: React.FC<Props> = () => {
   const router = useRouter()
   const { data: session } = useSession()
 

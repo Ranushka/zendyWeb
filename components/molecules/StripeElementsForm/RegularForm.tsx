@@ -109,7 +109,7 @@ const RegularForm: React.FC<Props> = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <fieldset className="block mw__2">
+        <fieldset className="block max-w-sm">
           <Input
             id="newPasswordConfirm"
             name="cardholderName"
@@ -141,9 +141,9 @@ const RegularForm: React.FC<Props> = (props) => {
           <DiscountCodeBlock />
           <Space size={4} />
         </fieldset>
-        <div className="shadow mw__2 py-8 px-8 bg-white rounded__1 block">
+        <div className="shadow max-w-sm py-8 px-8 bg-white rounded__1 block">
           {data && data.percent_off && (
-            <div className="py__3 pt__0 flex__center mute">
+            <div className="py__3 pt__0 flex items-center mute">
               <p>Coupon discount</p>
               <div className="flex__left"></div>
               <div className={'flex'}>
@@ -152,7 +152,7 @@ const RegularForm: React.FC<Props> = (props) => {
             </div>
           )}
 
-          <div className="py__3 pt__0 flex__center mute">
+          <div className="py__3 pt__0 flex items-center mute">
             <p>Yearly plan</p>
             <div className="flex__left"></div>
             <div className={'flex'}>
@@ -160,7 +160,7 @@ const RegularForm: React.FC<Props> = (props) => {
             </div>
           </div>
 
-          <div className="py__3 pt__0 flex__center">
+          <div className="py__3 pt__0 flex items-center">
             <p>Due today</p> <div className="flex__left"></div>
             <Price large price={input.customDonation - getDiscountAmount} />
           </div>

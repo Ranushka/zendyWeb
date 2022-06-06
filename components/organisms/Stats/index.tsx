@@ -5,42 +5,42 @@ import { ContentStats } from 'components/molecules'
 const data = [
   {
     stat: '16.3m+',
-    title: 'Magazines',
+    title: 'Magazines'
   },
   {
     stat: '79.9m+',
-    title: 'News',
+    title: 'News'
   },
   {
     stat: '42.3k+',
-    title: 'Biographies',
+    title: 'Biographies'
   },
   {
     stat: '4.7k+',
-    title: 'Dissertations',
+    title: 'Dissertations'
   },
   {
     stat: '296.7k+',
-    title: 'Books',
+    title: 'Books'
   },
   {
     stat: '35.9m+',
-    title: 'Academic Journals',
+    title: 'Academic Journals'
   },
   {
     stat: '201k+',
-    title: 'Ebooks',
+    title: 'Ebooks'
   },
   {
     stat: '439k+',
-    title: 'Conference Materials',
-  },
+    title: 'Conference Materials'
+  }
 ]
 type Props = {}
 
-const Stats: React.FC<Props> = ({}) => {
+const Stats: React.FC<Props> = () => {
   return (
-    <section className={'mw__6 text__center'}>
+    <section className={'max-w-6xl text-center'}>
       <Space />
       <h2 className="color__nut6">Premium content data stats</h2>
       <p className="">

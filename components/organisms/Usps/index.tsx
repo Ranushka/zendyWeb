@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './index.module.scss'
 import { UspItem } from 'components/molecules'
 
 const data = [
@@ -41,9 +40,9 @@ const data = [
 ]
 type Props = {}
 
-const Usps: React.FC<Props> = ({}) => {
+const Usps: React.FC<Props> = () => {
   return (
-    <section className={'mw__6 text__center'}>
+    <section className={'max-w-6xl text-center'}>
       <h2 className="py-8 color__nut6">Why Zendy plus ?</h2>
       {data.map((item, id) => (
         <UspItem

@@ -51,7 +51,7 @@ const DiscountCodeBlock = () => {
       {data && data.name && (
         <div className="py__3">
           <p className="py-2">Applied coupon code</p>
-          <div className="flex__center stage__1 px-4 py-2 bg__nut2 rounded__1">
+          <div className="flex items-center stage__1 px-4 py-2 bg__nut2 rounded__1">
             <div>
               <small>
                 <strong>{data.name}</strong> <br /> {data.id}
