@@ -52,7 +52,7 @@ const SearchFormAdvanced: React.FC<Props> = ({ id = 'search' }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className={'flex__center flex__wrap ' + styles.advancedSearchWrapper}
+      className={'flex items-center flex__wrap ' + styles.advancedSearchWrapper}
     >
       {searchList.map((data, index) => {
         return (
@@ -89,7 +89,7 @@ const SearchBox: React.FC<any> = ({ index, data, searchInput }) => {
   const [keyword, operator, scope] = data.split('|')
 
   return (
-    <article className="flex__center relative px__2 py-2">
+    <article className="flex items-center relative px__2 py-2">
       {!isFirst && (
         <select
           className={styles.operator}

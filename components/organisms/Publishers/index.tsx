@@ -1,29 +1,22 @@
 import React from 'react'
 import Image from 'next/image'
-import classnames from 'classnames'
-import styles from './index.module.scss'
 
 type Props = {}
 
 const data = ['ebsco', 'sage', 'openAccess', 'ieee', 'wiley']
 
-const Publishers: React.FC<Props> = ({}) => {
+const Publishers: React.FC<Props> = () => {
   return (
-    <div>
-      <h3 className="pt__0 py-8 px-4 color__nut6 text__center">
-        You will get access to the premium and open content from
+    <div className="py-10">
+      <h3 className="py-8 px-4 text-center text-3xl text-gray-500 font-serif">
+        You will get access to the premium content from
       </h3>
-      <section
-        className={classnames(
-          'mw__6 text__center overflowScroll flex__center',
-          styles.wrapper
-        )}
-      >
+      <section className="text-center overflowScroll flex justify-center mx-auto">
         {data.map((item, id) => (
-          <div key={`publisher${id}`} className="mx__3">
+          <div key={`publisher${id}`} className="mx-4 mix-blend-darken">
             <Image
-              width={200}
-              height={70}
+              width={160}
+              height={60}
               src={`/publishers/${item}.png`}
               alt={item}
               placeholder="empty"

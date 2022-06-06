@@ -1,3 +1,4 @@
+import React from 'react'
 import { BaseTemplate } from 'components/templates'
 import { ActionItem, Space } from 'components/atoms'
 import { commonMessages } from 'lib/getMessages'
@@ -5,7 +6,7 @@ import { commonMessages } from 'lib/getMessages'
 const PageNotFound: React.FC = () => {
   return (
     <BaseTemplate>
-      <section className="mw__6 text__center">
+      <section className="max-w-6xl text-center">
         <Space size={6} />
         <p className="h1">404</p>
         <p className="h2">The page you were looking for has not been found</p>
@@ -23,9 +24,9 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       messages: {
-        ...commonMsg,
-      },
-    },
+        ...commonMsg
+      }
+    }
   }
 }
 

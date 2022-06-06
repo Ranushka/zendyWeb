@@ -33,7 +33,12 @@ export const NewsList = () => {
     news_list.map(({ label, path }, key) => {
       return (
         <React.Fragment key={key}>
-          <ActionItem text={label} href={path} type="link__small" />
+          <ActionItem
+            text={label}
+            href={path}
+            type="link__small"
+            className="block mb-4"
+          />
         </React.Fragment>
       )
     })

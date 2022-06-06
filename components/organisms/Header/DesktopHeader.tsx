@@ -4,24 +4,24 @@ import Skeleton from 'react-loading-skeleton'
 import isArray from 'lodash/isArray'
 import { useTranslations } from 'next-intl'
 
-import { ActionItem, Space, Logo, ButtonFab } from 'components/atoms'
+import { ActionItem, Logo, ButtonFab } from 'components/atoms'
 import {
   SelectLanguage,
   SelectTheme,
   SelectFontSize,
   SearchForm,
-  SearchFormAdvanced,
+  // SearchFormAdvanced,
   CategoriesMenu,
   SidePopup
 } from 'components/molecules'
 import {
   IconArrowDown,
-  IconClear,
+  // IconClear,
   IconSettings,
   IconGlobal
 } from 'components/icons'
 import { useSession } from 'next-auth/react'
-import useGlobal from 'context/GlobalContext'
+// import useGlobal from 'context/GlobalContext'
 
 type Props = {
   isSearchPage?: boolean
@@ -31,7 +31,7 @@ const DesktopHeader = ({ isSearchPage }: Props) => {
   const trans = useTranslations('header')
   const { data: session, status } = useSession()
   const btnGuestOrUser = session ? __getLoggedInUser(session) : <GetLoginBtn />
-  const [state, setState] = useGlobal()
+  // const [state, setState] = useGlobal()
   const loading = status === 'loading'
 
   const [open, setOpen] = React.useState(false)
@@ -116,19 +116,19 @@ const SettingsPopUpContent = () => {
   )
 }
 
-const AdvanceSearchBlock = ({ show }) => {
-  return (
-    show && (
-      <div key="advancedSearch" className="bg-white shadow ">
-        <section className="flex__center mw__7 px-4 py-2">
-          <div className="flex flex__center block">
-            <SearchFormAdvanced id="advancedSearch" />
-          </div>
-        </section>
-      </div>
-    )
-  )
-}
+// const AdvanceSearchBlock = ({ show }) => {
+//   return (
+//     show && (
+//       <div key="advancedSearch" className="bg-white shadow ">
+//         <section className="flex items-center mw__7 px-4 py-2">
+//           <div className="flex flex items-center block">
+//             <SearchFormAdvanced id="advancedSearch" />
+//           </div>
+//         </section>
+//       </div>
+//     )
+//   )
+// }
 
 const MobileToggleMenu = () => {
   return (
@@ -192,7 +192,6 @@ const __getLoggedInUser = (session) => {
       text={__getUserNameInitials(session.user)}
       icon={<IconArrowDown />}
       href={'/profile'}
-      // className={styles.userProfile}
       type="btn__default"
     />
   )

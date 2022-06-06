@@ -14,7 +14,7 @@ const filterActions = () => {
   return (
     <div
       className={classnames(
-        'flex__center stage__3 mx__3',
+        'flex items-center stage__3 mx-4',
         styles.filterActions
       )}
     >
@@ -28,7 +28,9 @@ const filterActions = () => {
 const AuthorDetailsTitle = () => {
   return (
     <>
-      <div className={classnames(styles.titleWrapper, 'flex flex__center')}>
+      <div
+        className={classnames(styles.titleWrapper, 'flex flex items-center')}
+      >
         <h3 className="mute">Narrow by</h3>
         <div className="flex__left" />
         {/* <small className="mute"> 30K Results</small> */}
@@ -67,7 +69,7 @@ const FilterGroups = (items) => {
   })
 }
 
-const AuthorDetails: React.FC<Props> = ({}) => {
+const AuthorDetails: React.FC<Props> = () => {
   const [modelOpen, setModelOpenState] = React.useState(false)
 
   const __getIcon = modelOpen ? <IconClose /> : <IconFilter />
@@ -114,8 +116,8 @@ const data = [
       { id: 'fill4', name: 'deferent name', amount: '10k' },
       { id: 'fill66', name: 'totally deferent', amount: '10k' },
       { id: 'fill35', name: 'same name name', amount: '10k' },
-      { id: 'fill44', name: 'deferent name', amount: '10k' },
-    ],
+      { id: 'fill44', name: 'deferent name', amount: '10k' }
+    ]
   },
   {
     title: 'Filter Title',
@@ -124,8 +126,8 @@ const data = [
       { id: 'fill6', name: 'other name', amount: '10k' },
       { id: 'fill7', name: 'totally deferent', amount: '10k' },
       { id: 'fill8', name: 'same name name', amount: '10k' },
-      { id: 'fill9', name: 'deferent name', amount: '10k' },
-    ],
+      { id: 'fill9', name: 'deferent name', amount: '10k' }
+    ]
   },
   {
     title: 'Filter Title',
@@ -134,8 +136,8 @@ const data = [
       { id: 'fill11', name: 'other name', amount: '10k' },
       { id: 'fill12', name: 'totally deferent', amount: '10k' },
       { id: 'fill13', name: 'same name name', amount: '10k' },
-      { id: 'fill14', name: 'deferent name', amount: '10k' },
-    ],
+      { id: 'fill14', name: 'deferent name', amount: '10k' }
+    ]
   },
   {
     title: 'Filter Title',
@@ -144,7 +146,7 @@ const data = [
       { id: 'fill16', name: 'other name', amount: '10k' },
       { id: 'fill17', name: 'totally deferent', amount: '10k' },
       { id: 'fill18', name: 'same name name', amount: '10k' },
-      { id: 'fill19', name: 'deferent name', amount: '10k' },
-    ],
-  },
+      { id: 'fill19', name: 'deferent name', amount: '10k' }
+    ]
+  }
 ]

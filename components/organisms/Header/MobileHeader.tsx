@@ -54,7 +54,7 @@ const __sidePopupContent = () => (
 )
 
 const __searchContent = () => (
-  <section className={classnames('mw__6 py-2 bg-white shadow')}>
+  <section className={classnames('max-w-6xl py-2 bg-white shadow')}>
     <div className={classnames(styles.searchContainerInner, 'px-4')}>
       <SearchForm id="mainSearch" />
     </div>
@@ -79,7 +79,7 @@ const __headerContent = () => {
             icon={<IconMenu />}
           />
           <Space size={2} />
-          <Logo flag className={classnames('flex__center', styles.logo)} />
+          <Logo flag className={classnames('flex items-center', styles.logo)} />
           <div className="flex__left" />
           {loading ? <Skeleton height={48} width={60} /> : btnGuestOrUser}
         </div>

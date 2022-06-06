@@ -16,11 +16,11 @@ const PricingList: React.FC<Props> = (props) => {
     const { content } = item
 
     return (
-      <ActionItem key={plan} href={'/pricing'} className=" my__4 block">
-        <div className="text__center block rounded__1 bg-white shadow px-8 py-8 mw__1">
+      <ActionItem key={plan} href={'/pricing'} className=" my-8 block">
+        <div className="text-center block rounded__1 bg-white shadow px-8 py-8 mw__1">
           <Space size={2} />
           <div
-            className="text__center"
+            className="text-center"
             dangerouslySetInnerHTML={{ __html: content }}
           />
           <Space size={3} />
@@ -30,7 +30,7 @@ const PricingList: React.FC<Props> = (props) => {
   })
 
   return (
-    <section className="text__center mw__3 px-4">
+    <section className="text-center mw__3 px-4">
       <Space size={4} />
       <div dangerouslySetInnerHTML={{ __html: title }} />
       <Space size={3} />

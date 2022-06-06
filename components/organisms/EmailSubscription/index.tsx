@@ -5,7 +5,7 @@ import { ActionItem, Input, Space, Select } from 'components/atoms'
 
 type Props = {}
 
-const GetStartedWithUs: React.FC<Props> = ({}) => {
+const GetStartedWithUs: React.FC<Props> = () => {
   const trans = useTranslations('subscribe')
 
   return (

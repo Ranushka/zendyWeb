@@ -14,12 +14,10 @@ import React from 'react'
 import Head from 'next/head'
 import { applyTheme } from 'lib/theme'
 import { applyFontSize } from 'lib/fontSize'
-import Script from 'next/script'
 import { NextIntlProvider } from 'next-intl'
 import { DeviceTypeContextProvider } from 'context/DeviceTypeContext'
 import { LoggedInUserProvider } from 'context/LoggedInUserContext'
 import { GlobalProvider } from 'context/GlobalContext'
-import { checkIsMobile } from 'lib/helpers'
 import { pageView } from 'analytics'
 import NProgress from 'nprogress'
 import Router from 'next/router'
@@ -44,7 +42,7 @@ Router.events.on('routeChangeError', () => NProgress.done())
 const AppRoot = ({ Component, pageProps, isMobile, session }) => {
   React.useEffect(() => {
     if (window) {
-      window.onbeforeunload = (e) => {
+      window.onbeforeunload = () => {
         NProgress.start()
       }
     }

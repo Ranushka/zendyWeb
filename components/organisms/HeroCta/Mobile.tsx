@@ -4,7 +4,7 @@ import { ActionItem, Space } from 'components/atoms'
 
 type Props = {}
 
-const HeroCta: React.FC<Props> = ({}) => {
+const HeroCta: React.FC<Props> = () => {
   return (
     <>
       <section className="mw__3 px-4">
@@ -21,7 +21,7 @@ const HeroCta: React.FC<Props> = ({}) => {
           your research to next level and keep you up to date with information.
         </p>
         <Space size={4} />
-        <div className="text__center">
+        <div className="text-center">
           <ActionItem
             text={'Start your Free Trial'}
             href={'#'}

@@ -6,7 +6,7 @@ import { attributes as data } from 'data/widgets/magazines.md'
 
 type Props = {}
 
-const Magazines: React.FC<Props> = ({}) => {
+const Magazines: React.FC<Props> = () => {
   const magData = data.magazines.slice(0, 9)
 
   return (

@@ -5,11 +5,11 @@ import { Space } from 'components/atoms'
 import { CardMagazine, MagazinesPageTabs } from 'components/molecules'
 import { attributes as data } from 'data/widgets/magazines.md'
 
-const Magazines: React.FC<{}> = ({}) => {
+const Magazines: React.FC<{}> = () => {
   const magData = data.magazines
 
   return (
-    <section className={classnames('mw__6 text__center', styles.wrapper)}>
+    <section className={classnames('max-w-6xl text-center', styles.wrapper)}>
       <Space size={5} />
       <h1>Magazines</h1>
       <Space size={4} />

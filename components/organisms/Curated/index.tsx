@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl'
 
 type Props = {}
 
-const Curated: React.FC<Props> = ({}) => {
+const Curated: React.FC<Props> = () => {
   const trans = useTranslations('curated')
   const data = trans.raw('data')
 

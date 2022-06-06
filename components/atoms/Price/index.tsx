@@ -6,14 +6,17 @@ type Props = {
 }
 
 const Price: React.FC<Props> = ({ large, price }) => {
-  const fullAmount = price.toFixed(2).toString().split('.')
+  const fullAmount = price
+    .toFixed(2)
+    .toString()
+    .split('.')
   const priceNumber = fullAmount[0]
   const priceFloat = fullAmount[1]
   const currency = 'AED'
 
   if (large) {
     return (
-      <div className={'flex__center'}>
+      <div className={'flex items-center'}>
         <span className={styles.currency}>{currency}</span>
         <span className={styles.number}>{priceNumber}</span>
         <span className={styles.float}>.{priceFloat}</span>
@@ -22,7 +25,7 @@ const Price: React.FC<Props> = ({ large, price }) => {
   }
 
   return (
-    <div className={'flex__center'}>
+    <div className={'flex items-center'}>
       {currency} {priceNumber}.{priceFloat}
     </div>
   )

@@ -1,16 +1,16 @@
 import React from 'react'
-import { Space } from 'components/atoms'
 import { SeeAll } from 'components/molecules'
 
 import { Accordion } from 'components/molecules'
 
 export default function QNA() {
   return (
-    <div className="mw__3 px-4">
-      <h2 className="text__center">Frequently Asked Questions</h2>
+    <div className="max-w-xl px-4 m-auto">
+      <h2 className="text-center text-3xl font-serif mb-8">
+        Frequently Asked Questions
+      </h2>
       {questionsList()}
-      <Space />
-      <SeeAll href="/qna" text="See all Questions" />
+      <SeeAll href="/qna" text="See all Questions" className="mt-4 mb-8" />
     </div>
   )
 }
@@ -19,11 +19,10 @@ const questionsList = () => {
   return data.map(({ title, content }, id) => {
     return (
       <React.Fragment key={'qa' + id}>
-        <Space />
         <Accordion
           id={'qa' + id}
           open={id === 0}
-          title={<h4>{title}</h4>}
+          title={<h4 className="text-sm font-serif font-light">{title}</h4>}
           content={accordionContent(content)}
         />
       </React.Fragment>
@@ -32,12 +31,7 @@ const questionsList = () => {
 }
 
 const accordionContent = (content: string) => {
-  return (
-    <div>
-      <Space size={3} />
-      <div>{content}</div>
-    </div>
-  )
+  return <div>{content}</div>
 }
 
 const data = [

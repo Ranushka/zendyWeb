@@ -28,7 +28,7 @@ const LayeredNavigationTitle = () => {
   }).format(totalResults)
 
   return (
-    <div className="flex flex__center py-2">
+    <div className="flex flex items-center py-2">
       <h3 className="color__nut7">Refine search</h3>
       <div className="flex__left" />
       <small className="mute">{totalResultsFormated}+ Results</small>
@@ -151,7 +151,7 @@ const GetYearRange = () => {
   )
 }
 
-const LayeredNavigation: React.FC<Props> = ({}) => {
+const LayeredNavigation: React.FC<Props> = () => {
   return (
     <section className={classnames('px-8 pl__0', styles.wrapper)}>
       <LayeredNavigationTitle />
