@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tab, ButtonFab } from 'components/atoms'
-import { IconSearch, IconClear } from 'components/icons'
+import { IconSearch } from 'components/icons'
 
 const ProfileTabs: React.FC = () => {
   const [searchShow, searchShowSet] = React.useState(false)

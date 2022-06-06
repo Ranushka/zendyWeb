@@ -1,5 +1,5 @@
 import React from 'react'
-import { Space, ActionItem } from 'components/atoms'
+import { ActionItem } from 'components/atoms'
 import { SubTitleProps } from 'types'
 
 const SubTitle: React.FC<SubTitleProps> = (props) => {

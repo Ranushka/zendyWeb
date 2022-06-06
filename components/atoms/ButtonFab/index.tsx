@@ -1,8 +1,6 @@
 import React from 'react'
 import { ActionItem } from 'components/atoms'
 import classnames from 'classnames'
-import { title } from 'process'
-// import styles from './index.module.scss'
 
 type Props = {
   title?: string
@@ -19,7 +17,7 @@ const BtnFab: React.FC<Props> = ({
   icon,
   small,
   onClick,
-  classNames,
+  classNames
 }) => {
   const className = classnames(
     'fab',

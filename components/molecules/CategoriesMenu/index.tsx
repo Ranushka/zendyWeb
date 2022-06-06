@@ -5,9 +5,9 @@ import styles from './index.module.scss'
 import classnames from 'classnames'
 import { IconArrowDown } from 'components/icons'
 import { ActionItem } from 'components/atoms'
-import { attributes as Data } from 'data/header.md'
+// import { attributes as Data } from 'data/header.md'
 
-const CategoriesMenu: React.FC<{}> = (props) => {
+const CategoriesMenu: React.FC<{}> = () => {
   const trans = useTranslations('header')
 
   return (

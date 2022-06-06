@@ -1,11 +1,11 @@
-import Head from 'next/head'
+import React from 'react'
 import { Space } from 'components/atoms'
 import QNA from './QNA'
 import { commonMessages } from 'lib/getMessages'
 import {
   Testimonials,
   SubscriptionPage,
-  Publishers,
+  Publishers
 } from 'components/organisms'
 import { BaseTemplate } from 'components/templates'
 
@@ -29,9 +29,9 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       messages: {
-        ...commonMsg,
-      },
-    },
+        ...commonMsg
+      }
+    }
   }
 }
 

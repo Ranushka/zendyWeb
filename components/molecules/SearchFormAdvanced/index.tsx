@@ -4,8 +4,6 @@ import { useRouter } from 'next/router'
 import styles from './index.module.scss'
 import { ButtonFab, Space, ActionItem } from 'components/atoms'
 import { IconSearch, IconAdd } from 'components/icons'
-import DeviceTypeContext from 'context/DeviceTypeContext'
-import { attributes as Data } from 'data/header.md'
 
 type Props = {
   id?: string
@@ -13,12 +11,11 @@ type Props = {
 
 const scopeList = ['keyword', 'title', 'author', 'subject', 'journal']
 
-const SearchFormAdvanced: React.FC<Props> = ({ id = 'search' }) => {
+const SearchFormAdvanced: React.FC<Props> = () => {
   const searchInput = React.useRef(null)
   const [name, setName] = useState('')
   const [searchList, setSearchList] = useState([''])
   const router = useRouter()
-  const { isMobile } = React.useContext(DeviceTypeContext)
 
   const handleSubmit = (e) => {
     e.preventDefault()

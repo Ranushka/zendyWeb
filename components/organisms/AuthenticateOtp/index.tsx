@@ -7,7 +7,7 @@ import styles from './index.module.scss'
 type Props = {}
 
 const AuthenticateRegister: React.FC<Props> = () => {
-  const [value, setValue] = React.useState()
+  // const [value, setValue] = React.useState()
 
   return (
     <>

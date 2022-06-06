@@ -1,10 +1,7 @@
 import React, { useContext } from 'react'
-import classnames from 'classnames'
-import styles from './index.module.scss'
 import DeviceTypeContext from 'context/DeviceTypeContext'
 
 import { ActionItem, Space } from 'components/atoms'
-import { url } from 'inspector'
 
 type Props = {}
 

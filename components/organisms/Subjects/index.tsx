@@ -1,6 +1,4 @@
 import React from 'react'
-import classnames from 'classnames'
-import styles from './index.module.scss'
 import { CardSubject } from 'components/molecules'
 import { attributes as Data } from 'data/widgets/subjects.md'
 
@@ -11,7 +9,7 @@ const Subjects: React.FC<Props> = () => {
 
   return (
     <section className="container text-center py-4">
-      {subList.map(({ title, image, href }, id) => (
+      {subList.map(({ title, href }, id) => (
         <CardSubject key={`subject${id}`} href={href} title={title} />
       ))}
     </section>

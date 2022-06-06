@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import React from 'react'
 import { ActionItem } from 'components/atoms'
 import useGetCountry from 'fetchHooks/useGetCountry'
 

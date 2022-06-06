@@ -1,6 +1,4 @@
 import React from 'react'
-import classnames from 'classnames'
-import styles from './index.module.scss'
 import { CardCurated } from 'components/molecules'
 import isArray from 'lodash/isArray'
 import { useTranslations } from 'next-intl'
