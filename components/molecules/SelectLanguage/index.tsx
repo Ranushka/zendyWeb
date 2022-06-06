@@ -1,7 +1,6 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
 import { Select } from 'components/atoms'
-import { applyTheme, saveTheme, getTheme } from 'lib/theme'
 import { useRouter } from 'next/router'
 import { getDir } from 'lib/helpers'
 
@@ -19,7 +18,10 @@ const SelectLanguage = () => {
     const value = evt.target.value
     if (langPlaceholder === value) return
 
-    const newLocal = value.split('-')[0].trim().toLowerCase()
+    const newLocal = value
+      .split('-')[0]
+      .trim()
+      .toLowerCase()
 
     const d = document.documentElement
     const e = getDir(newLocal)

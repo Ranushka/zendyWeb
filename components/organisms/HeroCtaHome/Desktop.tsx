@@ -1,6 +1,5 @@
+import React from 'react'
 import { useTranslations } from 'next-intl'
-
-import { Space } from 'components/atoms'
 
 type Props = {}
 

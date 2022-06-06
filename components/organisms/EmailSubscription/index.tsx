@@ -1,6 +1,5 @@
+import React from 'react'
 import { useTranslations } from 'next-intl'
-import classnames from 'classnames'
-import styles from './index.module.scss'
 import { ActionItem, Input, Space, Select } from 'components/atoms'
 
 type Props = {}

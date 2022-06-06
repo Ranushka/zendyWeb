@@ -1,8 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 import { ActionItem } from 'components/atoms'
-import styles from './index.module.scss'
-import classnames from 'classnames'
 
 type Props = {
   href: string
@@ -13,7 +11,7 @@ type Props = {
 }
 
 const CardCurated: React.FC<Props> = (props) => {
-  const { href, imgUrl, title, content, style } = props
+  const { href, imgUrl, title, content } = props
 
   return (
     <ActionItem

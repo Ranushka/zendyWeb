@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import classnames from 'classnames'
 import { useRouter } from 'next/router'
 import { useTranslations } from 'next-intl'
 import styles from './index.module.scss'
@@ -7,7 +6,6 @@ import { ButtonFab } from 'components/atoms'
 import { IconSearch, IconClear, IconAdvanceSearch } from 'components/icons'
 import DeviceTypeContext from 'context/DeviceTypeContext'
 import useGlobal from 'context/GlobalContext'
-import { attributes as Data } from 'data/header.md'
 
 type Props = {
   id?: string

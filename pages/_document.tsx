@@ -1,8 +1,8 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { GtmScript } from 'analytics'
 import { getDir } from 'lib/helpers'
-import { applyTheme } from 'lib/theme'
-import { applyFontSize } from 'lib/fontSize'
+// import { applyTheme } from 'lib/theme'
+// import { applyFontSize } from 'lib/fontSize'
 
 import React from 'react'
 
@@ -12,7 +12,7 @@ const data = {
   title: 'Zendy, Premium research publications library',
   description:
     'Research is creating new knowledge, join with us and create new knowledge',
-  image: 'https://zendy.io/icons/favicon-96x96.png',
+  image: 'https://zendy.io/icons/favicon-96x96.png'
 }
 
 class MyDocument extends Document {

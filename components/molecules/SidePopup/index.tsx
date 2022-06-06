@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
-import styles from './index.module.scss'
-import classnames from 'classnames'
 import { lockBody } from 'lib/helpers'
-import { IconClose, IconClear } from 'components/icons'
+import { IconClear } from 'components/icons'
 import { ButtonFab } from 'components/atoms'
 
 type Props = {
@@ -14,31 +12,18 @@ type Props = {
   openLocation?: 'left' | 'right' | 'center' | 'bottom' | 'none'
 }
 
-const contentStyleGet = {
-  center: ''
-}
+// const contentStyleGet = {
+//   center: ''
+// }
 
 const SidePopup: React.FC<Props> = ({
-  small,
+  // small,
   content,
   open,
-  fullHeight = false,
-  closeFunc,
-  openLocation = 'left'
+  // fullHeight = false,
+  closeFunc
+  // openLocation = 'left'
 }) => {
-  const closeBtnStyle = classnames()
-  // styles.refineSearchBtnClose,
-  // styles[openLocation]
-  // styles[openLocation]
-  const contentStyle = classnames(
-    'px-4 bg-white z-40',
-    styles.wrapper,
-    small && 'max-w-sm',
-    fullHeight && styles.fullHeight,
-    // styles[openLocation],
-    contentStyleGet[openLocation]
-  )
-
   useEffect(() => {
     if (open) {
       lockBody(true)

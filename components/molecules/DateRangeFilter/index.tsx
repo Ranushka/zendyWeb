@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './index.module.scss'
-import classnames from 'classnames'
 import { IconClear } from 'components/icons'
 import { Space, Input, ButtonFab, ActionItem } from 'components/atoms'
 

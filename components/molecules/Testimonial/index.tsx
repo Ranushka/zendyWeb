@@ -1,4 +1,4 @@
-import { Space } from 'components/atoms'
+import React from 'react'
 
 type Props = {
   quote: string

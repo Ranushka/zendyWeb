@@ -1,6 +1,7 @@
+import React from 'react'
 import card from './mobile.module.scss'
 import classnames from 'classnames'
-import Ellipsis from 'react-ellipsis-pjs'
+// import Ellipsis from 'react-ellipsis-pjs'
 import get from 'lodash/get'
 import striptags from 'striptags'
 import { IconBookmark, IconCite, IconLink } from 'components/icons'

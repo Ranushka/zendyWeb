@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 import { useTranslations } from 'next-intl'
 import styles from './mobile.module.scss'
-import { ActionItem, Space, Logo, ButtonFab } from 'components/atoms'
+import { Space, Logo, ButtonFab } from 'components/atoms'
 import MobileNav from './MobileNav'
 import { PrivacyList, ExploreList, NewsList } from './Common'
 
