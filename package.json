@@ -22,6 +22,7 @@
     "express": "^4.17.1",
     "frontmatter-markdown-loader": "^3.6.0",
     "gray-matter": "^4.0.2",
+    "memory-cache": "^0.2.0",
     "mongodb": "^4.3.1",
     "netlify": "^11.0.0",
     "netlify-cli": "^9.6.2",

@@ -22,7 +22,7 @@ const Desktop: React.FC<Props> = () => {
     <>
       <Space size={5} />
       <div className="mw__4 flex items-center">
-        <h1 className="text-center color__nut6">My Profile</h1>
+        <h1 className="text-center text-gray-500">My Profile</h1>
         <div className="flex__left"></div>
         <ActionItem
           text={'Sign out'}
@@ -74,21 +74,21 @@ const Desktop: React.FC<Props> = () => {
               id={'subscribe_to_newsletter'}
               name={'subscribe_to_newsletter'}
               label={'Subscribe to Newsletter'}
-              className="my__3 mt__0"
+              className="my-8 mt__0"
             />
             <CheckBox
               key={'emails_on_interests'}
               id={'emails_on_interests'}
               name={'emails_on_interests'}
               label={'Emails on your interests'}
-              className="my__3 mt__0"
+              className="my-8 mt__0"
             />
             <CheckBox
               key={'notification_on_interests'}
               id={'notification_on_interests'}
               name={'notification_on_interests'}
               label={'Notifications on your interests'}
-              className="my__3 mt__0"
+              className="my-8 mt__0"
             />
           </>
         )}
@@ -160,7 +160,7 @@ const ProfileBlock = ({ children, title }) => (
   <>
     <section className="flex mw__4">
       <h3 className="mw__1 py__3 block text__right px-8">{title}</h3>
-      <div className="shadow block px-8 py-8 rounded__1 text__left bg-white">
+      <div className="shadow block px-8 py-8 rounded-md text-left bg-white">
         {children}
       </div>
     </section>

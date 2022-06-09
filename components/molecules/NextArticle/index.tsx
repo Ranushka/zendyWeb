@@ -18,7 +18,7 @@ const NextArticle: React.FC<Props> = (props) => {
     <ActionItem href={url}>
       <div
         className={classnames(
-          'rounded__1 shadow bg-white',
+          'rounded-md shadow bg-white',
           styles.wrapper,
           prev && styles.prev
         )}

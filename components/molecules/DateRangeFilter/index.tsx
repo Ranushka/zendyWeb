@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './index.module.scss'
+import { Chip } from 'components/atoms'
 import { IconClear } from 'components/icons'
 import { Space, Input, ButtonFab, ActionItem } from 'components/atoms'
 
@@ -25,20 +25,13 @@ const SortByFilter: React.FC<SortByFilterProps> = ({ year, setYear }) => {
 
   const customYears = yearsList.map((item, id) => {
     return (
-      <label
+      <Chip
         key={id}
-        className={styles.wrapper + ' py-2 pl__0 mx__2 ml__0 pt__0'}
-      >
-        <input
-          type="radio"
-          checked={item === year}
-          value={item}
-          id={item}
-          onChange={() => setYear(item)}
-          name="filterByDateRange"
-        />
-        <small className="py-1 px-4 block rounded__1 pointer">{item}</small>
-      </label>
+        id={id}
+        checked={item === year}
+        onClick={() => setYear(item)}
+        label={item}
+      />
     )
   })
 
@@ -83,7 +76,7 @@ const SortByFilter: React.FC<SortByFilterProps> = ({ year, setYear }) => {
   )
 
   return (
-    <form className="flex flex__wrap py-2 pb__0">
+    <form className="flex flex-wrap">
       {year === 'custom' ? customYearsRange : customYears}
     </form>
   )

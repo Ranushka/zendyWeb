@@ -21,9 +21,12 @@ const CheckBox: React.FC<Props> = ({
   onChange = () => {}
 }) => {
   return (
-    <div className={classnames('checkbox', className && className)}>
+    <label
+      htmlFor={id}
+      className={classnames('block cursor-pointer', className && className)}
+    >
       <input
-        className={'input__hide'}
+        className="sr-only"
         type="checkbox"
         checked={checked}
         name={name}
@@ -32,11 +35,8 @@ const CheckBox: React.FC<Props> = ({
         onChange={() => onChange()}
       />
 
-      <label htmlFor={id}>
-        <div />
-        {name && <span className="labelText">{label}</span>}
-      </label>
-    </div>
+      {name && <span className="">{label}</span>}
+    </label>
   )
 }
 

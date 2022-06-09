@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import { Chip } from 'components/atoms'
 
 const SortByFilter: React.FC = () => {
   const sortBysList = [
@@ -19,27 +20,21 @@ const SortByFilter: React.FC = () => {
     })
   }
 
-  const customsortBys = sortBysList.map((item, id) => {
+  const customSortBys = sortBysList.map((item, id) => {
     const checked = item.value === queryByString
 
     return (
-      <label
+      <Chip
         key={id}
-        className={`rounded__1 pointer mx__2 my__2 ml__0 mt__0 ${checked &&
-          'bg__nut4'}`}
-        style={{
-          border: '1px solid',
-          borderColor: 'var(--c-nut4)',
-          padding: '4px 12px'
-        }}
+        id={id}
+        checked={checked}
         onClick={() => onClick(item.value)}
-      >
-        <small> {item.name} </small>
-      </label>
+        label={item.name}
+      />
     )
   })
 
-  return <form className="flex flex__wrap py-2 pb__0">{customsortBys}</form>
+  return <form className="flex flex-wrap">{customSortBys}</form>
 }
 
 export default SortByFilter

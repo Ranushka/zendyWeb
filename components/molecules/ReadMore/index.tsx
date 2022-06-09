@@ -1,6 +1,4 @@
 import React from 'react'
-import styles from './index.module.scss'
-import classnames from 'classnames'
 
 type Props = {
   id: string
@@ -26,9 +24,9 @@ const ReadMore: React.FC<Props> = (props) => {
   }, [height])
 
   return (
-    <div className={classnames(styles.wrapper)}>
+    <div>
       <div
-        className={styles.content}
+        className="overflow-hidden"
         ref={contentRef}
         style={{ height: isOpen ? height : 'unset' }}
       >
@@ -36,11 +34,9 @@ const ReadMore: React.FC<Props> = (props) => {
       </div>
 
       {isOpen !== null && (
-        <label
-          className={classnames('pointer block py-2', styles.readMoreWrapper)}
-          htmlFor={id}
-        >
+        <label className="readMoreWrapper cursor-pointer block" htmlFor={id}>
           <input
+            className="sr-only"
             type="checkbox"
             checked={isOpen}
             onChange={() => isOpenSet(!isOpen)}

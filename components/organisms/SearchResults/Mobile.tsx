@@ -73,7 +73,7 @@ const __KeywordsList = (keywords: []) => {
         <span className="mute">keywords </span>
         {keywords.map<React.ReactNode>((name, id) => (
           <ActionItem
-            className="link__small px-4 py-2 mx__1 stage__1 rounded__1 block__inline"
+            className="link__small px-4 py-2 mx__1 stage__1 rounded-md block__inline"
             key={id}
             text={name}
             href={`/search?q=${name}`}
@@ -115,7 +115,7 @@ const ResultsWithData: React.FC<any> = () => {
 
 const MobileSearchResults: React.FC<any> = () => {
   return (
-    <section className={'mw__4 block text__left'}>
+    <section className={'mw__4 block text-left'}>
       {SearchResultActions()}
       {__resultData()}
     </section>

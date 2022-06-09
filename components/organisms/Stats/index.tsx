@@ -42,7 +42,7 @@ const Stats: React.FC<Props> = () => {
   return (
     <section className={'max-w-6xl text-center'}>
       <Space />
-      <h2 className="color__nut6">Premium content data stats</h2>
+      <h2 className="text-gray-500">Premium content data stats</h2>
       <p className="">
         Sneak peek to our curated premium data status, it’s updating every day.
       </p>

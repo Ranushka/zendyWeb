@@ -1,5 +1,4 @@
 import React from 'react'
-import classnames from 'classnames'
 import Skeleton from 'react-loading-skeleton'
 import get from 'lodash/get'
 import { SearchResultItem } from 'components/molecules'
@@ -17,18 +16,17 @@ const SearchResultActions = () => {
   const { selectionMode } = state
 
   return (
-    <div className="flex items-center px-4 pl__0 rounded__1 my__3 mt__0 mw__5">
+    <div className="flex items-center px-4 pl__0 rounded-md my-8 mt__0 mw__5">
       <ButtonFab
         title="Toggle selection mode"
         icon={<IconSelectionMode />}
-        classNames={`pointer rounded__1 ${selectionMode && 'bg__nut4'}`}
+        classNames={`pointer rounded-md ${selectionMode && 'text-gray-400'}`}
         onClick={() => {
           setState({ ...state, selectionMode: !selectionMode })
         }}
       />
       {selectionMode && (
         <>
-          <Space size={3} />
           <ActionItem text={'Select All'} href={'/'} className="mx-4" />
           <ActionItem
             text={'Export selected'}
@@ -136,14 +134,10 @@ const ResultsWithData: React.FC<any> = ({ results }) => {
 
 const DesktopSearchResults: React.FC<any> = () => {
   return (
-    <>
-      <section className={classnames('block text__left')}>
-        <Space size={4} />
-        {SearchResultActions()}
-        {__resultData()}
-      </section>
-      <div className="flex__left" />
-    </>
+    <section className="w-9/12">
+      {SearchResultActions()}
+      {__resultData()}
+    </section>
   )
 }
 

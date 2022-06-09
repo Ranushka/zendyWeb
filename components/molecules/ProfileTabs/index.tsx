@@ -5,7 +5,7 @@ const ProfileTabs: React.FC = () => {
   return (
     <>
       <Space size={4} />
-      <h2 className="color__nut6">My Library</h2>
+      <h2 className="text-gray-500">My Library</h2>
       <Space size={3} />
       <div className="flex">
         <Tab href={'/library/collections'}>Collections</Tab>

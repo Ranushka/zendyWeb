@@ -14,7 +14,7 @@ const ProfileTabs: React.FC = () => {
       />
       {searchShow && (
         <input
-          className="stage__1 rounded__1 px-4 py-2"
+          className="stage__1 rounded-md px-4 py-2"
           type="search"
           name="magSearch"
           id="magSearch"
