@@ -33,7 +33,7 @@ const Downloads: React.FC = () => {
 
 const __dataRow = ({ id, name }: DataRowProps) => (
   <div key={id}>
-    <div className="px-4 py__3 flex flex__between bg-white shadow rounded__1">
+    <div className="px-4 py__3 flex flex__between bg-white shadow rounded-md">
       <span className="first_letter_caps">{name}</span>
       <div className="flex__left"></div>
 

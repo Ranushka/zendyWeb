@@ -29,7 +29,7 @@ const Search: React.FC = () => {
       {queryString && (
         <>
           {queryAuthor && <AuthorDetails authorName={queryAuthor} />}
-          <div className="mw__7 px-4 flex">
+          <div className="container p-4 flex">
             <LayeredNavigation />
             <SearchResults />
           </div>

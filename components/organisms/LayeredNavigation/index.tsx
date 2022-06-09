@@ -1,13 +1,11 @@
 import React from 'react'
-import classnames from 'classnames'
 import Skeleton from 'react-loading-skeleton'
 import get from 'lodash/get'
-// import Link from 'next/link'
+
 import { useRouter } from 'next/router'
-import styles from './desktop.module.scss'
 
 import useSearchResults from 'fetchHooks/useSearchResults'
-import labelMapping from 'data/labelMapping'
+import labelMapping from 'lib/labelMapping'
 import { Space, CheckBox } from 'components/atoms'
 // import { IconSavedSearch, IconNotifications } from 'components/icons'
 import { ReadMore, DateRangeFilter, SortByFilter } from 'components/molecules'
@@ -60,10 +58,10 @@ const FilterItems = ({ items, groupId }) => {
     }
 
     return (
-      <div key={'filter' + id} className="py-1" onClick={onClick}>
+      <div key={'filter' + id} onClick={onClick}>
         <CheckBox
           checked={checked}
-          className="py-1"
+          className="pt-2 pb-1"
           key={id}
           id={item.id}
           name={item.facetLabel}
@@ -108,22 +106,19 @@ const FilterGroups = () => {
     const categoryLabel = labelMapping(item.categoryLabel + 'Url')
 
     const accordionContent = (
-      <div>
-        <Space size={2} />
-        <FilterItems items={item.facets} groupId={categoryLabel} />
-      </div>
+      <FilterItems items={item.facets} groupId={categoryLabel} />
     )
 
     return (
-      <div key={id}>
-        <h5 className="color__nut6">{labelMapping(item.categoryLabel)}</h5>
+      <div key={id} className="mb-8">
+        <h5 className="text-gray-500 font-serif">
+          {labelMapping(item.categoryLabel)}
+        </h5>
         {item.facets.length > 6 ? (
           <ReadMore height={208} id={id} content={accordionContent} />
         ) : (
           accordionContent
         )}
-
-        <Space size={3} />
       </div>
     )
   })
@@ -131,9 +126,8 @@ const FilterGroups = () => {
 
 const GetSortBy = () => {
   return (
-    <div className="my__2">
-      <Space size={2} />
-      <h5 className="color__nut6">Sort by</h5>
+    <div className="mb-4">
+      <h5 className="text-gray-500 pb-2">Sort by</h5>
       <SortByFilter />
     </div>
   )
@@ -143,9 +137,8 @@ const GetYearRange = () => {
   const [year, setYear] = React.useState('')
 
   return (
-    <div className="my__2">
-      <Space size={2} />
-      <h5 className="color__nut6">Year range</h5>
+    <div className="mb-4">
+      <h5 className="text-gray-500 pb-2">Year range</h5>
       <DateRangeFilter year={year} setYear={setYear} />
     </div>
   )
@@ -153,11 +146,10 @@ const GetYearRange = () => {
 
 const LayeredNavigation: React.FC<Props> = () => {
   return (
-    <section className={classnames('px-8 pl__0', styles.wrapper)}>
+    <section className="w-3/12 pr-8">
       <LayeredNavigationTitle />
       <GetSortBy />
       <GetYearRange />
-      <Space size={2} />
       <FilterGroups />
     </section>
   )

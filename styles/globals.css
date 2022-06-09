@@ -60,3 +60,8 @@ input:checked ~ .dot {
 .accordion input:checked ~ div {
       display: none;
 }
+
+.readMoreWrapper {
+  box-shadow: 0 -5px 6px 3px #f9fafb;
+  position: relative;
+}

@@ -15,7 +15,7 @@ const ContentStats: React.FC<Props> = ({
     // <div className={styles.wrapper}>
     <div
       className={classnames(
-        'bg__nut2 mx-4 my__3 py__3 px__5 rounded__1',
+        'bg__nut2 mx-4 my-8 py__3 px__5 rounded-md',
         styles.wrapper
       )}
     >
