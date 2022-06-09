@@ -19,7 +19,8 @@ const BtnFab: React.FC<Props> = ({
 }) => {
   const finalClassList = classnames(
     'noSelect w-full flex-col items-center pt-1',
-    primary && styles.primary,
+    primary &&
+      'flex items-center justify-center bg-gray-100 -mt-4 mb-4 rounded-full shadow',
     isActive && styles.active
   )
 

@@ -11,7 +11,7 @@ const ResultsWithData = ({ data }) => {
 
   return (
     <section className="mb__0 mw__7">
-      <div className="bg__nut2 rounded__1 px-8 py-8 my-8 mb__0 mx-4">
+      <div className="bg__nut2 rounded-md px-8 py-8 my-8 mb__0 mx-4">
         <div className="flex">
           <div>
             <small className="mute">Name</small>

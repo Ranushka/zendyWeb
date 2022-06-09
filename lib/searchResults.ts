@@ -1,5 +1,5 @@
 import fetch from 'lib/request'
-import { genarateTitleUrlPath } from 'lib/helpers'
+import { generateTitleUrlPath } from 'lib/helpers'
 
 const __makeItRand = () => Math.random() >= 0.5
 
@@ -7,7 +7,7 @@ const __processData = (data) => {
   let keywords = []
 
   const results = data.results.map((item) => {
-    const href = genarateTitleUrlPath(item.bibjson.title, item.id)
+    const href = generateTitleUrlPath(item.bibjson.title, item.id)
     let subjects = []
 
     if (item.bibjson && item.bibjson.subject) {

@@ -1,13 +1,13 @@
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
-import labelMapping from 'data/labelMapping'
+import labelMapping from 'lib/labelMapping'
 
 const getFilterObj = (journalId, journalString) => {
   return {
     active: true,
     categoryId: journalId,
     categoryLabel: journalId,
-    facetLabel: journalString,
+    facetLabel: journalString
   }
 }
 
@@ -49,10 +49,9 @@ const useSearchResults = () => {
     facetFilters: facetFilters,
     dateFilters: { start: '1000-1', end: '2050-12' },
     pageNumber: pageNumber,
-    sortFilters: 'relevance',
+    sortFilters: 'relevance'
   }
 
-  const sortById = 'by'
   // const sortByString = router.query[labelMapping(sortById + 'Url')]
   const sortByString = router.query.by
   if (sortByString) {
@@ -62,9 +61,9 @@ const useSearchResults = () => {
   const options = {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(queryParams),
+    body: JSON.stringify(queryParams)
   }
 
   const fetcher = () => {

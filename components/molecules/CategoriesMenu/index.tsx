@@ -20,7 +20,7 @@ const CategoriesMenu: React.FC<{}> = () => {
         className="mx-3"
         onClick={() => {}}
       />
-      <div className={classnames('bg-white rounded__1 stage__3', styles.menu)}>
+      <div className={classnames('bg-white rounded-md stage__3', styles.menu)}>
         <div className="flex py-8">{__getMenuColumns()}</div>
       </div>
     </div>

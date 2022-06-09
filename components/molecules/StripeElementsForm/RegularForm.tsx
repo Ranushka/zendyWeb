@@ -141,7 +141,7 @@ const RegularForm: React.FC<Props> = (props) => {
           <DiscountCodeBlock />
           <Space size={4} />
         </fieldset>
-        <div className="shadow max-w-sm py-8 px-8 bg-white rounded__1 block">
+        <div className="shadow max-w-sm py-8 px-8 bg-white rounded-md block">
           {data && data.percent_off && (
             <div className="py__3 pt__0 flex items-center mute">
               <p>Coupon discount</p>

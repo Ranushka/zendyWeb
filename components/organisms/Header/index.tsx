@@ -21,7 +21,7 @@ import {
   IconGlobal
 } from 'components/icons'
 import { useSession } from 'next-auth/react'
-// import useGlobal from 'context/GlobalContext'
+import MobileHeaderNav from './MobileHeaderNav'
 
 type Props = {
   isSearchPage?: boolean
@@ -53,7 +53,7 @@ const DesktopHeader = ({ isSearchPage }: Props) => {
       </section>
       <nav className="bg-white shadow dark:bg-gray-800 sticky top-0 z-10">
         <div className="container px-4 py-2 flex items-center md:justify-between">
-          {!isSearchPage && <MobileToggleMenu />}
+          {!isSearchPage && <MobileHeaderNav />}
 
           <Logo
             flag
@@ -129,31 +129,6 @@ const SettingsPopUpContent = () => {
 //     )
 //   )
 // }
-
-const MobileToggleMenu = () => {
-  return (
-    <div className="flex md:hidden">
-      <button
-        type="button"
-        className="text-gray-500
-                       dark:text-gray-200
-                       hover:text-gray-600
-                       dark:hover:text-gray-400
-                       focus:outline-none focus:text-gray-600
-                       dark:focus:text-gray-400
-                       "
-        aria-label="toggle menu"
-      >
-        <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
-          <path
-            fillRule="evenodd"
-            d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-          ></path>
-        </svg>
-      </button>
-    </div>
-  )
-}
 
 const NavItems = () => {
   const trans = useTranslations('header')
