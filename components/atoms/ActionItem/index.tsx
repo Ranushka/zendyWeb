@@ -73,7 +73,7 @@ const __btn = (props: Props) => {
       type={submit ? 'submit' : 'button'}
     >
       {text}
-      {icon && icon}
+      {icon && <span className="ml-2">{icon}</span>}
     </button>
   )
 }
@@ -151,11 +151,12 @@ const getType = (type) => {
     link:
       'whitespace-nowrap hover:text-orange-600 active:text-orange-600 duration-150',
     link__title:
-      'link__title hover:text-orange-500 active:text-orange-500 duration-150',
+      'text-gray-700 hover:text-orange-600 active:text-orange-500 duration-150',
     link__small:
       'text-xs hover:text-orange-500 active:text-orange-500 duration-150',
     btn__small: 'btn__small',
-    btn__default: 'btn__default',
+    btn__default:
+      'py-2 px-3 rounded-md flex items-center duration-300 active:bg-orange-100',
     btn__secondary:
       'border py-2 px-3 rounded-md flex justify-center duration-300 shadow-sm hover:shadow-md active:shadow-md border-orange-500 bg-orange-50 active:bg-orange-100 text-orange-600',
     btn__primary:

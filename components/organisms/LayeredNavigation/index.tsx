@@ -1,14 +1,23 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import get from 'lodash/get'
+import classnames from 'classnames'
 
 import { useRouter } from 'next/router'
 
 import useSearchResults from 'fetchHooks/useSearchResults'
 import labelMapping from 'lib/labelMapping'
-import { Space, CheckBox } from 'components/atoms'
+import { Space, CheckBox, ButtonFab } from 'components/atoms'
+import { IconFilter, IconClose } from 'components/icons'
+import useGlobal from 'context/GlobalContext'
+
 // import { IconSavedSearch, IconNotifications } from 'components/icons'
-import { ReadMore, DateRangeFilter, SortByFilter } from 'components/molecules'
+import {
+  ReadMore,
+  DateRangeFilter,
+  SortByFilter,
+  FilterTitle
+} from 'components/molecules'
 
 type Props = {}
 
@@ -20,16 +29,19 @@ const LayeredNavigationTitle = () => {
   }
 
   const totalResults = get(data, 'data.searchResults.totalResults', null)
-  let totalResultsFormated = new Intl.NumberFormat('en-GB', {
+  let totalResultsFormatted = new Intl.NumberFormat('en-GB', {
     notation: 'compact',
     compactDisplay: 'short'
   }).format(totalResults)
 
   return (
-    <div className="flex flex items-center py-2">
-      <h3 className="color__nut7">Refine search</h3>
-      <div className="flex__left" />
-      <small className="mute">{totalResultsFormated}+ Results</small>
+    <div className="py-4">
+      <h3 className="text-2xl text-gray-500 font-serif w-full">
+        Refine search
+      </h3>
+      <small className="w-full text-right">
+        {totalResultsFormatted}+ Results
+      </small>
     </div>
   )
 }
@@ -61,7 +73,7 @@ const FilterItems = ({ items, groupId }) => {
       <div key={'filter' + id} onClick={onClick}>
         <CheckBox
           checked={checked}
-          className="pt-2 pb-1"
+          className="py-1"
           key={id}
           id={item.id}
           name={item.facetLabel}
@@ -111,9 +123,7 @@ const FilterGroups = () => {
 
     return (
       <div key={id} className="mb-8">
-        <h5 className="text-gray-500 font-serif">
-          {labelMapping(item.categoryLabel)}
-        </h5>
+        <FilterTitle title={labelMapping(item.categoryLabel)} />
         {item.facets.length > 6 ? (
           <ReadMore height={208} id={id} content={accordionContent} />
         ) : (
@@ -126,8 +136,8 @@ const FilterGroups = () => {
 
 const GetSortBy = () => {
   return (
-    <div className="mb-4">
-      <h5 className="text-gray-500 pb-2">Sort by</h5>
+    <div className="mb-8">
+      <FilterTitle title="Sort by" />
       <SortByFilter />
     </div>
   )
@@ -137,21 +147,62 @@ const GetYearRange = () => {
   const [year, setYear] = React.useState('')
 
   return (
-    <div className="mb-4">
-      <h5 className="text-gray-500 pb-2">Year range</h5>
+    <div className="mb-8">
+      <FilterTitle title="Year range" />
       <DateRangeFilter year={year} setYear={setYear} />
     </div>
   )
 }
 
 const LayeredNavigation: React.FC<Props> = () => {
+  const [state] = useGlobal()
+  const { mobileFilterVisibility } = state
+  const navClass = classnames(
+    'left-0 bottom-0 z-20 overflow-y-scroll md:overflow-auto',
+    'h-4/5 md:h-auto w-full md:w-3/12 pr-8 md:block md:relative',
+    'bg-gray-50 md:bg-transparent p-8 md:p-4',
+    mobileFilterVisibility ? 'text-gray-500 block fixed' : 'hidden'
+  )
   return (
-    <section className="w-3/12 pr-8">
-      <LayeredNavigationTitle />
-      <GetSortBy />
-      <GetYearRange />
-      <FilterGroups />
-    </section>
+    <>
+      <section className={navClass}>
+        <div className="max-w-xs">
+          <LayeredNavigationTitle />
+          <GetSortBy />
+          <GetYearRange />
+          <FilterGroups />
+        </div>
+      </section>
+      {mobileFilterVisibility && (
+        <div className="fixed md:hidden h-full w-full top-0 left-0 z-10 bg-black bg-opacity-25 backdrop-blur-sm" />
+      )}
+      <MobileFilterBtn />
+    </>
+  )
+}
+
+const MobileFilterBtn: React.FC<any> = () => {
+  const [state, setState] = useGlobal()
+  const { mobileFilterVisibility } = state
+
+  const fabClass = classnames(
+    'p-4 pointer rounded-full z-30 bg-orange-50 -mt-2',
+    'fixed md:hidden right-1 top-20 shadow-md',
+    mobileFilterVisibility && 'text-gray-500'
+  )
+
+  return (
+    <ButtonFab
+      title="Toggle selection mode"
+      icon={mobileFilterVisibility ? <IconClose /> : <IconFilter />}
+      classNames={fabClass}
+      onClick={() => {
+        setState({
+          ...state,
+          mobileFilterVisibility: !mobileFilterVisibility
+        })
+      }}
+    />
   )
 }
 

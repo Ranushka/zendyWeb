@@ -8,27 +8,27 @@ const WhatWeOffer: React.FC<{}> = () => {
       <ul>
         <li className="mb-3">
           <strong className="text-green-700">✓ </strong>
-          <span className="px__2">Full text scientific publications</span>
+          <span className="px-4">Full text scientific publications</span>
         </li>
         <li className="mb-3">
           <strong className="text-green-700">✓ </strong>
-          <span className="px__2">250+ Commercial magazines</span>
+          <span className="px-4">250+ Commercial magazines</span>
         </li>
         <li className="mb-3">
           <strong className="text-green-700">✓ </strong>
-          <span className="px__2">No downloading restrictions</span>
+          <span className="px-4">No downloading restrictions</span>
         </li>
         <li className="mb-3">
           <strong className="text-green-700">✓ </strong>
-          <span className="px__2">All major disciplines</span>
+          <span className="px-4">All major disciplines</span>
         </li>
         <li className="mb-3">
           <strong className="text-green-700">✓ </strong>
-          <span className="px__2">Manage and export citations</span>
+          <span className="px-4">Manage and export citations</span>
         </li>
         <li>
           <strong className="text-green-700">✓ </strong>
-          <span className="px__2">Access to wide rage of subjects</span>
+          <span className="px-4">Access to wide rage of subjects</span>
         </li>
       </ul>
     </div>

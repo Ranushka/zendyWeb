@@ -65,3 +65,34 @@ input:checked ~ .dot {
   box-shadow: 0 -5px 6px 3px #f9fafb;
   position: relative;
 }
+
+:root{
+  --pc-700: rgb(194 65 12);
+  --pc-600: rgb(234 88 12);
+  --pc-50: rgb(255 247 237);
+}
+
+.checkbox input:checked  ~ div:after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 10px;
+  background: var(--pc-700);
+  width: 2px;
+  height: 2px;
+  box-shadow: 2px 0 0 var(--pc-700), 4px 0 0 var(--pc-700), 4px -2px 0 var(--pc-700),
+    4px -4px 0 var(--pc-700), 4px -6px 0 var(--pc-700), 4px -8px 0 var(--pc-700);
+  transform: rotate(45deg);
+}
+
+.checkbox input ~ div:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 2px;
+  background: var(--pc-50);
+  width: 1rem;
+  height: 1rem;
+  box-shadow: inset 0px 0px 1px 1px var(--pc-600);
+}
+  

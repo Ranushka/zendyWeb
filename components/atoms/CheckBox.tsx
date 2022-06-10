@@ -23,10 +23,14 @@ const CheckBox: React.FC<Props> = ({
   return (
     <label
       htmlFor={id}
-      className={classnames('block cursor-pointer', className && className)}
+      className={classnames(
+        'block cursor-pointer checkbox',
+        className && className
+      )}
     >
       <input
         className="sr-only"
+        // className="checkbox form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
         type="checkbox"
         checked={checked}
         name={name}
@@ -34,7 +38,7 @@ const CheckBox: React.FC<Props> = ({
         value={value}
         onChange={() => onChange()}
       />
-
+      <div className="relative inline-block -top-px pr-2" />
       {name && <span className="">{label}</span>}
     </label>
   )

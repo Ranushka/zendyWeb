@@ -26,7 +26,7 @@ const DiscountCodeBlock = () => {
     }
 
     return (
-      <div className="py__3">
+      <div className="py-4">
         <Input
           id="discountCode"
           name="discountCode"
@@ -49,7 +49,7 @@ const DiscountCodeBlock = () => {
       {!data && getInit()}
 
       {data && data.name && (
-        <div className="py__3">
+        <div className="py-4">
           <p className="py-2">Applied coupon code</p>
           <div className="flex items-center stage__1 px-4 py-2 bg__nut2 rounded-md">
             <div>

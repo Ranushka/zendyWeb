@@ -30,7 +30,7 @@ const CardCurated: React.FC<Props> = (props) => {
           <div className="bg-white w-full p-4">
             <p className="text-indigo-500 text-md font-medium"></p>
             <p className="text-xl font-medium mb-2 font-serif">{title}</p>
-            <p className="text-gray-400 line-clamp-4">{content}</p>
+            <p className="text-gray-500 line-clamp-4">{content}</p>
           </div>
         </div>
       </div>
