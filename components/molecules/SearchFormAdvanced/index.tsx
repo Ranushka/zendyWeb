@@ -67,7 +67,7 @@ const SearchFormAdvanced: React.FC<Props> = () => {
           setSearchList(() => [...searchList, ''])
         }}
         icon={<IconAdd />}
-        classNames={'stage__1 px__2 mx__2 pointer'}
+        classNames={'stage__1 px-4 mx__2 pointer'}
       />
       <Space size={2} />
       <ActionItem
@@ -86,7 +86,7 @@ const SearchBox: React.FC<any> = ({ index, data, searchInput }) => {
   const [keyword, operator, scope] = data.split('|')
 
   return (
-    <article className="flex items-center relative px__2 py-2">
+    <article className="flex items-center relative px-4 py-2">
       {!isFirst && (
         <select
           className={styles.operator}

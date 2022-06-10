@@ -2,53 +2,39 @@ import React from 'react'
 
 type Props = {
   id: string
-  content: any
+  content: React.ReactNode
   height?: number
 }
 
+function isOverflownY(element, height) {
+  return element.scrollHeight > height
+}
+
 const ReadMore: React.FC<Props> = (props) => {
-  const { id } = props
-
+  const { id, content, height = 100 } = props
   const contentRef = React.useRef(null)
-  const [isOpen, isOpenSet] = React.useState(false)
-
-  let content = props.content
+  const [isOpen, isOpenSet] = React.useState(null)
 
   React.useEffect(() => {
-    const overFlowState = content.props.items.length > 5
+    const overFlowState = isOverflownY(contentRef.current, height)
 
     if (overFlowState) {
       isOpenSet(overFlowState)
     }
-  }, [])
-
-  if (isOpen && content.props.items.length > 5) {
-    const newItems = content.props.items.slice(0, 5)
-
-    content = {
-      ...content,
-      props: {
-        ...content.props,
-        items: newItems
-      }
-    }
-  }
+  }, [height])
 
   return (
     <div>
       <div
-        // className="overflow-hidden"
+        className="overflow-hidden"
         ref={contentRef}
-        // style={{ height: isOpen ? height : 'unset' }}
+        style={{ height: isOpen ? height : 'unset' }}
       >
         {content}
       </div>
 
       {isOpen !== null && (
-        <label
-          className="readMoreWrapper cursor-pointer block -mt-1"
-          htmlFor={id}
-        >
+        <label className="readMoreWrapper cursor-pointer block" htmlFor={id}>
           <input
             className="sr-only"
             type="checkbox"

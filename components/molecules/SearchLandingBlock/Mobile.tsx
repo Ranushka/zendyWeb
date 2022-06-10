@@ -9,7 +9,7 @@ const SearchLandingBlock: React.FC<Props> = () => {
       <Space size={5} />
       <h2>Start Searching and create new knowledge.</h2>
       <Space size={4} />
-      <h4 className="py__3 mute">Resent searches</h4>
+      <h4 className="py-4 mute">Resent searches</h4>
       <div className="py-2">
         <ActionItem
           className="px-4 py-2 block__inline"

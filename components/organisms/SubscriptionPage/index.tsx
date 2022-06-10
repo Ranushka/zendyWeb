@@ -28,7 +28,7 @@ const SubscriptionPage: React.FC<{}> = () => {
           leftLabel={
             <span
               className={classnames(
-                'h3 px__2 text-2xl font-serif',
+                'h3 px-4 text-2xl font-serif',
                 !plan && 'text-orange-600'
               )}
             >
@@ -38,7 +38,7 @@ const SubscriptionPage: React.FC<{}> = () => {
           rightLabel={
             <span
               className={classnames(
-                'h3 px__2 text-2xl font-serif',
+                'h3 px-4 text-2xl font-serif',
                 plan && 'text-orange-600'
               )}
             >

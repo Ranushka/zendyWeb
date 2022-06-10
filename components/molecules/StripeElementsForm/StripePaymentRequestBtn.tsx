@@ -16,10 +16,10 @@ const StripePaymentRequestBtn: React.FC<Props> = ({ price }) => {
         currency: 'aed',
         total: {
           label: 'Demo total',
-          amount: parseInt(price),
+          amount: parseInt(price)
         },
         requestPayerName: true,
-        requestPayerEmail: true,
+        requestPayerEmail: true
       })
 
       pr.canMakePayment().then((result) => {
@@ -32,7 +32,7 @@ const StripePaymentRequestBtn: React.FC<Props> = ({ price }) => {
 
   if (paymentRequest) {
     return (
-      <div className="py__3 pt__0">
+      <div className="py-4 pt__0">
         <span>Subscribe with google pay</span>
         <PaymentRequestButtonElement options={{ paymentRequest }} />
       </div>

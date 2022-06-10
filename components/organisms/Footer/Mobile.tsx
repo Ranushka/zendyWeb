@@ -50,7 +50,7 @@ const Footer: React.FC<Props> = () => {
             <ExploreList />
             <Space />
             <p>Reach us</p>
-            <div className="py__3 flex items-center">
+            <div className="py-4 flex items-center">
               <ButtonFab icon={<IconSocialFacebook />} small />
               <ButtonFab icon={<IconSocialInstagram />} small />
               <ButtonFab icon={<IconSocialLinkedIn />} small />

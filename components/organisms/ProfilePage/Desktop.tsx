@@ -159,7 +159,7 @@ const InputContent = () => (
 const ProfileBlock = ({ children, title }) => (
   <>
     <section className="flex mw__4">
-      <h3 className="mw__1 py__3 block text__right px-8">{title}</h3>
+      <h3 className="mw__1 py-4 block text__right px-8">{title}</h3>
       <div className="shadow block px-8 py-8 rounded-md text-left bg-white">
         {children}
       </div>

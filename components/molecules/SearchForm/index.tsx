@@ -70,7 +70,7 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
       <div className="inline-flex absolute right-0">
         {searchText && (
           <ButtonFab
-            // classNames="rounded-full px-4 py-3 block active:bg-slate-400 hover:bg-slate-300"
+            classNames="rounded-full px-3 py-3 block"
             icon={<IconClear />}
             onClick={clearInput}
           />

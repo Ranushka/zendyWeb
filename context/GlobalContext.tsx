@@ -5,6 +5,7 @@ const globalContext = createContext(null)
 export const GlobalProvider = ({ children }) => {
   const [state, setState] = useState({
     selectionMode: false,
+    mobileFilterVisibility: false,
     toggleAdvanceSearch: false
   })
 

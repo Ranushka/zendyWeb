@@ -12,7 +12,7 @@ const SeeAll: React.FC<Props> = (props) => {
   const { href, text, className } = props
 
   return (
-    <div className={classnames('text-center py__3 lh__3', className)}>
+    <div className={classnames('text-center py-4 lh__3', className)}>
       <ActionItem href={href} text={text} />
     </div>
   )

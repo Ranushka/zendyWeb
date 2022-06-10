@@ -6,11 +6,11 @@ const ProfileTabs: React.FC = () => {
   const [searchShow, searchShowSet] = React.useState(false)
 
   return (
-    <div className="flex px__2 overflowScroll">
+    <div className="flex px-4 overflowScroll">
       <ButtonFab
         onClick={() => searchShowSet(!searchShow)}
         icon={<IconSearch />}
-        classNames={'stage__1 px__2'}
+        classNames={'stage__1 px-4'}
       />
       {searchShow && (
         <input
