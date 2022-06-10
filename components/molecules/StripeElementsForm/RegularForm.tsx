@@ -143,7 +143,7 @@ const RegularForm: React.FC<Props> = (props) => {
         </fieldset>
         <div className="shadow max-w-sm py-8 px-8 bg-white rounded-md block">
           {data && data.percent_off && (
-            <div className="py__3 pt__0 flex items-center mute">
+            <div className="py-4 pt__0 flex items-center mute">
               <p>Coupon discount</p>
               <div className="flex__left"></div>
               <div className={'flex'}>
@@ -152,7 +152,7 @@ const RegularForm: React.FC<Props> = (props) => {
             </div>
           )}
 
-          <div className="py__3 pt__0 flex items-center mute">
+          <div className="py-4 pt__0 flex items-center mute">
             <p>Yearly plan</p>
             <div className="flex__left"></div>
             <div className={'flex'}>
@@ -160,7 +160,7 @@ const RegularForm: React.FC<Props> = (props) => {
             </div>
           </div>
 
-          <div className="py__3 pt__0 flex items-center">
+          <div className="py-4 pt__0 flex items-center">
             <p>Due today</p> <div className="flex__left"></div>
             <Price large price={input.customDonation - getDiscountAmount} />
           </div>

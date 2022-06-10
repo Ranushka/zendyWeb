@@ -48,7 +48,7 @@ const __renderContentType = (title, journal, year) => {
     <div className="py-2">
       <strong className="color__nut7">Journal - {year}</strong>
       <ActionItem
-        className="px__2"
+        className="px-4"
         text={title}
         href={`/search?q=${journal.title}`}
         type="link__small"
@@ -97,7 +97,7 @@ const __renderKeywords = (keywords: []) => {
 
 const __renderHead = () => {
   return (
-    <div className={classnames('flex items-center py__3', styles.headerAction)}>
+    <div className={classnames('flex items-center py-4', styles.headerAction)}>
       <ActionItem
         text={'← Back to results'}
         onClick={() => Router.back()}
@@ -175,7 +175,7 @@ const __renderContent = (props) => {
       {__renderAuthors(author)}
       {__renderKeywords(keywords)}
       <FooterActions {...props} />
-      <div className="py__3 flex__between">
+      <div className="py-4 flex__between">
         <div className={styles.prevPublication}>
           <NextArticle
             url="/"
