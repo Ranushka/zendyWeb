@@ -96,3 +96,10 @@ input:checked ~ .dot {
   box-shadow: inset 0px 0px 1px 1px var(--pc-600);
 }
   
+svg {
+  margin: auto;
+}
+
+.mobile-nav{
+  box-shadow: 0 -1px 4px 0px rgb(0 0 0 / 16%);
+}

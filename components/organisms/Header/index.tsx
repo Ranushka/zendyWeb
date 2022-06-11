@@ -3,6 +3,7 @@ import classnames from 'classnames'
 import Skeleton from 'react-loading-skeleton'
 import isArray from 'lodash/isArray'
 import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/router'
 
 import { ActionItem, Logo, ButtonFab } from 'components/atoms'
 import {
@@ -23,18 +24,15 @@ import {
 import { useSession } from 'next-auth/react'
 import MobileHeaderNav from './MobileHeaderNav'
 
-type Props = {
-  isSearchPage?: boolean
-}
-
-const DesktopHeader = ({ isSearchPage }: Props) => {
+const Header = () => {
+  const router = useRouter()
   const trans = useTranslations('header')
   const { data: session, status } = useSession()
   const btnGuestOrUser = session ? __getLoggedInUser(session) : <GetLoginBtn />
-  // const [state, setState] = useGlobal()
   const loading = status === 'loading'
-
+  const isSearchPage = router.pathname === '/search'
   const [open, setOpen] = React.useState(false)
+
   return (
     <>
       <section className="bg-gray-200 hidden md:block">
@@ -64,7 +62,6 @@ const DesktopHeader = ({ isSearchPage }: Props) => {
           />
 
           <CategoriesMenu />
-
           <div
             className={classnames(
               'w-full justify-center flex',
@@ -75,7 +72,6 @@ const DesktopHeader = ({ isSearchPage }: Props) => {
               <SearchForm id="mainSearch" />
             </div>
           </div>
-
           <ActionItem
             className={classnames(
               'px-4 hidden md:block',
@@ -84,7 +80,6 @@ const DesktopHeader = ({ isSearchPage }: Props) => {
             text={trans('my_link')}
             href="/library/collections"
           />
-
           <div
             className={classnames('ml-auto', isSearchPage && 'hidden md:flex')}
           >
@@ -184,4 +179,4 @@ const __getUserNameInitials = ({ firstName, lastName, email }) => {
   return 'Good, day!'
 }
 
-export default DesktopHeader
+export default Header

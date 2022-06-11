@@ -46,11 +46,6 @@ const HeroCta: React.FC<Props> = () => {
               backgroundImage: 'url(/img/landingImg.png)'
             }}
           />
-          // <img
-          //   className={"mw__3 px-8  pr__0"}
-          //   src={`/img/landingImg.png`}
-          //   alt={"landing image"}
-          // />
         )}
       </section>
     </>

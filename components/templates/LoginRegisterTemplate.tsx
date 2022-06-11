@@ -1,8 +1,6 @@
-import React, { useContext } from 'react'
-import classnames from 'classnames'
+import React from 'react'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
-import DeviceTypeContext from 'context/DeviceTypeContext'
 
 type Props = {
   isSearchPage?: boolean
@@ -19,13 +17,7 @@ const LoginRegisterTemplate: React.FC<Props> = ({ children }) => {
     router.push('/')
   }
 
-  const { isMobile } = useContext(DeviceTypeContext)
-  const finalClassNames = classnames(
-    'bg__nut1',
-    isMobile ? 'contain__mobile' : 'contain__desktop'
-  )
-
-  return <main className={finalClassNames}>{children}</main>
+  return <main className="text-gray-600 bg-gray-50 text-sm">{children}</main>
 }
 
 export default LoginRegisterTemplate
