@@ -21,7 +21,6 @@ import { GlobalProvider } from 'context/GlobalContext'
 import { pageView } from 'analytics'
 import NProgress from 'nprogress'
 import Router from 'next/router'
-import App from 'next/app'
 
 if (typeof window !== 'undefined') {
   applyTheme(null)
@@ -65,26 +64,6 @@ const AppRoot = ({ Component, pageProps, isMobile, session }) => {
       </LoggedInUserProvider>
     </DeviceTypeContextProvider>
   )
-}
-
-AppRoot.getInitialProps = async (appContext) => {
-  const appInitProps = await App.getInitialProps(appContext)
-
-  // const req = appContext.ctx.req
-  // let isMobile
-
-  // if (req) {
-  //   isMobile = checkIsMobile(req)
-  // } else {
-  //   isMobile = checkIsMobile()
-  // }
-
-  // console.log('isMobile --> ', isMobile)
-
-  return {
-    ...appInitProps
-    // isMobile
-  }
 }
 
 export default AppRoot

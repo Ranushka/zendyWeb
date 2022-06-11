@@ -5,11 +5,13 @@ type Props = {}
 
 const SearchLandingBlock: React.FC<Props> = () => {
   return (
-    <div className="text-center my-24 min-h">
-      <h2>Start Searching and create new knowledge.</h2>
+    <div className="text-center my-24 mx-4 min-h">
+      <h2 className="text-3xl text-gray-500 font-serif">
+        Start Searching and create new knowledge.
+      </h2>
       <Space size={4} />
       <h4 className="py-3 mute">Resent searches</h4>
-      <div className="py-2">
+      <div className="flex flex-wrap justify-center py-2">
         <ActionItem
           className="px-4 py-2 block__inline"
           text={'covid 19'}

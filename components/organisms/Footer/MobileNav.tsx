@@ -39,7 +39,7 @@ const MobileNav: React.FC<Props> = () => {
 
   return (
     <>
-      <section className="bg-white fixed bottom-0 w-full flex md:hidden">
+      <section className="mobile-nav bg-white fixed bottom-0 w-full flex md:hidden">
         <MobileNaveItem
           onClick={() => __routeOnClick('/')}
           text="Home"
@@ -54,7 +54,11 @@ const MobileNav: React.FC<Props> = () => {
         />
         <MobileNaveItem
           onClick={_clickOnSearch}
-          icon={<IconSearch />}
+          icon={
+            <span className="text-white">
+              <IconSearch />
+            </span>
+          }
           primary
           isActive={router.pathname === '/search'}
         />
