@@ -10,9 +10,11 @@ const fetcher = (url: string) => {
 
 const useTitleDetail = () => {
   const router = useRouter()
+  console.log('---------', router)
+
   const queryId = router.query.id.toString()
-  const publicatonId = getPublicationId(queryId)
-  const url = `https://api.staging-oa.zendy.io/search/oa/permanent-link/${publicatonId}`
+  const publicationId = getPublicationId(queryId)
+  const url = `https://api.staging-oa.zendy.io/search/oa/permanent-link/${publicationId}`
 
   return useSWR(url, fetcher)
 }

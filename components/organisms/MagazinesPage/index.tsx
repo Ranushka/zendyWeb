@@ -1,15 +1,34 @@
-import React, { useContext } from 'react'
-import dynamic from 'next/dynamic'
-import DeviceTypeContext from 'context/DeviceTypeContext'
+import React from 'react'
+import styles from './desktop.module.scss'
+import classnames from 'classnames'
+import { Space } from 'components/atoms'
+import { CardMagazine, MagazinesPageTabs } from 'components/molecules'
+import { attributes as data } from 'data/widgets/magazines.md'
 
-type Props = {}
-const Mobile = dynamic(() => import('./Mobile'))
-const Desktop = dynamic(() => import('./Desktop'))
+const Magazines: React.FC<{}> = () => {
+  const magData = data.magazines
 
-const TitleDetail: React.FC<Props> = (props) => {
-  const { isMobile } = useContext(DeviceTypeContext)
+  return (
+    <section className={classnames('max-w-6xl text-center', styles.wrapper)}>
+      <Space size={5} />
+      <h1>Magazines</h1>
+      <Space size={4} />
+      <MagazinesPageTabs />
 
-  return isMobile ? <Mobile {...props} /> : <Desktop {...props} />
+      <Space size={4} />
+      <div className={classnames(styles.magPageWrapper)}>
+        {magData.map(({ title, image, href }, id) => (
+          <CardMagazine
+            key={`magazineItem${id}`}
+            href={href}
+            img={image.replace('/public/', '')}
+            title={title}
+            content="Sep2019, Vol. 73 Issue 9"
+          />
+        ))}
+      </div>
+    </section>
+  )
 }
 
-export default TitleDetail
+export default Magazines

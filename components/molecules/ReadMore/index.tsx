@@ -36,13 +36,7 @@ const ReadMore: React.FC<Props> = (props) => {
 
   return (
     <div>
-      <div
-        // className="overflow-hidden"
-        ref={contentRef}
-        // style={{ height: isOpen ? height : 'unset' }}
-      >
-        {content}
-      </div>
+      <div ref={contentRef}>{content}</div>
 
       {isOpen !== null && (
         <label

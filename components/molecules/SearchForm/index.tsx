@@ -4,7 +4,6 @@ import { useTranslations } from 'next-intl'
 import styles from './index.module.scss'
 import { ButtonFab } from 'components/atoms'
 import { IconSearch, IconClear, IconAdvanceSearch } from 'components/icons'
-import DeviceTypeContext from 'context/DeviceTypeContext'
 import useGlobal from 'context/GlobalContext'
 
 type Props = {
@@ -17,7 +16,6 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
   const [searchText, setSearchText] = useState('')
   const router = useRouter()
   const [state, setState] = useGlobal()
-  const { isMobile } = React.useContext(DeviceTypeContext)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -62,7 +60,7 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
         ref={searchInput}
         type="search"
         accessKey="s"
-        placeholder={trans(`search_placeholder_${isMobile ? 'm' : 'd'}`)}
+        placeholder={trans(`search_placeholder_d`)}
         className="w-full h-12 rounded-full border border-slate-400 px-14 outline-blue-200 outline-1 outline-offset-4 appearance-none hover:shadow-md active:shadow-md focus:shadow-md"
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}

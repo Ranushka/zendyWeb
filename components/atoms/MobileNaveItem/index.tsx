@@ -1,6 +1,5 @@
 import React from 'react'
 import classnames from 'classnames'
-import styles from './index.module.scss'
 
 type Props = {
   icon?: React.ReactNode
@@ -20,8 +19,8 @@ const BtnFab: React.FC<Props> = ({
   const finalClassList = classnames(
     'noSelect w-full flex-col items-center pt-1',
     primary &&
-      'flex items-center justify-center bg-gray-100 -mt-4 mb-4 rounded-full shadow',
-    isActive && styles.active
+      'flex items-center justify-center bg-orange-600 -mt-2 mb-2 rounded-full shadow',
+    isActive && 'text-orange-600'
   )
 
   return (
