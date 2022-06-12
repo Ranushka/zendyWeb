@@ -123,7 +123,7 @@ const SettingsPopUpContent = () => {
 //     show && (
 //       <div key="advancedSearch" className="bg-white shadow ">
 //         <section className="flex items-center mw__7 px-4 py-2">
-//           <div className="flex flex items-center block">
+//           <div className="items-center block">
 //             <SearchFormAdvanced id="advancedSearch" />
 //           </div>
 //         </section>
