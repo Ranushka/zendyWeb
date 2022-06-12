@@ -1,5 +1,5 @@
-import React, { GetStaticPaths } from 'next'
-
+import React from 'react'
+import { GetStaticPaths } from 'next'
 import { commonMessages } from 'lib/getMessages'
 import { BaseTemplate } from 'components/templates'
 import { TitleDetail } from 'components/organisms'
@@ -19,7 +19,7 @@ export const getStaticPaths: GetStaticPaths<{
 }> = async () => {
   return {
     paths: [],
-    fallback: 'blocking'
+    fallback: false
   }
 }
 

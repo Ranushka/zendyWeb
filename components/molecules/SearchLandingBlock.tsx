@@ -5,7 +5,7 @@ type Props = {}
 
 const SearchLandingBlock: React.FC<Props> = () => {
   return (
-    <div className="text-center my-24 mx-4 min-h">
+    <section key="SearchLandingBlock" className="text-center my-24 mx-4 min-h">
       <h2 className="text-3xl text-gray-500 font-serif">
         Start Searching and create new knowledge.
       </h2>
@@ -38,7 +38,7 @@ const SearchLandingBlock: React.FC<Props> = () => {
           href={'/search?q=nutrition courses'}
         />
       </div>
-    </div>
+    </section>
   )
 }
 
