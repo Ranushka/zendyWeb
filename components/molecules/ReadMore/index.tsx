@@ -20,7 +20,7 @@ const ReadMore: React.FC<Props> = (props) => {
     if (overFlowState) {
       isOpenSet(overFlowState)
     }
-  }, [])
+  }, [content.props.items.length])
 
   if (isOpen && content.props.items.length > 5) {
     const newItems = content.props.items.slice(0, 5)

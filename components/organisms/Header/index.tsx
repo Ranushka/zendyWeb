@@ -5,6 +5,9 @@ import isArray from 'lodash/isArray'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/router'
 
+// import useBreakpoint from 'lib/useBreakpoint'
+import { useMediaQuery } from 'react-responsive'
+
 import { ActionItem, Logo, ButtonFab } from 'components/atoms'
 import {
   SelectLanguage,
@@ -32,10 +35,14 @@ const Header = () => {
   const loading = status === 'loading'
   const isSearchPage = router.pathname === '/search'
   const [open, setOpen] = React.useState(false)
+  const isMobile = useMediaQuery({
+    query: '(max-width: 786px)'
+  })
 
   return (
     <>
-      <section className="bg-gray-200 hidden md:block">
+      {/* <section className="bg-gray-200 hidden md:block"> */}
+      <section className="bg-gray-200">
         <div className="flex justify-end px-4 py-1">
           <NavItems />
           <div className="mx-4">|</div>
@@ -49,29 +56,26 @@ const Header = () => {
           </div>
         </div>
       </section>
-      <nav className="bg-white shadow dark:bg-gray-800 sticky top-0 z-10">
+      {/* <nav className="bg-white shadow dark:bg-gray-800 relative md:sticky top-0 z-10"> */}
+      <nav
+        className={classnames(
+          'bg-white shadow-none md:shadow dark:bg-gray-800 relative md:sticky top-0 z-10',
+          !isMobile && 'shadow'
+        )}
+      >
         <div className="container px-4 py-2 flex items-center md:justify-between">
-          {!isSearchPage && <MobileHeaderNav />}
+          <MobileHeaderNav />
 
-          <Logo
-            flag
-            className={classnames(
-              'max-h-9 mr-3 pl-4 md:pl-0',
-              isSearchPage && 'hidden md:block'
-            )}
-          />
+          <Logo flag className="max-h-9 mr-3 pl-4 md:pl-0" />
 
           <CategoriesMenu />
-          <div
-            className={classnames(
-              'w-full justify-center flex',
-              !isSearchPage && 'hidden md:flex'
-            )}
-          >
-            <div className="w-full max-w-2xl">
+
+          {!isMobile && (
+            <div className="w-full justify-center flex top-0">
               <SearchForm id="mainSearch" />
             </div>
-          </div>
+          )}
+
           <ActionItem
             className={classnames(
               'px-4 hidden md:block',
@@ -80,13 +84,16 @@ const Header = () => {
             text={trans('my_link')}
             href="/library/collections"
           />
-          <div
-            className={classnames('ml-auto', isSearchPage && 'hidden md:flex')}
-          >
+          <div className={classnames('ml-auto flex')}>
             {loading ? <Skeleton height={40} width={156} /> : btnGuestOrUser}
           </div>
         </div>
       </nav>
+      {isMobile && (
+        <div className="w-full justify-center flex sticky top-0 bg-white px-8 py-4 shadow z-10">
+          <SearchForm id="mainSearchMobile" />
+        </div>
+      )}
       <SidePopup
         small
         content={<SettingsPopUpContent />}
