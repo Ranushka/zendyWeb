@@ -14,7 +14,7 @@ export default function Home({ posts }) {
   return (
     <>
       <Head>
-        <title>Tech Blog</title>
+        <title>Zendy Blog</title>
       </Head>
       <BaseTemplate>
         <div className="max-w-2xl m-auto pt-16">

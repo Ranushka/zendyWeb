@@ -1,6 +1,8 @@
-const BASE_URL = `${process.env.VERCEL_URL}/api/blog`
+const BASE_URL = `https://content.zendy.io/wp-json/wp/v2`
 
 export async function getPosts() {
+  console.log(`${BASE_URL}/posts`)
+
   const postsRes = await fetch(`${BASE_URL}/posts`)
   const posts = await postsRes.json()
 
