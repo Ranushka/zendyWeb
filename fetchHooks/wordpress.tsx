@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000/api/blog'
+const BASE_URL = `${process.env.VERCEL_URL}/api/blog`
 
 export async function getPosts() {
   const postsRes = await fetch(`${BASE_URL}/posts`)
