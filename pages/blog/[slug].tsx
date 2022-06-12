@@ -26,7 +26,7 @@ export default Blog
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   return {
     paths: [],
-    fallback: 'blocking'
+    fallback: false
   }
 }
 

@@ -1,12 +1,5 @@
-// import 'styles/global.scss'
-// import 'styles/reset.scss'
-// import 'styles/typography.scss'
-// import 'styles/inputs.scss'
 import 'styles/nprogress.scss'
 import 'styles/stripe.scss'
-// import 'styles/actionItems.scss'
-// import 'styles/utils.scss'
-
 import 'styles/globals.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 
