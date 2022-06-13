@@ -27,7 +27,6 @@ const BtnFab: React.FC<Props> = ({
     <button
       onClick={() => onClick()}
       className={finalClassList}
-      role="button"
       style={{ outline: 'none' }}
     >
       {icon}
