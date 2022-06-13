@@ -20,10 +20,12 @@ class MyDocument extends Document {
     return (
       <Html dir={getDir(this.props.locale)}>
         <Head>
-          <meta charSet="utf-8" />
-
           <link rel="manifest" href="/manifest.json" />
           <meta name="theme-color" content="#fff" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
 
           <meta name="application-name" content={data.applicationName} />
           <meta name="apple-mobile-web-app-capable" content="yes" />

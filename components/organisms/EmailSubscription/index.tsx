@@ -26,7 +26,7 @@ const GetStartedWithUs: React.FC<Props> = () => {
               placeholder="your@email.com"
               name="name"
               type="email"
-              autoComplete="name"
+              autoComplete="email"
               block
               required
             />
