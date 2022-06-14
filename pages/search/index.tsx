@@ -25,7 +25,7 @@ const Search: React.FC = () => {
   }, [queryString])
 
   return (
-    <BaseTemplate isSearchPage>
+    <BaseTemplate>
       {queryString && (
         <>
           {queryAuthor && <AuthorDetails authorName={queryAuthor} />}
