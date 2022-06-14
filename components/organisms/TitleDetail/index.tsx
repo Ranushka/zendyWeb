@@ -74,7 +74,7 @@ const __renderKeywords = (keywords: string) => {
   return (
     keywords && (
       <div className="py-2">
-        <span className="mute">keywords </span>
+        <span className="mute">Keywords</span>
         {keywords
           .split(',')
           .map<React.ReactNode>((name, id) => (

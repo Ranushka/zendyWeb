@@ -1,15 +1,51 @@
-import React, { useContext } from 'react'
-import dynamic from 'next/dynamic'
-import DeviceTypeContext from 'context/DeviceTypeContext'
+import React from 'react'
+
+import { ActionItem, Space } from 'components/atoms'
 
 type Props = {}
-const Mobile = dynamic(() => import('./Mobile'))
-const Desktop = dynamic(() => import('./Desktop'))
 
-const TitleDetail: React.FC<Props> = (props) => {
-  const { isMobile } = useContext(DeviceTypeContext)
+const HeroCta: React.FC<Props> = () => {
+  return (
+    <>
+      <Space size={5} />
+      <section className="max-w-6xl flex px-4">
+        <div className={'mw__3  px-8  pl__0'}>
+          <h3>Welcome to Zendy</h3>
+          <Space size={3} />
+          <h1>
+            Premium publication database for the price of a Single Research
+            Paper!
+          </h1>
+          <Space size={4} />
+          <p>
+            Zendy plus powered by aggregating content from world renowned
+            publishers and their premium content, Our subscription helps to take
+            your research to next level and keep you up to date with
+            information.
+          </p>
+          <Space size={4} />
+          <ActionItem
+            text={'Start your Free Trial'}
+            href={'#'}
+            type="btn__primary"
+          />
+          <Space size={3} />
+          <p>( No credit card required )</p>
+        </div>
 
-  return isMobile ? <Mobile {...props} /> : <Desktop {...props} />
+        <div
+          className={'mw__3 px-8  pr__0'}
+          style={{
+            width: '100%',
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            backgroundImage: 'url(/img/landingImg.png)'
+          }}
+        />
+      </section>
+    </>
+  )
 }
 
-export default TitleDetail
+export default HeroCta

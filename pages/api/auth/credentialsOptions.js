@@ -9,7 +9,8 @@ const credentialsConfigOptions = {
 
     const bodyData = {
       email: credentials.email,
-      password: credentials.password
+      password: credentials.password,
+      reCaptcha: credentials.reCaptcha
     }
 
     const res = await fetch('https://api.staging-oa.zendy.io/auth/auth', {
@@ -18,6 +19,8 @@ const credentialsConfigOptions = {
       headers: { 'Content-Type': 'application/json' }
     })
     const data = await res.json()
+
+    console.log('==data res ===>>>', data)
 
     if (res.ok && data) {
       console.log('==user===>>>', data.user)

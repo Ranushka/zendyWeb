@@ -35,7 +35,7 @@ const LayeredNavigationTitle = () => {
   }).format(totalResults)
 
   return (
-    <div className="py-4">
+    <div className="pb-6 pt-1">
       <h3 className="text-2xl text-gray-500 font-serif w-full">
         Refine search
       </h3>
@@ -160,7 +160,7 @@ const LayeredNavigation: React.FC<Props> = () => {
   const navClass = classnames(
     'left-0 bottom-0 z-20 overflow-y-scroll md:overflow-auto',
     'h-4/5 md:h-auto w-full md:w-3/12 pr-8 md:block md:relative',
-    'bg-gray-50 md:bg-transparent p-8 md:p-4',
+    'bg-gray-50 md:bg-transparent px-8 md:p-4',
     mobileFilterVisibility ? 'text-gray-500 block fixed' : 'hidden'
   )
   return (
@@ -186,8 +186,8 @@ const MobileFilterBtn: React.FC<any> = () => {
   const { mobileFilterVisibility } = state
 
   const fabClass = classnames(
-    'p-4 pointer rounded-full z-30 bg-orange-50 -mt-2',
-    'fixed md:hidden right-1 top-20 shadow-md',
+    'p-4 pointer rounded-full z-30 bg-orange-50',
+    'fixed md:hidden right-1 -mt-2 shadow-md',
     mobileFilterVisibility && 'text-gray-500'
   )
 

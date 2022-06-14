@@ -4,10 +4,8 @@ import { Tab, Space } from 'components/atoms'
 const ProfileTabs: React.FC = () => {
   return (
     <>
-      <Space size={4} />
-      <h2 className="text-gray-500">My Library</h2>
-      <Space size={3} />
-      <div className="flex">
+      <h2 className="font-serif text-xl text-gray-500">My Library</h2>
+      <div className="flex mb-4 mt-2 text-gray-400">
         <Tab href={'/library/collections'}>Collections</Tab>
         <Tab href={'/library/searches'}>Searches</Tab>
         <Tab href={'/library/downloads'}>Downloads</Tab>

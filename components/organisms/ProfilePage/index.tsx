@@ -18,11 +18,11 @@ const Desktop: React.FC<Props> = () => {
   const loading = status === 'loading'
 
   return (
-    <>
-      <Space size={5} />
-      <div className="mw__4 flex items-center">
-        <h1 className="text-center text-gray-500">My Profile</h1>
-        <div className="flex__left"></div>
+    <section className="max-w-2xl mx-auto mt-10">
+      <div className="flex items-center justify-between mb-8">
+        <h1 className="text-center text-gray-500 text-4xl font-serif">
+          My Profile
+        </h1>
         <ActionItem
           text={'Sign out'}
           type={'btn__default'}
@@ -31,7 +31,6 @@ const Desktop: React.FC<Props> = () => {
           onClick={() => signOut({ callbackUrl: '/' })}
         />
       </div>
-      <Space size={5} />
 
       <ProfileBlock title="Profile info">
         {loading && __skeletonProfileBlocks()}
@@ -135,7 +134,7 @@ const Desktop: React.FC<Props> = () => {
           </>
         )}
       </ProfileBlock>
-    </>
+    </section>
   )
 }
 
@@ -156,15 +155,16 @@ const InputContent = () => (
 )
 
 const ProfileBlock = ({ children, title }) => (
-  <>
-    <section className="flex mw__4">
-      <h3 className="mw__1 py-4 block text__right px-8">{title}</h3>
-      <div className="shadow block px-8 py-8 rounded-md text-left bg-white">
-        {children}
-      </div>
-    </section>
-    <Space size={5} />
-  </>
+  <section className="flex mb-8">
+    <div className="w-5/12">
+      <h3 className="py-4 block text-gray-500 text-xl font-serif border-b-2">
+        {title}
+      </h3>
+    </div>
+    <div className="w-7/12 shadow block px-8 py-8 rounded-md text-left bg-white">
+      {children}
+    </div>
+  </section>
 )
 
 const __skeletonProfileBlocks = () => {

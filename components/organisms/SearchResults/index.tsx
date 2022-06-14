@@ -1,6 +1,7 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import get from 'lodash/get'
+import classnames from 'classnames'
 import { SearchResultItem } from 'components/molecules'
 import { Space, ActionItem, ButtonFab } from 'components/atoms'
 import {
@@ -16,12 +17,14 @@ const SearchResultActions = () => {
   const { selectionMode } = state
 
   return (
-    <div className="flex items-center px-4 rounded-md my-4 max-w-4xl mx-auto">
+    <div className="flex items-center rounded-md mb-4 md:mt-4 mr-10 md:mr-0 max-w-4xl mx-auto whitespace-nowrap overflow-y-scroll hideScrollBar">
       <ButtonFab
         title="Toggle selection mode"
         icon={<IconSelectionMode />}
-        classNames={`p-2 pointer rounded-md ${selectionMode &&
-          'text-gray-500'}`}
+        classNames={classnames(
+          'p-2 pointer rounded-md',
+          selectionMode && 'text-gray-500'
+        )}
         onClick={() => {
           setState({ ...state, selectionMode: !selectionMode })
         }}
@@ -32,19 +35,19 @@ const SearchResultActions = () => {
           <ActionItem
             text={'Export selected'}
             href={'/'}
-            className="mx__2"
+            className="mx-4"
             disabled
           />
           <ActionItem
             text={'Add to library'}
             href={'/'}
-            className="mx__2"
+            className="mx-4"
             disabled
           />
           <ActionItem
             text={'Open in new tabs'}
             href={'/'}
-            className="mx__2"
+            className="mx-4"
             disabled
           />
         </>

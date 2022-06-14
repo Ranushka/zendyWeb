@@ -37,9 +37,9 @@ const Input: React.FC<Props> = ({
     center && 'text-center'
   )
   return (
-    <div className={classnames('input__wrapper', block && 'block')}>
+    <div className={classnames(block && 'block')}>
       {label && (
-        <label className="py-1 pt__0" htmlFor={id}>
+        <label className="pb-1 pt-4 block" htmlFor={id}>
           {label}
         </label>
       )}

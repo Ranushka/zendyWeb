@@ -17,7 +17,7 @@ export default function Home({ posts }) {
         <title>Zendy Blog</title>
       </Head>
       <BaseTemplate>
-        <div className="max-w-2xl m-auto pt-16">
+        <div className="max-w-2xl m-auto px-8 pt-16">
           <h1 className="pb-8 text-4xl font-serif">Zendy Blog</h1>
           <div className="">{jsxPosts}</div>
         </div>
