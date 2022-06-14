@@ -5,9 +5,11 @@ import { getPost } from 'fetchHooks/wordpress'
 import { BaseTemplate } from 'components/templates'
 
 const Blog = ({ post }) => {
+  if (!post) return <PostNotFound />
+
   return (
     <BaseTemplate>
-      <div className="max-w-2xl m-auto pt-16">
+      <div className="max-w-3xl m-auto pt-16 px-8">
         <h1 className="pb-8 text-4xl font-serif">{post.title.rendered}</h1>
         <div
           className="card-text pb-8"
@@ -21,12 +23,26 @@ const Blog = ({ post }) => {
   )
 }
 
+const PostNotFound = () => {
+  return (
+    <BaseTemplate>
+      <div className="max-w-3xl m-auto pt-16 px-8">
+        <h1 className="pb-8 text-4xl font-serif">Post not found</h1>
+
+        <Link href="/">
+          <a className="btn btn-primary">Back to Home</a>
+        </Link>
+      </div>
+    </BaseTemplate>
+  )
+}
+
 export default Blog
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   return {
     paths: [],
-    fallback: false
+    fallback: 'blocking'
   }
 }
 

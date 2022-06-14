@@ -1,12 +1,11 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
-
 import { Space, ButtonFab } from 'components/atoms'
-import { ProfileTabs } from 'components/molecules'
 import { IconMore } from 'components/icons'
-import { BaseTemplate } from 'components/templates'
+import { LibraryTemplate } from 'components/templates'
 import { commonMessages } from 'lib/getMessages'
+import routs from 'lib/routs'
 
 const Searches: React.FC = () => {
   const { data: session, status } = useSession()
@@ -14,17 +13,11 @@ const Searches: React.FC = () => {
   const router = useRouter()
 
   if (!loading && !session) {
-    router.push('/authenticate')
+    router.push(routs.login)
   }
 
   return (
-    <BaseTemplate>
-      <div className="px-4 mw__5 min-h">
-        <ProfileTabs />
-        <div>{dataSet.map((data) => __dataRow(data))}</div>
-        <Space size={4} />
-      </div>
-    </BaseTemplate>
+    <LibraryTemplate>{dataSet.map((data) => __dataRow(data))}</LibraryTemplate>
   )
 }
 

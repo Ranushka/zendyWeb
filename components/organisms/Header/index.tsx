@@ -5,7 +5,7 @@ import isArray from 'lodash/isArray'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/router'
 
-// import useBreakpoint from 'lib/useBreakpoint'
+import routs from 'lib/routs'
 import { useMediaQuery } from 'react-responsive'
 
 import { ActionItem, Logo, ButtonFab } from 'components/atoms'
@@ -41,7 +41,6 @@ const Header = () => {
 
   return (
     <>
-      {/* <section className="bg-gray-200 hidden md:block"> */}
       <section className="bg-gray-200">
         <div className="flex justify-end px-4 py-1">
           <NavItems />
@@ -56,10 +55,9 @@ const Header = () => {
           </div>
         </div>
       </section>
-      {/* <nav className="bg-white shadow dark:bg-gray-800 relative md:sticky top-0 z-10"> */}
       <nav
         className={classnames(
-          'bg-white shadow-none md:shadow dark:bg-gray-800 relative md:sticky top-0 z-10',
+          'bg-white shadow-none md:shadow dark:bg-gray-800 relative md:sticky top-0 z-30',
           !isMobile && 'shadow'
         )}
       >
@@ -84,13 +82,13 @@ const Header = () => {
             text={trans('my_link')}
             href="/library/collections"
           />
-          <div className={classnames('ml-auto flex')}>
+          <div className="ml-auto flex">
             {loading ? <Skeleton height={40} width={156} /> : btnGuestOrUser}
           </div>
         </div>
       </nav>
       {isMobile && (
-        <div className="w-full justify-center flex sticky top-0 bg-white px-8 py-4 shadow z-10">
+        <div className="w-full justify-center flex sticky top-0 bg-white px-4 pb-4 pt-3 shadow z-10">
           <SearchForm id="mainSearchMobile" />
         </div>
       )}
@@ -157,16 +155,20 @@ const GetLoginBtn = () => {
     <ActionItem
       className="whitespace-nowrap"
       text={trans('login_btn_name')}
-      href={'/authenticate'}
+      href={routs.login}
       type="btn__secondary"
     />
   )
 }
 
 const __getLoggedInUser = (session) => {
+  const textBlock = (
+    <div className="w-28 truncate">{__getUserNameInitials(session.user)}</div>
+  )
+
   return (
     <ActionItem
-      text={__getUserNameInitials(session.user)}
+      text={textBlock}
       icon={<IconArrowDown />}
       href={'/profile'}
       type="btn__default"

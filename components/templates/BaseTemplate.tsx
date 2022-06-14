@@ -3,7 +3,6 @@ import React from 'react'
 import { Header, Footer } from 'components/organisms'
 
 type Props = {
-  isSearchPage?: boolean
   children?: React.ReactNode
 }
 

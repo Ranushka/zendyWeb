@@ -31,7 +31,7 @@ const Footer: React.FC<{}> = () => {
       <footer className="bg-gray-100">
         <div className="container md:flex justify-between px-5 py-10">
           <section className="max-w-xs pr-4 mb-8 md:mb-3">
-            <Logo className="" />
+            <Logo className="flex" />
             <div className="small mt-4">{trans('about_text')}</div>
           </section>
 
