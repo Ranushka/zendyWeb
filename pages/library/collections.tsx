@@ -3,10 +3,9 @@ import Skeleton from 'react-loading-skeleton'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import { Space, ActionItem, ButtonFab } from 'components/atoms'
-import { ProfileTabs } from 'components/molecules'
 import { IconAdd, IconMore } from 'components/icons'
 import { useCollections } from 'fetchHooks/useCollections'
-import { BaseTemplate } from 'components/templates'
+import { LibraryTemplate } from 'components/templates'
 import { commonMessages } from 'lib/getMessages'
 
 const Collections: React.FC = () => {
@@ -20,13 +19,10 @@ const Collections: React.FC = () => {
   }
 
   return (
-    <BaseTemplate>
-      <div className="px-4 mw__5 min-h">
-        <ProfileTabs />
-        {(loading || !data) && __skeletonCollection()}
-        {session && data && __dataCollection(data)}
-      </div>
-    </BaseTemplate>
+    <LibraryTemplate>
+      {(loading || !data) && __skeletonCollection()}
+      {session && data && __dataCollection(data)}
+    </LibraryTemplate>
   )
 }
 
@@ -35,7 +31,6 @@ const __dataCollection = (data) => {
     <div>
       {data.map((item) => __dataRow(item))}
 
-      <Space size={4} />
       <div className="px-4">
         <ActionItem
           text={'Create new collection'}
@@ -49,7 +44,7 @@ const __dataCollection = (data) => {
 
 const __dataRow = ({ id, name, count }) => (
   <div key={id}>
-    <div className="px-4 flex flex__between bg-white shadow rounded-md">
+    <div className="px-4 flex bg-white shadow rounded-md">
       <span className="first_letter_caps">{name}</span>
       <div className="flex__left"></div>
       <span>{count}</span>
@@ -64,7 +59,7 @@ const __dataRow = ({ id, name, count }) => (
 
 const __skeletonCollection = () => {
   return [1, 2, 3].map((id) => (
-    <article key={'skeletonCollection' + id} className="mw__5 ml__0">
+    <article key={'skeletonCollection' + id} className="container ml__0 pt-10">
       <Skeleton height={30} />
       <Space size={3} />
     </article>

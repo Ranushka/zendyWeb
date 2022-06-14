@@ -3,6 +3,7 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { MobileNaveItem } from 'components/atoms'
 import { clickVibrate } from 'lib/helpers'
+import routs from 'lib/routs'
 
 import {
   IconNews,
@@ -19,16 +20,16 @@ const MobileNav: React.FC<Props> = () => {
   const { data: session } = useSession()
 
   React.useEffect(() => {
-    router.prefetch('/search')
+    router.prefetch(routs.search)
   }, [router])
 
   const _clickOnSearch = () => {
     clickVibrate()
-    if (router.pathname === '/search') {
+    if (router.pathname === routs.search) {
       const searchBox = document.getElementById('mainSearch')
       searchBox && searchBox.focus()
     } else {
-      router.push('/search')
+      router.push(routs.search)
     }
   }
 
@@ -41,16 +42,16 @@ const MobileNav: React.FC<Props> = () => {
     <>
       <section className="mobile-nav bg-white fixed bottom-0 w-full flex md:hidden">
         <MobileNaveItem
-          onClick={() => __routeOnClick('/')}
+          onClick={() => __routeOnClick(routs.index)}
           text="Home"
           icon={<IconHome />}
-          isActive={router.pathname === '/'}
+          isActive={router.pathname === routs.index}
         />
         <MobileNaveItem
-          onClick={() => __routeOnClick(session ? '/profile' : '/authenticate')}
+          onClick={() => __routeOnClick(session ? routs.profile : routs.login)}
           text={session ? 'Profile' : 'Login'}
           icon={<IconUser />}
-          isActive={router.pathname === '/profile'}
+          isActive={router.pathname === routs.profile}
         />
         <MobileNaveItem
           onClick={_clickOnSearch}
@@ -60,7 +61,7 @@ const MobileNav: React.FC<Props> = () => {
             </span>
           }
           primary
-          isActive={router.pathname === '/search'}
+          isActive={router.pathname === routs.search}
         />
         <MobileNaveItem
           onClick={() => __routeOnClick('/library/collections')}

@@ -17,7 +17,7 @@ const __renderTitle = (title = '', permanentLinkId) => {
   return (
     <div className="block">
       {selectionMode && (
-        <div className="pull__l5 absolute shadow px-4 py-2 rounded-md bg-white">
+        <div className="-ml-9 pl-2 py-2 absolute shadow rounded-md bg-white">
           <CheckBox className={''} id={'it_id' + permanentLinkId} />
         </div>
       )}
@@ -87,7 +87,7 @@ const __renderAuthors = (authors: [string]) => {
   return (
     authors && (
       <div className="pt-1">
-        <small className="pr-2 mute">By - </small>
+        {__renderTagTitle('By')}
         {authors
           .map<React.ReactNode>((name, id) => {
             if (name) {
@@ -109,11 +109,15 @@ const __renderAuthors = (authors: [string]) => {
   )
 }
 
+const __renderTagTitle = (title: string) => {
+  return <small className="pr-4 text-gray-500">{title} - </small>
+}
+
 const __renderKeywords = (keywords: string) => {
   return (
     keywords && (
       <div className="py-1">
-        <small className="px-4 pl__0 mute">keywords - </small>
+        {__renderTagTitle('Keywords')}
         {keywords
           .split(',')
           .map<React.ReactNode>((name, id) => (
@@ -129,7 +133,7 @@ const __renderSubjects = (keywords: [string]) => {
   return (
     keywords && (
       <div className="py-1">
-        <small className="pr-2">Subjects - </small>
+        {__renderTagTitle('Subjects')}
         {keywords
           .map<React.ReactNode>((name, id) => (
             <ActionItem key={id} text={name} href={'/'} type="link__small" />
@@ -188,7 +192,7 @@ const CardCurated: React.FC<SearchResultItemProps> = ({
 }) => {
   return (
     <article className="flex items-center rounded-md mb-4 max-w-4xl bg-white shadow mx-auto">
-      <div className="py-4 px-4 w-full block sm:flex">
+      <div className="py-4 px-6 w-full block sm:flex">
         <section className="w-full sm:w-9/12 block">
           {__renderTitle(title, permanentLinkId)}
           {__renderContentType(journalTitle, publicationYear, publicationName)}
