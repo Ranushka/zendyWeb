@@ -17,61 +17,63 @@ const SearchResultActions = () => {
   const { selectionMode } = state
 
   return (
-    <div className="flex items-center rounded-md mb-4 md:mt-4 mr-10 md:mr-0 max-w-4xl mx-auto whitespace-nowrap overflow-y-scroll hideScrollBar">
-      <ButtonFab
-        title="Toggle selection mode"
-        icon={<IconSelectionMode />}
-        classNames={classnames(
-          'p-2 pointer rounded-md',
-          selectionMode && 'text-gray-500'
+    <div className="max-w-4xl mx-auto">
+      <div className="flex items-center rounded-md mb-4 md:mt-4 mr-10 md:mr-0 whitespace-nowrap overflow-y-scroll hideScrollBar">
+        <ButtonFab
+          title="Toggle selection mode"
+          icon={<IconSelectionMode />}
+          classNames={classnames(
+            'p-2 pointer rounded-md',
+            selectionMode && 'text-gray-500'
+          )}
+          onClick={() => {
+            setState({ ...state, selectionMode: !selectionMode })
+          }}
+        />
+        {selectionMode && (
+          <>
+            <ActionItem text={'Select All'} href={'/'} className="mx-4" />
+            <ActionItem
+              text={'Export selected'}
+              href={'/'}
+              className="mx-4"
+              disabled
+            />
+            <ActionItem
+              text={'Add to library'}
+              href={'/'}
+              className="mx-4"
+              disabled
+            />
+            <ActionItem
+              text={'Open in new tabs'}
+              href={'/'}
+              className="mx-4"
+              disabled
+            />
+          </>
         )}
-        onClick={() => {
-          setState({ ...state, selectionMode: !selectionMode })
-        }}
-      />
-      {selectionMode && (
-        <>
-          <ActionItem text={'Select All'} href={'/'} className="mx-4" />
-          <ActionItem
-            text={'Export selected'}
-            href={'/'}
-            className="mx-4"
-            disabled
-          />
-          <ActionItem
-            text={'Add to library'}
-            href={'/'}
-            className="mx-4"
-            disabled
-          />
-          <ActionItem
-            text={'Open in new tabs'}
-            href={'/'}
-            className="mx-4"
-            disabled
-          />
-        </>
-      )}
-      <div className="hidden md:block ml-auto" />
+        <div className="hidden md:block ml-auto" />
 
-      {!selectionMode && (
-        <>
-          <ActionItem
-            type="btn__default"
-            text={'Create alert'}
-            onClick={() => {}}
-            icon={<IconNotifications />}
-          />
+        {!selectionMode && (
+          <>
+            <ActionItem
+              type="btn__default"
+              text={'Create alert'}
+              onClick={() => {}}
+              icon={<IconNotifications />}
+            />
 
-          <ActionItem
-            type="btn__default"
-            // className="ml-4"
-            text={'Save search'}
-            onClick={() => {}}
-            icon={<IconSavedSearch />}
-          />
-        </>
-      )}
+            <ActionItem
+              type="btn__default"
+              // className="ml-4"
+              text={'Save search'}
+              onClick={() => {}}
+              icon={<IconSavedSearch />}
+            />
+          </>
+        )}
+      </div>
     </div>
   )
 }
