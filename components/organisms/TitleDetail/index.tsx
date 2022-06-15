@@ -156,7 +156,7 @@ const __renderContent = ({
 
   return (
     <>
-      <article className={'mw__3'}>
+      <article className="max-w-3xl m-auto pt-16 px-8">
         <PublicationIssueJsonLd
           authorName={authors && authors.flatMap((auObj) => auObj.name)}
           name={title}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Space } from 'components/atoms'
-import QNA from './QNA'
+import QNA from 'components/organisms/QNA'
 import { commonMessages } from 'lib/getMessages'
 import {
   Testimonials,

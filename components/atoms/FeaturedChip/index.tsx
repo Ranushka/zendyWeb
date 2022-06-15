@@ -8,8 +8,7 @@ type Props = {
 
 const FeaturedChip: React.FC<Props> = ({ type = 'Referenced' }) => {
   const __finalClassNames = classnames(
-    'small block_inline px-1 first_letter_caps',
-    styles.item,
+    'small inline-block px-1 first_letter_caps',
     styles[type]
   )
 
