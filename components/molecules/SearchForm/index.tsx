@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslations } from 'next-intl'
-import styles from './index.module.scss'
 import { ButtonFab } from 'components/atoms'
 import { IconSearch, IconClear, IconAdvanceSearch } from 'components/icons'
 import useGlobal from 'context/GlobalContext'
@@ -19,6 +18,8 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    e.stopPropagation()
+    e.target[0].blur()
 
     router.push({
       pathname: '/search',
@@ -27,8 +28,8 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
   }
 
   const onClick = (e) => {
-    if (router.pathname === '/search') return
     e.preventDefault()
+    e.stopPropagation()
 
     router.push({
       pathname: '/search'
@@ -52,13 +53,13 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
       setSearchText(query.toString())
     }
 
-    if (router.pathname === '/search') {
+    if (router.pathname === '/search' && !router.query.q) {
       searchInput.current.focus()
     }
   }, [router])
 
   return (
-    <div className="w-full max-w-2xl" onClick={(e) => onClick(e)}>
+    <div className="w-full max-w-2xl">
       <form className="block relative flex__inline" onSubmit={handleSubmit}>
         <div className="absolute ">
           <ButtonFab
@@ -87,7 +88,6 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
               onClick={clearInput}
             />
           )}
-          <div className={styles.separator} />
           <ButtonFab
             title="To perfome a complex search"
             onClick={() => {
@@ -100,6 +100,12 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
             classNames="rounded-full px-4 py-3 block active:bg-slate-400 hover:bg-slate-300"
           />
         </div>
+        {router.pathname !== '/search' && (
+          <div
+            className="w-full h-12 absolute top-0 cursor-pointer"
+            onClick={(e) => onClick(e)}
+          ></div>
+        )}
       </form>
     </div>
   )

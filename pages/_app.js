@@ -4,7 +4,7 @@ import 'styles/globals.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import React from 'react'
-import Head from 'next/head'
+// import Head from 'next/head'
 import { applyTheme } from 'lib/theme'
 import { applyFontSize } from 'lib/fontSize'
 import { NextIntlProvider } from 'next-intl'
@@ -42,12 +42,6 @@ const AppRoot = ({ Component, pageProps, session }) => {
   return (
     <LoggedInUserProvider session={session}>
       <GlobalProvider>
-        <Head>
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
-        </Head>
         <NextIntlProvider messages={pageProps.messages}>
           <Component {...pageProps} />
         </NextIntlProvider>

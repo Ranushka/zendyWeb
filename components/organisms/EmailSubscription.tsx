@@ -4,7 +4,7 @@ import { ActionItem, Input, Space, Select } from 'components/atoms'
 
 type Props = {}
 
-const GetStartedWithUs: React.FC<Props> = () => {
+const EmailSubscription: React.FC<Props> = () => {
   const trans = useTranslations('subscribe')
 
   return (
@@ -40,4 +40,4 @@ const GetStartedWithUs: React.FC<Props> = () => {
   )
 }
 
-export default GetStartedWithUs
+export default EmailSubscription

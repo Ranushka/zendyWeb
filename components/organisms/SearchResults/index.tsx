@@ -80,7 +80,7 @@ const SearchResultActions = () => {
 
 const __searchResultLoading = () => {
   return [1, 2, 3].map((id) => (
-    <article key={'skeletonSearchResult' + id} className="mw__5">
+    <article key={'skeletonSearchResult' + id} className="max-w-4xl mx-auto">
       <Space size={3} />
       <Skeleton height={30} />
       <Space size={2} />
@@ -120,6 +120,7 @@ const __resultData = () => {
   if (!data) {
     return __searchResultLoading()
   }
+
   const searchResults = get(data, 'data.searchResults', null)
 
   if (searchResults) {
@@ -141,7 +142,7 @@ const ResultsWithData: React.FC<any> = ({ results }) => {
 
 const DesktopSearchResults: React.FC<any> = () => {
   return (
-    <section className="w-full md:w-9/12">
+    <section className="w-full md:w-9/12 z-0">
       {SearchResultActions()}
       {__resultData()}
     </section>

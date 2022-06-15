@@ -7,12 +7,12 @@ import { IconCite, IconBookmark, IconLink } from 'components/icons'
 import { generateTitleUrlPath } from 'lib/helpers'
 import useGlobal from 'context/GlobalContext'
 
+const countOfLinks = 8
+
 const __renderTitle = (title = '', permanentLinkId) => {
   const titleId = generateTitleUrlPath(title, permanentLinkId)
-  const [state, setState] = useGlobal()
+  const [state] = useGlobal()
   const { selectionMode } = state
-
-  console.log(setState)
 
   return (
     <div className="block">
@@ -86,9 +86,10 @@ const __renderAbstract = (content) => {
 const __renderAuthors = (authors: [string]) => {
   return (
     authors && (
-      <div className="pt-1">
+      <div className="pt-1 line-clamp-1">
         {__renderTagTitle('By')}
         {authors
+          .slice(0, countOfLinks)
           .map<React.ReactNode>((name, id) => {
             if (name) {
               return (
@@ -116,10 +117,11 @@ const __renderTagTitle = (title: string) => {
 const __renderKeywords = (keywords: string) => {
   return (
     keywords && (
-      <div className="py-1">
+      <div className="py-1 line-clamp-1">
         {__renderTagTitle('Keywords')}
         {keywords
           .split(',')
+          .slice(0, countOfLinks)
           .map<React.ReactNode>((name, id) => (
             <ActionItem key={id} text={name} href={'/'} type="link__small" />
           ))
@@ -132,9 +134,10 @@ const __renderKeywords = (keywords: string) => {
 const __renderSubjects = (keywords: [string]) => {
   return (
     keywords && (
-      <div className="py-1">
+      <div className="py-1 line-clamp-1">
         {__renderTagTitle('Subjects')}
         {keywords
+          .slice(0, countOfLinks)
           .map<React.ReactNode>((name, id) => (
             <ActionItem key={id} text={name} href={'/'} type="link__small" />
           ))

@@ -57,7 +57,7 @@ const Header = () => {
       </section>
       <nav
         className={classnames(
-          'bg-white shadow-none md:shadow dark:bg-gray-800 relative md:sticky top-0 z-30',
+          'bg-white shadow-none md:shadow relative md:sticky top-0 z-30',
           !isMobile && 'shadow'
         )}
       >
@@ -82,8 +82,8 @@ const Header = () => {
             text={trans('my_link')}
             href="/library/collections"
           />
-          <div className="ml-auto flex">
-            {loading ? <Skeleton height={40} width={156} /> : btnGuestOrUser}
+          <div className="ml-auto flex w-40">
+            {loading ? <Skeleton height={40} width={126} /> : btnGuestOrUser}
           </div>
         </div>
       </nav>

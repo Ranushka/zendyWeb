@@ -1,7 +1,6 @@
 [data-font-size='Small'] {
   --zoom: 0.9;
 }
-
 [data-font-size='Larg'] {
   --zoom: 1.1;
 }
@@ -13,21 +12,20 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
-  -webkit-appearance:none;
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  -webkit-appearance: none;
 }
 
 .hideScrollBar {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 }
 
-.hideScrollBar::-webkit-scrollbar { 
-  display: none;  /* Safari and Chrome */
+.hideScrollBar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 .min-h {
@@ -48,17 +46,17 @@ input:checked ~ .dot {
 }
 
 .accordion input {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
 }
 
 .accordion input:checked + label svg {
-      transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .accordion input:checked ~ div {
-      display: none;
+  display: none;
 }
 
 .readMoreWrapper {
@@ -66,13 +64,13 @@ input:checked ~ .dot {
   position: relative;
 }
 
-:root{
+:root {
   --pc-700: rgb(194 65 12);
   --pc-600: rgb(234 88 12);
   --pc-50: rgb(255 247 237);
 }
 
-.checkbox input:checked  ~ div:after {
+.checkbox input:checked ~ div:after {
   content: '';
   position: absolute;
   left: 3px;
@@ -80,8 +78,9 @@ input:checked ~ .dot {
   background: var(--pc-700);
   width: 2px;
   height: 2px;
-  box-shadow: 2px 0 0 var(--pc-700), 4px 0 0 var(--pc-700), 4px -2px 0 var(--pc-700),
-    4px -4px 0 var(--pc-700), 4px -6px 0 var(--pc-700), 4px -8px 0 var(--pc-700);
+  box-shadow: 2px 0 0 var(--pc-700), 4px 0 0 var(--pc-700),
+    4px -2px 0 var(--pc-700), 4px -4px 0 var(--pc-700), 4px -6px 0 var(--pc-700),
+    4px -8px 0 var(--pc-700);
   transform: rotate(45deg);
 }
 
@@ -95,15 +94,24 @@ input:checked ~ .dot {
   height: 1rem;
   box-shadow: inset 0px 0px 1px 1px var(--pc-600);
 }
-  
+
 svg {
   margin: auto;
 }
 
-.mobile-nav{
+.mobile-nav {
   box-shadow: 0 -1px 4px 0px rgb(0 0 0 / 16%);
 }
 
-.desktopMenu:hover .menu{
+.desktopMenu:hover .menu {
   display: block;
+}
+
+input,
+textarea {
+  font-size: 16px;
+}
+
+.first_letter_caps::first-letter {
+  text-transform: capitalize;
 }
