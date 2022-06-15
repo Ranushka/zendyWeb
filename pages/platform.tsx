@@ -1,4 +1,5 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import { Space } from 'components/atoms'
 import { commonMessages } from 'lib/getMessages'
 import {
@@ -7,12 +8,15 @@ import {
   Stats,
   Usps,
   EmailSubscription,
-  GetStartedWithUs,
   Testimonials,
   PricingList
 } from 'components/organisms'
 
 import { BaseTemplate } from 'components/templates'
+
+const GetStartedWithUs = dynamic(() =>
+  import('components/organisms/GetStartedWithUs')
+)
 
 const Platform: React.FC = () => {
   return (

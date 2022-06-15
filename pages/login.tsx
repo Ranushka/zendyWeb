@@ -29,8 +29,8 @@ const Login: React.FC = () => {
     password: ''
   })
 
-  const onSubmitForm = async (e) => {
-    e.preventDefault()
+  const onSubmitForm = async () => {
+    // e.stopPropagation()
     const reCaptcha = await recaptchaRef.current.executeAsync()
     onSubmitSignUp({
       reCaptcha,
