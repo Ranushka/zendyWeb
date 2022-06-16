@@ -1,19 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-// import { getSession } from "next-auth/client";
-// import { PrismaClient } from "@prisma/client";
-
-// const prisma = new PrismaClient();
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   try {
-    // const session = await getSession({ req });
-    // const user = await prisma.session.findOne({
-    //   where: { accessToken: session.accessToken },
-    // });
-
     const collectionsData = [
       { id: 23, name: 'Must read', count: '5' },
       { id: 24, name: 'Covid reserchs', count: '12' },
