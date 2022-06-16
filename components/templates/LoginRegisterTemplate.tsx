@@ -13,7 +13,6 @@ const LoginRegisterTemplate: React.FC<Props> = ({ children }) => {
   const loading = status === 'loading'
   const router = useRouter()
 
-  console.log(session)
   if (!loading && session) {
     router.push('/')
   }

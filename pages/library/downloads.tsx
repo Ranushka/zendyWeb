@@ -1,5 +1,5 @@
 import React from 'react'
-import { Space, ButtonFab } from 'components/atoms'
+import { ButtonFab } from 'components/atoms'
 import { IconMore } from 'components/icons'
 import { LibraryTemplate } from 'components/templates'
 import { commonMessages } from 'lib/getMessages'
@@ -23,12 +23,10 @@ const __dataRow = ({ id, name }: DataRowProps) => (
       <span className="first_letter_caps">{name}</span>
       <div className="flex__left"></div>
 
-      <Space size={3} />
       <span>
         <ButtonFab classNames="bg-white" icon={<IconMore />} />
       </span>
     </div>
-    <Space size={2} />
   </div>
 )
 

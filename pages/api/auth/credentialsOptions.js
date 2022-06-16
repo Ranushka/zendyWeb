@@ -5,8 +5,6 @@ const credentialsConfigOptions = {
     password: { label: 'Password', type: 'password' }
   },
   async authorize(credentials) {
-    console.log('==credentials===>>>', credentials)
-
     const bodyData = {
       email: credentials.email,
       password: credentials.password,
@@ -19,8 +17,6 @@ const credentialsConfigOptions = {
       headers: { 'Content-Type': 'application/json' }
     })
     const data = await res.json()
-
-    console.log('==data res ===>>>', data)
 
     if (res.ok && data) {
       console.log('==user===>>>', data.user)

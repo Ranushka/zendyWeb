@@ -15,11 +15,11 @@ const onSubmitSignUp = async (values) => {
   })
 
   if (res?.error) {
-    console.log('custom credtials fail')
+    console.log('custom credentials fail')
     // setError(res.error)
   }
 
-  console.log('custom credtials Success', res)
+  console.log('custom credentials Success', res)
 }
 
 const Login: React.FC = () => {
@@ -29,8 +29,8 @@ const Login: React.FC = () => {
     password: ''
   })
 
-  const onSubmitForm = async () => {
-    // e.stopPropagation()
+  const onSubmitForm = async (e) => {
+    e.preventDefault()
     const reCaptcha = await recaptchaRef.current.executeAsync()
     onSubmitSignUp({
       reCaptcha,

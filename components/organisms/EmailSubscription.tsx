@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
-import { ActionItem, Input, Space, Select } from 'components/atoms'
+import { ActionItem, Input, Select } from 'components/atoms'
 
 type Props = {}
 
@@ -33,7 +33,7 @@ const EmailSubscription: React.FC<Props> = () => {
           </div>
           <ActionItem text={trans('btn')} href={'#'} type="btn__secondary" />
         </form>
-        <Space size={3} />
+
         <small>{trans('description')}</small>
       </div>
     </section>
