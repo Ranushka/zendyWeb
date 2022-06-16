@@ -86,7 +86,10 @@ const Header = () => {
             text={trans('my_link')}
             href="/library/collections"
           />
-          <div className="ml-auto w-48 overflow-ellipsis overflow-auto">
+          <div
+            className="ml-auto w-full overflow-ellipsis overflow-auto"
+            style={{ maxWidth: '8rem' }}
+          >
             {btnGuestOrUser()}
           </div>
         </div>
