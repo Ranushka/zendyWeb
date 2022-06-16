@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
-import { Space, ButtonFab } from 'components/atoms'
+import { ButtonFab } from 'components/atoms'
 import { IconMore } from 'components/icons'
 import { LibraryTemplate } from 'components/templates'
 import { commonMessages } from 'lib/getMessages'
@@ -26,18 +26,15 @@ const __dataRow = ({ id, name, keyWord, filters }) => (
     <div className="px-4 py-4 flex flex__between bg-white shadow rounded-md">
       <div className="first_letter_caps">
         <h3>{name}</h3>
-        <Space size={2} />
         <div>
           Search for <strong>{keyWord}</strong> as Keyword. Filtered on{' '}
           {__appliedFilters(filters)}. Sorted by relevance.
         </div>
       </div>
-      <Space size={3} />
       <span>
         <ButtonFab classNames="bg-white" icon={<IconMore />} />
       </span>
     </div>
-    <Space size={2} />
   </div>
 )
 

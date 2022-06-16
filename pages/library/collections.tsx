@@ -2,7 +2,7 @@ import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
-import { Space, ActionItem, ButtonFab } from 'components/atoms'
+import { ActionItem, ButtonFab } from 'components/atoms'
 import { IconAdd, IconMore } from 'components/icons'
 import { useCollections } from 'fetchHooks/useCollections'
 import { LibraryTemplate } from 'components/templates'
@@ -48,12 +48,11 @@ const __dataRow = ({ id, name, count }) => (
       <span className="first_letter_caps">{name}</span>
       <div className="flex__left"></div>
       <span>{count}</span>
-      <Space size={3} />
+
       <span>
         <ButtonFab classNames="bg-white" icon={<IconMore />} />
       </span>
     </div>
-    <Space size={2} />
   </div>
 )
 
@@ -61,7 +60,6 @@ const __skeletonCollection = () => {
   return [1, 2, 3].map((id) => (
     <article key={'skeletonCollection' + id} className="container ml__0 pt-10">
       <Skeleton height={30} />
-      <Space size={3} />
     </article>
   ))
 }

@@ -1,5 +1,5 @@
-import 'styles/nprogress.scss'
-import 'styles/stripe.scss'
+import 'styles/nprogress.css'
+import 'styles/stripe.css'
 import 'styles/globals.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 

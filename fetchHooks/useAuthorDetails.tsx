@@ -1,18 +1,17 @@
 import useSWR from 'swr'
-import isEmpty from 'lodash/isEmpty'
 
 const useAuthorDetails = (queryAuthor: string) => {
   const url = 'https://api.staging-oa.zendy.io/search/oa/author'
   const swrKey = url + queryAuthor
   const bodyData = JSON.stringify({
-    authorName: queryAuthor,
+    authorName: queryAuthor
   })
   const options = {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
-    body: bodyData,
+    body: bodyData
   }
 
   const fetcher = () =>

@@ -55,13 +55,15 @@ export async function getStaticProps({ locale }) {
   const curatedMsg = await curatedMessages(locale)
   const homeMsg = await homeMessages(locale)
 
+  const msg = {
+    ...commonMsg,
+    ...curatedMsg,
+    ...homeMsg
+  }
+
   return {
     props: {
-      messages: {
-        ...commonMsg,
-        ...curatedMsg,
-        ...homeMsg
-      }
+      messages: msg
     }
   }
 }

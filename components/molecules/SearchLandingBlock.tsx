@@ -1,5 +1,5 @@
 import React from 'react'
-import { Space, ActionItem } from 'components/atoms'
+import { ActionItem } from 'components/atoms'
 
 type Props = {}
 
@@ -9,7 +9,7 @@ const SearchLandingBlock: React.FC<Props> = () => {
       <h2 className="text-3xl text-gray-500 font-serif">
         Start Searching and create new knowledge.
       </h2>
-      <Space size={4} />
+
       <h4 className="py-3 mute">Resent searches</h4>
       <div className="flex flex-wrap justify-center py-2">
         <ActionItem
