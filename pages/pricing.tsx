@@ -1,38 +1,20 @@
 import React from 'react'
-import dynamic from 'next/dynamic'
-
+import QNA from 'components/organisms/QNA'
 import { commonMessages, pricingMessages } from 'lib/getMessages'
 import {
-  HeroCta,
-  Publishers,
-  Stats,
-  Usps,
-  EmailSubscription,
   Testimonials,
-  PricingList
+  SubscriptionPage,
+  Publishers
 } from 'components/organisms'
-
 import { BaseTemplate } from 'components/templates'
 
-const GetStartedWithUs = dynamic(() =>
-  import('components/organisms/GetStartedWithUs')
-)
-
-const Platform: React.FC = () => {
+const Pricing: React.FC = () => {
   return (
     <BaseTemplate>
-      <HeroCta />
-
+      <SubscriptionPage />
       <Publishers />
-
-      <Usps />
-
-      <Stats />
-
-      <PricingList />
       <Testimonials />
-      <EmailSubscription />
-      <GetStartedWithUs />
+      <QNA />
     </BaseTemplate>
   )
 }
@@ -51,4 +33,4 @@ export async function getStaticProps({ locale }) {
   }
 }
 
-export default Platform
+export default Pricing

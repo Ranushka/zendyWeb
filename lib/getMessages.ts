@@ -18,19 +18,27 @@ export async function homeMessages(locale = 'en') {
   return data
 }
 
+export async function pricingMessages(locale = 'en') {
+  const data = await request(
+    `${CMS_BASE_URL}/api/page-pricing?locale=${locale}`
+  ).then((data) => data.data.attributes)
+
+  return data
+}
+
 export async function curatedMessages(locale = 'en') {
-  const fomatedData = []
+  const formattedData = []
   await request(
     `${CMS_BASE_URL}/api/curated-contents?populate=*&&locale=${locale}`
   ).then((data) => {
     try {
       data.data.map((item) => {
-        fomatedData.push({
+        formattedData.push({
           id: item.id,
           href: item.attributes.href,
           image: item.attributes.image.data.attributes.url,
           title: item.attributes.title,
-          content: item.attributes.content,
+          content: item.attributes.content
         })
       })
     } catch (error) {
@@ -38,5 +46,5 @@ export async function curatedMessages(locale = 'en') {
     }
   })
 
-  return { curated: { data: fomatedData } }
+  return { curated: { data: formattedData } }
 }
