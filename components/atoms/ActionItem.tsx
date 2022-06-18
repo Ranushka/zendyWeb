@@ -14,6 +14,7 @@ type Props = {
     | 'btn__primary'
   icon?: React.ReactNode
   text?: React.ReactNode | string
+  title?: string
   href?: string
   onClick?: Function
   as?: string
@@ -43,6 +44,7 @@ const ActionItem: React.FC<Props> = (props) => {
 const __btn = (props: Props) => {
   const {
     text = 'Button text',
+    title = '',
     onClick = () => {},
     type,
     style,
@@ -67,6 +69,7 @@ const __btn = (props: Props) => {
 
   return (
     <button
+      title={title}
       style={style}
       className={finalClassNames}
       onClick={() => handleClick()}
