@@ -27,7 +27,6 @@ const SelectTheme: React.FC<Props> = () => {
         name="selectTheme"
         value={themeName}
         label={trans('select_them')}
-        className={'mb__0'}
         onChange={(data) => onChange(data)}
         data={['Light', 'Dark', 'Paper']}
       />

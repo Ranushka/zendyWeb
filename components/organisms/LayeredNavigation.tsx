@@ -112,24 +112,27 @@ const FilterGroups = () => {
   }
   const availableFacets = get(data, 'data.searchResults.availableFacets', null)
 
-  return availableFacets.map((item, id) => {
-    const categoryLabel = labelMapping(item.categoryLabel + 'Url')
+  return (
+    availableFacets &&
+    availableFacets.map((item, id) => {
+      const categoryLabel = labelMapping(item.categoryLabel + 'Url')
 
-    const accordionContent = (
-      <FilterItems items={item.facets} groupId={categoryLabel} />
-    )
+      const accordionContent = (
+        <FilterItems items={item.facets} groupId={categoryLabel} />
+      )
 
-    return (
-      <div key={id} className="mb-8">
-        <FilterTitle title={labelMapping(item.categoryLabel)} />
-        {item.facets.length > 6 ? (
-          <ReadMore height={208} id={id} content={accordionContent} />
-        ) : (
-          accordionContent
-        )}
-      </div>
-    )
-  })
+      return (
+        <div key={id} className="mb-8">
+          <FilterTitle title={labelMapping(item.categoryLabel)} />
+          {item.facets.length > 6 ? (
+            <ReadMore height={208} id={id} content={accordionContent} />
+          ) : (
+            accordionContent
+          )}
+        </div>
+      )
+    })
+  )
 }
 
 const GetSortBy = () => {
