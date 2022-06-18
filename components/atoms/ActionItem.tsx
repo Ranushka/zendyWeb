@@ -158,9 +158,9 @@ const getType = (type) => {
     btn__default:
       'py-2 px-3 rounded-md flex items-center duration-300 active:bg-orange-100',
     btn__secondary:
-      'border py-2 px-3 rounded-md flex justify-center duration-300 shadow-sm hover:shadow-md active:shadow-md border-orange-500 bg-orange-50 active:bg-orange-100 text-orange-600',
+      'border py-2 px-3 rounded-md flex justify-center duration-300 shadow-sm hover:shadow-md active:shadow-md border-orange-400 bg-orange-50 active:bg-orange-100 text-orange-700',
     btn__primary:
-      'border py-2 px-3 rounded-md flex justify-center duration-300 shadow-md active:shadow-sm tracking-wide text-base uppercase border-orange-600 text-orange-50 bg-orange-600 active:bg-orange-700'
+      'border py-2 px-3 rounded-md flex justify-center duration-300 shadow-md active:shadow-sm tracking-wide text-base uppercase border-orange-700 text-orange-50 bg-orange-700 active:bg-orange-800'
   }
 
   return types[type] || ''

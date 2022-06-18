@@ -80,11 +80,20 @@ const SearchResultActions = () => {
 
 const __searchResultLoading = () => {
   return [1, 2, 3].map((id) => (
-    <article key={'skeletonSearchResult' + id} className="max-w-4xl mx-auto">
+    <article
+      key={'skeletonSearchResult' + id}
+      className="items-center rounded-md mb-4 max-w-4xl bg-white shadow mx-auto p-4"
+    >
+      <div className="flex">
+        <Skeleton height={10} width={60} className="mr-2" />
+
+        <Skeleton height={10} width={60} />
+      </div>
+
       <Skeleton height={30} />
 
       <div className="flex">
-        <Skeleton height={10} width={60} />
+        <Skeleton height={10} width={60} className="mr-2" />
 
         <Skeleton height={10} width={60} />
       </div>
@@ -92,11 +101,11 @@ const __searchResultLoading = () => {
       <Skeleton count={5} />
 
       <div className="flex">
-        <Skeleton height={10} width={60} />
+        <Skeleton height={10} width={60} className="mr-2" />
 
-        <Skeleton height={10} width={60} />
+        <Skeleton height={10} width={60} className="mr-2" />
 
-        <Skeleton height={10} width={60} />
+        <Skeleton height={10} width={60} className="mr-2" />
       </div>
     </article>
   ))
@@ -122,24 +131,39 @@ const __resultData = () => {
   const searchResults = get(data, 'data.searchResults', null)
 
   if (searchResults) {
+    console.log('------', searchResults)
+
     return <ResultsWithData {...searchResults} />
   }
 
   return __noResultData()
 }
 
-const ResultsWithData: React.FC<any> = ({ results }) => {
+const ResultsWithData: React.FC<any> = ({ results, totalResults }) => {
+  const [page, setMyPage] = React.useState(1) // this an example using hooks
+  const setPage = (e, p) => {
+    setMyPage(p)
+  }
+
   return (
     <div>
       {results.map((data, id) => {
+        // console.log('--->', data)
+
         return <SearchResultItem {...data} key={`searchResult${id}`} />
       })}
-      <Pagination />
+
+      <Pagination
+        page={page}
+        setPage={setPage}
+        total={totalResults}
+        perPage={10}
+      />
     </div>
   )
 }
 
-const DesktopSearchResults: React.FC<any> = () => {
+const SearchResults: React.FC<any> = () => {
   return (
     <section className="w-full md:w-9/12 z-0">
       {SearchResultActions()}
@@ -148,4 +172,4 @@ const DesktopSearchResults: React.FC<any> = () => {
   )
 }
 
-export default DesktopSearchResults
+export default SearchResults

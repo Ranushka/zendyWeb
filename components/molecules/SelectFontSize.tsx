@@ -27,7 +27,6 @@ const SelectFontSize: React.FC<Props> = () => {
         name="SelectFontSize"
         value={size}
         label={trans('select_size')}
-        className={'mb__0'}
         onChange={(data) => onChange(data)}
         data={['Small', 'Medium', 'Larg']}
       />

@@ -6,7 +6,7 @@ const ProfileTabs: React.FC = () => {
   const [searchShow, searchShowSet] = React.useState(false)
 
   return (
-    <div className="flex px-4 overflowScroll">
+    <div className="flex px-8 overflowScroll items-center my-4">
       <ButtonFab
         onClick={() => searchShowSet(!searchShow)}
         icon={<IconSearch />}
@@ -21,7 +21,7 @@ const ProfileTabs: React.FC = () => {
           placeholder="Search magazines"
         />
       )}
-      <div className="flex px-4">
+      <div className="px-4 flex whitespace-nowrap overflow-y-scroll hideScrollBar">
         <Tab href={'/magazines'}>All</Tab>
         <Tab href={'/magazines/#Nature'}>Nature</Tab>
         <Tab href={'/magazines/#Aviation'}>Aviation</Tab>

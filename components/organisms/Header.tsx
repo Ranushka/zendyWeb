@@ -8,21 +8,11 @@ import { useRouter } from 'next/router'
 import routs from 'lib/routs'
 import { useMediaQuery } from 'react-responsive'
 
-import { ActionItem, Logo, ButtonFab } from 'components/atoms'
-import {
-  SelectLanguage,
-  SelectTheme,
-  SelectFontSize,
-  SearchForm,
-  CategoriesMenu,
-  SidePopup
-} from 'components/molecules'
-import {
-  // IconArrowDown,
-  // IconClear,
-  IconSettings,
-  IconGlobal
-} from 'components/icons'
+import { ActionItem, Logo } from 'components/atoms'
+import { SearchForm, CategoriesMenu, SidePopup } from 'components/molecules'
+import SettingsPopUpContent from 'components/molecules/SettingsPopUpContent'
+import LanguagePopUpContent from 'components/molecules/LanguagePopUpContent'
+
 import { useSession } from 'next-auth/react'
 import MobileHeaderNav from './MobileHeaderNav'
 
@@ -34,6 +24,7 @@ const Header = () => {
   const loading = status === 'loading'
   const isSearchPage = router.pathname === '/search'
   const [open, setOpen] = React.useState(false)
+  const [openLangPopUp, setOpenLangPopUp] = React.useState(false)
   const isMobile = useMediaQuery({
     query: '(max-width: 786px)'
   })
@@ -46,16 +37,22 @@ const Header = () => {
   return (
     <>
       <section className="bg-gray-200">
-        <div className="flex justify-end px-4 py-1">
+        <div className="flex justify-end items-center px-4 py-1">
           <NavItems />
           <div className="mx-4">|</div>
           <div
-            className="pointer flex"
-            onClick={() => setOpen(true)}
-            title="set language, theme, font size"
+            className="cursor-pointer select-none mx-2"
+            onClick={() => setOpenLangPopUp(true)}
+            title="set language"
           >
-            <ButtonFab small icon={<IconSettings />} />
-            <ButtonFab small icon={<IconGlobal />} />
+            En عربى සිං
+          </div>
+          <div
+            className="cursor-pointer select-none mx-2"
+            onClick={() => setOpen(true)}
+            title="set theme, font size"
+          >
+            Settings
           </div>
         </div>
       </section>
@@ -101,25 +98,19 @@ const Header = () => {
       )}
       <SidePopup
         small
+        content={<LanguagePopUpContent />}
+        open={openLangPopUp}
+        openLocation="center"
+        closeFunc={() => setOpenLangPopUp(false)}
+      />
+      <SidePopup
+        small
         content={<SettingsPopUpContent />}
         open={open}
-        openLocation={'center'}
+        openLocation="center"
         closeFunc={() => setOpen(false)}
       />
     </>
-  )
-}
-
-const SettingsPopUpContent = () => {
-  const trans = useTranslations('settings')
-
-  return (
-    <div className="px-8 py-8">
-      <h2 className="text-xl font-medium mb-4 font-serif">{trans('title')}</h2>
-      <SelectLanguage />
-      <SelectTheme />
-      <SelectFontSize />
-    </div>
   )
 }
 

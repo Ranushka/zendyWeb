@@ -1,3 +1,4 @@
+import React from 'react'
 export interface SearchResultItemProps {
   id: string
   href: string
@@ -6,6 +7,7 @@ export interface SearchResultItemProps {
   journalTitle: string
   publicationYear: string
   publicationName: string
+  publicationType: string
   downloadLink: string
   permanentLinkId: string
   authors: [string]

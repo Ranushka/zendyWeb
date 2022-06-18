@@ -5,11 +5,6 @@ import Image from 'next/image'
 import { useSession, signOut } from 'next-auth/react'
 import { IconLogout } from 'components/icons'
 import { ActionItem, CheckBox, Input } from 'components/atoms'
-import {
-  SelectTheme,
-  SelectFontSize,
-  SearchResultDensity
-} from 'components/molecules'
 
 type Props = {}
 
@@ -46,19 +41,6 @@ const Desktop: React.FC<Props> = () => {
             <p>+971 588 034 743</p>
 
             <ActionItem text={'Edit profile'} href={'/'} />
-          </>
-        )}
-      </ProfileBlock>
-
-      <ProfileBlock title="App settings">
-        {loading && __skeletonProfileBlocks()}
-        {session && (
-          <>
-            <SelectTheme />
-
-            <SelectFontSize />
-
-            <SearchResultDensity />
           </>
         )}
       </ProfileBlock>
