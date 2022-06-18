@@ -16,6 +16,7 @@ const RelatedPublications: NextPage<any> = () => {
               publicationName={'dsad'}
               journalTitle="abc title"
               publicationYear="2020"
+              publicationType="journal"
               downloadLink="/"
               permanentLinkId="uid"
               authors={['name one']}
