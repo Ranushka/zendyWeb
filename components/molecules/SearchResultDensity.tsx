@@ -10,7 +10,6 @@ const SearchResultDensity: React.FC<Props> = () => {
         id="SearchResultDensity"
         name="name"
         label={'Search result density'}
-        className={'mb__0'}
         data={['Compact', 'Detailed', 'Essential']}
       />
     </div>

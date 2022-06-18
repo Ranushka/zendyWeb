@@ -10,12 +10,12 @@ const Magazines: React.FC<{}> = () => {
   if (!magazinesData) return <div>loading...</div>
 
   return (
-    <section className={'max-w-6xl text-center'}>
-      <h1>Magazines</h1>
+    <section className={'max-w-6xl text-center mx-auto'}>
+      <h1 className="text-4xl font-serif mt-8 mb-4">Magazines</h1>
 
       <MagazinesPageTabs />
 
-      <div className="flex">
+      <div className="flex flex-wrap justify-center">
         {magazinesData.map(({ title, image, href }, id) => (
           <CardMagazine
             key={`magazineItem${id}`}

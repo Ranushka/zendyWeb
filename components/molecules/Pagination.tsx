@@ -1,24 +1,136 @@
 import React from 'react'
+import classnames from 'classnames'
 
-type Props = {}
+const Pagination = ({
+  total,
+  page = 1,
+  perPage = 10,
+  numOfLinks = 5,
+  hidePrevNext = false,
+  hideFirstLast = false,
 
-const Pagination: React.FC<Props> = () => {
+  linksProps = {},
+  activeProps = {},
+
+  prevNextProps = {},
+  nextProps = {},
+  prevProps = {},
+  prevContent = '',
+  nextContent = '',
+
+  firstLastProps = {},
+  firstProps = {},
+  lastProps = {},
+  firstContent = '',
+  lastContent = '',
+
+  setPage = (...args: any) => {
+    console.log(args)
+  }
+}) => {
+  const firstPage = 1
+  const lastPage = Math.ceil(total / perPage)
+  let firstVisiblePage = Math.max(
+    page - Math.floor((numOfLinks - 1) / 2),
+    firstPage
+  )
+  const lastVisiblePage = Math.min(firstVisiblePage - 1 + numOfLinks, lastPage)
+  firstVisiblePage = Math.max(lastVisiblePage + 1 - numOfLinks, firstPage)
+  page = numOfLinks
+    ? Math.max(Math.min(lastVisiblePage, page), firstVisiblePage)
+    : Math.max(Math.min(lastPage, page), firstPage)
+
+  const isLastPage = page === lastPage
+  const lastPageStyle = classnames(
+    'm-2 p-2 rounded w-10',
+    isLastPage ? 'shadow-none bg-transparent' : 'shadow-sm bg-white'
+  )
+  const isFirstPage = page === 1
+  const firstPageStyle = classnames(
+    'm-2 p-2 rounded w-10',
+    isFirstPage ? 'shadow-none bg-transparent' : 'shadow-sm bg-white'
+  )
+
   return (
-    <section className="container text-center py-4">
-      <a
-        href="#"
-        className="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-      >
-        Previous
-      </a>
+    <div className="flex justify-around">
+      {hideFirstLast ? (
+        ''
+      ) : (
+        <button
+          className={firstPageStyle}
+          onClick={(e) => setPage(e, firstPage)}
+          disabled={isFirstPage}
+          aria-label="First Page"
+          {...firstLastProps}
+          {...firstProps}
+        >
+          {firstContent ? <div>{'=|'}</div> : <div>{'|='}</div>}
+        </button>
+      )}
 
-      <a
-        href="#"
-        className="inline-flex items-center py-2 px-4 ml-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-      >
-        Next
-      </a>
-    </section>
+      {hidePrevNext ? (
+        ''
+      ) : (
+        <button
+          className={firstPageStyle}
+          onClick={(e) => setPage(e, page - 1)}
+          disabled={isFirstPage}
+          aria-label="Previous Page"
+          {...prevNextProps}
+          {...prevProps}
+        >
+          {prevContent ? <div>{'=>'}</div> : <div>{'<='}</div>}
+        </button>
+      )}
+
+      {Array(lastVisiblePage - firstVisiblePage + 1)
+        .fill([])
+        .map((v, i) => (
+          <button
+            className={classnames(
+              'm-2 p-2 rounded w-10 shadow-sm bg-white',
+              page === i + firstVisiblePage
+                ? 'text-orange-600 border border-orange-200'
+                : 'text-gray-500 border border-gray-200'
+            )}
+            onClick={(e) => setPage(e, i + firstVisiblePage)}
+            key={i}
+            {...linksProps}
+            {...(page === i + firstVisiblePage ? activeProps : {})}
+          >
+            {i + firstVisiblePage}
+          </button>
+        ))}
+      {hidePrevNext ? (
+        ''
+      ) : (
+        <button
+          className={lastPageStyle}
+          disabled={isLastPage}
+          aria-label="Previous Page"
+          onClick={(e) => setPage(e, page + 1)}
+          {...prevNextProps}
+          {...nextProps}
+        >
+          {nextContent ? <div>{'<='}</div> : <div>{'=>'}</div>}
+        </button>
+      )}
+
+      {hideFirstLast ? (
+        ''
+      ) : (
+        <button
+          onClick={(e) => setPage(e, lastPage)}
+          disabled={isLastPage}
+          aria-label="Last Page"
+          className={lastPageStyle}
+          {...firstLastProps}
+          {...lastProps}
+        >
+          {lastContent ? <div>{'|='}</div> : <div>{'=|'}</div>}
+        </button>
+      )}
+    </div>
   )
 }
 

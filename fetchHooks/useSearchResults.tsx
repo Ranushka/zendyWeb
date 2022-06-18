@@ -15,10 +15,14 @@ const useSearchResults = () => {
   const url = 'https://api.staging-oa.zendy.io/search/oa/search'
 
   const router = useRouter()
-  const queryString = router.query.q || router.query.author
+  let queryString = router.query.q || router.query.author
 
   const facetFilters = []
   const pageNumber = 1
+
+  if (queryString) {
+    queryString = `${queryString} AND url_full_text:*.pdf`
+  }
 
   const journalId = 'journalTitleFull'
   const journalString = router.query[labelMapping(journalId + 'Url')]
@@ -46,6 +50,7 @@ const useSearchResults = () => {
 
   const queryParams = {
     searchQuery: [{ term: queryString }],
+    filters: [],
     facetFilters: facetFilters,
     dateFilters: { start: '1000-1', end: '2050-12' },
     pageNumber: pageNumber,
@@ -61,6 +66,7 @@ const useSearchResults = () => {
   const options = {
     method: 'POST',
     headers: {
+      credentials: 'include',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(queryParams)

@@ -11,7 +11,7 @@ type Props = {
 const Tab: React.FC<Props> = ({ children, href }) => {
   const router = useRouter()
   const finalClassNames = classnames(
-    'font-serif text-3xl mr-8',
+    'font-serif text-2xl mr-8',
     router.pathname === href && 'text-orange-600'
   )
 
