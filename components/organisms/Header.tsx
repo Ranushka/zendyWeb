@@ -23,7 +23,7 @@ const Header = () => {
 
   const loading = status === 'loading'
   const isSearchPage = router.pathname === '/search'
-  const [open, setOpen] = React.useState(false)
+  const [openAppearance, setOpenAppearance] = React.useState(false)
   const [openLangPopUp, setOpenLangPopUp] = React.useState(false)
   const isMobile = useMediaQuery({
     query: '(max-width: 786px)'
@@ -37,22 +37,22 @@ const Header = () => {
   return (
     <>
       <section className="bg-gray-200">
-        <div className="flex justify-end items-center px-4 py-1">
+        <div className="flex justify-end items-center px-4">
           <NavItems />
-          <div className="mx-4">|</div>
-          <div
-            className="cursor-pointer select-none mx-2"
-            onClick={() => setOpenLangPopUp(true)}
-            title="set language"
-          >
-            En عربى සිං
-          </div>
-          <div
-            className="cursor-pointer select-none mx-2"
-            onClick={() => setOpen(true)}
-            title="set theme, font size"
-          >
-            Settings
+          <div className="hidden sm:flex">
+            <div className="mx-4 py-0.5">|</div>
+            <ActionItem
+              className="mx-2"
+              text={'En عربى සිං'}
+              title="set language"
+              onClick={() => setOpenLangPopUp(true)}
+            />
+            <ActionItem
+              className="mx-2 py-1.5"
+              text="Settings"
+              title="set theme, font size"
+              onClick={() => setOpenAppearance(true)}
+            />
           </div>
         </div>
       </section>
@@ -62,7 +62,7 @@ const Header = () => {
           !isMobile && 'shadow'
         )}
       >
-        <div className="container px-4 py-2 flex items-center md:justify-between">
+        <div className="container px-4 py-2 md:py-3 flex items-center md:justify-between">
           <MobileHeaderNav />
 
           <Logo flag className="max-h-9 mr-3 pl-4 md:pl-0" />
@@ -106,9 +106,9 @@ const Header = () => {
       <SidePopup
         small
         content={<SettingsPopUpContent />}
-        open={open}
+        open={openAppearance}
         openLocation="center"
-        closeFunc={() => setOpen(false)}
+        closeFunc={() => setOpenAppearance(false)}
       />
     </>
   )

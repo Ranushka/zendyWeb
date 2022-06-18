@@ -1,11 +1,10 @@
 import React from 'react'
-import { useTranslations } from 'next-intl'
-import { Select } from 'components/atoms'
+import { ActionItem } from 'components/atoms'
 import { useRouter } from 'next/router'
 import { getDir } from 'lib/helpers'
+import classNames from 'classnames'
 
 const SelectLanguage = () => {
-  const trans = useTranslations('settings')
   const langPlaceholder = 'Ab عرب සිං'
   const { locale, pathname, asPath, push } = useRouter()
   const [currentLang, setCurrentLang] = React.useState('')
@@ -14,8 +13,7 @@ const SelectLanguage = () => {
     setCurrentLang(locale)
   }, [locale])
 
-  function onChange(evt) {
-    const value = evt.target.value
+  function onChange(value: string) {
     if (langPlaceholder === value) return
 
     const newLocal = value
@@ -33,15 +31,24 @@ const SelectLanguage = () => {
 
   return (
     <div key="selectLang">
-      <Select
-        label={trans('select_lang')}
-        id="selectLang"
-        name="selectLang"
-        value={currentLang}
-        className={'mb__0 color__white'}
-        onChange={(evt) => onChange(evt)}
-        data={[langPlaceholder, 'EN - English ', 'AR - عربي ', 'SI - සිංහල ']}
-      />
+      {['EN - English ', 'AR - عربي ', 'SI - සිංහල '].map((item, key) => {
+        const newLocal = item
+          .split('-')[0]
+          .trim()
+          .toLowerCase()
+
+        return (
+          <ActionItem
+            key={key}
+            text={item}
+            className={classNames(
+              'block py-1 p-1',
+              currentLang === newLocal && 'text-orange-700'
+            )}
+            onClick={() => onChange(item)}
+          />
+        )
+      })}
     </div>
   )
 }
