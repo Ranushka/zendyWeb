@@ -151,16 +151,24 @@ const __linkWithChildren = (props: Props) => {
 
 const getType = (type) => {
   const types = {
-    link: 'whitespace-nowrap hover:text_pri6 active:text_pri8 duration-150',
-    link__title: 'hover:text_pri6 active:text_pri7 duration-150 text_nut7',
-    link__small: 'text-xs hover:text_pri6 active:text_pri7 duration-150',
+    link: 'whitespace-nowrap hover:text_pri6 active:scale-95 duration-150',
+    link__title: 'hover:text_pri6 duration-150 text_nut7',
+    link__small: 'text-xs hover:text_pri6 active:scale-95 duration-150',
     btn__small: 'btn__small',
-    btn__default:
-      'py-2 px-3 rounded-md flex items-center duration-300 active:bg_pri1',
-    btn__secondary:
-      'border py-2 px-3 rounded-md flex justify-center duration-300 shadow-sm hover:shadow-md active:shadow-md border-orange-400 bg_pri0 active:bg_pri1 text_pri7',
-    btn__primary:
-      'py-2 px-3 rounded-md flex justify-center duration-300 shadow-md active:shadow-sm tracking-wide text-base uppercase bg_pri7 active:bg_pri8 text_pri0'
+    btn__default: classnames(
+      'py-2 px-3 rounded-md flex items-center',
+      'duration-300 active:bg_pri1 active:scale-95'
+    ),
+    btn__secondary: classnames(
+      'border py-2 px-3 rounded-md flex justify-center duration-300',
+      'shadow-sm hover:shadow-md active:shadow-md',
+      'border_pri6 bg_pri0 active:bg_pri1 active:scale-95 text_pri7'
+    ),
+    btn__primary: classnames(
+      'py-2 px-3 rounded-md flex justify-center duration-300 uppercase',
+      'shadow-md active:shadow-sm tracking-wide text-base',
+      'bg_pri7 active:bg_pri8 active:scale-95 text_pri0'
+    )
   }
 
   return types[type] || ''
