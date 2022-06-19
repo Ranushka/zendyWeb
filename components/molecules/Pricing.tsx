@@ -15,7 +15,7 @@ const Pricing: React.FC<Props> = (props) => {
 
   return (
     <>
-      <div className="text-center block rounded-lg bg-white shadow-lg px-8 py-8 w-72">
+      <div className="text-center block rounded-lg bg_white shadow-lg px-8 py-8 w-72">
         <div
           className="text-center"
           dangerouslySetInnerHTML={{ __html: content }}

@@ -40,19 +40,21 @@ type Props = {}
 
 const Stats: React.FC<Props> = () => {
   return (
-    <section className={'max-w-6xl text-center'}>
-      <h2 className="text-gray-500">Premium content data stats</h2>
-      <p className="">
+    <section className="max-w-6xl text-center mx-auto">
+      <h2 className="text_nut5">Premium content data stats</h2>
+      <p className="mb-8">
         Sneak peek to our curated premium data status, it’s updating every day.
       </p>
 
-      {data.map((item, id) => (
-        <ContentStats
-          key={`ContentStats${id}`}
-          stat={item.stat}
-          title={item.title}
-        />
-      ))}
+      <div className="flex flex-wrap justify-center">
+        {data.map((item, id) => (
+          <ContentStats
+            key={`ContentStats${id}`}
+            stat={item.stat}
+            title={item.title}
+          />
+        ))}
+      </div>
     </section>
   )
 }

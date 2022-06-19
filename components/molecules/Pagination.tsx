@@ -43,12 +43,12 @@ const Pagination = ({
   const isLastPage = page === lastPage
   const lastPageStyle = classnames(
     'm-2 p-2 rounded w-10',
-    isLastPage ? 'shadow-none bg-transparent' : 'shadow-sm bg-white'
+    isLastPage ? 'shadow-none bg-transparent' : 'shadow-sm bg_white'
   )
   const isFirstPage = page === 1
   const firstPageStyle = classnames(
     'm-2 p-2 rounded w-10',
-    isFirstPage ? 'shadow-none bg-transparent' : 'shadow-sm bg-white'
+    isFirstPage ? 'shadow-none bg-transparent' : 'shadow-sm bg_white'
   )
 
   return (
@@ -88,10 +88,10 @@ const Pagination = ({
         .map((v, i) => (
           <button
             className={classnames(
-              'm-2 p-2 rounded w-10 shadow-sm bg-white',
+              'm-2 p-2 rounded w-10 shadow-sm bg_white',
               page === i + firstVisiblePage
-                ? 'text-orange-600 border border-orange-200'
-                : 'text-gray-500 border border-gray-200'
+                ? 'text_pri6 border border-orange-200'
+                : 'text_nut5 border border-gray-200'
             )}
             onClick={(e) => setPage(e, i + firstVisiblePage)}
             key={i}

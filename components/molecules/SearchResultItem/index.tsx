@@ -26,7 +26,7 @@ const SearchResultItem: React.FC<SearchResultItemProps> = ({
   subjects
 }) => {
   return (
-    <article className="flex items-center rounded-md mb-4 max-w-4xl bg-white shadow mx-auto">
+    <article className="flex items-center rounded-md mb-4 max-w-4xl bg_white shadow mx-auto">
       <div className="py-4 px-6 w-full block sm:flex">
         <section className="w-full sm:w-9/12 block">
           {SearchResultItemTitle(

@@ -42,7 +42,7 @@ const Select: React.FC<Props> = ({
       )}
 
       <select
-        className="h-10 appearance-none w-full bg-gray-50 border border-gray-400 py-2 px-4 pr-8 rounded-md block"
+        className="h-10 appearance-none w-full bg_nut0 border border_nut4 py-2 px-4 pr-8 rounded-md block"
         id={id}
         name={name}
         onChange={onChange}

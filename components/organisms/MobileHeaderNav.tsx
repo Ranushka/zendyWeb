@@ -53,7 +53,7 @@ const MobileToggleMenu = ({ setModelOpen }) => {
       <button
         onClick={() => setModelOpen()}
         type="button"
-        className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
+        className="text_nut5 hover:text_nut6 focus:outline-none focus:text_nut6"
         aria-label="toggle menu"
       >
         <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">

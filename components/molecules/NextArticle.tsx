@@ -15,7 +15,7 @@ const NextArticle: React.FC<Props> = (props) => {
 
   return (
     <ActionItem href={url}>
-      <div className={classnames('rounded-md shadow bg-white')}>
+      <div className={classnames('rounded-md shadow bg_white')}>
         <div className="">{prev ? <IconArrowLeft /> : <IconArrowRight />}</div>
 
         <small className="">{title}</small>

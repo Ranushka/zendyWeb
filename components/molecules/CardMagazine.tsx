@@ -7,7 +7,7 @@ import { CardMagazineProps } from 'types'
 const CardMagazine: React.FC<CardMagazineProps> = (props) => {
   const { href, img, title, content, className } = props
   const __finalClassNames = classnames(
-    'bg-white rounded shadow inline-block cursor-pointer text-left m-3 w-56 pb-3',
+    'bg_white rounded shadow inline-block cursor-pointer text-left m-3 w-56 pb-3',
     className && className
   )
 

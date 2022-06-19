@@ -40,7 +40,7 @@ const MobileNav: React.FC<Props> = () => {
 
   return (
     <>
-      <section className="mobile-nav bg-white fixed bottom-0 w-full flex md:hidden">
+      <section className="mobile-nav bg_white fixed bottom-0 w-full flex md:hidden">
         <MobileNaveItem
           onClick={() => __routeOnClick(routs.index)}
           text="Home"

@@ -15,7 +15,7 @@ const Desktop: React.FC<Props> = () => {
   return (
     <section className="max-w-2xl mx-auto mt-10">
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-center text-gray-500 text-4xl font-serif">
+        <h1 className="text-center text_nut5 text-4xl font-serif">
           My Profile
         </h1>
         <ActionItem
@@ -139,11 +139,11 @@ const InputContent = () => (
 const ProfileBlock = ({ children, title }) => (
   <section className="flex mb-8">
     <div className="w-5/12">
-      <h3 className="py-4 block text-gray-500 text-xl font-serif border-b-2">
+      <h3 className="py-4 block text_nut5 text-xl font-serif border-b-2">
         {title}
       </h3>
     </div>
-    <div className="w-7/12 shadow block px-8 py-8 rounded-md text-left bg-white">
+    <div className="w-7/12 shadow block px-8 py-8 rounded-md text-left bg_white">
       {children}
     </div>
   </section>

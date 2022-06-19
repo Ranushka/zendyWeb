@@ -8,7 +8,7 @@ const data = ['ebsco', 'sage', 'openAccess', 'ieee', 'wiley']
 const Publishers: React.FC<Props> = () => {
   return (
     <div className="py-10">
-      <h3 className="py-8 px-4 text-center text-3xl text-gray-500 font-serif">
+      <h3 className="py-8 px-4 text-center text-3xl text_nut5 font-serif">
         You will get access to the premium content from
       </h3>
       <section className="text-center overflowScroll flex justify-center mx-auto">

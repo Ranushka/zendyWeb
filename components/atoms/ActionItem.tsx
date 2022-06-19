@@ -151,19 +151,16 @@ const __linkWithChildren = (props: Props) => {
 
 const getType = (type) => {
   const types = {
-    link:
-      'whitespace-nowrap hover:text-orange-600 active:text-orange-600 duration-150',
-    link__title:
-      'text-gray-700 hover:text-orange-600 active:text-orange-500 duration-150',
-    link__small:
-      'text-xs hover:text-orange-500 active:text-orange-500 duration-150',
+    link: 'whitespace-nowrap hover:text_pri6 active:text_pri8 duration-150',
+    link__title: 'hover:text_pri6 active:text_pri7 duration-150 text_nut7',
+    link__small: 'text-xs hover:text_pri6 active:text_pri7 duration-150',
     btn__small: 'btn__small',
     btn__default:
-      'py-2 px-3 rounded-md flex items-center duration-300 active:bg-orange-100',
+      'py-2 px-3 rounded-md flex items-center duration-300 active:bg_pri1',
     btn__secondary:
-      'border py-2 px-3 rounded-md flex justify-center duration-300 shadow-sm hover:shadow-md active:shadow-md border-orange-400 bg-orange-50 active:bg-orange-100 text-orange-700',
+      'border py-2 px-3 rounded-md flex justify-center duration-300 shadow-sm hover:shadow-md active:shadow-md border-orange-400 bg_pri0 active:bg_pri1 text_pri7',
     btn__primary:
-      'border py-2 px-3 rounded-md flex justify-center duration-300 shadow-md active:shadow-sm tracking-wide text-base uppercase border-orange-700 text-orange-50 bg-orange-700 active:bg-orange-800'
+      'py-2 px-3 rounded-md flex justify-center duration-300 shadow-md active:shadow-sm tracking-wide text-base uppercase bg_pri7 active:bg_pri8 text_pri0'
   }
 
   return types[type] || ''
