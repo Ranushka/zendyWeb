@@ -1,59 +1,15 @@
 import React from 'react'
-import classnames from 'classnames'
 import Router from 'next/router'
 import useTitleDetail from 'fetchHooks/useTitleDetail'
 import Skeleton from 'react-loading-skeleton'
-import {
-  IconBookmark,
-  IconSocialLinkedIn,
-  IconSocialTwitter,
-  IconSocialFacebook,
-  IconCite
-} from 'components/icons'
+import { IconBookmark, IconCite } from 'components/icons'
 import { ActionItem, ButtonFab } from 'components/atoms'
 import { NextArticle } from 'components/molecules'
 import PublicationIssueJsonLd from 'analytics/PublicationIssueJsonLd'
-
-// interface publicationTypeProps {
-//   type: string
-//   id: string
-// }
-
-// interface pageProps {
-//   title: string
-//   type: string
-//   authors: string[]
-//   body: string
-//   publicationYear: string
-//   subjects: string[]
-//   publicationType: publicationTypeProps
-// }
-
-const __renderTitle = (title = '') => {
-  return <h1 className="">{title}</h1>
-}
-
-const __renderContentType = (title, journal, year) => {
-  return (
-    <div className="py-4">
-      <strong className="color__nut7">Journal - {year}</strong>
-      <ActionItem
-        className="px-4"
-        text={title}
-        href={`/search?q=${journal.title}`}
-        type="link__small"
-      />
-    </div>
-  )
-}
-
-const __renderAbstract = (abstract) => {
-  return (
-    <div className="py-2 text__justify">
-      <div dangerouslySetInnerHTML={{ __html: abstract }} />
-    </div>
-  )
-}
+import TitleDetailHead from './TitleDetailHead'
+import TitleDetailSource from './TitleDetailSource'
+import TitleDetailTitle from './TitleDetailTitle'
+import TitleDetailAbstract from './TitleDetailAbstract'
 
 const __renderAuthors = (authors: []) => {
   return (
@@ -100,53 +56,17 @@ const __renderSubjects = (subjects: []) => {
   )
 }
 
-const __renderHead = () => {
-  return (
-    <div className={classnames('flex items-center')}>
-      <ActionItem
-        text={'← Back to results'}
-        onClick={() => Router.back()}
-        type="link__small"
-        className="pl__0"
-      />
-
-      <span className="flex__left" />
-      <ButtonFab icon={<IconSocialFacebook />} small />
-      <ButtonFab icon={<IconSocialLinkedIn />} small />
-      <ButtonFab icon={<IconSocialTwitter />} small />
-    </div>
-  )
-}
-
 const __renderContent = ({
   abstract,
   authors,
-  // doi,
+
   downloadLink,
-  // eISSN,
-  // hIndex,
-  // header,
-  // isActiveSubscription,
-  // isOpenAccess,
-  // isPreview,
-  // isbn,
-  // issn,
-  // issue,
+
   journalTitle,
   keywords,
-  // language,
-  // licenseType,
-  // pISSN,
-  // permanentLinkId,
-  // publicationDate,
+
   publicationName,
-  // publicationType,
   publicationYear,
-  // resultId,
-  // resultScore,
-  // sjr,
-  // snip,
-  // snipYear,
   subjects,
   title,
   volume,
@@ -165,10 +85,11 @@ const __renderContent = ({
           issueNumber={volume}
           publisher={publicationName}
         />
-        {__renderHead()}
-        {__renderTitle(title)}
-        {__renderContentType(title, journalTitle, publicationYear)}
-        {__renderAbstract(abstract)}
+        <h1>sskkkkkkkkkkkkss</h1>
+        {TitleDetailHead()}
+        {TitleDetailTitle(title)}
+        {TitleDetailSource(title, journalTitle, publicationYear)}
+        {TitleDetailAbstract(abstract)}
         {__renderAuthors(authors)}
         {__renderKeywords(keywords)}
         {__renderSubjects(subjects)}
@@ -243,15 +164,14 @@ const __renderSomethingWentWrong = () => {
         text={'← Back to results'}
         onClick={() => Router.back()}
         type="btn__primary"
-        // className="pl__0"
       />
     </div>
   )
 }
 
-const DesktopTitleDetail: React.FC = () => {
+const TitleDetail: React.FC = () => {
   const { data } = useTitleDetail()
-
+  console.log('----------->', data)
   if (!data) {
     return __renderLoading()
   }
@@ -263,4 +183,4 @@ const DesktopTitleDetail: React.FC = () => {
   return <div>{__renderContent(data.data)}</div>
 }
 
-export default DesktopTitleDetail
+export default TitleDetail

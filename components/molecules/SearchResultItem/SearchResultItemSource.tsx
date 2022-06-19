@@ -2,6 +2,8 @@ import React from 'react'
 import { ActionItem } from 'components/atoms'
 
 const SearchResultItemSource = (journalTitle, publicationName) => {
+  if (!publicationName || !journalTitle) return <></>
+
   return (
     <div className="pb-2">
       {publicationName && (
