@@ -65,7 +65,7 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
           <ButtonFab
             href="/search"
             icon={<IconSearch />}
-            classNames="rounded-full px-4 py-3 block active:bg-slate-400 hover:bg-slate-300"
+            classNames="rounded-full m-0.5 px-4 py-2.5 block hover:bg_nut2 active:scale-95"
           />
         </div>
         <input
@@ -76,7 +76,7 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
           type="search"
           accessKey="s"
           placeholder={trans(`search_placeholder_d`)}
-          className="w-full h-12 rounded-full border border_nut4 px-14 outline-blue-200 outline-1 outline-offset-4 appearance-none hover:shadow-md active:shadow-md focus:shadow-md bg_nut0"
+          className="w-full h-12 rounded-full border border_nut4 px-14 outline-blue-200 outline-1 outline-offset-4 appearance-none hover:shadow-md active:shadow-md focus:shadow-md bg__nut0"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
@@ -97,7 +97,7 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
               })
             }}
             icon={<IconAdvanceSearch />}
-            classNames="rounded-full px-4 py-3 block active:bg-slate-400 hover:bg-slate-300"
+            classNames="rounded-full m-0.5 px-4 py-2.5 block hover:bg_nut2 active:scale-95"
           />
         </div>
         {router.pathname !== '/search' && (
