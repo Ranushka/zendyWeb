@@ -1,7 +1,7 @@
 import React from 'react'
 import { SeeAll } from 'components/molecules'
 
-import { Accordion } from 'components/molecules'
+import { Accordion } from 'components/atoms'
 
 export default function QNA() {
   return (
