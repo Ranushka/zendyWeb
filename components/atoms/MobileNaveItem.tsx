@@ -20,7 +20,7 @@ const BtnFab: React.FC<Props> = ({
     'noSelect w-full flex-col items-center pt-1',
     primary &&
       'flex items-center justify-center bg-orange-600 -mt-2 mb-2 rounded-full shadow',
-    isActive && 'text-orange-600'
+    isActive && 'text_pri6'
   )
 
   return (

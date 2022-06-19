@@ -5,7 +5,7 @@ const SearchResultItemAbstract = (abstract: string) => {
   return (
     <div className="block pb-2">
       <div
-        className="text-gray-500 line-clamp-4"
+        className="text_nut5 line-clamp-4"
         dangerouslySetInnerHTML={{ __html: abstract }}
       />
     </div>

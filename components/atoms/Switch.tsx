@@ -36,8 +36,8 @@ const Switch: React.FC<Props> = ({
               id={id}
               onChange={() => onChange()}
             />
-            <div className="block bg-gray-500 w-10 h-6 rounded-full"></div>
-            <div className="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition"></div>
+            <div className="block bg_nut5 w-10 h-6 rounded-full"></div>
+            <div className="dot absolute left-1 top-1 bg_white w-4 h-4 rounded-full transition"></div>
           </div>
         </div>
         {rightLabel}

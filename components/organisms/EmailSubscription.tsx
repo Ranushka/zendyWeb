@@ -8,7 +8,7 @@ const EmailSubscription: React.FC<Props> = () => {
   const trans = useTranslations('subscribe')
 
   return (
-    <section className="bg-white py-16">
+    <section className="bg_white py-16">
       <div className={'max-w-3xl px-4 m-auto'}>
         <h2 className="text-3xl font-serif mb-2">{trans('title')}</h2>
         <p className="mb-4">{trans('subtitle')}</p>

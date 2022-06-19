@@ -17,7 +17,7 @@ const CategoriesMenu: React.FC<{}> = () => {
         className="mx-3"
         onClick={() => {}}
       />
-      <section className="bg-white rounded-md shadow-lg absolute mt-10 hidden menu">
+      <section className="bg_white rounded-md shadow-lg absolute mt-10 hidden menu">
         <div className="flex py-8">{__getMenuColumns()}</div>
       </section>
     </div>
@@ -33,7 +33,7 @@ const __getMenuColumns = () => {
     mega_menu_items.map(({ title, items }, key) => {
       return (
         <div className="px-8" key={key}>
-          <small className="text-gray-500 mb-4">{title}</small>
+          <small className="text_nut5 mb-4">{title}</small>
           {__getMenuItems(items)}
         </div>
       )

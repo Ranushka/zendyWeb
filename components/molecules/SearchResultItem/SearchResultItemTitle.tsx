@@ -17,12 +17,12 @@ const SearchResultItemTitle = (
   return (
     <div className="block">
       {selectionMode && (
-        <div className="-ml-9 pl-2 py-2 absolute shadow rounded-md bg-white">
+        <div className="-ml-9 pl-2 py-2 absolute shadow rounded-md bg_white">
           <CheckBox className={''} id={'it_id' + permanentLinkId} />
         </div>
       )}
       <div className="block">
-        <small className="block text-gray-500">
+        <small className="block text_nut5">
           {publicationType} - {publicationYear}
         </small>
         <ActionItem

@@ -19,12 +19,12 @@ const Downloads: React.FC = () => {
 
 const __dataRow = ({ id, name }: DataRowProps) => (
   <div key={id}>
-    <div className="px-4 py-4 flex flex__between bg-white shadow rounded-md">
+    <div className="px-4 py-4 flex flex__between bg_white shadow rounded-md">
       <span className="first_letter_caps">{name}</span>
       <div className="flex__left"></div>
 
       <span>
-        <ButtonFab classNames="bg-white" icon={<IconMore />} />
+        <ButtonFab classNames="bg_white" icon={<IconMore />} />
       </span>
     </div>
   </div>

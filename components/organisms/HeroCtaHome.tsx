@@ -8,7 +8,7 @@ const Desktop: React.FC<Props> = () => {
 
   return (
     <section className="font-serif text-center mt-20 mb-4">
-      <h3 className="text-2xl text-gray-500">{trans('cta_sub')}</h3>
+      <h3 className="text-2xl text_nut5">{trans('cta_sub')}</h3>
       <h1 className="text-4xl">{trans('cta')}</h1>
     </section>
   )

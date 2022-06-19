@@ -1,5 +1,4 @@
 import React from 'react'
-import classnames from 'classnames'
 
 type Props = {
   stat?: string
@@ -11,8 +10,7 @@ const ContentStats: React.FC<Props> = ({
   title = 'Title'
 }) => {
   return (
-    // <div className={styles.wrapper}>
-    <div className={classnames('bg__nut2 mx-4 my-8 py-4 px__5 rounded-md')}>
+    <div className="bg_nut2 mx-4 mb-8 py-4 rounded-md w-48">
       <h2>{stat}</h2>
       <h3>{title}</h3>
     </div>
