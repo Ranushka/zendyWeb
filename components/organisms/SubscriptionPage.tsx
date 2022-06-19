@@ -22,7 +22,7 @@ const SubscriptionPage: React.FC<{}> = () => {
     <>
       <div dangerouslySetInnerHTML={{ __html: title }} />
 
-      <div className="flex justify-center mt-10 mb-8 text-gray-500">
+      <div className="flex justify-center mt-10 mb-8 text_nut5">
         <Switch
           id="selectPlan"
           name="selectPlan"
@@ -32,7 +32,7 @@ const SubscriptionPage: React.FC<{}> = () => {
             <span
               className={classnames(
                 'h3 px-4 text-2xl font-serif',
-                !plan && 'text-orange-600'
+                !plan && 'text_pri6'
               )}
             >
               {planTypes.yearly.name}
@@ -42,7 +42,7 @@ const SubscriptionPage: React.FC<{}> = () => {
             <span
               className={classnames(
                 'h3 px-4 text-2xl font-serif',
-                plan && 'text-orange-600'
+                plan && 'text_pri6'
               )}
             >
               {planTypes.monthly.name}

@@ -11,7 +11,7 @@ export default function Post({ post }) {
 
   return (
     <div
-      className="border my-2 p-4 rounded cursor-pointer bg-white"
+      className="border my-2 p-4 rounded cursor-pointer bg_white"
       onClick={() => onClick(`/blog/${post.slug}`)}
     >
       <h5 className="text-xl font-medium mb-2 font-serif">

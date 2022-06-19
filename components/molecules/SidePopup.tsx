@@ -57,18 +57,18 @@ const SidePopup: React.FC<Props> = ({
   }, [open])
 
   const contentWrapperStyles = classnames(
-    'fixed w-full left-0 top-0 flex items-center h-screen backdrop-blur-sm bg-black bg-opacity-25 z-50',
+    'fixed w-full left-0 top-0 flex items-center h-screen backdrop-blur-sm bg-opacity-25 z-50',
     wrapperStyleMapping(openLocation)
   )
 
   const innerContentStyles = classnames(
-    'bg-white w-full max-w-md rounded shadow-md relative',
+    'bg_white w-full max-w-md rounded shadow-md relative',
     fullHeight && 'h-screen',
     contentStyleMapping(openLocation)
   )
 
   const buttonStyles = classnames(
-    'bg-white shadow rounded-full w-10 h-10 flex justify-center items-center',
+    'bg_white shadow rounded-full w-10 h-10 flex justify-center items-center',
     buttonStyleMapping(openLocation)
   )
 

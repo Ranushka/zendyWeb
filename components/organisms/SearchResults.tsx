@@ -24,7 +24,7 @@ const SearchResultActions = () => {
           icon={<IconSelectionMode />}
           classNames={classnames(
             'p-2 pointer rounded-md',
-            selectionMode && 'text-gray-500'
+            selectionMode && 'text_nut5'
           )}
           onClick={() => {
             setState({ ...state, selectionMode: !selectionMode })
@@ -82,7 +82,7 @@ const __searchResultLoading = () => {
   return [1, 2, 3].map((id) => (
     <article
       key={'skeletonSearchResult' + id}
-      className="items-center rounded-md mb-4 max-w-4xl bg-white shadow mx-auto p-4"
+      className="items-center rounded-md mb-4 max-w-4xl bg_white shadow mx-auto p-4"
     >
       <div className="flex">
         <Skeleton height={10} width={60} className="mr-2" />

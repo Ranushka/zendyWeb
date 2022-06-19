@@ -15,7 +15,7 @@ const Collections: React.FC = () => {
   const router = useRouter()
 
   if (!loading && !session) {
-    router.push('/authenticate')
+    router.push('/login')
   }
 
   return (
@@ -44,13 +44,13 @@ const __dataCollection = (data) => {
 
 const __dataRow = ({ id, name, count }) => (
   <div key={id}>
-    <div className="px-4 flex bg-white shadow rounded-md">
+    <div className="px-4 flex bg_white shadow rounded-md">
       <span className="first_letter_caps">{name}</span>
       <div className="flex__left"></div>
       <span>{count}</span>
 
       <span>
-        <ButtonFab classNames="bg-white" icon={<IconMore />} />
+        <ButtonFab classNames="bg_white" icon={<IconMore />} />
       </span>
     </div>
   </div>

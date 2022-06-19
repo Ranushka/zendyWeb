@@ -14,7 +14,7 @@ const Testimonial: React.FC<Props> = (props) => {
   } = props
 
   return (
-    <div className="bg-white shadow rounded my-3 m-auto p-3 max-w-md md:m-3">
+    <div className="bg_white shadow rounded my-3 m-auto p-3 max-w-md md:m-3">
       <p className="color__nut7">{quote}</p>
 
       <p className="mt-4">{name}</p>

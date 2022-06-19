@@ -36,7 +36,7 @@ const Header = () => {
 
   return (
     <>
-      <section className="bg-gray-200">
+      <section className="bg_nut2">
         <div className="flex justify-end items-center px-4">
           <NavItems />
           <div className="hidden sm:flex">
@@ -58,7 +58,7 @@ const Header = () => {
       </section>
       <nav
         className={classnames(
-          'bg-white shadow-none md:shadow relative md:sticky top-0 z-30',
+          'bg_white shadow-none md:shadow relative md:sticky top-0 z-30',
           !isMobile && 'shadow'
         )}
       >
@@ -92,7 +92,7 @@ const Header = () => {
         </div>
       </nav>
       {isMobile && (
-        <div className="w-full justify-center flex sticky top-0 bg-white px-4 pb-4 pt-3 shadow z-10">
+        <div className="w-full justify-center flex sticky top-0 bg_white px-4 pb-4 pt-3 shadow z-10">
           <SearchForm id="mainSearchMobile" />
         </div>
       )}

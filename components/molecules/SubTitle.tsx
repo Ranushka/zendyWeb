@@ -8,7 +8,7 @@ const SubTitle: React.FC<SubTitleProps> = (props) => {
   return (
     <section className="container pt-16 pb-4">
       <div className="flex justify-center items-center">
-        <div className="text-lg font-serif text-gray-500 px-4">{title}</div>/
+        <div className="text-lg font-serif text_nut5 px-4">{title}</div>/
         {linkText && (
           <strong className={'px-4'}>
             <ActionItem text={linkText} href={linkHref} />

@@ -17,7 +17,7 @@ const Footer: React.FC<{}> = () => {
   return (
     <>
       <svg
-        className="block h-12 md:h-16 lg:h-24 text-gray-100 w-full"
+        className="block h-12 md:h-16 lg:h-24 text_nut1 w-full"
         preserveAspectRatio="none"
         viewBox="0 0 4605 356"
         fill="none"
@@ -28,7 +28,7 @@ const Footer: React.FC<{}> = () => {
           fill="currentColor"
         />
       </svg>
-      <footer className="bg-gray-100">
+      <footer className="bg_nut1">
         <div className="container md:flex justify-between px-5 py-10">
           <section className="max-w-xs pr-4 mb-8 md:mb-3">
             <Logo className="flex" />

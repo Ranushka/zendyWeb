@@ -1,6 +1,6 @@
 import 'styles/nprogress.css'
 import 'styles/stripe.css'
-import 'styles/globals.css'
+import 'styles/globals.scss'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import React from 'react'

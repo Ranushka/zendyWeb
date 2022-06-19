@@ -140,7 +140,7 @@ const StripePaymentElements: React.FC<Props> = (props) => {
 
           <DiscountCodeBlock />
         </fieldset>
-        <div className="shadow max-w-sm py-8 px-8 bg-white rounded-md block">
+        <div className="shadow max-w-sm py-8 px-8 bg_white rounded-md block">
           {data && data.percent_off && (
             <div className="py-4 pt__0 flex items-center mute">
               <p>Coupon discount</p>

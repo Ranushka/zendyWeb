@@ -1,6 +1,6 @@
 ---
 title: >-
-  <h1 class="text-center mt-10 text-4xl font-serif">Zendy <span class="text-orange-600">Plus</span> Free
+  <h1 class="text-center mt-10 text-4xl font-serif">Zendy <span class="text_pri6">Plus</span> Free
   for 14 days</h1>
   <p class="text-center">No credit card required, you can cancel at any time. Sign in/Sign now for free.</p>
 planTypes:

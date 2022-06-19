@@ -23,7 +23,7 @@ const Searches: React.FC = () => {
 
 const __dataRow = ({ id, name, keyWord, filters }) => (
   <div key={id}>
-    <div className="px-4 py-4 flex flex__between bg-white shadow rounded-md">
+    <div className="px-4 py-4 flex flex__between bg_white shadow rounded-md">
       <div className="first_letter_caps">
         <h3>{name}</h3>
         <div>
@@ -32,7 +32,7 @@ const __dataRow = ({ id, name, keyWord, filters }) => (
         </div>
       </div>
       <span>
-        <ButtonFab classNames="bg-white" icon={<IconMore />} />
+        <ButtonFab classNames="bg_white" icon={<IconMore />} />
       </span>
     </div>
   </div>

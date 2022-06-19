@@ -76,7 +76,7 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
           type="search"
           accessKey="s"
           placeholder={trans(`search_placeholder_d`)}
-          className="w-full h-12 rounded-full border border-slate-400 px-14 outline-blue-200 outline-1 outline-offset-4 appearance-none hover:shadow-md active:shadow-md focus:shadow-md"
+          className="w-full h-12 rounded-full border border_nut4 px-14 outline-blue-200 outline-1 outline-offset-4 appearance-none hover:shadow-md active:shadow-md focus:shadow-md bg_nut0"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
