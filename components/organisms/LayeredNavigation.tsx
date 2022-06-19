@@ -7,13 +7,11 @@ import { useRouter } from 'next/router'
 
 import useSearchResults from 'fetchHooks/useSearchResults'
 import labelMapping from 'lib/labelMapping'
-import { CheckBox, ButtonFab } from 'components/atoms'
+import { CheckBox, ButtonFab, ReadMore } from 'components/atoms'
 import { IconFilter, IconClose } from 'components/icons'
 import useGlobal from 'context/GlobalContext'
 
-// import { IconSavedSearch, IconNotifications } from 'components/icons'
 import {
-  ReadMore,
   DateRangeFilter,
   SortByFilter,
   FilterTitle

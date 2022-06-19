@@ -17,3 +17,5 @@ export { default as Logo } from './Logo'
 export { default as FeaturedChip } from './FeaturedChip'
 
 export { default as Price } from './Price'
+export { default as Accordion } from './Accordion'
+export { default as ReadMore } from './ReadMore'
