@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { getDir } from 'lib/helpers'
 import classNames from 'classnames'
 
-const SelectLanguage = () => {
+const SelectLanguage: React.FC<any> = () => {
   const langPlaceholder = 'Ab عرب සිං'
   const { locale, pathname, asPath, push } = useRouter()
   const [currentLang, setCurrentLang] = React.useState('')

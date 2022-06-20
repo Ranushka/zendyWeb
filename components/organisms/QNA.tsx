@@ -1,5 +1,5 @@
 import React from 'react'
-import { SeeAll } from 'components/molecules'
+import { SeeAll } from 'components/organisms'
 
 import { Accordion } from 'components/atoms'
 

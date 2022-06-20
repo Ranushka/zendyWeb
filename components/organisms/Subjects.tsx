@@ -1,6 +1,6 @@
 import React from 'react'
 import get from 'lodash/get'
-import { CardSubject } from 'components/molecules'
+import { CardSubject } from 'components/organisms'
 import useGetSubjects from 'fetchHooks/useGetSubjects'
 
 const Subjects: React.FC<any> = () => {

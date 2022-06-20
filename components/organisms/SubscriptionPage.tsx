@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { useTranslations } from 'next-intl'
 
 import { Switch } from 'components/atoms'
-import { Pricing, WhatWeOffer, SecurityStripBlock } from 'components/molecules'
+import { Pricing, WhatWeOffer, SecurityStripBlock } from 'components/organisms'
 import { analyticEvent } from 'analytics'
 
 const SubscriptionPage: React.FC<{}> = () => {

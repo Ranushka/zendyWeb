@@ -23,6 +23,7 @@ type Props = {
   block?: boolean
   submit?: boolean
   disabled?: boolean
+  tabIndex?: number
   style?: React.CSSProperties
   children?: React.ReactChild
 }
@@ -51,6 +52,7 @@ const __btn = (props: Props) => {
     icon,
     block,
     submit,
+    tabIndex = 1,
     disabled,
     className
   } = props
@@ -71,6 +73,7 @@ const __btn = (props: Props) => {
     <button
       title={title}
       style={style}
+      tabIndex={tabIndex}
       className={finalClassNames}
       onClick={() => handleClick()}
       type={submit ? 'submit' : 'button'}
@@ -88,6 +91,7 @@ const __link = (props: Props) => {
     href = '#',
     as,
     type = 'link',
+    tabIndex = 1,
     icon,
     block,
     disabled,
@@ -111,6 +115,7 @@ const __link = (props: Props) => {
         className={finalClassNames}
         target="_blank"
         href={href}
+        tabIndex={tabIndex}
         rel="noreferrer"
       >
         {text}
@@ -121,7 +126,7 @@ const __link = (props: Props) => {
 
   return (
     <NextLink href={href} as={as}>
-      <a className={finalClassNames}>
+      <a className={finalClassNames} tabIndex={tabIndex}>
         <span>{text}</span>
         {icon && icon}
       </a>
@@ -135,6 +140,7 @@ const __linkWithChildren = (props: Props) => {
     as,
     type = 'link__content',
     block,
+    tabIndex = 1,
     className,
     children
   } = props
@@ -142,7 +148,7 @@ const __linkWithChildren = (props: Props) => {
 
   return (
     <NextLink href={href} as={as}>
-      <a aria-label="Get Help" className={finalClassNames}>
+      <a aria-label="Get Help" className={finalClassNames} tabIndex={tabIndex}>
         {children}
       </a>
     </NextLink>
@@ -160,11 +166,13 @@ const getType = (type) => {
       'duration-300 active:bg_pri1 active:scale-95'
     ),
     btn__secondary: classnames(
+      'outline-1 outline-offset-2',
       'border py-2 px-3 rounded-md flex justify-center duration-300',
       'shadow-sm hover:shadow-md active:shadow-md',
       'border_pri6 bg_pri0 active:bg_pri1 active:scale-95 text_pri7'
     ),
     btn__primary: classnames(
+      'outline-1 outline-offset-2',
       'py-2 px-3 rounded-md flex justify-center duration-300 uppercase',
       'shadow-md active:shadow-sm tracking-wide text-base',
       'bg_pri7 active:bg_pri8 active:scale-95 text_pri0'

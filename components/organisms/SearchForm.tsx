@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl'
 import { ButtonFab } from 'components/atoms'
 import { IconSearch, IconClear, IconAdvanceSearch } from 'components/icons'
 import useGlobal from 'context/GlobalContext'
+import classNames from 'classnames'
 
 type Props = {
   id?: string
@@ -61,22 +62,29 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
   return (
     <div className="w-full max-w-2xl">
       <form className="block relative flex__inline" onSubmit={handleSubmit}>
-        <div className="absolute ">
+        <div className="absolute">
           <ButtonFab
+            tabindex={-1}
             href="/search"
-            icon={<IconSearch />}
+            icon={<IconSearch className="text_pri" />}
             classNames="rounded-full m-0.5 px-4 py-2.5 block hover:bg_nut2 active:scale-95"
           />
         </div>
         <input
           id={id}
+          tabIndex={1}
           name="search_term_string"
           autoComplete="off"
           ref={searchInput}
           type="search"
           accessKey="s"
           placeholder={trans(`search_placeholder_d`)}
-          className="w-full h-12 rounded-full border border_nut4 px-14 outline-blue-200 outline-1 outline-offset-4 appearance-none hover:shadow-md active:shadow-md focus:shadow-md bg__nut0"
+          className={classNames(
+            'w-full h-12 rounded-full border border_nut4 px-14',
+            'outline-1 outline-offset-2',
+            'hover:shadow-md active:shadow-md focus:shadow-md focus:border_pri6',
+            'appearance-none bg__nut0'
+          )}
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
@@ -89,20 +97,23 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
             />
           )}
           <ButtonFab
-            title="To perfome a complex search"
+            title="To perform a complex search"
             onClick={() => {
               setState({
                 ...state,
                 toggleAdvanceSearch: true
               })
             }}
-            icon={<IconAdvanceSearch />}
+            icon={<IconAdvanceSearch className="text_nut4" />}
             classNames="rounded-full m-0.5 px-4 py-2.5 block hover:bg_nut2 active:scale-95"
           />
         </div>
         {router.pathname !== '/search' && (
           <div
-            className="w-full h-12 absolute top-0 cursor-pointer"
+            className={classNames(
+              'w-full h-12 absolute top-0 cursor-pointer',
+              'hover:shadow-md rounded-full border hover:border_nut4'
+            )}
             onClick={(e) => onClick(e)}
           ></div>
         )}

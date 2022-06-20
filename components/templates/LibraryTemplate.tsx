@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProfileTabs } from 'components/molecules'
+import { ProfileTabs } from 'components/organisms'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import routs from 'lib/routs'

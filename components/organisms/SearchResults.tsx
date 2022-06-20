@@ -2,8 +2,8 @@ import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import get from 'lodash/get'
 import classnames from 'classnames'
-import { SearchResultItem, Pagination } from 'components/molecules'
-import { ActionItem, ButtonFab } from 'components/atoms'
+import { SearchResultItem } from 'components/organisms'
+import { ActionItem, ButtonFab, Pagination } from 'components/atoms'
 import {
   IconSelectionMode,
   IconSavedSearch,
