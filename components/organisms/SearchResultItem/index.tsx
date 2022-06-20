@@ -2,11 +2,11 @@ import React from 'react'
 import { SearchResultItemProps } from 'types'
 
 import SearchResultItemSource from './SearchResultItemSource'
-import SearchResultItemTitle from './SearchResultItemTitle'
-import SearchResultItemTitleAuthors from './SearchResultItemTitleAuthors'
+import SearchResultTitle from './SearchResultTitle'
+import SearchResultAuthors from './SearchResultAuthors'
 import SearchResultItemAbstract from './SearchResultItemAbstract'
-import SearchResultItemKeywords from './SearchResultItemKeywords'
-import SearchResultItemSubjects from './SearchResultItemSubjects'
+import SearchResultKeywords from './SearchResultKeywords'
+import SearchResultSubjects from './SearchResultSubjects'
 import SearchResultItemActions from './SearchResultItemActions'
 
 const SearchResultItem: React.FC<SearchResultItemProps> = ({
@@ -29,7 +29,7 @@ const SearchResultItem: React.FC<SearchResultItemProps> = ({
     <article className="flex items-center rounded-md mb-4 max-w-4xl bg_white shadow mx-auto">
       <div className="py-4 px-6 w-full block sm:flex">
         <section className="w-full sm:w-9/12 block">
-          {SearchResultItemTitle(
+          {SearchResultTitle(
             title,
             permanentLinkId,
             publicationType,
@@ -37,9 +37,9 @@ const SearchResultItem: React.FC<SearchResultItemProps> = ({
           )}
           {SearchResultItemSource(journalTitle, publicationName)}
           {SearchResultItemAbstract(abstract)}
-          {SearchResultItemKeywords(keywords)}
-          {SearchResultItemSubjects(subjects)}
-          {SearchResultItemTitleAuthors(authors)}
+          {SearchResultKeywords(keywords)}
+          {SearchResultSubjects(subjects)}
+          {SearchResultAuthors(authors)}
         </section>
         <section className="pl-0 sm:pl-8 w-full sm:w-3/12">
           {SearchResultItemActions(link, id, downloadLink)}

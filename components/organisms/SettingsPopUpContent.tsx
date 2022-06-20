@@ -1,10 +1,10 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
 
-import SearchResultsPerPage from 'components/molecules/SearchResultsPerPage'
-import SearchResultDensity from 'components/molecules/SearchResultDensity'
-import SelectFontSize from 'components/molecules/SelectFontSize'
-import SelectTheme from 'components/molecules/SelectTheme'
+import SearchResultsPerPage from 'components/organisms/SearchResultsPerPage'
+import SearchResultDensity from 'components/organisms/SearchResultDensity'
+import SelectFontSize from 'components/organisms/SelectFontSize'
+import SelectTheme from 'components/organisms/SelectTheme'
 
 const SettingsPopUpContent = () => {
   const trans = useTranslations('settings')

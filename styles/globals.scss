@@ -7,7 +7,10 @@
 
 body {
   zoom: var(--zoom);
+  
 }
+
+
 
 :root {
   --white: #fff;
@@ -28,6 +31,8 @@ body {
   --nut2: #e2e8f0;
   --nut1: #f1f5f9;
   --nut0: #f8fafc;
+
+  --outline: #fdba74;
 }
 
 [data-theme='Dark'] {
@@ -56,28 +61,38 @@ body {
 @tailwind components;
 @tailwind utilities;
 
+
+* {
+  outline-color: var(--outline);
+}
+
 $colors: white, black, pri8, pri7, pri6, pri1, pri0, nut8, nut7, nut6, nut5, nut4, nut3, nut2,
   nut1, nut0;
 
 @each $color in $colors {
+  .focus\:bg_#{$color}:focus,
   .hover\:bg_#{$color}:hover,
   .active\:bg_#{$color}:active,
   .bg_#{$color} {
     background-color: var(--#{$color});
   }
 
+  .focus\:border_#{$color}:focus,
   .hover\:border_#{$color}:hover,
   .active\:border_#{$color}:active,
   .border_#{$color} {
     border-color: var(--#{$color});
   }
 
+  .focus\:text_#{$color}:focus,
   .active\:text_#{$color}:active,
   .hover\:text_#{$color}:hover,
   .text_#{$color} {
     color: var(--#{$color});
   }
 }
+
+
 
 input[type='search']::-webkit-search-decoration,
 input[type='search']::-webkit-search-cancel-button,
@@ -96,7 +111,7 @@ input[type='search']::-webkit-search-results-decoration {
 }
 
 .min-h {
-  min-height: 60vh;
+  min-height: 40vh;
 }
 
 select {

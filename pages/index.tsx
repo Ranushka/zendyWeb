@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
 import Head from 'next/head'
-import { SubTitle } from 'components//molecules'
+import { SubTitle } from 'components/organisms'
 import { commonMessages, curatedMessages, homeMessages } from 'lib/getMessages'
 
 import {

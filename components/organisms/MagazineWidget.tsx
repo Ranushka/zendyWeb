@@ -1,6 +1,6 @@
 import React from 'react'
 import get from 'lodash/get'
-import { CardMagazine } from 'components/molecules'
+import { CardMagazine } from 'components/organisms'
 import useGetMagazines from 'fetchHooks/useGetMagazines'
 
 type Props = {}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { SelectLanguage } from 'components/molecules'
+import { SelectLanguage } from 'components/organisms'
 
 const LanguagePopUpContent = () => {
   return (

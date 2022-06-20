@@ -2,7 +2,7 @@ import React from 'react'
 import isArray from 'lodash/isArray'
 import { useTranslations } from 'next-intl'
 
-import { Testimonial } from 'components/molecules'
+import { Testimonial } from 'components/organisms'
 
 type Props = {}
 

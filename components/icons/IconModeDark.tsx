@@ -1,9 +1,13 @@
 import * as React from 'react'
 import Svg from './Svg'
 
-const IconModeDark: React.FC<{}> = () => {
+type Props = {
+  className?: string
+}
+
+const IconModeDark: React.FC<Props> = ({ className }) => {
   return (
-    <Svg>
+    <Svg className={className}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

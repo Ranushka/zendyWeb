@@ -34,4 +34,4 @@ const SelectFontSize: React.FC<Props> = () => {
   )
 }
 
-export default SelectFontSize
+export default React.memo(SelectFontSize)

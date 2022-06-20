@@ -9,9 +9,9 @@ import routs from 'lib/routs'
 import { useMediaQuery } from 'react-responsive'
 
 import { ActionItem, Logo } from 'components/atoms'
-import { SearchForm, CategoriesMenu, SidePopup } from 'components/molecules'
-import SettingsPopUpContent from 'components/molecules/SettingsPopUpContent'
-import LanguagePopUpContent from 'components/molecules/LanguagePopUpContent'
+import { SearchForm, CategoriesMenu, SidePopup } from 'components/organisms'
+import SettingsPopUpContent from 'components/organisms/SettingsPopUpContent'
+import LanguagePopUpContent from 'components/organisms/LanguagePopUpContent'
 
 import { useSession } from 'next-auth/react'
 import MobileHeaderNav from './MobileHeaderNav'

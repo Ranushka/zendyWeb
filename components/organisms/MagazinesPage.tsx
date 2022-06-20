@@ -1,6 +1,6 @@
 import React from 'react'
 import get from 'lodash/get'
-import { CardMagazine, MagazinesPageTabs } from 'components/molecules'
+import { CardMagazine, MagazinesPageTabs } from 'components/organisms'
 import useGetMagazines from 'fetchHooks/useGetMagazines'
 
 const Magazines: React.FC<{}> = () => {

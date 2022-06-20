@@ -15,14 +15,16 @@ const useSearchResults = () => {
   const url = 'https://api.staging-oa.zendy.io/search/oa/search'
 
   const router = useRouter()
-  let queryString = router.query.q || router.query.author
+  const queryAuthor: any = router.query.author
+  const querySubject: any = router.query.subject
+  const queryString: any = router.query.q || queryAuthor || querySubject
 
   const facetFilters = []
   const pageNumber = 1
 
-  if (queryString) {
-    queryString = `${queryString} AND url_full_text:*.pdf`
-  }
+  // if (queryString) {
+  //   queryString = `${queryString} AND url_full_text:*.pdf`
+  // }
 
   const journalId = 'journalTitleFull'
   const journalString = router.query[labelMapping(journalId + 'Url')]
@@ -38,7 +40,7 @@ const useSearchResults = () => {
 
   const subjectId = 'subjectsFull'
   const subjectString = router.query[labelMapping(subjectId + 'Url')]
-  if (subjectString) {
+  if (!querySubject && subjectString) {
     facetFilters.push(getFilterObj(subjectId, subjectString))
   }
 

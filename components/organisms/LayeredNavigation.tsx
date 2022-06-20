@@ -15,7 +15,7 @@ import {
   DateRangeFilter,
   SortByFilter,
   FilterTitle
-} from 'components/molecules'
+} from 'components/organisms'
 
 type Props = {}
 
