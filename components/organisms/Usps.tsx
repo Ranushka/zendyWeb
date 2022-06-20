@@ -1,5 +1,5 @@
 import React from 'react'
-import { UspItem } from 'components/molecules'
+import { UspItem } from 'components/organisms'
 
 const data = [
   {

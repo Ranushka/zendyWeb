@@ -2,17 +2,21 @@ import React from 'react'
 import { BaseTemplate } from 'components/templates'
 import { commonMessages } from 'lib/getMessages'
 import {
+  SearchLandingBlock,
   LayeredNavigation,
   SearchResults,
   AuthorDetails
 } from 'components/organisms'
-import { SearchLandingBlock } from 'components/molecules'
+import SubjectDetails from 'components/organisms/SubjectDetails'
 import { useRouter } from 'next/router'
 
 const Search: React.FC = () => {
   const router = useRouter()
-  const queryString: any = router.query.q || router.query.author
   const queryAuthor: any = router.query.author
+  const querySubject: any = router.query.subject
+  const queryString: any = router.query.q || queryAuthor || querySubject
+
+  console.log('queryString---', queryString)
 
   React.useEffect(() => {
     const searchBoxElement = document.getElementById('mainSearch')
@@ -29,6 +33,7 @@ const Search: React.FC = () => {
       {queryString && (
         <>
           {queryAuthor && <AuthorDetails authorName={queryAuthor} />}
+          {querySubject && <SubjectDetails subject={querySubject} />}
           <div className="container p-4 flex">
             <LayeredNavigation />
             <SearchResults />

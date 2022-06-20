@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ContentStats } from 'components/molecules'
+import { ContentStats } from 'components/organisms'
 
 const data = [
   {

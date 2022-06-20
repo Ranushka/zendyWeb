@@ -2,7 +2,7 @@ import React from 'react'
 import { ActionItem } from 'components/atoms'
 import SearchResultItemTagTitle from './SearchResultItemTagTitle'
 
-const SearchResultItemSubjects = (subjects: [string]) => {
+const SearchResultSubjects = (subjects: [string]) => {
   if (!subjects.length) return <></>
   return (
     <div className="py-1 line-clamp-1">
@@ -10,11 +10,17 @@ const SearchResultItemSubjects = (subjects: [string]) => {
       {subjects
         .slice(0, 8)
         .map<React.ReactNode>((name, id) => (
-          <ActionItem key={id} text={name} href={'/'} type="link__small" />
+          <ActionItem
+            key={id}
+            text={name}
+            as={`/search?subject=${name}`}
+            href={`/search?subject=${name}`}
+            type="link__small"
+          />
         ))
         .reduce((prev, curr) => [prev, ', ', curr])}
     </div>
   )
 }
 
-export default SearchResultItemSubjects
+export default SearchResultSubjects

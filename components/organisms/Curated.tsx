@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardCurated } from 'components/molecules'
+import { CardCurated } from 'components/organisms'
 import isArray from 'lodash/isArray'
 import { useTranslations } from 'next-intl'
 

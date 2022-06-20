@@ -5,7 +5,7 @@ import SearchResultItemTagTitle from './SearchResultItemTagTitle'
 
 const countOfLinks = 8
 
-const SearchResultItemTitle = (authors: [string]) => {
+const SearchResultAuthors = (authors: [string]) => {
   if (!authors.length) return <></>
   return (
     <div className="pt-1 line-clamp-1">
@@ -31,4 +31,4 @@ const SearchResultItemTitle = (authors: [string]) => {
   )
 }
 
-export default SearchResultItemTitle
+export default SearchResultAuthors

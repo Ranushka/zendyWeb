@@ -34,4 +34,4 @@ const SelectTheme: React.FC<Props> = () => {
   )
 }
 
-export default SelectTheme
+export default React.memo(SelectTheme)

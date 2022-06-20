@@ -1,6 +1,6 @@
 import React from 'react'
 import { ActionItem } from 'components/atoms'
-import { SidePopup, StripeElementsForm } from 'components/molecules'
+import { SidePopup, StripeElementsForm } from 'components/organisms'
 
 type Props = {
   id?: string

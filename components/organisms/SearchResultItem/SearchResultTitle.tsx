@@ -4,7 +4,7 @@ import { CheckBox, ActionItem } from 'components/atoms'
 import { generateTitleUrlPath } from 'lib/helpers'
 import useGlobal from 'context/GlobalContext'
 
-const SearchResultItemTitle = (
+const SearchResultTitle = (
   title = '',
   permanentLinkId,
   publicationType = '',
@@ -37,4 +37,4 @@ const SearchResultItemTitle = (
   )
 }
 
-export default SearchResultItemTitle
+export default SearchResultTitle

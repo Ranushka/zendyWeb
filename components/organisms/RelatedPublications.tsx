@@ -1,8 +1,7 @@
-import { NextPage } from 'next'
+import React from 'react'
+import { SearchResultItem, SubTitle } from 'components/organisms'
 
-import { SearchResultItem, SubTitle } from 'components/molecules'
-
-const RelatedPublications: NextPage<any> = () => {
+const RelatedPublications: React.FC<any> = () => {
   return (
     <div className="mw__5">
       <SubTitle title="Related publications" />

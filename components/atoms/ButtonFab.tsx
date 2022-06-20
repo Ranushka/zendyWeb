@@ -8,6 +8,7 @@ type Props = {
   href?: string
   small?: boolean
   onClick?: Function
+  tabindex?: number
   classNames?: string
 }
 
@@ -17,6 +18,7 @@ const BtnFab: React.FC<Props> = ({
   icon,
   small,
   onClick,
+  tabindex = 1,
   classNames
 }) => {
   const className = classnames(
@@ -28,6 +30,7 @@ const BtnFab: React.FC<Props> = ({
   if (onClick) {
     return (
       <div
+        tabIndex={tabindex}
         onClick={() => onClick()}
         className={className}
         role="button"
@@ -39,7 +42,7 @@ const BtnFab: React.FC<Props> = ({
   }
 
   return (
-    <ActionItem href={href} className={className}>
+    <ActionItem href={href} className={className} tabIndex={tabindex}>
       <>{icon}</>
     </ActionItem>
   )

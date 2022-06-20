@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { SidePopup } from 'components/molecules'
+import { SidePopup } from 'components/organisms'
 import { ActionItem, Logo } from 'components/atoms'
 
 const __sidePopupContent = () => (

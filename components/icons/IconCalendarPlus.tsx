@@ -1,9 +1,13 @@
 import * as React from 'react'
 import Svg from './Svg'
 
-const IconCalendarPlus: React.FC<{}> = () => {
+type Props = {
+  className?: string
+}
+
+const IconCalendarPlus: React.FC<Props> = ({ className }) => {
   return (
-    <Svg>
+    <Svg className={className}>
       <path
         d="M7 1C6.448 1 6 1.448 6 2V3H5C3.895 3 3 3.895 3 5V19C3 20.105 3.895 21 5 21H19C20.105 21 21 20.105 21 19V5C21 3.895 20.105 3 19 3H18V2C18 1.448 17.552 1 17 1C16.448 1 16 1.448 16 2V3H8V2C8 1.448 7.552 1 7 1ZM5 8H19L19.002 19H5V8Z"
         fill="currentColor"

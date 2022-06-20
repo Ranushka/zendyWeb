@@ -9,10 +9,10 @@ const ResultsWithData = ({ data }) => {
   var { orcid, organizations, education } = orcidDetails
 
   return (
-    <section className="mb__0 mw__7">
-      <div className="bg__nut2 rounded-md px-8 py-8 my-8 mb__0 mx-4">
-        <div className="flex">
-          <div>
+    <section className="container">
+      <div className="bg_nut1 rounded-md px-8 py-8 mt-8 mx-4 flex justify-between">
+        <div className="">
+          <div className="mb-4">
             <small className="mute">Name</small>
             <div>{`${firstName} ${lastName}`}</div>
           </div>
@@ -32,7 +32,9 @@ const ResultsWithData = ({ data }) => {
               </div>
             ))}
           </div>
+        </div>
 
+        <div className="flex">
           <div>
             <small className="mute">Education</small>
             {education.map(({ organization, startYear }, key) => (
@@ -47,12 +49,10 @@ const ResultsWithData = ({ data }) => {
   )
 }
 
-const __authorDetailsLoading = () => {
+const __dataLoading = () => {
   return (
     <div className="mw__7  py-8 px-8 pb__0">
-      <Skeleton height={10} />
-
-      <Skeleton height={10} count={5} />
+      <Skeleton height={10} count={6} />
     </div>
   )
 }
@@ -61,7 +61,7 @@ const AuthorDetails: React.FC<AuthorDetailsProps> = ({ authorName }) => {
   const { data } = useAuthorDetails(authorName)
 
   if (!data) {
-    return __authorDetailsLoading()
+    return __dataLoading()
   }
 
   if (!data || data.error) {

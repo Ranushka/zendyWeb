@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import request from 'lib/request'
 import { Input, ActionItem, Price } from 'components/atoms'
-import { DiscountCodeBlock, SecurityStripBlock } from 'components/molecules'
+import { DiscountCodeBlock, SecurityStripBlock } from 'components/organisms'
 import useDiscountCode from 'fetchHooks/useDiscountCode'
 
 const CARD_OPTIONS = {
