@@ -10,6 +10,7 @@ export interface SearchResultItemProps {
   publicationType: string
   downloadLink: string
   permanentLinkId: string
+  isPremium: boolean
   authors: [string]
   keywords: string
   subjects: [string]

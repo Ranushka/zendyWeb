@@ -15,37 +15,39 @@ const useSearchResults = () => {
   const url = 'https://api.staging-oa.zendy.io/search/oa/search'
 
   const router = useRouter()
-  const queryAuthor: any = router.query.author
-  const querySubject: any = router.query.subject
-  const queryString: any = router.query.q || queryAuthor || querySubject
+  const rq = router.query
+  const qAuthor: any = rq.author
+  const qSubject: any = rq.subject
+  const qJournal: any = rq.journal
+  let queryString: any = rq.q || qAuthor || qSubject || qJournal
 
   const facetFilters = []
   const pageNumber = 1
 
-  // if (queryString) {
-  //   queryString = `${queryString} AND url_full_text:*.pdf`
-  // }
+  if (queryString) {
+    queryString = `${queryString} AND url_full_text:*.pdf`
+  }
 
   const journalId = 'journalTitleFull'
-  const journalString = router.query[labelMapping(journalId + 'Url')]
+  const journalString = rq[labelMapping(journalId + 'Url')]
   if (journalString) {
     facetFilters.push(getFilterObj(journalId, journalString))
   }
 
   const langId = 'genlanguage'
-  const langString = router.query[labelMapping(langId + 'Url')]
+  const langString = rq[labelMapping(langId + 'Url')]
   if (langString) {
     facetFilters.push(getFilterObj(langId, langString))
   }
 
   const subjectId = 'subjectsFull'
-  const subjectString = router.query[labelMapping(subjectId + 'Url')]
-  if (!querySubject && subjectString) {
+  const subjectString = rq[labelMapping(subjectId + 'Url')]
+  if (!qSubject && subjectString) {
     facetFilters.push(getFilterObj(subjectId, subjectString))
   }
 
   const materialId = 'publicationTypeFull'
-  const materialString = router.query[labelMapping(materialId + 'Url')]
+  const materialString = rq[labelMapping(materialId + 'Url')]
   if (materialString) {
     facetFilters.push(getFilterObj(materialId, materialString))
   }
@@ -59,8 +61,8 @@ const useSearchResults = () => {
     sortFilters: 'relevance'
   }
 
-  // const sortByString = router.query[labelMapping(sortById + 'Url')]
-  const sortByString = router.query.by
+  // const sortByString = rq[labelMapping(sortById + 'Url')]
+  const sortByString = rq.by
   if (sortByString) {
     queryParams.sortFilters = sortByString.toString()
   }
