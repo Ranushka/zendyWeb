@@ -11,6 +11,8 @@ const SearchResultItemSource = (journalTitle, publicationName) => {
           <ActionItem
             className="pr-2 first_letter_caps"
             text={publicationName}
+            as={`/search?subject=${publicationName}`}
+            href={`/search?subject=${publicationName}`}
             type="link__small"
           />
         </span>

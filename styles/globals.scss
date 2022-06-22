@@ -191,3 +191,14 @@ textarea {
 .first_letter_caps:first-letter {
   text-transform: capitalize;
 }
+
+#homeSearchSticky {
+  background-color: var(--white);
+}
+
+#homeSearchSticky.pinned{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background: #fff;
+}
