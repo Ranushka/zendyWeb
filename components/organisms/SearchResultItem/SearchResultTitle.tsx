@@ -2,13 +2,15 @@ import React from 'react'
 import striptags from 'striptags'
 import { CheckBox, ActionItem } from 'components/atoms'
 import { generateTitleUrlPath } from 'lib/helpers'
+import IconOa from 'components/icons/IconOa'
 import useGlobal from 'context/GlobalContext'
 
 const SearchResultTitle = (
   title = '',
   permanentLinkId,
   publicationType = '',
-  publicationYear = ''
+  publicationYear = '',
+  isPremium = false
 ) => {
   const titleId = generateTitleUrlPath(title, permanentLinkId)
   const [state] = useGlobal()
@@ -23,7 +25,10 @@ const SearchResultTitle = (
       )}
       <div className="block">
         <small className="block text_nut5">
-          {publicationType} - {publicationYear}
+          {publicationType} - {publicationYear}{' '}
+          {!isPremium && (
+            <IconOa className="inline-block h-5 relative -top-1" />
+          )}
         </small>
         <ActionItem
           text={striptags(title.toString())}

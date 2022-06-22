@@ -16,6 +16,7 @@ const RelatedPublications: React.FC<any> = () => {
               journalTitle="abc title"
               publicationYear="2020"
               publicationType="journal"
+              isPremium
               downloadLink="/"
               permanentLinkId="uid"
               authors={['name one']}

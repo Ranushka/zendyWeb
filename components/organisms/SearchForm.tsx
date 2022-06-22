@@ -28,14 +28,14 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
     })
   }
 
-  const onClick = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
+  // const onClick = (e) => {
+  //   e.preventDefault()
+  //   e.stopPropagation()
 
-    router.push({
-      pathname: '/search'
-    })
-  }
+  //   router.push({
+  //     pathname: '/search'
+  //   })
+  // }
 
   const clearInput = () => {
     setSearchText('')
@@ -54,7 +54,8 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
       setSearchText(query.toString())
     }
 
-    if (router.pathname === '/search' && !router.query.q) {
+    // if (router.pathname === '/search' && !router.query.q) {
+    if (!router.query.q) {
       searchInput.current.focus()
     }
   }, [router])
@@ -62,12 +63,12 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
   return (
     <div className="w-full max-w-2xl">
       <form className="block relative flex__inline" onSubmit={handleSubmit}>
-        <div className="absolute">
+        <div className="absolute out">
           <ButtonFab
             tabindex={-1}
             href="/search"
             icon={<IconSearch className="text_pri" />}
-            classNames="rounded-full m-0.5 px-4 py-2.5 block hover:bg_nut2 active:scale-95"
+            classNames="rounded-full m-0.5 px-3 py-2.5 block hover:bg_nut2 active:scale-95"
           />
         </div>
         <input
@@ -81,8 +82,8 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
           placeholder={trans(`search_placeholder_d`)}
           className={classNames(
             'w-full h-12 rounded-full border border_nut4 px-14',
-            'outline-1 outline-offset-2',
-            'hover:shadow-md active:shadow-md focus:shadow-md focus:border_pri6',
+            'outline-4 outline-offset-2',
+            'hover:shadow active:border_pri6 focus:border_pri6',
             'appearance-none bg__nut0'
           )}
           value={searchText}
@@ -105,18 +106,18 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
               })
             }}
             icon={<IconAdvanceSearch className="text_nut4" />}
-            classNames="rounded-full m-0.5 px-4 py-2.5 block hover:bg_nut2 active:scale-95"
+            classNames="rounded-full m-0.5 px-3 py-2.5 block hover:bg_nut2 active:scale-95"
           />
         </div>
-        {router.pathname !== '/search' && (
+        {/* {router.pathname !== '/search' && (
           <div
             className={classNames(
               'w-full h-12 absolute top-0 cursor-pointer',
-              'hover:shadow-md rounded-full border hover:border_nut4'
+              'hover:shadow-md rounded-full border border_nut4 hover:border_nut4'
             )}
             onClick={(e) => onClick(e)}
           ></div>
-        )}
+        )} */}
       </form>
     </div>
   )

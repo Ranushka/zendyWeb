@@ -10,7 +10,12 @@ export const generateTitleUrlPath = (name: string, id: string) => {
     join id with title by star
   */
 
-  let res = name && name.replace(/[^a-zA-Z]/g, "_").replace(/_+/g, '_').substring(0,60);
+  let res =
+    name &&
+    name
+      .replace(/[^a-zA-Z]/g, '_')
+      .replace(/_+/g, '_')
+      .substring(0, 60)
   let newId = id && id.replaceAll('/', '_')
 
   return `${res}*${newId}`
@@ -21,7 +26,10 @@ export const getPublicationId = (id: string) => {
     get the id by splitting url by star
     remove underscore with slash unicode %2F = /
   */
-  const pubId = id.split('*').pop().replaceAll('_', '%2F')
+  const pubId = id
+    .split('*')
+    .pop()
+    .replaceAll('_', '%2F')
 
   return pubId
 }
@@ -74,13 +82,32 @@ export const clickVibrate = () => {
 
 export const getDir = (local) => {
   const isRtl = /ar|fa/.test(local)
-  return isRtl ? 'rtl': 'ltr';
+  return isRtl ? 'rtl' : 'ltr'
 }
 
 export function getDate(date) {
   return new Date(date).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'short',
-    year: 'numeric',
-  });
+    year: 'numeric'
+  })
+}
+
+export function addStickyClass(id:string) {
+  try {
+    var navbar = document.getElementById(id);
+    var sticky = navbar.offsetTop;
+
+    console.log(sticky);
+    
+    window.onscroll = function() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("pinned")
+      } else {
+        navbar.classList.remove("pinned");
+      }
+    };
+  } catch (error) {
+    console.log(error)
+  }
 }

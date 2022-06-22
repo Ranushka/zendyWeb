@@ -82,7 +82,7 @@ const __searchResultLoading = () => {
   return [1, 2, 3].map((id) => (
     <article
       key={'skeletonSearchResult' + id}
-      className="items-center rounded-md mb-4 max-w-4xl bg_white shadow mx-auto p-4"
+      className="items-center rounded-md mb-4 max-w-4xl bg_white shadow-sm mx-auto p-4"
     >
       <div className="flex">
         <Skeleton height={10} width={60} className="mr-2" />
@@ -131,8 +131,6 @@ const __resultData = () => {
   const searchResults = get(data, 'data.searchResults', null)
 
   if (searchResults) {
-    console.log('------', searchResults)
-
     return <ResultsWithData {...searchResults} />
   }
 
@@ -148,8 +146,6 @@ const ResultsWithData: React.FC<any> = ({ results, totalResults }) => {
   return (
     <div>
       {results.map((data, id) => {
-        // console.log('--->', data)
-
         return <SearchResultItem {...data} key={`searchResult${id}`} />
       })}
 

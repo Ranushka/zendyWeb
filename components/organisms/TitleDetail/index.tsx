@@ -85,7 +85,6 @@ const __renderContent = ({
           issueNumber={volume}
           publisher={publicationName}
         />
-        <h1>sskkkkkkkkkkkkss</h1>
         {TitleDetailHead()}
         {TitleDetailTitle(title)}
         {TitleDetailSource(title, journalTitle, publicationYear)}
@@ -171,7 +170,7 @@ const __renderSomethingWentWrong = () => {
 
 const TitleDetail: React.FC = () => {
   const { data } = useTitleDetail()
-  console.log('----------->', data)
+
   if (!data) {
     return __renderLoading()
   }

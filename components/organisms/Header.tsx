@@ -58,7 +58,8 @@ const Header = () => {
       </section>
       <nav
         className={classnames(
-          'bg_white shadow-none md:shadow relative md:sticky top-0 z-30',
+          'bg_white shadow-none md:shadow relative top-0 z-30',
+          isSearchPage && 'md:sticky',
           !isMobile && 'shadow'
         )}
       >
@@ -71,7 +72,7 @@ const Header = () => {
 
           {!isMobile && (
             <div className="w-full justify-center flex top-0">
-              <SearchForm id="mainSearch" />
+              {isSearchPage && <SearchForm id="mainSearch" />}
             </div>
           )}
 

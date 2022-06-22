@@ -8,15 +8,18 @@ import {
   AuthorDetails
 } from 'components/organisms'
 import SubjectDetails from 'components/organisms/SubjectDetails'
+import JournalDetails from 'components/organisms/JournalDetails'
 import { useRouter } from 'next/router'
 
 const Search: React.FC = () => {
   const router = useRouter()
-  const queryAuthor: any = router.query.author
-  const querySubject: any = router.query.subject
-  const queryString: any = router.query.q || queryAuthor || querySubject
+  const rq = router.query
+  const qAuthor = rq.author
+  const qSubject = rq.subject
+  const qJournal = rq.journal
+  const queryString = rq.q || qAuthor || qSubject || qJournal
 
-  console.log('queryString---', queryString)
+  // console.log('queryString---', queryString)
 
   React.useEffect(() => {
     const searchBoxElement = document.getElementById('mainSearch')
@@ -32,8 +35,9 @@ const Search: React.FC = () => {
     <BaseTemplate>
       {queryString && (
         <>
-          {queryAuthor && <AuthorDetails authorName={queryAuthor} />}
-          {querySubject && <SubjectDetails subject={querySubject} />}
+          {qJournal && <JournalDetails publicationName={qJournal.toString()} />}
+          {qAuthor && <AuthorDetails authorName={qAuthor.toString()} />}
+          {qSubject && <SubjectDetails subject={qSubject} />}
           <div className="container p-4 flex">
             <LayeredNavigation />
             <SearchResults />
