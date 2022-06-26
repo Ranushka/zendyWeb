@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import classnames from 'classnames'
 
 type Props = {
-  label?: string
+  label?: string | ReactNode
   name?: string
   checked?: boolean
   id: string

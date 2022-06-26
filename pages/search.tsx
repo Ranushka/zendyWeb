@@ -3,12 +3,12 @@ import { BaseTemplate } from 'components/templates'
 import { commonMessages } from 'lib/getMessages'
 import {
   SearchLandingBlock,
-  LayeredNavigation,
   SearchResults,
   AuthorDetails
 } from 'components/organisms'
 import SubjectDetails from 'components/organisms/SubjectDetails'
 import JournalDetails from 'components/organisms/JournalDetails'
+import FilterNavigation from 'components/organisms/FilterNavigation'
 import { useRouter } from 'next/router'
 
 const Search: React.FC = () => {
@@ -39,7 +39,7 @@ const Search: React.FC = () => {
           {qAuthor && <AuthorDetails authorName={qAuthor.toString()} />}
           {qSubject && <SubjectDetails subject={qSubject} />}
           <div className="container p-4 flex">
-            <LayeredNavigation />
+            <FilterNavigation />
             <SearchResults />
           </div>
         </>

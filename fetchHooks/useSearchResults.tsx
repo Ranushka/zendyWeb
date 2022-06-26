@@ -2,31 +2,38 @@ import useSWR from 'swr'
 import { useRouter } from 'next/router'
 import labelMapping from 'lib/labelMapping'
 
-const getFilterObj = (journalId, journalString) => {
+const getFilterObj = (categoryId, facetLabel) => {
+  const refinedFacetLabel = facetLabel
+    .split(',')
+    .map((item) => `"${item}"`)
+    .join(' OR ')
+
   return {
     active: true,
-    categoryId: journalId,
-    categoryLabel: journalId,
-    facetLabel: journalString
+    categoryId: categoryId,
+    categoryLabel: categoryId,
+    facetLabel: `(${refinedFacetLabel})`
   }
 }
 
 const useSearchResults = () => {
-  const url = 'https://api.staging-oa.zendy.io/search/oa/search'
+  const url = '/api/search'
 
   const router = useRouter()
   const rq = router.query
   const qAuthor: any = rq.author
   const qSubject: any = rq.subject
   const qJournal: any = rq.journal
-  let queryString: any = rq.q || qAuthor || qSubject || qJournal
+  const qMaterial: any = rq.material
+  const qPublisher: any = rq.publisher
+  const queryString: any = rq.q || qAuthor || qSubject || qJournal
 
   const facetFilters = []
   const pageNumber = 1
 
-  if (queryString) {
-    queryString = `${queryString} AND url_full_text:*.pdf`
-  }
+  // if (queryString) {
+  //   queryString = `${queryString} AND url_full_text:*.pdf`
+  // }
 
   const journalId = 'journalTitleFull'
   const journalString = rq[labelMapping(journalId + 'Url')]
@@ -46,10 +53,12 @@ const useSearchResults = () => {
     facetFilters.push(getFilterObj(subjectId, subjectString))
   }
 
-  const materialId = 'publicationTypeFull'
-  const materialString = rq[labelMapping(materialId + 'Url')]
-  if (materialString) {
-    facetFilters.push(getFilterObj(materialId, materialString))
+  if (qMaterial) {
+    facetFilters.push(getFilterObj('publicationTypeFull', qMaterial))
+  }
+
+  if (qPublisher) {
+    facetFilters.push(getFilterObj('publishersFull', qPublisher))
   }
 
   const queryParams = {
@@ -70,7 +79,7 @@ const useSearchResults = () => {
   const options = {
     method: 'POST',
     headers: {
-      credentials: 'include',
+      // credentials: 'include',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(queryParams)

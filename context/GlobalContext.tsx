@@ -6,6 +6,7 @@ export const GlobalProvider = ({ children }) => {
   const [state, setState] = useState({
     selectionMode: false,
     mobileFilterVisibility: false,
+    initialFilters: null,
     toggleAdvanceSearch: false
   })
 
