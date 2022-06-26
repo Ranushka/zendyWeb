@@ -20,7 +20,7 @@ const RelatedPublications: React.FC<any> = () => {
               downloadLink="/"
               permanentLinkId="uid"
               authors={['name one']}
-              keywords={'key'}
+              keywords={['name one']}
               subjects={['subject']}
               link={[]}
               title="Platform Competition in the Sharing Economy: Understanding How Ride-Hailing Services Influence New Car Purchases."
