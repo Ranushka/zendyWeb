@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl'
 import { ButtonFab } from 'components/atoms'
 import { IconSearch, IconClear, IconAdvanceSearch } from 'components/icons'
 import useGlobal from 'context/GlobalContext'
+import { focusToSearchInput } from 'lib/helpers'
 import classNames from 'classnames'
 
 type Props = {
@@ -57,6 +58,14 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
     // if (router.pathname === '/search' && !router.query.q) {
     if (!router.query.q) {
       searchInput.current.focus()
+    }
+  }, [router])
+
+  React.useEffect(() => {
+    window.addEventListener('keydown', focusToSearchInput)
+
+    return () => {
+      window.removeEventListener('keydown', focusToSearchInput)
     }
   }, [router])
 

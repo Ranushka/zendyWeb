@@ -1,8 +1,9 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { Chip } from 'components/atoms'
+import FilterGroupTitle from 'components/organisms/FilterGroupTitle'
 
-const SortByFilter: React.FC = () => {
+const FilterType: React.FC = () => {
   const sortBysList = [
     { name: 'Relevance', value: 'relevance' },
     { name: 'Newest', value: 'date' },
@@ -34,7 +35,12 @@ const SortByFilter: React.FC = () => {
     )
   })
 
-  return <form className="flex flex-wrap">{customSortBys}</form>
+  return (
+    <div className="mb-8">
+      <FilterGroupTitle title="Sort by" />
+      <form className="flex flex-wrap">{customSortBys}</form>
+    </div>
+  )
 }
 
-export default SortByFilter
+export default FilterType

@@ -50,7 +50,7 @@ const Home: React.FC = () => {
           isSticky && 'shadow bg_white'
         )}
       >
-        <SearchForm />
+        <SearchForm id="mainSearch" />
       </div>
       <SubTitle
         title={trans('section1')}

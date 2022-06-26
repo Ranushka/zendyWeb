@@ -6,7 +6,7 @@ import SearchResultItemTagTitle from './SearchResultItemTagTitle'
 const countOfLinks = 8
 
 const SearchResultAuthors = (authors: [string]) => {
-  if (!authors.length) return <></>
+  if (!authors?.length) return <></>
   return (
     <div className="pt-1 line-clamp-1">
       {SearchResultItemTagTitle('By')}
@@ -21,6 +21,7 @@ const SearchResultAuthors = (authors: [string]) => {
                 as={`/search?author=${name}`}
                 href={`/search?author=${name}`}
                 type="link__small"
+                className="text_nut5"
               />
             )
           }
