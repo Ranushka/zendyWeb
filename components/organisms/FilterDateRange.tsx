@@ -1,41 +1,12 @@
 import React from 'react'
+
 import { Chip } from 'components/atoms'
 import { IconClear } from 'components/icons'
 import { Input, ButtonFab, ActionItem } from 'components/atoms'
+import FilterGroupTitle from 'components/organisms/FilterGroupTitle'
 
-type SortByFilterProps = {
-  year: string
-  setYear: React.Dispatch<React.SetStateAction<string>>
-}
-
-const SortByFilter: React.FC<SortByFilterProps> = ({ year, setYear }) => {
-  const yearsList = [
-    'Any time',
-    'from 2021',
-    'from 2020',
-    '5 years back',
-    '10 years back',
-    'custom'
-  ]
-  React.useEffect(() => {
-    if (!year) {
-      setYear('Any time')
-    }
-  })
-
-  const customYears = yearsList.map((item, id) => {
-    return (
-      <Chip
-        key={id}
-        id={id}
-        checked={item === year}
-        onClick={() => setYear(item)}
-        label={item}
-      />
-    )
-  })
-
-  const customYearsRange = (
+const customYearsRange = (setYear) => {
+  return (
     <div className="relative">
       <div className="flex__between">
         <span>Custom range</span>
@@ -74,12 +45,40 @@ const SortByFilter: React.FC<SortByFilterProps> = ({ year, setYear }) => {
       />
     </div>
   )
+}
+
+const FilterDateRange: React.FC = () => {
+  const [year, setYear] = React.useState('Any time')
+
+  const yearsList = [
+    'Any time',
+    'from 2021',
+    'from 2020',
+    '5 years back',
+    '10 years back',
+    'custom'
+  ]
+
+  const customYears = yearsList.map((item, id) => {
+    return (
+      <Chip
+        key={id}
+        id={id}
+        checked={item === year}
+        onClick={() => setYear(item)}
+        label={item}
+      />
+    )
+  })
 
   return (
-    <form className="flex flex-wrap">
-      {year === 'custom' ? customYearsRange : customYears}
-    </form>
+    <div className="mb-8">
+      <FilterGroupTitle title="Year range" />
+      <form className="flex flex-wrap">
+        {year === 'custom' ? customYearsRange(setYear) : customYears}
+      </form>
+    </div>
   )
 }
 
-export default SortByFilter
+export default FilterDateRange

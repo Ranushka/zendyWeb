@@ -93,21 +93,38 @@ export function getDate(date) {
   })
 }
 
-export function addStickyClass(id:string) {
+export function addStickyClass(id: string) {
   try {
-    var navbar = document.getElementById(id);
-    var sticky = navbar.offsetTop;
+    var navbar = document.getElementById(id)
+    var sticky = navbar.offsetTop
 
-    console.log(sticky);
-    
+    console.log(sticky)
+
     window.onscroll = function() {
       if (window.pageYOffset >= sticky) {
-        navbar.classList.add("pinned")
+        navbar.classList.add('pinned')
       } else {
-        navbar.classList.remove("pinned");
+        navbar.classList.remove('pinned')
       }
-    };
+    }
   } catch (error) {
     console.log(error)
   }
+}
+
+export function focusToSearchInput(event) {
+  if (event.srcElement.localName === 'input') return
+  if (event.keyCode === 191) {
+    setTimeout(() => {
+      const searchEl = document.getElementById('mainSearch')
+      searchEl && searchEl.focus()
+    }) // setTimeout prevents insertion of slash
+  }
+}
+
+export function countFormatted(totalResults) {
+  return new Intl.NumberFormat('en-GB', {
+    notation: 'compact',
+    compactDisplay: 'short'
+  }).format(totalResults)
 }

@@ -12,7 +12,7 @@ export interface SearchResultItemProps {
   permanentLinkId: string
   isPremium: boolean
   authors: [string]
-  keywords: string
+  keywords: [string]
   subjects: [string]
   link: []
   isReviewed?: boolean

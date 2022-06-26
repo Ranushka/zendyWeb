@@ -22,7 +22,7 @@ const Header = () => {
   const { data: session, status } = useSession()
 
   const loading = status === 'loading'
-  const isSearchPage = router.pathname === '/search'
+  const isHomePage = router.pathname === routs.index
   const [openAppearance, setOpenAppearance] = React.useState(false)
   const [openLangPopUp, setOpenLangPopUp] = React.useState(false)
   const isMobile = useMediaQuery({
@@ -59,7 +59,7 @@ const Header = () => {
       <nav
         className={classnames(
           'bg_white shadow-none md:shadow relative top-0 z-30',
-          isSearchPage && 'md:sticky',
+          !isHomePage && 'md:sticky',
           !isMobile && 'shadow'
         )}
       >
@@ -71,15 +71,15 @@ const Header = () => {
           <CategoriesMenu />
 
           {!isMobile && (
-            <div className="w-full justify-center flex top-0">
-              {isSearchPage && <SearchForm id="mainSearch" />}
+            <div className="w-full justify-center flex top-0 h-12">
+              {!isHomePage && <SearchForm id="mainSearch" />}
             </div>
           )}
 
           <ActionItem
             className={classnames(
               'px-4 hidden md:block',
-              !isSearchPage && 'hidden md:flex'
+              !isHomePage && 'hidden md:flex'
             )}
             text={trans('my_link')}
             href="/library/collections"
