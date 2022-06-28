@@ -29,7 +29,7 @@ export const getPublicationId = (id: string) => {
   const pubId = id
     .split('*')
     .pop()
-    .replaceAll('_', '%2F')
+    .replaceAll('_', '/')
 
   return pubId
 }

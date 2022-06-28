@@ -1,50 +1,47 @@
 import React from 'react'
 import { SearchResultItemProps } from 'types'
 
-import SearchResultItemSource from './SearchResultItemSource'
-import SearchResultTitle from './SearchResultTitle'
-import SearchResultAuthors from './SearchResultAuthors'
-import SearchResultItemAbstract from './SearchResultItemAbstract'
-import SearchResultKeywords from './SearchResultKeywords'
-import SearchResultSubjects from './SearchResultSubjects'
-import SearchResultItemActions from './SearchResultItemActions'
+import SearchResultItemSource from 'components/organisms/SearchResultItemSource'
+import SearchResultTitle from 'components/organisms/SearchResultTitle'
+import SearchResultKeywords from 'components/organisms/SearchResultKeywords'
+import SearchResultSubjects from 'components/organisms/SearchResultSubjects'
+import SearchResultAuthors from 'components/organisms/SearchResultAuthors'
+import SearchResultItemAbstract from 'components/organisms/SearchResultItemAbstract'
+import SearchResultItemActions from '../SearchResultItemActions'
 
-const SearchResultItem: React.FC<SearchResultItemProps> = ({
-  id,
-  // href,
-  title,
-  abstract,
-  journalTitle,
-  publicationYear,
-  publicationName,
-  publicationType,
-  authors,
-  keywords,
-  link,
-  isPremium,
-  downloadLink,
-  permanentLinkId,
-  subjects
-}) => {
+const SearchResultItem: React.FC<SearchResultItemProps> = (data) => {
+  const {
+    resultId,
+    abstract,
+    journalTitle,
+    publicationName,
+    authors,
+    keywords,
+    link,
+    downloadLink,
+    subjects
+  } = data
+
   return (
     <article className="flex items-center rounded-md mb-4 max-w-4xl bg_white shadow-sm hover:shadow mx-auto">
       <div className="py-4 px-6 w-full block sm:flex">
         <section className="w-full sm:w-9/12 block">
-          {SearchResultTitle(
-            title,
-            permanentLinkId,
-            publicationType,
-            publicationYear,
-            isPremium
-          )}
-          {SearchResultItemSource(journalTitle, publicationName)}
-          {SearchResultItemAbstract(abstract)}
-          {SearchResultKeywords(keywords)}
-          {SearchResultSubjects(subjects)}
-          {SearchResultAuthors(authors)}
+          <SearchResultTitle {...data} />
+          <SearchResultItemSource
+            journalTitle={journalTitle}
+            publicationName={publicationName}
+          />
+          <SearchResultItemAbstract abstract={abstract} />
+          <SearchResultKeywords keywords={keywords} />
+          <SearchResultSubjects subjects={subjects} />
+          <SearchResultAuthors authors={authors} />
         </section>
         <section className="pl-0 sm:pl-8 w-full sm:w-3/12">
-          {SearchResultItemActions(link, id, downloadLink)}
+          <SearchResultItemActions
+            link={link}
+            resultId={resultId}
+            downloadLink={downloadLink}
+          />
         </section>
       </div>
     </article>

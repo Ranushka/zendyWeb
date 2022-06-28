@@ -9,9 +9,6 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    console.log('==================')
-    console.log('===req>>', req.body)
-
     const { searchQuery, facetFilters, sortFilters } = req.body
 
     const TERM = searchQuery[0].term
@@ -25,14 +22,10 @@ export default async function handler(
       limit: 10
     }
 
-    // console.log('===qryOptions>>', qryOptions)
-
     const dataFromSolr = await apiSolrSearch(qryOptions)
     if (dataFromSolr.error) throw new Error(JSON.stringify(dataFromSolr.error))
 
     const formattedData = formatData(dataFromSolr, searchQuery)
-
-    // console.log('---dataFromSolr-->', qryOptions)
 
     res.status(200).json(formattedData)
   } catch (err) {
@@ -46,8 +39,6 @@ function formatData(dataFromSolr, searchQuery) {
     response: { numFound, maxScore, docs },
     facet_counts: { facet_fields }
   } = dataFromSolr
-
-  // console.log('numFound-->', facet_fields)
 
   const results = formatSearchResult(docs, highlighting)
   const availableFacets = formatAvailableFacets(facet_fields)

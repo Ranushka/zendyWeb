@@ -1,17 +1,17 @@
 import React from 'react'
 
 import { ActionItem } from 'components/atoms'
-import SearchResultItemTagTitle from './SearchResultItemTagTitle'
+import SearchResultItemTagTitle from 'components/organisms/SearchResultItemTagTitle'
+import classNames from 'classnames'
 
-const countOfLinks = 8
-
-const SearchResultAuthors = (authors: [string]) => {
+const SearchResultAuthors = ({ authors = [], all = false }) => {
   if (!authors?.length) return <></>
+
   return (
-    <div className="pt-1 line-clamp-1">
+    <div className={classNames('py-1', !all && 'line-clamp-1')}>
       {SearchResultItemTagTitle('By')}
       {authors
-        .slice(0, countOfLinks)
+        .slice(0, all ? 20 : 8)
         .map<React.ReactNode>((name, id) => {
           if (name) {
             return (

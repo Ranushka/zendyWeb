@@ -4,11 +4,15 @@ import get from 'lodash/get'
 import { ActionItem, ButtonFab } from 'components/atoms'
 import { IconCite, IconBookmark, IconLink } from 'components/icons'
 
-const SearchResultItemActions = (link: [], id, downloadLink: string) => {
+const SearchResultItemActions = ({
+  link = [],
+  resultId = '',
+  downloadLink = ''
+}) => {
   const href = get(link, '[0].url')
 
   return (
-    <>
+    <div key={resultId}>
       <div className="flex justify-around my-4">
         <ButtonFab icon={<IconCite />} small />
         <ButtonFab icon={<IconLink />} small />
@@ -29,7 +33,7 @@ const SearchResultItemActions = (link: [], id, downloadLink: string) => {
         type="btn__primary"
         block
       />
-    </>
+    </div>
   )
 }
 

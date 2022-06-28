@@ -37,7 +37,7 @@ const Header = () => {
   return (
     <>
       <section className="bg_nut2">
-        <div className="flex justify-end items-center px-4">
+        <div className="flex justify-end items-center px-4 py-2 md:py-4">
           <NavItems />
           <div className="hidden sm:flex">
             <div className="mx-4 py-0.5">|</div>
@@ -58,7 +58,7 @@ const Header = () => {
       </section>
       <nav
         className={classnames(
-          'bg_white shadow-none md:shadow relative top-0 z-30',
+          'bg_white shadow relative top-0 z-30',
           !isHomePage && 'md:sticky',
           !isMobile && 'shadow'
         )}
@@ -92,11 +92,11 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      {isMobile && (
+      {/* {isMobile && (
         <div className="w-full justify-center flex sticky top-0 bg_white px-4 pb-4 pt-3 shadow z-10">
           <SearchForm id="mainSearchMobile" />
         </div>
-      )}
+      )} */}
       <SidePopup
         small
         content={<LanguagePopUpContent />}
