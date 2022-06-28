@@ -33,6 +33,7 @@
     "next-intl": "^2.4.0",
     "next-pwa": "^5.4.4",
     "nprogress": "^0.2.0",
+    "pdf-viewer-reactjs": "^2.2.3",
     "postcss": "^8.4.14",
     "postcss-cli": "^9.0.2",
     "prettier-plugin-tailwindcss": "^0.1.11",

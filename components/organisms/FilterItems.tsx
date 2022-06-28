@@ -46,7 +46,11 @@ const FilterItems = ({ items, groupId }) => {
     }
 
     return (
-      <div key={'filter' + id} onClick={onClick}>
+      <div
+        key={'filter' + id}
+        onClick={onClick}
+        className="text_nut5 hover:text_nut6"
+      >
         <CheckBox
           checked={checked}
           className="py-1"

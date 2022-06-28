@@ -10,7 +10,10 @@ const Curated: React.FC<Props> = () => {
   const data = trans.raw('data')
 
   return (
-    <section className="p-4 text-center whitespace-nowrap overflow-y-scroll hideScrollBar">
+    <section
+      key="curated"
+      className="p-4 text-center whitespace-nowrap overflow-y-scroll hideScrollBar"
+    >
       {isArray(data) &&
         data.map(({ id, href, image, title, content }) => (
           <CardCurated

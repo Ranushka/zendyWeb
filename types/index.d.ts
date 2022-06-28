@@ -1,6 +1,6 @@
 import React from 'react'
 export interface SearchResultItemProps {
-  id: string
+  resultId: string
   href: string
   title: string
   abstract: string

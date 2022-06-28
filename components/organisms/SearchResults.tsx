@@ -146,6 +146,8 @@ const ResultsWithData: React.FC<any> = ({ results, totalResults }) => {
   return (
     <div>
       {results.map((data, id) => {
+        console.log('resultsData--->', data)
+
         return <SearchResultItem {...data} key={`searchResult${id}`} />
       })}
 
