@@ -43,7 +43,7 @@ const Home: React.FC = () => {
         <title>{trans('title')}</title>
       </Head>
       <HeroCtaHome />
-      <div
+      <section
         ref={homeSearchStickyRef}
         className={classNames(
           'sticky flex justify-center -top-0.5 z-20 p-2',
@@ -51,19 +51,19 @@ const Home: React.FC = () => {
         )}
       >
         <SearchForm id="mainSearch" />
-      </div>
+      </section>
       <SubTitle
         title={trans('section1')}
         linkText={trans('see_all')}
         linkHref="/news"
       />
-      <Curated />
+      <Curated key="curated" />
       <SubTitle
         title={trans('section2')}
         linkText={trans('see_all')}
         linkHref="/subjects"
       />
-      <Subjects />
+      <Subjects key="Subjects" />
       <SubTitle
         title={trans('section3')}
         linkText={trans('see_all')}

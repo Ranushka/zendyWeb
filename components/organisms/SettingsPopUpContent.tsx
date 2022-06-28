@@ -1,8 +1,8 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
 
-import SearchResultsPerPage from 'components/organisms/SearchResultsPerPage'
-import SearchResultDensity from 'components/organisms/SearchResultDensity'
+import SearchResultsPerPage from 'components/organisms/SettingsSearchResultsPerPage'
+import SearchResultDensity from 'components/organisms/SettingsSearchResultDensity'
 import SelectFontSize from 'components/organisms/SelectFontSize'
 import SelectTheme from 'components/organisms/SelectTheme'
 

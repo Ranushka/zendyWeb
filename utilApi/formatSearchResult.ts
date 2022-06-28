@@ -1,4 +1,6 @@
 export default function formatSearchResult(docs, highlighting) {
+  // console.log('docs-1---', docs)
+
   if (!docs.length) return []
 
   return docs.map((doc) => {
@@ -25,12 +27,12 @@ export default function formatSearchResult(docs, highlighting) {
       regions
     } = doc
 
+    // console.log('doc-2---', doc)
+
     const hlParts = highlighting?.[zendy_id]
     const hlTitle = hlParts?.title?.[0]
     const hlAbstract = hlParts?.abstract?.[0]
 
-    // console.log('-doc-->', doc)
-    zendy_id
     return {
       resultId: zendy_id,
       title: hlTitle ? hlTitle : title?.[0],
@@ -60,7 +62,7 @@ export default function formatSearchResult(docs, highlighting) {
       journalTitle: journal_title,
       zendyLink: url_full_text,
       downloadLink: url_pdf,
-      permanentLinkId: '10.3389/fpsyg.2021.676521',
+      permanentLinkId: zendy_id,
       firstPage: '676521',
       lastPage: '676521',
       resultScore: 26.180971,

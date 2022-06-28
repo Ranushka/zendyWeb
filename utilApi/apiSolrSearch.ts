@@ -24,7 +24,8 @@ const otherConfig = [
   // 'bq=publication_year:[NOW/DAY-1YEAR TO NOW/DAY]',
   // 'bf=recip(rord(publication_year),1,1000,1000)',
   // 'bf=recip(rord(creationDate),1,1000,1000)',
-  'bq=publication_year:[* TO *]^4',
+  'bq=subjectsFull:[* TO *]^4',
+  'bq=keywords:[* TO *]^5',
   'df=catch_all',
   'defType=edismax'
 ].join('&')

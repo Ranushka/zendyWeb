@@ -56,8 +56,8 @@ const MobileNav: React.FC<Props> = () => {
         <MobileNaveItem
           onClick={_clickOnSearch}
           icon={
-            <span className="text-white">
-              <IconSearch />
+            <span>
+              <IconSearch className="text-white" />
             </span>
           }
           primary

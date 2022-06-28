@@ -10,7 +10,7 @@ const RelatedPublications: React.FC<any> = () => {
           return (
             <SearchResultItem
               key={id}
-              id="313sa21"
+              resultId="sss"
               href={'/'}
               publicationName={'dsad'}
               journalTitle="abc title"
