@@ -51,7 +51,7 @@ const ResultsWithData = ({ data }) => {
 
 const __dataLoading = () => {
   return (
-    <div className="mw__7  py-8 px-8 pb__0">
+    <div className="container py-8 px-8 pb__0">
       <Skeleton height={10} count={6} />
     </div>
   )
