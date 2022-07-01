@@ -7,7 +7,7 @@ import SearchResultKeywords from 'components/organisms/SearchResultKeywords'
 import SearchResultSubjects from 'components/organisms/SearchResultSubjects'
 import SearchResultAuthors from 'components/organisms/SearchResultAuthors'
 import SearchResultItemAbstract from 'components/organisms/SearchResultItemAbstract'
-import SearchResultItemActions from '../SearchResultItemActions'
+import SearchResultItemActions from 'components/organisms/SearchResultItemActions'
 
 const SearchResultItem: React.FC<SearchResultItemProps> = (data) => {
   const {
@@ -23,7 +23,7 @@ const SearchResultItem: React.FC<SearchResultItemProps> = (data) => {
   } = data
 
   return (
-    <article className="flex items-center rounded-md mb-4 max-w-4xl bg_white shadow-sm hover:shadow mx-auto">
+    <article className="flex items-center rounded-md mb-4 max-w-4xl bg_white shadow-sm hover:shadow">
       <div className="py-4 px-6 w-full block sm:flex">
         <section className="w-full sm:w-9/12 block">
           <SearchResultTitle {...data} />

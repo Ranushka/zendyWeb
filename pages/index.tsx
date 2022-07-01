@@ -14,6 +14,7 @@ import {
   Testimonials,
   Subjects
 } from 'components/organisms'
+// import TrendingKeywords from 'components/organisms/TrendingKeywords'
 
 import { BaseTemplate } from 'components/templates'
 import classNames from 'classnames'
@@ -52,6 +53,7 @@ const Home: React.FC = () => {
       >
         <SearchForm id="mainSearch" />
       </section>
+      {/* <TrendingKeywords /> */}
       <SubTitle
         title={trans('section1')}
         linkText={trans('see_all')}

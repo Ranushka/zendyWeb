@@ -1,6 +1,8 @@
 import React, { ChangeEvent } from 'react'
 import { signIn } from 'next-auth/react'
-import { IconSocialLinkedIn } from 'components/icons'
+import IconSocialOrcid from 'components/icons/IconSocialOrcid'
+import IconSocialGoogle from 'components/icons/IconSocialGoogle'
+import IconSocialFacebook from 'components/icons/IconSocialFacebook'
 import { ActionItem, Input } from 'components/atoms'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { LoginRegisterTemplate } from 'components/templates'
@@ -47,7 +49,47 @@ const Login: React.FC = () => {
 
   return (
     <LoginRegisterTemplate>
-      <h1 className="text-3xl font-serif mt-8 mb-2">Welcome back,</h1>
+      <h1 className="text-3xl font-serif my-8">Welcome back,</h1>
+
+      <div className="block text-center my-4" key="Google">
+        <ActionItem
+          text={'Login with Google'}
+          type={'btn__default'}
+          className="justify-center w-full text-center border border_nut4 hover:shadow-lg"
+          onClick={() => signIn('linkedin')}
+          icon={<IconSocialGoogle className="h-6" />}
+        />
+      </div>
+
+      <div className="block text-center my-4" key="LinkedIn">
+        <ActionItem
+          text={'Login with Facebook'}
+          type={'btn__default'}
+          className="justify-center w-full text-center border hover:shadow-md"
+          style={{
+            backgroundColor: '#3c5a99',
+            borderColor: '#3c5a99',
+            color: '#fff'
+          }}
+          onClick={() => signIn('linkedin')}
+          icon={<IconSocialFacebook className="text_white" />}
+        />
+      </div>
+
+      <div className="block text-center my-4" key="orcid">
+        <ActionItem
+          text={'Login with ORCID ID'}
+          type={'btn__default'}
+          className="justify-center w-full text-center hover:shadow-md"
+          style={{ backgroundColor: '#a5cd39', color: '#fff' }}
+          onClick={() => signIn('linkedin')}
+          icon={<IconSocialOrcid className="text_white" />}
+        />
+      </div>
+
+      <small className="block text-center text-gray-400 mt-8">
+        ---- or ----
+      </small>
       <form onSubmit={onSubmitForm}>
         <ReCAPTCHA
           ref={recaptchaRef}
@@ -85,20 +127,6 @@ const Login: React.FC = () => {
           />
         </div>
       </form>
-
-      <small className="block text-center text-gray-400 my-4">
-        ---- or ----
-      </small>
-
-      <div className="block text-center">
-        <ActionItem
-          text={'Sign in with LinkedIn'}
-          type={'btn__default'}
-          className="color__primary"
-          onClick={() => signIn('linkedin')}
-          icon={<IconSocialLinkedIn />}
-        />
-      </div>
     </LoginRegisterTemplate>
   )
 }

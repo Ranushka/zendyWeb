@@ -32,7 +32,7 @@ class MyDocument extends Document {
           <meta name="mobile-web-app-capable" content="yes" />
 
           <meta name="msapplication-config" content="/browserconfig.xml" />
-          <meta name="msapplication-TileColor" content="#2c5282" />
+          <meta name="msapplication-TileColor" content="#475569" />
           <meta name="msapplication-tap-highlight" content="no" />
 
           <meta name="twitter:card" content="summary" />

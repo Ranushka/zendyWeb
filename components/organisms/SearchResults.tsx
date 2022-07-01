@@ -17,7 +17,7 @@ const SearchResultActions = () => {
   const { selectionMode } = state
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl">
       <div className="flex items-center rounded-md mb-4 md:mt-4 mr-10 md:mr-0 whitespace-nowrap overflow-y-scroll hideScrollBar">
         <ButtonFab
           title="Toggle selection mode"
@@ -82,7 +82,7 @@ const __searchResultLoading = () => {
   return [1, 2, 3].map((id) => (
     <article
       key={'skeletonSearchResult' + id}
-      className="items-center rounded-md mb-4 max-w-4xl bg_white shadow-sm mx-auto p-4"
+      className="items-center rounded-md mb-4 max-w-4xl bg_white shadow-sm p-4"
     >
       <div className="flex">
         <Skeleton height={10} width={60} className="mr-2" />
@@ -113,11 +113,9 @@ const __searchResultLoading = () => {
 
 const __noResultData = () => {
   return (
-    <h2 className="text-center">
-      <div className="gaps__6"></div>
+    <div className="text-center py-8">
       Oops...!, Unfortunately we could not found more results.
-      <div className="gaps__6"></div>
-    </h2>
+    </div>
   )
 }
 
@@ -130,7 +128,7 @@ const __resultData = () => {
 
   const searchResults = get(data, 'data.searchResults', null)
 
-  if (searchResults) {
+  if (searchResults.totalResults) {
     return <ResultsWithData {...searchResults} />
   }
 
@@ -146,7 +144,7 @@ const ResultsWithData: React.FC<any> = ({ results, totalResults }) => {
   return (
     <div>
       {results.map((data, id) => {
-        console.log('resultsData--->', data)
+        // console.log('resultsData--->', data)
 
         return <SearchResultItem {...data} key={`searchResult${id}`} />
       })}

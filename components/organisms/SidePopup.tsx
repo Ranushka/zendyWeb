@@ -41,7 +41,6 @@ const buttonStyleMapping = (place) => {
 }
 
 const SidePopup: React.FC<Props> = ({
-  // small,
   content,
   open,
   fullHeight = false,
@@ -57,18 +56,19 @@ const SidePopup: React.FC<Props> = ({
   }, [open])
 
   const contentWrapperStyles = classnames(
-    'fixed w-full left-0 top-0 flex items-center h-screen backdrop-blur-sm bg-opacity-25 z-50',
+    'fixed w-full left-0 top-0 flex items-center',
+    'h-screen backdrop-blur-sm bg_backdrop 5 z-50',
     wrapperStyleMapping(openLocation)
   )
 
   const innerContentStyles = classnames(
-    'bg_white w-full max-w-md rounded shadow-md relative',
+    'bg_white w-full max-w-md rounded relative',
     fullHeight && 'h-screen',
     contentStyleMapping(openLocation)
   )
 
   const buttonStyles = classnames(
-    'bg_white shadow rounded-full w-10 h-10 flex justify-center items-center',
+    'bg_white rounded-full w-10 h-10 flex justify-center items-center',
     buttonStyleMapping(openLocation)
   )
 
@@ -80,8 +80,9 @@ const SidePopup: React.FC<Props> = ({
             <ButtonFab
               classNames={buttonStyles}
               onClick={() => closeFunc(false)}
-              icon={<IconClear />}
+              icon={<IconClear className="scale-125" />}
             />
+            <span className="scale-125"></span>
             {content}
           </section>
         </div>

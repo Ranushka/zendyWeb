@@ -1,5 +1,6 @@
 import React from 'react'
-import { ActionItem } from 'components/atoms'
+// import { ActionItem } from 'components/atoms'
+import TrendingKeywords from 'components/organisms/TrendingKeywords'
 
 type Props = {}
 
@@ -11,7 +12,9 @@ const SearchLandingBlock: React.FC<Props> = () => {
       </h2>
 
       <h4 className="py-3 mute">Resent searches</h4>
-      <div className="flex flex-wrap justify-center py-2">
+
+      <TrendingKeywords />
+      {/* <div className="flex flex-wrap justify-center py-2">
         <ActionItem
           className="px-4 py-2 block__inline"
           text={'covid 19'}
@@ -37,7 +40,7 @@ const SearchLandingBlock: React.FC<Props> = () => {
           text={'nutrition courses'}
           href={'/search?q=nutrition courses'}
         />
-      </div>
+      </div> */}
     </section>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActionItem } from 'components/atoms'
+// import { ActionItem } from 'components/atoms'
 import SearchResultItemTagTitle from 'components/organisms/SearchResultItemTagTitle'
 import classNames from 'classnames'
 
@@ -13,13 +13,14 @@ const SearchResultItemKeywords = ({ keywords = [], all = false }) => {
         {keywords
           .slice(0, all ? 20 : 8)
           .map<React.ReactNode>((name, id) => (
-            <ActionItem
-              key={id}
-              text={name}
-              href={'/'}
-              type="link__small"
-              className="text_nut5"
-            />
+            <small key={id}>{name}</small>
+            // <ActionItem
+            //   key={id}
+            //   text={name}
+            //   href={'/'}
+            //   type="link__small"
+            //   className="text_nut5"
+            // />
           ))
           .reduce((prev, curr) => [prev, ', ', curr])}
       </div>

@@ -52,7 +52,7 @@ const Pagination = ({
   )
 
   return (
-    <div className="flex justify-around">
+    <div className="flex justify-around max-w-4xl">
       {hideFirstLast ? (
         ''
       ) : (

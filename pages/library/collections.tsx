@@ -2,10 +2,11 @@ import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
-import { ActionItem, ButtonFab } from 'components/atoms'
-import { IconAdd, IconMore } from 'components/icons'
+import { ActionItem } from 'components/atoms'
+import { IconAdd } from 'components/icons'
 import { useCollections } from 'fetchHooks/useCollections'
 import { LibraryTemplate } from 'components/templates'
+import LibraryDataRow from 'components/organisms/LibraryDataRow'
 import { commonMessages } from 'lib/getMessages'
 
 const Collections: React.FC = () => {
@@ -29,7 +30,9 @@ const Collections: React.FC = () => {
 const __dataCollection = (data) => {
   return (
     <div>
-      {data.map((item) => __dataRow(item))}
+      {data.map((item, key) => (
+        <LibraryDataRow key={'collection' + key} {...item} />
+      ))}
 
       <div className="px-4">
         <ActionItem
@@ -41,20 +44,6 @@ const __dataCollection = (data) => {
     </div>
   )
 }
-
-const __dataRow = ({ id, name, count }) => (
-  <div key={id}>
-    <div className="px-4 flex bg_white shadow rounded-md">
-      <span className="first_letter_caps">{name}</span>
-      <div className="flex__left"></div>
-      <span>{count}</span>
-
-      <span>
-        <ButtonFab classNames="bg_white" icon={<IconMore />} />
-      </span>
-    </div>
-  </div>
-)
 
 const __skeletonCollection = () => {
   return [1, 2, 3].map((id) => (
