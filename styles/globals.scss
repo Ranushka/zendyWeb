@@ -33,6 +33,7 @@ body {
   --nut0: #f8fafc;
 
   --outline: #fdba74;
+  --backdrop: rgb(0 0 0 / 20%)
 }
 
 [data-theme='Dark'] {
@@ -201,4 +202,8 @@ textarea {
   position: fixed;
   top: 0;
   background: #fff;
+}
+
+.bg_backdrop{
+  background: var(--backdrop)
 }

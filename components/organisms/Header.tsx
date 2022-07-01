@@ -4,16 +4,16 @@ import Skeleton from 'react-loading-skeleton'
 import isArray from 'lodash/isArray'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/router'
-
-import routs from 'lib/routs'
+import { useSession } from 'next-auth/react'
 import { useMediaQuery } from 'react-responsive'
 
+import useGlobal from 'context/GlobalContext'
+import routs from 'lib/routs'
 import { ActionItem, Logo } from 'components/atoms'
 import { SearchForm, CategoriesMenu, SidePopup } from 'components/organisms'
 import SettingsPopUpContent from 'components/organisms/SettingsPopUpContent'
 import LanguagePopUpContent from 'components/organisms/LanguagePopUpContent'
-
-import { useSession } from 'next-auth/react'
+import PremiumPopUpContent from 'components/organisms/PremiumPopUpContent'
 import MobileHeaderNav from './MobileHeaderNav'
 
 const Header = () => {
@@ -28,6 +28,9 @@ const Header = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 786px)'
   })
+  const [state, setState] = useGlobal()
+  const { premiumPopupVisibility } = state
+
   const btnGuestOrUser = () => {
     if (loading) return <Skeleton height={40} width={126} />
     if (session) return __getLoggedInUser(session)
@@ -37,7 +40,7 @@ const Header = () => {
   return (
     <>
       <section className="bg_nut2">
-        <div className="flex justify-end items-center px-4 py-2 md:py-4">
+        <div className="flex justify-end items-center px-4 py-2 md:py-0">
           <NavItems />
           <div className="hidden sm:flex">
             <div className="mx-4 py-0.5">|</div>
@@ -92,11 +95,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      {/* {isMobile && (
-        <div className="w-full justify-center flex sticky top-0 bg_white px-4 pb-4 pt-3 shadow z-10">
-          <SearchForm id="mainSearchMobile" />
-        </div>
-      )} */}
+
       <SidePopup
         small
         content={<LanguagePopUpContent />}
@@ -110,6 +109,13 @@ const Header = () => {
         open={openAppearance}
         openLocation="center"
         closeFunc={() => setOpenAppearance(false)}
+      />
+      <SidePopup
+        small
+        content={<PremiumPopUpContent />}
+        open={premiumPopupVisibility}
+        openLocation="center"
+        closeFunc={() => setState({ ...state, premiumPopupVisibility: false })}
       />
     </>
   )

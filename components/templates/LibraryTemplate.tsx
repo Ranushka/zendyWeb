@@ -20,7 +20,7 @@ const LibraryTemplate: React.FC<Props> = ({ children }) => {
 
   return (
     <BaseTemplate>
-      <div className="px-4 container min-h pt-10">
+      <div className="px-4 max-w-4xl mx-auto min-h pt-10 mb-8">
         <ProfileTabs />
         {children}
       </div>

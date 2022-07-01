@@ -4,6 +4,14 @@ import React from 'react'
 const SearchResultItemAbstract = ({ abstract = '', all = false }) => {
   if (!abstract) return <></>
 
+  const highlightedPosition = abstract.indexOf('<mark>')
+  const isHiddenHighlight = highlightedPosition > 320
+
+  if (!all && isHiddenHighlight) {
+    abstract = abstract.slice(highlightedPosition - 140)
+    abstract = '...' + abstract
+  }
+
   return (
     <div className="block py-1">
       <div

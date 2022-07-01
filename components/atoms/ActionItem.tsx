@@ -172,9 +172,9 @@ const getType = (type) => {
       'border_pri6 bg_pri0 active:bg_pri1 active:scale-95 text_pri7'
     ),
     btn__primary: classnames(
-      'outline-1 outline-offset-2',
+      'outline-1 outline-offset-2 border border_pri7',
       'py-2 px-3 rounded-md flex justify-center duration-300 uppercase',
-      'shadow-md active:shadow-sm tracking-wide text-base',
+      'shadow-md active:shadow-sm tracking-wide',
       'bg_pri7 active:bg_pri8 active:scale-95 text_pri0'
     )
   }
