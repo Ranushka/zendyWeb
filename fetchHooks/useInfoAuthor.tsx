@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 
-const useAuthorDetails = (queryAuthor: string) => {
+const useInfoAuthor = (queryAuthor: string) => {
   const url = 'https://api.staging-oa.zendy.io/search/oa/author'
   const swrKey = url + queryAuthor
   const bodyData = JSON.stringify({
@@ -24,4 +24,4 @@ const useAuthorDetails = (queryAuthor: string) => {
   return useSWR(swrKey, fetcher)
 }
 
-export default useAuthorDetails
+export default useInfoAuthor
