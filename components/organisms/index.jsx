@@ -1,5 +1,4 @@
 export { default as AuthenticateOtp } from './AuthenticateOtp'
-export { default as AuthorDetails } from './AuthorDetails'
 export { default as CardCurated } from './CardCurated'
 export { default as CardMagazine } from './CardMagazine'
 export { default as CardSubject } from './CardSubject'

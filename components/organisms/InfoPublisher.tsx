@@ -1,21 +1,23 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 
-import useSubjectDetails from 'fetchHooks/useSubjectDetails'
+import usePublisherDetails from 'fetchHooks/usePublisherDetails'
 
 const ResultsWithData = ({ extract, title, description }) => {
   return (
     <section className="container">
       <div className="bg_nut1 rounded-md px-8 py-8 mt-8 mx-4 flex justify-between">
         <div className="">
-          <h1 className="text-4xl font-serif">{title}</h1>
-          <small className="mb-4 block">{description}</small>
-          <div>{extract}</div>
-          <small className="mt-2 block text_nut4 text-right">
-            Powered by wikipedia
-          </small>
+          <div className="max-w-4xl">
+            <h1 className="text-4xl font-serif">{title}</h1>
+            <small className="mb-4 block">{description}</small>
+            <div>{extract}</div>
+          </div>
         </div>
       </div>
+      <small className="mt-2 mx-4 block text_nut4 text-right">
+        Powered by wikipedia
+      </small>
     </section>
   )
 }
@@ -31,10 +33,8 @@ const __dataLoading = () => {
   )
 }
 
-const SubjectDetails: React.FC<any> = ({ subject }) => {
-  const { data } = useSubjectDetails(subject)
-
-  console.log('---', data)
+const PublisherDetails: React.FC<any> = ({ publisherName }) => {
+  const { data } = usePublisherDetails(publisherName)
 
   if (!data) {
     return __dataLoading()
@@ -47,4 +47,4 @@ const SubjectDetails: React.FC<any> = ({ subject }) => {
   return <ResultsWithData {...data} />
 }
 
-export default SubjectDetails
+export default PublisherDetails

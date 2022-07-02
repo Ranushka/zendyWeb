@@ -1,13 +1,11 @@
 import React from 'react'
 import { BaseTemplate } from 'components/templates'
 import { commonMessages } from 'lib/getMessages'
-import {
-  SearchLandingBlock,
-  SearchResults,
-  AuthorDetails
-} from 'components/organisms'
-import SubjectDetails from 'components/organisms/SubjectDetails'
-import JournalDetails from 'components/organisms/JournalDetails'
+import { SearchLandingBlock, SearchResults } from 'components/organisms'
+import InfoSubject from 'components/organisms/InfoSubject'
+import InfoJournal from 'components/organisms/InfoJournal'
+import InfoPublisher from 'components/organisms/InfoPublisher'
+import InfoAuthor from 'components/organisms/InfoAuthor'
 import FilterNavigation from 'components/organisms/FilterNavigation'
 import { useRouter } from 'next/router'
 
@@ -17,7 +15,8 @@ const Search: React.FC = () => {
   const qAuthor = rq.author
   const qSubject = rq.subject
   const qJournal = rq.journal
-  const queryString = rq.q || qAuthor || qSubject || qJournal
+  const qPublisher = rq.publisher
+  const queryString = rq.q || qAuthor || qSubject || qJournal || qPublisher
 
   // console.log('queryString---', queryString)
 
@@ -35,9 +34,10 @@ const Search: React.FC = () => {
     <BaseTemplate>
       {queryString && (
         <>
-          {qJournal && <JournalDetails publicationName={qJournal.toString()} />}
-          {qAuthor && <AuthorDetails authorName={qAuthor.toString()} />}
-          {qSubject && <SubjectDetails subject={qSubject} />}
+          {qPublisher && <InfoPublisher publisherName={qPublisher} />}
+          {qJournal && <InfoJournal publicationName={qJournal} />}
+          {qAuthor && <InfoAuthor authorName={qAuthor} />}
+          {qSubject && <InfoSubject subject={qSubject} />}
           <div className="container p-4 flex">
             <FilterNavigation />
             <SearchResults />

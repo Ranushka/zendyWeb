@@ -1,7 +1,6 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 
-import { AuthorDetailsProps } from 'types'
 import useAuthorDetails from 'fetchHooks/useAuthorDetails'
 
 const ResultsWithData = ({ data }) => {
@@ -57,7 +56,7 @@ const __dataLoading = () => {
   )
 }
 
-const AuthorDetails: React.FC<AuthorDetailsProps> = ({ authorName }) => {
+const AuthorDetails: React.FC<any> = ({ authorName }) => {
   const { data } = useAuthorDetails(authorName)
 
   if (!data) {
