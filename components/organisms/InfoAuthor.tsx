@@ -1,7 +1,7 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 
-import useAuthorDetails from 'fetchHooks/useAuthorDetails'
+import useInfoAuthor from 'fetchHooks/useInfoAuthor'
 
 const ResultsWithData = ({ data }) => {
   var { orcidDetails, firstName, lastName } = data
@@ -56,8 +56,8 @@ const __dataLoading = () => {
   )
 }
 
-const AuthorDetails: React.FC<any> = ({ authorName }) => {
-  const { data } = useAuthorDetails(authorName)
+const InfoAuthor: React.FC<any> = ({ authorName }) => {
+  const { data } = useInfoAuthor(authorName)
 
   if (!data) {
     return __dataLoading()
@@ -70,4 +70,4 @@ const AuthorDetails: React.FC<any> = ({ authorName }) => {
   return <ResultsWithData {...data} />
 }
 
-export default AuthorDetails
+export default InfoAuthor

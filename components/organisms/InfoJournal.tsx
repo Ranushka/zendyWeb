@@ -1,7 +1,7 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 
-import useJournalDetails from 'fetchHooks/useJournalDetails'
+import useInfoJournal from 'fetchHooks/useInfoJournal'
 
 const ResultsWithData = ({ extract, title, description }) => {
   return (
@@ -31,8 +31,8 @@ const __dataLoading = () => {
   )
 }
 
-const JournalDetails: React.FC<any> = ({ publicationName }) => {
-  const { data } = useJournalDetails(publicationName)
+const InfoJournal: React.FC<any> = ({ publicationName }) => {
+  const { data } = useInfoJournal(publicationName)
 
   if (!data) {
     return __dataLoading()
@@ -45,4 +45,4 @@ const JournalDetails: React.FC<any> = ({ publicationName }) => {
   return <ResultsWithData {...data} />
 }
 
-export default JournalDetails
+export default InfoJournal

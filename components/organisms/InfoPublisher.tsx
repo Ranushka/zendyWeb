@@ -1,7 +1,7 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 
-import usePublisherDetails from 'fetchHooks/usePublisherDetails'
+import useInfoPublisher from 'fetchHooks/useInfoPublisher'
 
 const ResultsWithData = ({ extract, title, description }) => {
   return (
@@ -33,8 +33,8 @@ const __dataLoading = () => {
   )
 }
 
-const PublisherDetails: React.FC<any> = ({ publisherName }) => {
-  const { data } = usePublisherDetails(publisherName)
+const InfoPublisher: React.FC<any> = ({ publisherName }) => {
+  const { data } = useInfoPublisher(publisherName)
 
   if (!data) {
     return __dataLoading()
@@ -47,4 +47,4 @@ const PublisherDetails: React.FC<any> = ({ publisherName }) => {
   return <ResultsWithData {...data} />
 }
 
-export default PublisherDetails
+export default InfoPublisher
