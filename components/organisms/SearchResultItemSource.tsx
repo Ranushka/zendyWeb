@@ -14,8 +14,8 @@ const SearchResultItemSource = ({
           <ActionItem
             className="pr-2 first_letter_caps"
             text={publicationName}
-            as={`/search?subject=${publicationName}`}
-            href={`/search?subject=${publicationName}`}
+            as={`/search?publisher=${publicationName}`}
+            href={`/search?publisher=${publicationName}`}
             type="link__small"
           />
         </span>

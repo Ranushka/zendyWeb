@@ -26,7 +26,8 @@ const useSearchResults = () => {
   const qJournal: any = rq.journal
   const qMaterial: any = rq.material
   const qPublisher: any = rq.publisher
-  const queryString: any = rq.q || qAuthor || qSubject || qJournal
+
+  const queryString: any = rq.q || qAuthor || qSubject || qJournal || qPublisher
 
   const facetFilters = []
   const pageNumber = 1

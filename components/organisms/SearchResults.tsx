@@ -86,25 +86,17 @@ const __searchResultLoading = () => {
     >
       <div className="flex">
         <Skeleton height={10} width={60} className="mr-2" />
-
         <Skeleton height={10} width={60} />
       </div>
-
       <Skeleton height={30} />
-
       <div className="flex">
         <Skeleton height={10} width={60} className="mr-2" />
-
         <Skeleton height={10} width={60} />
       </div>
-
       <Skeleton count={5} />
-
       <div className="flex">
         <Skeleton height={10} width={60} className="mr-2" />
-
         <Skeleton height={10} width={60} className="mr-2" />
-
         <Skeleton height={10} width={60} className="mr-2" />
       </div>
     </article>
