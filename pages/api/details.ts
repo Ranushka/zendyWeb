@@ -6,11 +6,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const {
-    query: { id }
-  } = req
-
   try {
+    const {
+      query: { id }
+    } = req
+
     console.info('pub id->', id)
     const publicationId = getPublicationId(id.toString())
     console.info('publicationId->', publicationId)
