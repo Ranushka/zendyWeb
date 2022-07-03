@@ -5,7 +5,7 @@ const DetailPdf: React.FC<any> = ({ pdfUrl }) => {
 
   return (
     <div>
-      <iframe className="w-full min-h-screen" src={pdfUrl + '#toolbar=0'} />
+      <embed className="w-full min-h-screen" src={pdfUrl + '#toolbar=0'} />
     </div>
   )
 }

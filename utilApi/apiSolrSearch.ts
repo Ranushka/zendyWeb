@@ -1,3 +1,5 @@
+const SOLR_URL = process.env.SOLR_URL
+
 const facetConfig = [
   'facet=on',
   'facet.mincount=1',
@@ -30,7 +32,7 @@ const otherConfig = [
   'defType=edismax'
 ].join('&')
 
-const url = `http://3.67.163.226:8983/solr/openaccess/query?${otherConfig}&${facetConfig}&${highlightConfig}`
+const url = `${SOLR_URL}/query?${otherConfig}&${facetConfig}&${highlightConfig}`
 const AUTHORIZATION_TOKEN = 'Basic cmFudTpjeXdFWWpqNkdacTB1OWV3'
 
 export default async function apiSolrSearch(body) {
@@ -50,7 +52,7 @@ export default async function apiSolrSearch(body) {
 }
 
 export async function apiSolrGetFacets(facet = 'publishersFull') {
-  const url = `http://3.67.163.226:8983/solr/openaccess/select?facet.field=${facet}&facet=true&fl=null&q.op=OR&q=*%3A*&rows=0&wt=json`
+  const url = `${SOLR_URL}/select?facet.field=${facet}&facet=true&fl=null&q.op=OR&q=*%3A*&rows=0&wt=json`
 
   const options = {
     method: 'POST',
