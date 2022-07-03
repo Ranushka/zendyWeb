@@ -11,7 +11,7 @@ const useTitleDetail = () => {
   const router = useRouter()
   const queryId = router.query.id.toString()
 
-  const url = `/api/details/${queryId}`
+  const url = `/api/details?id=${queryId}`
 
   return useSWR(url, fetcher)
 }
