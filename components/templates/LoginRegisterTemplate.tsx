@@ -1,8 +1,7 @@
-import React, { useContext } from 'react'
-import classnames from 'classnames'
+import React from 'react'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
-import DeviceTypeContext from 'context/DeviceTypeContext'
+import { Logo } from 'components/atoms'
 
 type Props = {
   isSearchPage?: boolean
@@ -14,18 +13,21 @@ const LoginRegisterTemplate: React.FC<Props> = ({ children }) => {
   const loading = status === 'loading'
   const router = useRouter()
 
-  console.log(session)
   if (!loading && session) {
     router.push('/')
   }
 
-  const { isMobile } = useContext(DeviceTypeContext)
-  const finalClassNames = classnames(
-    'bg__nut1',
-    isMobile ? 'contain__mobile' : 'contain__desktop'
+  return (
+    <main className="text_nut6 bg_nut0 text-sm w-full h-full flex absolute justify-center items-center">
+      <div className="max-w-md w-full p-8 -mt-10 bg_white rounded-lg shadow mx-8">
+        <Logo />
+        {children}
+        <small className="block mt-4">
+          Having issues? <a>support@zendy.io</a>
+        </small>
+      </div>
+    </main>
   )
-
-  return <main className={finalClassNames}>{children}</main>
 }
 
 export default LoginRegisterTemplate

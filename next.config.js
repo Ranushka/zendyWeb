@@ -12,31 +12,24 @@ const config = {
   //   ]
   // },
 
-  webpack: (configuration) => {
-    configuration.module.rules.push({
-      test: /\.md$/,
-      use: 'frontmatter-markdown-loader',
-    })
-    return configuration
-  },
   async exportPathMap(defaultPathMap) {
     return {
-      ...defaultPathMap,
+      ...defaultPathMap
     }
   },
   pwa: {
     disable: process.env.NODE_ENV === 'development',
-    dest: 'public',
-  },
+    dest: 'public'
+  }
 }
 
 module.exports = {
   images: {
-    domains: [CMS_IMG_HOSTNAME, 'picsum.photos', 'storage.googleapis.com'],
+    domains: [CMS_IMG_HOSTNAME, 'picsum.photos', 'storage.googleapis.com']
   },
   i18n: {
     locales: ['en', 'ar'],
-    defaultLocale: 'en',
+    defaultLocale: 'en'
   },
-  ...withPWA(config),
+  ...withPWA(config)
 }

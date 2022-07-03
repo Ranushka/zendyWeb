@@ -4,13 +4,17 @@ export function applyTheme(data) {
     var e = data || getTheme()
 
     d.setAttribute('data-theme', e)
-  } catch (t) {}
+  } catch (t) {
+    console.error('Theme apply fail');
+  }
 }
 
 export function saveTheme(data) {
   try {
     window.localStorage.setItem('theme', data)
-  } catch (t) {}
+  } catch (t) {
+    console.error('Theme save fail');
+  }
 }
 
 export function getTheme() {

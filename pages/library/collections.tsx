@@ -2,11 +2,11 @@ import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
-import { Space, ActionItem, ButtonFab } from 'components/atoms'
-import { ProfileTabs } from 'components/molecules'
-import { IconAdd, IconMore } from 'components/icons'
+import { ActionItem } from 'components/atoms'
+import { IconAdd } from 'components/icons'
 import { useCollections } from 'fetchHooks/useCollections'
-import { BaseTemplate } from 'components/templates'
+import { LibraryTemplate } from 'components/templates'
+import LibraryDataRow from 'components/organisms/LibraryDataRow'
 import { commonMessages } from 'lib/getMessages'
 
 const Collections: React.FC = () => {
@@ -16,27 +16,25 @@ const Collections: React.FC = () => {
   const router = useRouter()
 
   if (!loading && !session) {
-    router.push('/authenticate')
+    router.push('/login')
   }
 
   return (
-    <BaseTemplate>
-      <div className="px__3 mw__5 min__h">
-        <ProfileTabs />
-        {(loading || !data) && __skeletonCollection()}
-        {session && data && __dataCollection(data)}
-      </div>
-    </BaseTemplate>
+    <LibraryTemplate>
+      {(loading || !data) && __skeletonCollection()}
+      {session && data && __dataCollection(data)}
+    </LibraryTemplate>
   )
 }
 
 const __dataCollection = (data) => {
   return (
     <div>
-      {data.map((item) => __dataRow(item))}
+      {data.map((item, key) => (
+        <LibraryDataRow key={'collection' + key} {...item} />
+      ))}
 
-      <Space size={4} />
-      <div className="px__3">
+      <div className="px-4">
         <ActionItem
           text={'Create new collection'}
           href={'/'}
@@ -47,26 +45,10 @@ const __dataCollection = (data) => {
   )
 }
 
-const __dataRow = ({ id, name, count }) => (
-  <div key={id}>
-    <div className="px__3 flex flex__between bg__white stage__2 rounded__1">
-      <span className="first_letter_caps">{name}</span>
-      <div className="flex__left"></div>
-      <span>{count}</span>
-      <Space size={3} />
-      <span>
-        <ButtonFab classNames="bg__white" icon={<IconMore />} />
-      </span>
-    </div>
-    <Space size={2} />
-  </div>
-)
-
 const __skeletonCollection = () => {
   return [1, 2, 3].map((id) => (
-    <article key={'skeletonCollection' + id} className="mw__5 ml__0">
+    <article key={'skeletonCollection' + id} className="container ml__0 pt-10">
       <Skeleton height={30} />
-      <Space size={3} />
     </article>
   ))
 }
@@ -77,9 +59,9 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       messages: {
-        ...commonMsg,
-      },
-    },
+        ...commonMsg
+      }
+    }
   }
 }
 

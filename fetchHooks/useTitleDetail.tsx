@@ -1,6 +1,5 @@
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
-import { getPublicationId } from 'lib/helpers'
 
 const fetcher = (url: string) => {
   return fetch(url).then((res) => {
@@ -11,8 +10,8 @@ const fetcher = (url: string) => {
 const useTitleDetail = () => {
   const router = useRouter()
   const queryId = router.query.id.toString()
-  const publicatonId = getPublicationId(queryId)
-  const url = `https://api.staging-oa.zendy.io/search/oa/permanent-link/${publicatonId}`
+
+  const url = `/api/details/${queryId}`
 
   return useSWR(url, fetcher)
 }

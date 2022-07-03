@@ -1,60 +1,78 @@
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
-import labelMapping from 'data/labelMapping'
+import labelMapping from 'lib/labelMapping'
 
-const getFilterObj = (journalId, journalString) => {
+const getFilterObj = (categoryId, facetLabel) => {
+  const refinedFacetLabel = facetLabel
+    .split(',')
+    .map((item) => `"${item}"`)
+    .join(' OR ')
+
   return {
     active: true,
-    categoryId: journalId,
-    categoryLabel: journalId,
-    facetLabel: journalString,
+    categoryId: categoryId,
+    categoryLabel: categoryId,
+    facetLabel: `(${refinedFacetLabel})`
   }
 }
 
 const useSearchResults = () => {
-  const url = 'https://api.staging-oa.zendy.io/search/oa/search'
+  const url = '/api/search'
 
   const router = useRouter()
-  const queryString = router.query.q || router.query.author
+  const rq = router.query
+  const qAuthor: any = rq.author
+  const qSubject: any = rq.subject
+  const qJournal: any = rq.journal
+  const qMaterial: any = rq.material
+  const qPublisher: any = rq.publisher
+
+  const queryString: any = rq.q || qAuthor || qSubject || qJournal || qPublisher
 
   const facetFilters = []
   const pageNumber = 1
 
+  // if (queryString) {
+  //   queryString = `${queryString} AND url_full_text:*.pdf`
+  // }
+
   const journalId = 'journalTitleFull'
-  const journalString = router.query[labelMapping(journalId + 'Url')]
+  const journalString = rq[labelMapping(journalId + 'Url')]
   if (journalString) {
     facetFilters.push(getFilterObj(journalId, journalString))
   }
 
   const langId = 'genlanguage'
-  const langString = router.query[labelMapping(langId + 'Url')]
+  const langString = rq[labelMapping(langId + 'Url')]
   if (langString) {
     facetFilters.push(getFilterObj(langId, langString))
   }
 
   const subjectId = 'subjectsFull'
-  const subjectString = router.query[labelMapping(subjectId + 'Url')]
-  if (subjectString) {
+  const subjectString = rq[labelMapping(subjectId + 'Url')]
+  if (!qSubject && subjectString) {
     facetFilters.push(getFilterObj(subjectId, subjectString))
   }
 
-  const materialId = 'publicationTypeFull'
-  const materialString = router.query[labelMapping(materialId + 'Url')]
-  if (materialString) {
-    facetFilters.push(getFilterObj(materialId, materialString))
+  if (qMaterial) {
+    facetFilters.push(getFilterObj('publicationTypeFull', qMaterial))
+  }
+
+  if (qPublisher) {
+    facetFilters.push(getFilterObj('publishersFull', qPublisher))
   }
 
   const queryParams = {
     searchQuery: [{ term: queryString }],
+    filters: [],
     facetFilters: facetFilters,
     dateFilters: { start: '1000-1', end: '2050-12' },
     pageNumber: pageNumber,
-    sortFilters: 'relevance',
+    sortFilters: 'relevance'
   }
 
-  const sortById = 'by'
-  // const sortByString = router.query[labelMapping(sortById + 'Url')]
-  const sortByString = router.query.by
+  // const sortByString = rq[labelMapping(sortById + 'Url')]
+  const sortByString = rq.by
   if (sortByString) {
     queryParams.sortFilters = sortByString.toString()
   }
@@ -62,9 +80,10 @@ const useSearchResults = () => {
   const options = {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      // credentials: 'include',
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(queryParams),
+    body: JSON.stringify(queryParams)
   }
 
   const fetcher = () => {

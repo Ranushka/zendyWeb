@@ -1,16 +1,21 @@
-export const genarateTitleUrlPath = (name: string, id: string) => {
+export const generateTitleUrlPath = (name: string, id: string) => {
   /* 
     Replace all underscores
     Replace non A-Z with underscores
-    get only 60 carctors
+    get only 60 carters
     remove duplicate underscore
 
-    remove forverd slash with underscore
+    remove slash with underscore
 
     join id with title by star
   */
 
-  let res = name && name.replace(/[^a-zA-Z]/g, "_").replace(/_+/g, '_').substring(0,60);
+  let res =
+    name &&
+    name
+      .replace(/[^a-zA-Z]/g, '_')
+      .replace(/_+/g, '_')
+      .substring(0, 60)
   let newId = id && id.replaceAll('/', '_')
 
   return `${res}*${newId}`
@@ -18,10 +23,13 @@ export const genarateTitleUrlPath = (name: string, id: string) => {
 
 export const getPublicationId = (id: string) => {
   /* 
-    get the id by spliting url by star
+    get the id by splitting url by star
     remove underscore with slash unicode %2F = /
   */
-  const pubId = id.split('*').pop().replaceAll('_', '%2F')
+  const pubId = id
+    .split('*')
+    .pop()
+    .replaceAll('_', '/')
 
   return pubId
 }
@@ -74,5 +82,49 @@ export const clickVibrate = () => {
 
 export const getDir = (local) => {
   const isRtl = /ar|fa/.test(local)
-  return isRtl ? 'rtl': 'ltr';
+  return isRtl ? 'rtl' : 'ltr'
+}
+
+export function getDate(date) {
+  return new Date(date).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  })
+}
+
+export function addStickyClass(id: string) {
+  try {
+    var navbar = document.getElementById(id)
+    var sticky = navbar.offsetTop
+
+    console.log(sticky)
+
+    window.onscroll = function() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add('pinned')
+      } else {
+        navbar.classList.remove('pinned')
+      }
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export function focusToSearchInput(event) {
+  if (event.srcElement.localName === 'input') return
+  if (event.keyCode === 191) {
+    setTimeout(() => {
+      const searchEl = document.getElementById('mainSearch')
+      searchEl && searchEl.focus()
+    }) // setTimeout prevents insertion of slash
+  }
+}
+
+export function countFormatted(totalResults) {
+  return new Intl.NumberFormat('en-GB', {
+    notation: 'compact',
+    compactDisplay: 'short'
+  }).format(totalResults)
 }

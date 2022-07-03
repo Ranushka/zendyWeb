@@ -1,11 +1,11 @@
+import React from 'react'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
-
-import { Space, ButtonFab } from 'components/atoms'
-import { ProfileTabs } from 'components/molecules'
+import { ButtonFab } from 'components/atoms'
 import { IconMore } from 'components/icons'
-import { BaseTemplate } from 'components/templates'
+import { LibraryTemplate } from 'components/templates'
 import { commonMessages } from 'lib/getMessages'
+import routs from 'lib/routs'
 
 const Searches: React.FC = () => {
   const { data: session, status } = useSession()
@@ -13,37 +13,28 @@ const Searches: React.FC = () => {
   const router = useRouter()
 
   if (!loading && !session) {
-    router.push('/authenticate')
+    router.push(routs.login)
   }
 
   return (
-    <BaseTemplate>
-      <div className="px__3 mw__5 min__h">
-        <ProfileTabs />
-        <div>{dataSet.map((data) => __dataRow(data))}</div>
-        <Space size={4} />
-      </div>
-    </BaseTemplate>
+    <LibraryTemplate>{dataSet.map((data) => __dataRow(data))}</LibraryTemplate>
   )
 }
 
 const __dataRow = ({ id, name, keyWord, filters }) => (
   <div key={id}>
-    <div className="px__3 py__3 flex flex__between bg__white stage__2 rounded__1">
+    <div className="px-4 py-4 flex flex__between bg_white shadow rounded-md">
       <div className="first_letter_caps">
         <h3>{name}</h3>
-        <Space size={2} />
         <div>
           Search for <strong>{keyWord}</strong> as Keyword. Filtered on{' '}
           {__appliedFilters(filters)}. Sorted by relevance.
         </div>
       </div>
-      <Space size={3} />
       <span>
-        <ButtonFab classNames="bg__white" icon={<IconMore />} />
+        <ButtonFab classNames="bg_white" icon={<IconMore />} />
       </span>
     </div>
-    <Space size={2} />
   </div>
 )
 
@@ -60,20 +51,20 @@ const dataSet = [
     id: 12,
     name: 'Saved search name',
     keyWord: 'car',
-    filters: ['Books', 'journals'],
+    filters: ['Books', 'journals']
   },
   {
     id: 13,
     name: 'Trending on micro services',
     keyWord: 'micro services node js',
-    filters: ['journals'],
+    filters: ['journals']
   },
   {
     id: 14,
     name: 'Saved search name',
     keyWord: 'car',
-    filters: ['Books'],
-  },
+    filters: ['Books']
+  }
 ]
 
 export async function getStaticProps({ locale }) {
@@ -82,9 +73,9 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       messages: {
-        ...commonMsg,
-      },
-    },
+        ...commonMsg
+      }
+    }
   }
 }
 

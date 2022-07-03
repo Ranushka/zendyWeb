@@ -1,15 +1,18 @@
+import React from 'react'
 export interface SearchResultItemProps {
-  id: string
+  resultId: string
   href: string
   title: string
   abstract: string
   journalTitle: string
   publicationYear: string
   publicationName: string
+  publicationType: string
   downloadLink: string
   permanentLinkId: string
+  isPremium: boolean
   authors: [string]
-  keywords: string
+  keywords: [string]
   subjects: [string]
   link: []
   isReviewed?: boolean

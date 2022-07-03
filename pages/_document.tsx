@@ -1,8 +1,8 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { GtmScript } from 'analytics'
 import { getDir } from 'lib/helpers'
-import { applyTheme } from 'lib/theme'
-import { applyFontSize } from 'lib/fontSize'
+// import { applyTheme } from 'lib/theme'
+// import { applyFontSize } from 'lib/fontSize'
 
 import React from 'react'
 
@@ -12,7 +12,7 @@ const data = {
   title: 'Zendy, Premium research publications library',
   description:
     'Research is creating new knowledge, join with us and create new knowledge',
-  image: 'https://zendy.io/icons/favicon-96x96.png',
+  image: 'https://zendy.io/icons/favicon-96x96.png'
 }
 
 class MyDocument extends Document {
@@ -20,8 +20,6 @@ class MyDocument extends Document {
     return (
       <Html dir={getDir(this.props.locale)}>
         <Head>
-          <meta charSet="utf-8" />
-
           <link rel="manifest" href="/manifest.json" />
           <meta name="theme-color" content="#fff" />
 
@@ -34,7 +32,7 @@ class MyDocument extends Document {
           <meta name="mobile-web-app-capable" content="yes" />
 
           <meta name="msapplication-config" content="/browserconfig.xml" />
-          <meta name="msapplication-TileColor" content="#2c5282" />
+          <meta name="msapplication-TileColor" content="#475569" />
           <meta name="msapplication-tap-highlight" content="no" />
 
           <meta name="twitter:card" content="summary" />

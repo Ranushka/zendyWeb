@@ -1,29 +1,34 @@
-import { Space } from 'components/atoms'
-import { commonMessages } from 'lib/getMessages'
+import React from 'react'
+import dynamic from 'next/dynamic'
+
+import { commonMessages, pricingMessages } from 'lib/getMessages'
 import {
   HeroCta,
   Publishers,
   Stats,
   Usps,
   EmailSubscription,
-  GetStartedWithUs,
   Testimonials,
-  PricingList,
+  PricingList
 } from 'components/organisms'
 
 import { BaseTemplate } from 'components/templates'
+
+const GetStartedWithUs = dynamic(() =>
+  import('components/organisms/GetStartedWithUs')
+)
 
 const Platform: React.FC = () => {
   return (
     <BaseTemplate>
       <HeroCta />
-      <Space size={5} />
+
       <Publishers />
-      <Space size={5} />
+
       <Usps />
-      <Space size={5} />
+
       <Stats />
-      <Space size={5} />
+
       <PricingList />
       <Testimonials />
       <EmailSubscription />
@@ -34,13 +39,15 @@ const Platform: React.FC = () => {
 
 export async function getStaticProps({ locale }) {
   const commonMsg = await commonMessages(locale)
+  const pricingMsg = await pricingMessages(locale)
 
   return {
     props: {
       messages: {
         ...commonMsg,
-      },
-    },
+        ...pricingMsg
+      }
+    }
   }
 }
 
