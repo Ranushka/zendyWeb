@@ -23,6 +23,7 @@ type Props = {
   block?: boolean
   submit?: boolean
   disabled?: boolean
+  wrap?: boolean
   tabIndex?: number
   style?: React.CSSProperties
   children?: React.ReactChild
@@ -91,6 +92,7 @@ const __link = (props: Props) => {
     href = '#',
     as,
     type = 'link',
+    wrap = false,
     tabIndex = 1,
     icon,
     block,
@@ -106,6 +108,7 @@ const __link = (props: Props) => {
     router.pathname === href && 'active',
     disabled ? 'disabled' : 'pointer',
     disabled && 'mute',
+    wrap && 'whitespace-nowrap',
     className
   )
 
@@ -157,7 +160,7 @@ const __linkWithChildren = (props: Props) => {
 
 const getType = (type) => {
   const types = {
-    link: 'whitespace-nowrap hover:text_pri6 active:scale-95 duration-150',
+    link: 'hover:text_pri6 active:scale-95 duration-150',
     link__title: 'hover:text_pri6 duration-150 text_nut7',
     link__small: 'text-xs hover:text_pri6 active:scale-95 duration-150',
     btn__small: 'btn__small',

@@ -31,15 +31,33 @@ const otherConfig = [
 ].join('&')
 
 const url = `http://3.67.163.226:8983/solr/openaccess/query?${otherConfig}&${facetConfig}&${highlightConfig}`
+const AUTHORIZATION_TOKEN = 'Basic cmFudTpjeXdFWWpqNkdacTB1OWV3'
 
 export default async function apiSolrSearch(body) {
   const options = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: 'Basic cmFudTpjeXdFWWpqNkdacTB1OWV3'
+      Authorization: AUTHORIZATION_TOKEN
     },
     body: JSON.stringify(body)
+  }
+
+  const res = await fetch(url, options)
+  const data = await res.json()
+
+  return data
+}
+
+export async function apiSolrGetFacets(facet = 'publishersFull') {
+  const url = `http://3.67.163.226:8983/solr/openaccess/select?facet.field=${facet}&facet=true&fl=null&q.op=OR&q=*%3A*&rows=0&wt=json`
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: AUTHORIZATION_TOKEN
+    }
   }
 
   const res = await fetch(url, options)
