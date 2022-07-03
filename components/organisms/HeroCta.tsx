@@ -7,33 +7,36 @@ type Props = {}
 const HeroCta: React.FC<Props> = () => {
   return (
     <>
-      <section className="max-w-6xl flex px-4">
-        <div className={'mw__3  px-8  pl__0'}>
-          <h3>Welcome to Zendy</h3>
+      <section className="max-w-7xl flex px-4 m-auto py-8 justify-between">
+        <div className={'px-8 mt-16 max-w-xl'}>
+          <h3 className="text-xl text_nut5 font-serif">Welcome to Zendy</h3>
 
-          <h1>
+          <h1 className="pt-4 text-4xl text_nut7 font-serif leading-snug">
             Premium publication database for the price of a Single Research
             Paper!
           </h1>
 
-          <p>
+          <p className="text-md py-4">
             Zendy plus powered by aggregating content from world renowned
-            publishers and their premium content, Our subscription helps to take
+            publishers and their premium content, Our database helps to take
             your research to next level and keep you up to date with
             information.
           </p>
 
-          <ActionItem
-            text={'Start your Free Trial'}
-            href={'#'}
-            type="btn__primary"
-          />
+          <div className="pt-2 pb-2 max-w-xs">
+            <ActionItem
+              text={'Start your Free Trial'}
+              href={'#'}
+              type="btn__primary"
+              className="px-8"
+            />
+          </div>
 
-          <p>( No credit card required )</p>
+          <p className="text_nut4 text-xs">( No credit card required )</p>
         </div>
 
         <div
-          className={'mw__3 px-8  pr__0'}
+          className="max-w-lg px-8"
           style={{
             width: '100%',
             backgroundSize: 'contain',
