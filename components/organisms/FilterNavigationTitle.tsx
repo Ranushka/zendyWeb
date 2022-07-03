@@ -27,8 +27,8 @@ const FilterNavigationTitle = () => {
 
 const __loading = () => {
   return (
-    <div className="flex">
-      <Skeleton height={10} width={180} />
+    <div>
+      <Skeleton height={30} width={180} />
       <Skeleton height={10} width={60} />
     </div>
   )

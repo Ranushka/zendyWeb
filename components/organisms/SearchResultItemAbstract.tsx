@@ -13,12 +13,10 @@ const SearchResultItemAbstract = ({ abstract = '', all = false }) => {
   }
 
   return (
-    <div className="block py-1">
-      <div
-        className={classNames('text_nut5 py-1', !all && 'line-clamp-4')}
-        dangerouslySetInnerHTML={{ __html: abstract }}
-      />
-    </div>
+    <div
+      className={classNames('text_nut5 my-2', !all && 'line-clamp-4')}
+      dangerouslySetInnerHTML={{ __html: abstract }}
+    />
   )
 }
 
