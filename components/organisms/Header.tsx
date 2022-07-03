@@ -84,6 +84,7 @@ const Header = () => {
               'px-4 hidden md:block',
               !isHomePage && 'hidden md:flex'
             )}
+            wrap
             text={trans('my_link')}
             href="/library/collections"
           />

@@ -11,6 +11,7 @@ const CategoriesMenu: React.FC<{}> = () => {
     <div className="desktopMenu textNoWrap hidden md:flex">
       <ActionItem
         href="/"
+        wrap
         text={trans('mega_menu_btn')}
         icon={<IconArrowDown />}
         type="btn__default"
