@@ -11,6 +11,7 @@ export default async function handler(
   } = req
 
   try {
+    console.info('pub id->', id)
     const publicationId = getPublicationId(id.toString())
     console.info('publicationId->', publicationId)
 
