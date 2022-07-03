@@ -36,8 +36,6 @@ const __dataLoading = () => {
 const InfoSubject: React.FC<any> = ({ subject }) => {
   const { data } = useInfoSubject(subject)
 
-  console.log('---', data)
-
   if (!data) {
     return __dataLoading()
   }
