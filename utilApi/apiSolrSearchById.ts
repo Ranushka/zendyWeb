@@ -17,7 +17,6 @@ export default async function apiSolrSearchById(resultId) {
     const fullUrl = url + resultId
     const res = await fetch(fullUrl, options)
     const data = await res.json()
-
     const formattedData = formatSearchResult(data.response.docs, null)
 
     return formattedData

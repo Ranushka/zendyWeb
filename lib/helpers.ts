@@ -18,7 +18,7 @@ export const generateTitleUrlPath = (name: string, id: string) => {
       .substring(0, 60)
   let newId = id && id.replaceAll('/', '_')
 
-  return `${res}*${newId}`
+  return `${res}=${newId}`
 }
 
 export const getPublicationId = (id: string) => {
@@ -27,9 +27,9 @@ export const getPublicationId = (id: string) => {
     remove underscore with slash unicode %2F = /
   */
   const pubId = id
-    .split('*')
+    .split('=')
     .pop()
-    .replaceAll('_', '/')
+    .replace(/_/g, '/')
 
   return pubId
 }

@@ -6,15 +6,12 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const {
-    query: { id }
-  } = req
-
   try {
-    console.info('pub id->', id)
-    const publicationId = getPublicationId(id.toString())
-    console.info('publicationId->', publicationId)
+    const {
+      query: { id }
+    } = req
 
+    const publicationId = getPublicationId(id.toString())
     const dataFromSolr = await apiSolrSearchById(publicationId)
     if (dataFromSolr.error) throw new Error(JSON.stringify(dataFromSolr.error))
 

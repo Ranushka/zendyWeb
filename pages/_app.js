@@ -1,6 +1,8 @@
 import 'styles/nprogress.css'
 import 'styles/stripe.css'
 import 'styles/globals.scss'
+// import 'react-pdf/dist/esm/Page/AnnotationLayer.css'
+// import 'react-pdf/dist/esm/Page/TextLayer'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import React from 'react'
