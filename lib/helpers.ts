@@ -26,12 +26,10 @@ export const getPublicationId = (id: string) => {
     get the id by splitting url by star
     remove underscore with slash unicode %2F = /
   */
-  console.log('getPublicationId--', id)
-
   const pubId = id
     .split('=')
     .pop()
-    .replace(/\//g, '/')
+    .replace(/_/g, '/')
 
   console.log('getPublicationId--', pubId)
 
