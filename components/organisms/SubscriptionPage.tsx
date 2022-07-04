@@ -54,7 +54,9 @@ const SubscriptionPage: React.FC<{}> = () => {
       <div className="flex justify-center flex-col-reverse md:flex-row items-center max-w-2xl m-auto px-4">
         <WhatWeOffer />
         <div className="mx-4" />
+
         <Pricing
+          name={currentPlan.name}
           content={currentPlan.content}
           price={currentPlan.price}
           paying={currentPlan.paying}
