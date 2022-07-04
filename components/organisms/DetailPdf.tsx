@@ -27,7 +27,7 @@ const DetailPdf: React.FC<any> = ({ pdfUrl }) => {
     <div className="max-w-4xl mx-auto px-8 py-8">
       <div ref={pdfWrapper}>
         <Document
-          file={`http://localhost:3000/api/getPDF?url=${pdfUrl}`}
+          file={`/api/getPDF?url=${pdfUrl}`}
           onLoadSuccess={onDocumentLoadSuccess}
         >
           {pdfWrapper.current &&
