@@ -1,51 +1,54 @@
 import React from 'react'
-// import { Document, Page, pdfjs } from 'react-pdf'
-// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
+import { Document, Page, pdfjs } from 'react-pdf'
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
 const DetailPdf: React.FC<any> = ({ pdfUrl }) => {
-  // const [numPages, setNumPages] = React.useState(null)
+  const [pageCount, setPageCount] = React.useState(0)
+  const [numPagesToShow, setNumPagesToShow] = React.useState(null)
+  const [isFull, setIsFull] = React.useState(false)
+  const pdfWrapper = React.useRef(null)
 
-  // function onDocumentLoadSuccess({ numPages: nextNumPages }) {
-  //   setNumPages(nextNumPages)
-  // }
+  React.useEffect(() => {
+    if (isFull) {
+      console.log('-----', pageCount)
 
-  // function onLoadError() {
-  //   fetch(pdfUrl, {
-  //     headers: {
-  //       Accept: 'application/octet-stream'
-  //     }
-  //   })
-  //     .then((res) => {
-  //       return res.arrayBuffer()
-  //     })
-  //     .then((data) => {
-  //       console.log('--------------')
-  //       console.log(data)
-  //     })
-  //     .catch((err) => {
-  //       return err.Message
-  //     })
-  // }
+      setNumPagesToShow(pageCount)
+    }
+  }, [isFull, pageCount])
+
+  function onDocumentLoadSuccess({ numPages: nextNumPages }) {
+    const count = isFull ? nextNumPages : 3
+    setPageCount(nextNumPages)
+    setNumPagesToShow(count)
+  }
 
   return (
-    <div>
-      {/* 
-      <embed className="w-full min-h-screen" src={pdfUrl + '#toolbar=0'} /> 
-      */}
-
-      {pdfUrl}
-
-      {/* <embed src={pdfUrl} type="application/pdf" height={800} width={500} /> */}
-
-      {/* <Document
-        file={pdfUrl}
-        onLoadSuccess={onDocumentLoadSuccess}
-        onLoadError={onLoadError}
-      >
-        {Array.from(new Array(numPages), (el, index) => (
-          <Page key={`page_${index + 1}`} pageNumber={index + 1} />
-        ))}
-      </Document> */}
+    <div className="max-w-4xl mx-auto px-8 py-8">
+      <div ref={pdfWrapper}>
+        <Document
+          file={`http://localhost:3000/api/getPDF?url=${pdfUrl}`}
+          onLoadSuccess={onDocumentLoadSuccess}
+        >
+          {pdfWrapper.current &&
+            Array.from(new Array(numPagesToShow), (el, index) => (
+              <Page
+                key={`page_${index + 1}`}
+                pageNumber={index + 1}
+                width={pdfWrapper.current && pdfWrapper.current.clientWidth}
+                className="shadow-sm rounded-lg mb-4 overflow-hidden"
+              />
+            ))}
+        </Document>
+      </div>
+      {!isFull && (
+        <div
+          className="bg_nut0 relative z-10 -mt-10 text-center p-8 cursor-pointer readMoreWrapper text_pri7"
+          onClick={() => setIsFull(true)}
+        >
+          Load full document
+        </div>
+      )}
     </div>
   )
 }
