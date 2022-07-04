@@ -31,8 +31,6 @@ export const getPublicationId = (id: string) => {
     .pop()
     .replace(/_/g, '/')
 
-  console.log('getPublicationId--', pubId)
-
   return pubId
 }
 

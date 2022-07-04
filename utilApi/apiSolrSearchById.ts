@@ -15,14 +15,9 @@ export default async function apiSolrSearchById(resultId) {
 
   try {
     const fullUrl = url + resultId
-    console.log('fullUrl--', fullUrl)
     const res = await fetch(fullUrl, options)
     const data = await res.json()
-    console.log('fullUrl-- data')
-
     const formattedData = formatSearchResult(data.response.docs, null)
-
-    console.log('formattedData--', data.response.docs.length)
 
     return formattedData
   } catch (error) {
