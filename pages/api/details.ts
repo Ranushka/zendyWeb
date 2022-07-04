@@ -11,10 +11,7 @@ export default async function handler(
       query: { id }
     } = req
 
-    console.info('pub id->', id)
     const publicationId = getPublicationId(id.toString())
-    console.info('publicationId->', publicationId)
-
     const dataFromSolr = await apiSolrSearchById(publicationId)
     if (dataFromSolr.error) throw new Error(JSON.stringify(dataFromSolr.error))
 

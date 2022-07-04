@@ -5,13 +5,19 @@ import Skeleton from 'react-loading-skeleton'
 import PublicationIssueJsonLd from 'analytics/PublicationIssueJsonLd'
 import TitleDetailNextPrevResult from 'components/organisms/TitleDetailNextPrevResult'
 import WentSomethingWrong from 'components/organisms/WentSomethingWrong'
-import DetailPdf from 'components/organisms/DetailPdf'
+// import DetailPdf from 'components/organisms/DetailPdf'
 import SearchResultTitle from 'components/organisms/SearchResultTitle'
 import SearchResultItemSource from 'components/organisms/SearchResultItemSource'
 import SearchResultKeywords from 'components/organisms/SearchResultKeywords'
 import SearchResultSubjects from 'components/organisms/SearchResultSubjects'
 import SearchResultAuthors from 'components/organisms/SearchResultAuthors'
 import SearchResultItemAbstract from 'components/organisms/SearchResultItemAbstract'
+
+import dynamic from 'next/dynamic'
+
+const DetailPdf = dynamic(() => import('components/organisms/DetailPdf'), {
+  ssr: false
+})
 
 const __renderContent = (data) => {
   const {
@@ -29,7 +35,7 @@ const __renderContent = (data) => {
 
   return (
     <>
-      <article className="max-w-3xl m-auto pt-16 px-8">
+      <article className="max-w-4xl m-auto pt-16 px-8">
         <PublicationIssueJsonLd
           authorName={authors && authors.flatMap((auObj) => auObj.name)}
           name={title}
@@ -47,8 +53,8 @@ const __renderContent = (data) => {
         <SearchResultKeywords keywords={keywords} all />
         <SearchResultSubjects subjects={subjects} all />
         <SearchResultAuthors authors={authors} all />
-        {downloadLink && <DetailPdf pdfUrl={downloadLink} />}
       </article>
+      {downloadLink && <DetailPdf pdfUrl={downloadLink} />}
       <TitleDetailNextPrevResult />
     </>
   )
