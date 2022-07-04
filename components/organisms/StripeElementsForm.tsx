@@ -4,11 +4,11 @@ import StripePaymentRequestBtn from './StripePaymentRequestBtn'
 import { Elements } from '@stripe/react-stripe-js'
 import { getStripe } from 'lib/stripeHelpers'
 
-const StripeElementsForm: React.FC<any> = ({ paying }) => {
+const StripeElementsForm: React.FC<any> = ({ paying, name }) => {
   return (
     <Elements stripe={getStripe()}>
       <StripePaymentRequestBtn price={paying} />
-      <RegularForm paying={paying} />
+      <RegularForm paying={paying} name={name} />
     </Elements>
   )
 }

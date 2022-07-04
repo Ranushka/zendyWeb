@@ -16,10 +16,11 @@ const CARD_OPTIONS = {
 
 type Props = {
   paying?: string
+  name?: string
 }
 
 const StripePaymentElements: React.FC<Props> = (props) => {
-  const { paying } = props
+  const { paying, name } = props
   const { data } = useDiscountCode()
 
   const [input, setInput] = useState({
@@ -109,7 +110,7 @@ const StripePaymentElements: React.FC<Props> = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <fieldset className="block max-w-sm">
+        <fieldset className="px-8">
           <Input
             id="newPasswordConfirm"
             name="cardholderName"
@@ -121,10 +122,11 @@ const StripePaymentElements: React.FC<Props> = (props) => {
             block
           />
 
-          <div className="FormRow elements-style">
+          <div className="mt-4">
             <label>
               <span className="py-1 pt__0">Card info</span>
               <CardElement
+                className="w-full rounded-md border border_nut4 px-4 py-3 outline-blue-200 outline-1 outline-offset-4 appearance-none hover:shadow-md active:shadow-md focus:shadow-md bg_nut0"
                 options={CARD_OPTIONS}
                 onChange={(e) => {
                   if (e.error) {
@@ -140,37 +142,39 @@ const StripePaymentElements: React.FC<Props> = (props) => {
 
           <DiscountCodeBlock />
         </fieldset>
-        <div className="shadow max-w-sm py-8 px-8 bg_white rounded-md block">
-          {data && data.percent_off && (
-            <div className="py-4 pt__0 flex items-center mute">
-              <p>Coupon discount</p>
-              <div className="flex__left"></div>
-              <div className={'flex'}>
-                (- <Price price={getDiscountAmount} />)
+        <div className="p-8 bg_nut1">
+          <div className="max-w-xs mx-auto">
+            {data && data.percent_off && (
+              <div className="py-2 flex justify-between">
+                <p>Coupon discount</p>
+                <div className="flex">
+                  (- <Price price={getDiscountAmount} />)
+                </div>
+              </div>
+            )}
+
+            <div className="py-2 flex justify-between">
+              <p>{name}</p>
+              <div className="flex">
+                <Price price={input.customDonation + getDiscountAmount} />
               </div>
             </div>
-          )}
 
-          <div className="py-4 pt__0 flex items-center mute">
-            <p>Yearly plan</p>
-            <div className="flex__left"></div>
-            <div className={'flex'}>
-              <Price price={input.customDonation + getDiscountAmount} />
+            <div className="border-t border_nut3 my-2" />
+
+            <div className="py-2 flex justify-between mb-4">
+              <p>Due today</p> <div className="flex__left"></div>
+              <Price large price={input.customDonation - getDiscountAmount} />
             </div>
-          </div>
 
-          <div className="py-4 pt__0 flex items-center">
-            <p>Due today</p> <div className="flex__left"></div>
-            <Price large price={input.customDonation - getDiscountAmount} />
+            <ActionItem
+              block
+              submit
+              text={'Confirm secure payment'}
+              type={'btn__primary'}
+              onClick={() => {}}
+            />
           </div>
-
-          <ActionItem
-            block
-            submit
-            text={'Confirm secure payment'}
-            type={'btn__primary'}
-            onClick={() => {}}
-          />
         </div>
         <SecurityStripBlock />
       </form>

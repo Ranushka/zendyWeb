@@ -4,13 +4,14 @@ import { SidePopup, StripeElementsForm } from 'components/organisms'
 
 type Props = {
   id?: string
+  name?: string
   price?: string
   paying?: string
   content?: string
 }
 
 const Pricing: React.FC<Props> = (props) => {
-  const { price = '48', content = '' } = props
+  const { name = '', content = '', paying = '' } = props
   const [modelOpen, setModelOpenState] = React.useState(false)
 
   return (
@@ -28,7 +29,7 @@ const Pricing: React.FC<Props> = (props) => {
         />
       </div>
       <SidePopup
-        content={SidePopupContent(price)}
+        content={SidePopupContent(paying, name)}
         open={modelOpen}
         openLocation={'center'}
         closeFunc={() => setModelOpenState(false)}
@@ -37,12 +38,12 @@ const Pricing: React.FC<Props> = (props) => {
   )
 }
 
-const SidePopupContent = (price) => (
-  <div className="block px-4 py-4">
-    <h2 className="text-center">Secure payment</h2>
-    <div className="gaps__4"></div>
-    <StripeElementsForm paying={price} />
-    <div className="gaps__4"></div>
+const SidePopupContent = (paying, name) => (
+  <div className="block">
+    <h2 className="text-center py-8 px-4 text-3xl text_nut6 font-serif">
+      Secure payment
+    </h2>
+    <StripeElementsForm paying={paying} name={name} />
   </div>
 )
 
