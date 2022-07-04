@@ -77,7 +77,7 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
             tabindex={-1}
             href="/search"
             icon={<IconSearch className="text_pri" />}
-            classNames="rounded-full m-0.5 px-3 py-2.5 block hover:bg_nut2 active:scale-95"
+            classNames="rounded-full m-0.5 px-3 py-2.5 block hover:text_pri6 active:scale-95"
           />
         </div>
         <input
