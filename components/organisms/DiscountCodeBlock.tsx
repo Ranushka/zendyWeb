@@ -17,8 +17,9 @@ const DiscountCodeBlock = () => {
         <div className="text__right">
           <ActionItem
             text={'I have Discount code'}
-            type={'btn__small'}
+            type="link__small"
             onClick={() => showInputSet(true)}
+            className="underline text_nut5 mb-4"
           />
         </div>
       )
