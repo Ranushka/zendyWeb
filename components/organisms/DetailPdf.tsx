@@ -1,5 +1,6 @@
 import React from 'react'
 import { Document, Page, pdfjs } from 'react-pdf'
+import Skeleton from 'react-loading-skeleton'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
@@ -7,12 +8,11 @@ const DetailPdf: React.FC<any> = ({ pdfUrl }) => {
   const [pageCount, setPageCount] = React.useState(0)
   const [numPagesToShow, setNumPagesToShow] = React.useState(null)
   const [isFull, setIsFull] = React.useState(false)
+  const [isLoading, setIsLoading] = React.useState(true)
   const pdfWrapper = React.useRef(null)
 
   React.useEffect(() => {
     if (isFull) {
-      console.log('-----', pageCount)
-
       setNumPagesToShow(pageCount)
     }
   }, [isFull, pageCount])
@@ -21,11 +21,13 @@ const DetailPdf: React.FC<any> = ({ pdfUrl }) => {
     const count = isFull ? nextNumPages : 3
     setPageCount(nextNumPages)
     setNumPagesToShow(count)
+    setIsLoading(false)
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-8 py-8">
+    <div className="max-w-4xl mx-auto px-8 py-8 relative z-0">
       <div ref={pdfWrapper}>
+        {isLoading && __loading()}
         <Document
           file={`/api/getPDF?url=${pdfUrl}`}
           onLoadSuccess={onDocumentLoadSuccess}
@@ -49,6 +51,15 @@ const DetailPdf: React.FC<any> = ({ pdfUrl }) => {
           Load full document
         </div>
       )}
+    </div>
+  )
+}
+
+const __loading = () => {
+  return (
+    <div>
+      <Skeleton height={300} className="w-full mb-8" />
+      <Skeleton height={300} className="w-full mb-8" />
     </div>
   )
 }

@@ -17,7 +17,8 @@ const BtnFab: React.FC<Props> = ({
   isActive = false
 }) => {
   const finalClassList = classnames(
-    'noSelect w-full flex-col items-center pt-1',
+    'noSelect w-full flex-col items-center ',
+    primary ? 'pt-1 pb-1' : 'pt-2 pb-1',
     primary &&
       'flex items-center justify-center bg-orange-600 -mt-2 mb-2 rounded-full shadow',
     isActive && 'text_pri6'
@@ -30,7 +31,7 @@ const BtnFab: React.FC<Props> = ({
       style={{ outline: 'none' }}
     >
       {icon}
-      {text && <small className="block">{text}</small>}
+      {text && <small className="block -mt-1">{text}</small>}
     </button>
   )
 }
