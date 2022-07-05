@@ -17,8 +17,7 @@ const SearchResultTitle: React.FC<SearchResultItemProps> = (data) => {
   } = data
 
   const titleId = generateTitleUrlPath(title, resultId)
-  const [state] = useGlobal()
-  const { selectionMode } = state
+  const [{ selectionMode }] = useGlobal()
 
   return (
     <div className="block">

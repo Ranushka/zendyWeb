@@ -47,7 +47,7 @@ const Home: React.FC = () => {
       <section
         ref={homeSearchStickyRef}
         className={classNames(
-          'sticky flex justify-center -top-0.5 z-20 p-2',
+          'sticky flex justify-center -top-0.5 z-20 py-2 px-6',
           isSticky && 'shadow bg_white'
         )}
       >

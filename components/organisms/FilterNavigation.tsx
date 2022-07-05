@@ -12,8 +12,7 @@ import FilterNavigationTitle from 'components/organisms/FilterNavigationTitle'
 type Props = {}
 
 const FilterNavigation: React.FC<Props> = () => {
-  const [state] = useGlobal()
-  const { mobileFilterVisibility } = state
+  const [{ mobileFilterVisibility }] = useGlobal()
   const navClass = classnames(
     'left-0 bottom-0 z-20 overflow-y-scroll md:overflow-auto',
     'h-4/5 md:h-auto w-full md:w-3/12 md:block md:relative',

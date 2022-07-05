@@ -22,8 +22,7 @@ const __searchFiltersLoading = () => {
 
 const FilterFacets = () => {
   const { data } = useSearchResults()
-  const [state, setState] = useGlobal()
-  const { initialFilters } = state
+  const [{ initialFilters, setGlobalState }] = useGlobal()
 
   if (!data) {
     return __searchFiltersLoading()
@@ -32,8 +31,7 @@ const FilterFacets = () => {
   let availableFacets = get(data, 'data.searchResults.availableFacets', null)
 
   if (!initialFilters) {
-    setState({
-      ...state,
+    setGlobalState({
       initialFilters: availableFacets
     })
   }

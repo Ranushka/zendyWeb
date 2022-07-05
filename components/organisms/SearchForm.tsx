@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslations } from 'next-intl'
+import { useMediaQuery } from 'react-responsive'
+
+import routs from 'lib/routs'
 import { ButtonFab } from 'components/atoms'
 import { IconSearch, IconClear, IconAdvanceSearch } from 'components/icons'
 import useGlobal from 'context/GlobalContext'
@@ -16,7 +19,10 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
   const trans = useTranslations('header')
   const [searchText, setSearchText] = useState('')
   const router = useRouter()
-  const [state, setState] = useGlobal()
+  const [{ setGlobalState }] = useGlobal()
+  const isMobile = useMediaQuery({
+    query: '(max-width: 786px)'
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -24,19 +30,10 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
     e.target[0].blur()
 
     router.push({
-      pathname: '/search',
+      pathname: routs.search,
       query: { q: searchText }
     })
   }
-
-  // const onClick = (e) => {
-  //   e.preventDefault()
-  //   e.stopPropagation()
-
-  //   router.push({
-  //     pathname: '/search'
-  //   })
-  // }
 
   const clearInput = () => {
     setSearchText('')
@@ -56,10 +53,10 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
     }
 
     // if (router.pathname === '/search' && !router.query.q) {
-    if (!router.query.q) {
+    if (!router.query.q && !isMobile) {
       searchInput.current.focus()
     }
-  }, [router])
+  }, [router, isMobile])
 
   React.useEffect(() => {
     window.addEventListener('keydown', focusToSearchInput)
@@ -109,8 +106,7 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
           <ButtonFab
             title="To perform a complex search"
             onClick={() => {
-              setState({
-                ...state,
+              setGlobalState({
                 toggleAdvanceSearch: true
               })
             }}
