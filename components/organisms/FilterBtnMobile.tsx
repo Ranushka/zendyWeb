@@ -6,8 +6,7 @@ import { IconFilter, IconClose } from 'components/icons'
 import useGlobal from 'context/GlobalContext'
 
 const FilterBtnMobile: React.FC<any> = () => {
-  const [state, setState] = useGlobal()
-  const { mobileFilterVisibility } = state
+  const [{ mobileFilterVisibility, setGlobalState }] = useGlobal()
 
   const fabClass = classnames(
     'p-4 pointer rounded-full z-30 bg-orange-50',
@@ -21,8 +20,7 @@ const FilterBtnMobile: React.FC<any> = () => {
       icon={mobileFilterVisibility ? <IconClose /> : <IconFilter />}
       classNames={fabClass}
       onClick={() => {
-        setState({
-          ...state,
+        setGlobalState({
           mobileFilterVisibility: !mobileFilterVisibility
         })
       }}

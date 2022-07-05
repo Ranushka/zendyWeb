@@ -13,8 +13,7 @@ import useSearchResults from 'fetchHooks/useSearchResults'
 import useGlobal from 'context/GlobalContext'
 
 const SearchResultActions = () => {
-  const [state, setState] = useGlobal()
-  const { selectionMode } = state
+  const [{ selectionMode, setGlobalState }] = useGlobal()
 
   return (
     <div className="max-w-4xl">
@@ -27,7 +26,7 @@ const SearchResultActions = () => {
             selectionMode && 'text_nut5'
           )}
           onClick={() => {
-            setState({ ...state, selectionMode: !selectionMode })
+            setGlobalState({ selectionMode: !selectionMode })
           }}
         />
         {selectionMode && (

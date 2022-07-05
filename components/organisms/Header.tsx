@@ -23,23 +23,22 @@ const Header = () => {
 
   const loading = status === 'loading'
   const isHomePage = router.pathname === routs.index
-  const [openAppearance, setOpenAppearance] = React.useState(false)
-  const [openLangPopUp, setOpenLangPopUp] = React.useState(false)
   const isMobile = useMediaQuery({
     query: '(max-width: 786px)'
   })
-  const [state, setState] = useGlobal()
-  const { premiumPopupVisibility } = state
+  const [
+    { premiumPopupVisibility, openLangPopUp, openSettingsPopUp, setGlobalState }
+  ] = useGlobal()
 
   const btnGuestOrUser = () => {
-    if (loading) return <Skeleton height={40} width={126} />
+    if (loading) return <Skeleton height={38} width={126} />
     if (session) return __getLoggedInUser(session)
     return <GetLoginBtn />
   }
 
   return (
-    <>
-      <section className="bg_nut2">
+    <div>
+      <section key="headerTop" className="bg_nut2">
         <div className="flex justify-end items-center px-4 py-2 md:py-0">
           <NavItems />
           <div className="hidden sm:flex">
@@ -48,22 +47,22 @@ const Header = () => {
               className="mx-2"
               text={'En عربى සිං'}
               title="set language"
-              onClick={() => setOpenLangPopUp(true)}
+              onClick={() => setGlobalState({ openLangPopUp: true })}
             />
             <ActionItem
               className="mx-2 py-1.5"
               text="Settings"
               title="set theme, font size"
-              onClick={() => setOpenAppearance(true)}
+              onClick={() => setGlobalState({ openSettingsPopUp: true })}
             />
           </div>
         </div>
       </section>
       <nav
+        key="headerLogoSection"
         className={classnames(
-          'bg_white shadow relative top-0 z-30',
-          !isHomePage && 'md:sticky',
-          !isMobile && 'shadow'
+          'relative top-0 z-30',
+          isHomePage ? '' : 'bg_white md:sticky shadow-none md:shadow'
         )}
       >
         <div className="container px-4 py-2 md:py-3 flex items-center md:justify-between">
@@ -97,28 +96,40 @@ const Header = () => {
         </div>
       </nav>
 
+      {!isHomePage && isMobile && (
+        <div
+          key="headerMobileSearch"
+          className="w-full justify-center flex sticky top-0 bg_white px-4 pb-4 pt-3 shadow z-10"
+        >
+          <SearchForm id="mainSearchMobile" />
+        </div>
+      )}
+
       <SidePopup
+        key="LanguagePopUpContent"
         small
         content={<LanguagePopUpContent />}
         open={openLangPopUp}
         openLocation="center"
-        closeFunc={() => setOpenLangPopUp(false)}
+        closeFunc={() => setGlobalState({ openLangPopUp: false })}
       />
       <SidePopup
+        key="SettingsPopUpContent"
         small
         content={<SettingsPopUpContent />}
-        open={openAppearance}
+        open={openSettingsPopUp}
         openLocation="center"
-        closeFunc={() => setOpenAppearance(false)}
+        closeFunc={() => setGlobalState({ openSettingsPopUp: false })}
       />
       <SidePopup
+        key="PremiumPopUpContent"
         small
         content={<PremiumPopUpContent />}
         open={premiumPopupVisibility}
         openLocation="center"
-        closeFunc={() => setState({ ...state, premiumPopupVisibility: false })}
+        closeFunc={() => setGlobalState({ premiumPopupVisibility: false })}
       />
-    </>
+    </div>
   )
 }
 

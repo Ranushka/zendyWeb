@@ -1,48 +1,103 @@
 import React from 'react'
 
+import useGlobal from 'context/GlobalContext'
 import { SidePopup } from 'components/organisms'
 import { ActionItem, Logo } from 'components/atoms'
 
-const __sidePopupContent = () => (
-  <div className="mx-8 my-8">
-    <Logo />
-    <div className="pt-4" />
-    <div className="my-2">
-      <ActionItem className="block py-2" text={'Pricing'} href={'/pricing'} />
-    </div>
-    <div className="my-2">
-      <ActionItem className="block py-2" text={'About'} href={'/about'} />
-    </div>
-    <div className="my-2">
-      <ActionItem className="block py-2" text={'FAQs'} href={'/faq'} />
-    </div>
-    <div className="my-2">
-      <ActionItem className="block py-2" text={'Contact'} href={'/contact'} />
-    </div>
-    <div className="my-2">
+const MobileHeaderNavFooter: React.FC<{}> = () => {
+  const [{ setGlobalState }] = useGlobal()
+
+  return (
+    <div className="my-1 flex justify-between mr-8 pt-4">
       <ActionItem
-        className="block py-2"
-        text={'Magazines'}
-        href={'/magazines'}
+        className="px-6 py-2 bg_pri1 rounded"
+        text={'En عربى සිං'}
+        title="set language"
+        onClick={() => setGlobalState({ openLangPopUp: true })}
+      />
+      <ActionItem
+        className="px-6 py-2 bg_pri1 rounded"
+        text="Settings"
+        title="set theme, font size"
+        onClick={() => setGlobalState({ openSettingsPopUp: true })}
       />
     </div>
-    <div className="my-2">
-      <ActionItem className="block py-2" text={'News'} href={'/news'} />
+  )
+}
+
+const __sidePopupContent = () => (
+  <div className="h-screen relative overflow-scroll pb-8">
+    <div className="py-4 px-8 flex">
+      <Logo />
     </div>
-    <div className="my-2">
-      <ActionItem className="block py-2" text={'Platform'} href={'/platform'} />
-    </div>
-    <div className="my-2">
-      <ActionItem className="block py-2" text={'CSR'} href={'/csr'} />
-    </div>
-    <div className="my-2">
-      <ActionItem className="block py-2" text={'Feedback'} href={'/feedback'} />
-    </div>
-    <div className="my-2">
-      <ActionItem className="block py-2" text={'Careers'} href={'/careers'} />
-    </div>
-    <div className="my-2">
-      <ActionItem className="block py-2" text={'Login/Register'} href={'/'} />
+    <div className="ml-8">
+      <div className="my-1">
+        <ActionItem className="block py-2" text={'Pricing'} href={'/pricing'} />
+      </div>
+
+      <div className="my-1">
+        <ActionItem className="block py-2" text={'Blog'} href={'/blog'} />
+      </div>
+      <div className="my-1">
+        <ActionItem
+          className="block py-2"
+          text={'Platform'}
+          href={'/platform'}
+        />
+      </div>
+      <div className="mt-4 mb-1 text_nut4 text-xs">Content</div>
+      <div className="my-1">
+        <ActionItem
+          className="block py-2"
+          text={'Publishers'}
+          href={'/publishers'}
+        />
+      </div>
+      <div className="my-1">
+        <ActionItem
+          className="block py-2"
+          text={'Magazines'}
+          href={'/magazines'}
+        />
+      </div>
+      <div className="my-1">
+        <ActionItem
+          className="block py-2"
+          text={'Journals'}
+          href={'/publishers'}
+        />
+      </div>
+      <div className="my-1">
+        <ActionItem
+          className="block py-2"
+          text={'Subjects'}
+          href={'/publishers'}
+        />
+      </div>
+      <div className="mt-4 mb-1 text_nut4 text-xs">Helpful</div>
+      <div className="my-1">
+        <ActionItem className="block py-2" text={'About'} href={'/about'} />
+      </div>
+      <div className="my-1">
+        <ActionItem className="block py-2" text={'FAQs'} href={'/faq'} />
+      </div>
+      <div className="my-1">
+        <ActionItem className="block py-2" text={'Contact'} href={'/contact'} />
+      </div>
+      <div className="my-1">
+        <ActionItem className="block py-2" text={'CSR'} href={'/csr'} />
+      </div>
+      <div className="my-1">
+        <ActionItem
+          className="block py-2"
+          text={'Feedback'}
+          href={'/feedback'}
+        />
+      </div>
+      <div className="my-1">
+        <ActionItem className="block py-2" text={'Careers'} href={'/careers'} />
+      </div>
+      <MobileHeaderNavFooter />
     </div>
   </div>
 )
