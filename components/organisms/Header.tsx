@@ -37,7 +37,7 @@ const Header = () => {
   }
 
   return (
-    <div>
+    <React.Fragment key="header">
       <section key="headerTop" className="bg_nut2">
         <div className="flex justify-end items-center px-4 py-2 md:py-0">
           <NavItems />
@@ -62,7 +62,7 @@ const Header = () => {
         key="headerLogoSection"
         className={classnames(
           'relative top-0 z-30',
-          isHomePage ? '' : 'bg_white md:sticky shadow-none md:shadow'
+          isHomePage ? 'bg_white' : 'bg_white md:sticky shadow-none md:shadow'
         )}
       >
         <div className="container px-4 py-2 md:py-3 flex items-center md:justify-between">
@@ -87,22 +87,19 @@ const Header = () => {
             text={trans('my_link')}
             href="/library/collections"
           />
-          <div
-            className="ml-auto w-full overflow-ellipsis overflow-auto"
-            style={{ maxWidth: '8rem' }}
-          >
+          <div className="ml-auto w-full" style={{ maxWidth: '8rem' }}>
             {btnGuestOrUser()}
           </div>
         </div>
       </nav>
 
       {!isHomePage && isMobile && (
-        <div
+        <section
           key="headerMobileSearch"
-          className="w-full justify-center flex sticky top-0 bg_white px-4 pb-4 pt-3 shadow z-10"
+          className="w-full justify-center flex sticky top-0 bg_white pl-4 pb-2 pt-2.5 shadow z-10"
         >
           <SearchForm id="mainSearchMobile" />
-        </div>
+        </section>
       )}
 
       <SidePopup
@@ -129,7 +126,7 @@ const Header = () => {
         openLocation="center"
         closeFunc={() => setGlobalState({ premiumPopupVisibility: false })}
       />
-    </div>
+    </React.Fragment>
   )
 }
 
@@ -166,12 +163,13 @@ const GetLoginBtn = () => {
 
 const __getLoggedInUser = (session) => {
   return (
-    <ActionItem
-      // className="overflow-ellipsis "
-      text={__getUserNameInitials(session.user)}
-      href={'/profile'}
-      type="link"
-    />
+    <div className="overflow-ellipsis overflow-auto">
+      <ActionItem
+        text={__getUserNameInitials(session.user)}
+        href={'/profile'}
+        type="link"
+      />
+    </div>
   )
 }
 

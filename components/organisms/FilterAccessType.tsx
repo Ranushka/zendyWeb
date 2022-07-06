@@ -40,7 +40,7 @@ const FilterAccessType: React.FC = () => {
   return (
     <div className="mb-8">
       <FilterGroupTitle title="Result type" />
-      <form className="flex flex-wrap">{customSortBys}</form>
+      <form>{customSortBys}</form>
     </div>
   )
 }

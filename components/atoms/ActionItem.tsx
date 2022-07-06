@@ -171,8 +171,8 @@ const getType = (type) => {
     btn__secondary: classnames(
       'outline-1 outline-offset-2',
       'border py-2 px-3 rounded-md flex justify-center duration-300',
-      'shadow-sm hover:shadow-md active:shadow-md',
-      'border_pri6 bg_pri0 active:bg_pri1 active:scale-95 text_pri7'
+      'shadow-sm hover:shadow active:shadow-none',
+      'border_pri1 bg_pri0 active:scale-95 text_pri7'
     ),
     btn__primary: classnames(
       'outline-1 outline-offset-2 border border_pri7',

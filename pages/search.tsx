@@ -44,8 +44,11 @@ const Search: React.FC = () => {
           </div>
         </>
       )}
-
-      {!queryString && <SearchLandingBlock />}
+      {!queryString && (
+        <div>
+          <SearchLandingBlock />
+        </div>
+      )}
     </BaseTemplate>
   )
 }

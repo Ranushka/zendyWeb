@@ -9,7 +9,7 @@ const Blog = ({ post }) => {
 
   return (
     <BaseTemplate>
-      <div className="max-w-3xl m-auto pt-16 px-8">
+      <div className="max-w-3xl m-auto pt-16 px-4 md:px-8 overflow-x-hidden">
         <h1 className="pb-8 text-4xl font-serif">{post.title.rendered}</h1>
         <div
           className="card-text pb-8"
@@ -26,7 +26,7 @@ const Blog = ({ post }) => {
 const PostNotFound = () => {
   return (
     <BaseTemplate>
-      <div className="max-w-3xl m-auto pt-16 px-8">
+      <div className="max-w-3xl m-auto pt-16 px-4 md:px-8 overflow-x-hidden">
         <h1 className="pb-8 text-4xl font-serif">Post not found</h1>
 
         <Link href="/">
