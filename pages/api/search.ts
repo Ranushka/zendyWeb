@@ -16,7 +16,7 @@ export default async function handler(
     const sort = formatSort(sortFilters)
 
     const qryOptions = {
-      query: `"${TERM}" AND ${TERM}`,
+      query: `"${TERM}" OR ${TERM}`,
       filter,
       sort,
       limit: 10

@@ -2,6 +2,7 @@ import React from 'react'
 import { useTranslations } from 'next-intl'
 import Head from 'next/head'
 import { SubTitle, SearchForm } from 'components/organisms'
+import RecentSearchKeywords from 'components/organisms/RecentSearchKeywords'
 
 import { commonMessages, curatedMessages, homeMessages } from 'lib/getMessages'
 
@@ -14,7 +15,6 @@ import {
   Testimonials,
   Subjects
 } from 'components/organisms'
-// import TrendingKeywords from 'components/organisms/TrendingKeywords'
 
 import { BaseTemplate } from 'components/templates'
 import classNames from 'classnames'
@@ -47,13 +47,13 @@ const Home: React.FC = () => {
       <section
         ref={homeSearchStickyRef}
         className={classNames(
-          'sticky flex justify-center -top-0.5 z-20 py-2 px-6',
+          'sticky flex justify-center -top-0.5 z-20 px-4 py-2 bg_white',
           isSticky && 'shadow bg_white'
         )}
       >
         <SearchForm id="mainSearch" />
       </section>
-      {/* <TrendingKeywords /> */}
+      <RecentSearchKeywords />
       <SubTitle
         title={trans('section1')}
         linkText={trans('see_all')}

@@ -62,19 +62,14 @@ const __renderContent = (data) => {
 
 const __renderLoading = () => {
   return (
-    <div className={'mw__3 px-4'}>
-      <div className="gaps__5" />
+    <div className="max-w-4xl m-auto pt-16 px-8 pb-16">
       <Skeleton />
-      <div className="gaps__3" />
       <Skeleton height="80px" />
-      <div className="gaps__4" />
       <Skeleton />
-      <div className="gaps__4" />
       <Skeleton count={8} />
-      <div className="gaps__4" />
       <Skeleton />
-      <div className="gaps__4" />
       <Skeleton height="40px" />
+      <Skeleton height="400px" className="mt-8" />
     </div>
   )
 }

@@ -7,9 +7,9 @@ import { ReadMore } from 'components/atoms'
 import FilterItems from 'components/organisms/FilterItems'
 import FilterGroupTitle from 'components/organisms/FilterGroupTitle'
 import useSearchResults from 'fetchHooks/useSearchResults'
-import useGlobal from 'context/GlobalContext'
+// import useGlobal from 'context/GlobalContext'
 
-const isNarrowed = false
+// const isNarrowed = false
 
 const __searchFiltersLoading = () => {
   return [1, 2, 3, 4].map((id) => (
@@ -22,7 +22,7 @@ const __searchFiltersLoading = () => {
 
 const FilterFacets = () => {
   const { data } = useSearchResults()
-  const [{ initialFilters, setGlobalState }] = useGlobal()
+  // const [{ initialFilters, setGlobalState }] = useGlobal()
 
   if (!data) {
     return __searchFiltersLoading()
@@ -30,15 +30,15 @@ const FilterFacets = () => {
 
   let availableFacets = get(data, 'data.searchResults.availableFacets', null)
 
-  if (!initialFilters) {
-    setGlobalState({
-      initialFilters: availableFacets
-    })
-  }
+  // if (!initialFilters) {
+  //   setGlobalState({
+  //     initialFilters: availableFacets
+  //   })
+  // }
 
-  if (availableFacets?.length && isNarrowed) {
-    availableFacets = initialFilters
-  }
+  // if (availableFacets?.length && isNarrowed) {
+  //   availableFacets = initialFilters
+  // }
 
   return (
     availableFacets &&
