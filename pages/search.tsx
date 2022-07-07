@@ -13,7 +13,6 @@ import { useRouter } from 'next/router'
 const Search: React.FC = () => {
   const router = useRouter()
   const rq = router.query
-  const isAdvanceSearch = rq.aq
   const qAuthor = rq.author
   const qSubject = rq.subject
   const qJournal = rq.journal
@@ -36,7 +35,7 @@ const Search: React.FC = () => {
     <BaseTemplate>
       {queryString && (
         <>
-          {isAdvanceSearch && <AdvancedSearchForm />}
+          <AdvancedSearchForm />
           {qPublisher && <InfoPublisher publisherName={qPublisher} />}
           {qJournal && <InfoJournal publicationName={qJournal} />}
           {qAuthor && <InfoAuthor authorName={qAuthor} />}
