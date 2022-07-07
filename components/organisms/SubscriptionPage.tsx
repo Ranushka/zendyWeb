@@ -14,7 +14,7 @@ const SubscriptionPage: React.FC<{}> = () => {
   const currentPlan = planTypes[plan ? 'monthly' : 'yearly']
 
   const __onChange = () => {
-    analyticEvent('select_plan', 'checkout', 'select_plan', plan)
+    analyticEvent('select_plan', 'checkout')
     planSet(!plan)
   }
 
