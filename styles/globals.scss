@@ -94,15 +94,6 @@ $colors: white, black, pri8, pri7, pri6, pri1, pri0, nut8, nut7, nut6, nut5, nut
   }
 }
 
-
-
-input[type='search']::-webkit-search-decoration,
-input[type='search']::-webkit-search-cancel-button,
-input[type='search']::-webkit-search-results-button,
-input[type='search']::-webkit-search-results-decoration {
-  -webkit-appearance: none;
-}
-
 .hideScrollBar {
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
