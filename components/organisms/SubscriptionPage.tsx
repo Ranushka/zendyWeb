@@ -19,7 +19,7 @@ const SubscriptionPage: React.FC<{}> = () => {
   }
 
   return (
-    <>
+    <div>
       <div dangerouslySetInnerHTML={{ __html: title }} />
 
       <div className="flex justify-center mt-10 mb-8 text_nut5">
@@ -64,7 +64,7 @@ const SubscriptionPage: React.FC<{}> = () => {
       </div>
 
       <SecurityStripBlock />
-    </>
+    </div>
   )
 }
 

@@ -23,23 +23,22 @@ const Header = () => {
 
   const loading = status === 'loading'
   const isHomePage = router.pathname === routs.index
-  const [openAppearance, setOpenAppearance] = React.useState(false)
-  const [openLangPopUp, setOpenLangPopUp] = React.useState(false)
   const isMobile = useMediaQuery({
     query: '(max-width: 786px)'
   })
-  const [state, setState] = useGlobal()
-  const { premiumPopupVisibility } = state
+  const [
+    { premiumPopupVisibility, openLangPopUp, openSettingsPopUp, setGlobalState }
+  ] = useGlobal()
 
   const btnGuestOrUser = () => {
-    if (loading) return <Skeleton height={40} width={126} />
+    if (loading) return <Skeleton height={38} width={126} />
     if (session) return __getLoggedInUser(session)
     return <GetLoginBtn />
   }
 
   return (
-    <>
-      <section className="bg_nut2">
+    <React.Fragment key="header">
+      <section key="headerTop" className="bg_nut2">
         <div className="flex justify-end items-center px-4 py-2 md:py-0">
           <NavItems />
           <div className="hidden sm:flex">
@@ -48,22 +47,22 @@ const Header = () => {
               className="mx-2"
               text={'En عربى සිං'}
               title="set language"
-              onClick={() => setOpenLangPopUp(true)}
+              onClick={() => setGlobalState({ openLangPopUp: true })}
             />
             <ActionItem
               className="mx-2 py-1.5"
               text="Settings"
               title="set theme, font size"
-              onClick={() => setOpenAppearance(true)}
+              onClick={() => setGlobalState({ openSettingsPopUp: true })}
             />
           </div>
         </div>
       </section>
       <nav
+        key="headerLogoSection"
         className={classnames(
-          'bg_white shadow relative top-0 z-30',
-          !isHomePage && 'md:sticky',
-          !isMobile && 'shadow'
+          'relative top-0 z-30',
+          isHomePage ? 'bg_white' : 'bg_white md:sticky shadow-none md:shadow'
         )}
       >
         <div className="container px-4 py-2 md:py-3 flex items-center md:justify-between">
@@ -88,37 +87,46 @@ const Header = () => {
             text={trans('my_link')}
             href="/library/collections"
           />
-          <div
-            className="ml-auto w-full overflow-ellipsis overflow-auto"
-            style={{ maxWidth: '8rem' }}
-          >
+          <div className="ml-auto w-full" style={{ maxWidth: '8rem' }}>
             {btnGuestOrUser()}
           </div>
         </div>
       </nav>
 
+      {!isHomePage && isMobile && (
+        <section
+          key="headerMobileSearch"
+          className="w-full justify-center flex sticky top-0 bg_white pl-4 pb-2 pt-2.5 shadow z-10"
+        >
+          <SearchForm id="mainSearchMobile" />
+        </section>
+      )}
+
       <SidePopup
+        key="LanguagePopUpContent"
         small
         content={<LanguagePopUpContent />}
         open={openLangPopUp}
         openLocation="center"
-        closeFunc={() => setOpenLangPopUp(false)}
+        closeFunc={() => setGlobalState({ openLangPopUp: false })}
       />
       <SidePopup
+        key="SettingsPopUpContent"
         small
         content={<SettingsPopUpContent />}
-        open={openAppearance}
+        open={openSettingsPopUp}
         openLocation="center"
-        closeFunc={() => setOpenAppearance(false)}
+        closeFunc={() => setGlobalState({ openSettingsPopUp: false })}
       />
       <SidePopup
+        key="PremiumPopUpContent"
         small
         content={<PremiumPopUpContent />}
         open={premiumPopupVisibility}
         openLocation="center"
-        closeFunc={() => setState({ ...state, premiumPopupVisibility: false })}
+        closeFunc={() => setGlobalState({ premiumPopupVisibility: false })}
       />
-    </>
+    </React.Fragment>
   )
 }
 
@@ -155,12 +163,13 @@ const GetLoginBtn = () => {
 
 const __getLoggedInUser = (session) => {
   return (
-    <ActionItem
-      // className="overflow-ellipsis "
-      text={__getUserNameInitials(session.user)}
-      href={'/profile'}
-      type="link"
-    />
+    <div className="overflow-ellipsis overflow-auto">
+      <ActionItem
+        text={__getUserNameInitials(session.user)}
+        href={'/profile'}
+        type="link"
+      />
+    </div>
   )
 }
 

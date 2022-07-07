@@ -11,7 +11,7 @@ const SearchResultItemActions = ({
   resultId = '',
   downloadLink = ''
 }) => {
-  const [state, setState] = useGlobal()
+  const [{ setGlobalState }] = useGlobal()
   const { data: session } = useSession()
   const href = get(link, '[0].url')
 
@@ -19,7 +19,7 @@ const SearchResultItemActions = ({
     if (session) {
       window.open(downloadLink)
     } else {
-      setState({ ...state, premiumPopupVisibility: true })
+      setGlobalState({ premiumPopupVisibility: true })
     }
   }
 

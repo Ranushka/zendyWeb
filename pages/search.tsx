@@ -7,11 +7,13 @@ import InfoJournal from 'components/organisms/InfoJournal'
 import InfoPublisher from 'components/organisms/InfoPublisher'
 import InfoAuthor from 'components/organisms/InfoAuthor'
 import FilterNavigation from 'components/organisms/FilterNavigation'
+import AdvancedSearchForm from 'components/organisms/AdvancedSearchForm'
 import { useRouter } from 'next/router'
 
 const Search: React.FC = () => {
   const router = useRouter()
   const rq = router.query
+  const isAdvanceSearch = rq.aq
   const qAuthor = rq.author
   const qSubject = rq.subject
   const qJournal = rq.journal
@@ -34,6 +36,7 @@ const Search: React.FC = () => {
     <BaseTemplate>
       {queryString && (
         <>
+          {isAdvanceSearch && <AdvancedSearchForm />}
           {qPublisher && <InfoPublisher publisherName={qPublisher} />}
           {qJournal && <InfoJournal publicationName={qJournal} />}
           {qAuthor && <InfoAuthor authorName={qAuthor} />}
@@ -44,8 +47,11 @@ const Search: React.FC = () => {
           </div>
         </>
       )}
-
-      {!queryString && <SearchLandingBlock />}
+      {!queryString && (
+        <div>
+          <SearchLandingBlock />
+        </div>
+      )}
     </BaseTemplate>
   )
 }

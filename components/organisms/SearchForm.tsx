@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslations } from 'next-intl'
+import { useMediaQuery } from 'react-responsive'
+
+import routs from 'lib/routs'
 import { ButtonFab } from 'components/atoms'
-import { IconSearch, IconClear, IconAdvanceSearch } from 'components/icons'
-import useGlobal from 'context/GlobalContext'
+import IconSearch from 'components/icons/IconSearch'
+import IconClear from 'components/icons/IconClear'
+import IconAdvanceSearch from 'components/icons/IconAdvanceSearch'
 import { focusToSearchInput } from 'lib/helpers'
 import classNames from 'classnames'
 
@@ -16,7 +20,10 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
   const trans = useTranslations('header')
   const [searchText, setSearchText] = useState('')
   const router = useRouter()
-  const [state, setState] = useGlobal()
+  const isHomePage = router.pathname === routs.index
+  const isMobile = useMediaQuery({
+    query: '(max-width: 786px)'
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -24,19 +31,10 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
     e.target[0].blur()
 
     router.push({
-      pathname: '/search',
+      pathname: routs.search,
       query: { q: searchText }
     })
   }
-
-  // const onClick = (e) => {
-  //   e.preventDefault()
-  //   e.stopPropagation()
-
-  //   router.push({
-  //     pathname: '/search'
-  //   })
-  // }
 
   const clearInput = () => {
     setSearchText('')
@@ -56,10 +54,10 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
     }
 
     // if (router.pathname === '/search' && !router.query.q) {
-    if (!router.query.q) {
+    if (!router.query.q && !isMobile) {
       searchInput.current.focus()
     }
-  }, [router])
+  }, [router, isMobile])
 
   React.useEffect(() => {
     window.addEventListener('keydown', focusToSearchInput)
@@ -70,16 +68,8 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
   }, [router])
 
   return (
-    <div className="w-full max-w-2xl">
-      <form className="block relative flex__inline" onSubmit={handleSubmit}>
-        <div className="absolute out">
-          <ButtonFab
-            tabindex={-1}
-            href="/search"
-            icon={<IconSearch className="text_pri" />}
-            classNames="rounded-full m-0.5 px-3 py-2.5 block hover:text_pri6 active:scale-95"
-          />
-        </div>
+    <div className="w-full max-w-2xl flex">
+      <form className="relative w-full" onSubmit={handleSubmit}>
         <input
           id={id}
           tabIndex={1}
@@ -87,13 +77,13 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
           autoComplete="off"
           ref={searchInput}
           type="search"
-          accessKey="s"
+          accessKey="/"
           placeholder={trans(`search_placeholder_d`)}
           className={classNames(
-            'w-full h-12 rounded-full border border_nut4 px-14',
-            'outline-4 outline-offset-2',
-            'hover:shadow active:border_pri6 focus:border_pri6',
-            'appearance-none bg__nut0'
+            'w-full h-12 rounded-full border border_nut4',
+            'outline-4 outline-offset-2 pr-14 pl-6',
+            'shadow hover:shadow-md active:border_pri6 focus:border_pri6',
+            'appearance-none'
           )}
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
@@ -101,33 +91,33 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
         <div className="inline-flex absolute right-0">
           {searchText && (
             <ButtonFab
-              classNames="rounded-full px-3 py-3 block"
+              classNames="rounded-full px-0 py-3 block"
               icon={<IconClear />}
               onClick={clearInput}
             />
           )}
           <ButtonFab
-            title="To perform a complex search"
-            onClick={() => {
-              setState({
-                ...state,
-                toggleAdvanceSearch: true
-              })
-            }}
-            icon={<IconAdvanceSearch className="text_nut4" />}
-            classNames="rounded-full m-0.5 px-3 py-2.5 block hover:bg_nut2 active:scale-95"
+            tabindex={-1}
+            href="/search"
+            icon={<IconSearch className="text_pri6 hover:text_pri7" />}
+            classNames="rounded-full m-0.5 px-3 py-2.5 block hover:text_pri6 active:scale-95"
           />
         </div>
-        {/* {router.pathname !== '/search' && (
-          <div
-            className={classNames(
-              'w-full h-12 absolute top-0 cursor-pointer',
-              'hover:shadow-md rounded-full border border_nut4 hover:border_nut4'
-            )}
-            onClick={(e) => onClick(e)}
-          ></div>
-        )} */}
       </form>
+
+      {!isHomePage && (
+        <ButtonFab
+          title="To perform a complex search"
+          onClick={() => {
+            router.push({
+              pathname: routs.search,
+              query: { ...router.query, aq: true }
+            })
+          }}
+          icon={<IconAdvanceSearch className="text_nut4" />}
+          classNames="rounded-full m-0.5 px-3 w-12 block hover:text_nut7 active:scale-95 flex items-center"
+        />
+      )}
     </div>
   )
 }

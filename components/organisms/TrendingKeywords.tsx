@@ -10,16 +10,19 @@ const TrendingKeywords: React.FC<Props> = () => {
   if (!data) return <div>loading...</div>
 
   return (
-    <section className="md:container p-4 text-center whitespace-nowrap md:whitespace-normal overflow-y-scroll hideScrollBar">
-      {data.map((title, id) => (
-        <ActionItem
-          key={id}
-          text={title}
-          href={`/search?q=${title}`}
-          className="m-1 inline-block p-1"
-          type="link__small"
-        />
-      ))}
+    <section>
+      <h4 className="pt-8 pb-2 text_nut4 text-xs">Trending searches</h4>
+      <div className="max-w-4xl px-8 mx-auto text-center ">
+        {data.map((title, id) => (
+          <ActionItem
+            key={id}
+            text={title}
+            href={`/search?q=${title}`}
+            className="m-1 inline-block px-2 py-1 first_letter_caps"
+            type="link"
+          />
+        ))}
+      </div>
     </section>
   )
 }
