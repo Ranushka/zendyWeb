@@ -76,7 +76,8 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
           name="search_term_string"
           autoComplete="off"
           ref={searchInput}
-          type="search"
+          enterKeyHint="search"
+          type="text"
           accessKey="/"
           placeholder={trans(`search_placeholder_d`)}
           className={classNames(
