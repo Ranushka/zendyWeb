@@ -8,6 +8,7 @@ import { ButtonFab } from 'components/atoms'
 import IconSearch from 'components/icons/IconSearch'
 import IconClear from 'components/icons/IconClear'
 import IconAdvanceSearch from 'components/icons/IconAdvanceSearch'
+import analyticEvent from 'analytics/analyticEvent'
 import { focusToSearchInput } from 'lib/helpers'
 import classNames from 'classnames'
 
@@ -29,7 +30,7 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
     e.preventDefault()
     e.stopPropagation()
     e.target[0].blur()
-
+    analyticEvent('search')
     router.push({
       pathname: routs.search,
       query: { q: searchText }
