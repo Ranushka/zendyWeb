@@ -5,8 +5,9 @@ import { useMediaQuery } from 'react-responsive'
 
 import routs from 'lib/routs'
 import { ButtonFab } from 'components/atoms'
-import { IconSearch, IconClear, IconAdvanceSearch } from 'components/icons'
-import useGlobal from 'context/GlobalContext'
+import IconSearch from 'components/icons/IconSearch'
+import IconClear from 'components/icons/IconClear'
+import IconAdvanceSearch from 'components/icons/IconAdvanceSearch'
 import { focusToSearchInput } from 'lib/helpers'
 import classNames from 'classnames'
 
@@ -19,7 +20,6 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
   const trans = useTranslations('header')
   const [searchText, setSearchText] = useState('')
   const router = useRouter()
-  const [{ setGlobalState }] = useGlobal()
   const isHomePage = router.pathname === routs.index
   const isMobile = useMediaQuery({
     query: '(max-width: 786px)'
@@ -109,8 +109,9 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
         <ButtonFab
           title="To perform a complex search"
           onClick={() => {
-            setGlobalState({
-              toggleAdvanceSearch: true
+            router.push({
+              pathname: routs.search,
+              query: { ...router.query, aq: true }
             })
           }}
           icon={<IconAdvanceSearch className="text_nut4" />}

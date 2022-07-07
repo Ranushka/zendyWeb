@@ -29,7 +29,6 @@ const Select: React.FC<Props> = ({
   return (
     <div
       className={classnames(
-        'input__wrapper',
         small && 'selectSmall small',
         block && 'block',
         className && className
