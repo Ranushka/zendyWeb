@@ -15,6 +15,7 @@ import { GlobalProvider } from 'context/GlobalContext'
 import { pageView } from 'analytics'
 import NProgress from 'nprogress'
 import Router from 'next/router'
+import { GtmScript } from 'analytics/GtmScript'
 
 if (typeof window !== 'undefined') {
   applyTheme(null)
@@ -49,6 +50,7 @@ const AppRoot = ({ Component, pageProps, session }) => {
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover"
         ></meta>
       </Head>
+      <GtmScript />
       <GlobalProvider>
         <NextIntlProvider messages={pageProps.messages}>
           <Component {...pageProps} />

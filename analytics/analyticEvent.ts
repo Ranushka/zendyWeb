@@ -1,13 +1,9 @@
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
-const analyticEvent = (action, category, label, value) => {
+const analyticEvent = (action, data = {}) => {
   // @ts-ignore
   if (!window.gtag) return
   // @ts-ignore
-  window.gtag('event', action, {
-    event_category: category,
-    event_label: label,
-    value: value,
-  })
+  window.gtag('event', action, data)
 }
 
 export default analyticEvent

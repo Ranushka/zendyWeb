@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { GtmScript } from 'analytics'
+import { GtmNoScript } from 'analytics/GtmScript'
 import { getDir } from 'lib/helpers'
 // import { applyTheme } from 'lib/theme'
 // import { applyFontSize } from 'lib/fontSize'
@@ -48,10 +48,9 @@ class MyDocument extends Document {
           <meta name="og:title" content={data.title} />
           <meta name="og:description" content={data.description} />
           <meta property="og:image" content={data.image} />
-
-          <GtmScript />
         </Head>
         <body>
+          <GtmNoScript />
           <Main />
           <NextScript />
         </body>
