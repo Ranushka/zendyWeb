@@ -10,7 +10,6 @@ export const GlobalProvider = ({ children }) => {
     selectionMode: false,
     mobileFilterVisibility: false,
     initialFilters: null,
-    toggleAdvanceSearch: false,
     setGlobalState: (data: object) => {
       setState({ ...state, ...data })
     }
