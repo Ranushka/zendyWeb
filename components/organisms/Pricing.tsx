@@ -22,6 +22,7 @@ const Pricing: React.FC<Props> = (props) => {
           dangerouslySetInnerHTML={{ __html: content }}
         />
         <ActionItem
+          dataName="BtnSubscribe"
           block
           text={'Subscribe'}
           type={'btn__primary'}

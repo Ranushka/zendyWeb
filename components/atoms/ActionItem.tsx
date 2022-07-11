@@ -2,6 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
+import { analyticsClickEvent } from 'analytics/events'
 
 type Props = {
   type?:
@@ -18,6 +19,7 @@ type Props = {
   href?: string
   onClick?: Function
   as?: string
+  dataName: string
   className?: string | object
   newWindow?: boolean
   block?: boolean
@@ -48,6 +50,7 @@ const __btn = (props: Props) => {
     text = 'Button text',
     title = '',
     onClick = () => {},
+    dataName,
     type,
     style,
     icon,
@@ -67,6 +70,7 @@ const __btn = (props: Props) => {
   )
 
   const handleClick = () => {
+    analyticsClickEvent(props)
     onClick()
   }
 
@@ -77,6 +81,7 @@ const __btn = (props: Props) => {
       tabIndex={tabIndex}
       className={finalClassNames}
       onClick={() => handleClick()}
+      data-name={dataName}
       type={submit ? 'submit' : 'button'}
     >
       {text}
@@ -98,6 +103,7 @@ const __link = (props: Props) => {
     block,
     disabled,
     className,
+    dataName,
     newWindow
   } = props
 
@@ -115,6 +121,8 @@ const __link = (props: Props) => {
   if (newWindow) {
     return (
       <a
+        data-name={dataName}
+        onClick={() => analyticsClickEvent(props)}
         className={finalClassNames}
         target="_blank"
         href={href}
@@ -129,7 +137,12 @@ const __link = (props: Props) => {
 
   return (
     <NextLink href={href} as={as}>
-      <a className={finalClassNames} tabIndex={tabIndex}>
+      <a
+        data-name={dataName}
+        className={finalClassNames}
+        tabIndex={tabIndex}
+        onClick={() => analyticsClickEvent(props)}
+      >
         <span>{text}</span>
         {icon && icon}
       </a>
@@ -142,6 +155,7 @@ const __linkWithChildren = (props: Props) => {
     href = '#',
     as,
     type = 'link__content',
+    dataName,
     block,
     tabIndex = 1,
     className,
@@ -151,7 +165,13 @@ const __linkWithChildren = (props: Props) => {
 
   return (
     <NextLink href={href} as={as}>
-      <a aria-label="Get Help" className={finalClassNames} tabIndex={tabIndex}>
+      <a
+        aria-label="Get Help"
+        className={finalClassNames}
+        tabIndex={tabIndex}
+        data-name={dataName}
+        onClick={() => analyticsClickEvent(props)}
+      >
         {children}
       </a>
     </NextLink>

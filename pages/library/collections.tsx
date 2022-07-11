@@ -36,6 +36,7 @@ const __dataCollection = (data) => {
 
       <div className="px-4">
         <ActionItem
+          dataName="CreateNewCollection"
           text={'Create new collection'}
           href={'/'}
           icon={<IconAdd />}

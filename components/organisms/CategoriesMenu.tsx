@@ -10,6 +10,7 @@ const CategoriesMenu: React.FC<{}> = () => {
   return (
     <div className="desktopMenu textNoWrap hidden md:flex">
       <ActionItem
+        dataName="CategoriesMenu"
         href="/"
         wrap
         text={trans('mega_menu_btn')}
@@ -47,7 +48,13 @@ const __getMenuItems = (list: []) => {
     list &&
     list.map(({ label, path }, key) => {
       return (
-        <ActionItem className="my-2 block" key={key} text={label} href={path} />
+        <ActionItem
+          dataName="CategoriesMenuItem"
+          className="my-2 block"
+          key={key}
+          text={label}
+          href={path}
+        />
       )
     })
   )

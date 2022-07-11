@@ -78,6 +78,7 @@ const SidePopup: React.FC<Props> = ({
         <div className={contentWrapperStyles}>
           <section className={innerContentStyles}>
             <ButtonFab
+              dataName="SidePopupClose"
               classNames={buttonStyles}
               onClick={() => closeFunc(false)}
               icon={<IconClear className="scale-125" />}

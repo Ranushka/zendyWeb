@@ -13,6 +13,7 @@ export const ExploreList = () => {
       return (
         <React.Fragment key={key}>
           <ActionItem
+            dataName="ExploreListItem"
             text={label}
             href={path}
             type="link__small"
@@ -34,6 +35,7 @@ export const NewsList = () => {
       return (
         <React.Fragment key={key}>
           <ActionItem
+            dataName="NewsListItem"
             text={label}
             href={path}
             type="link__small"
@@ -55,6 +57,7 @@ export const PrivacyList = () => {
       return (
         <React.Fragment key={key}>
           <ActionItem
+            dataName="PrivacyListItem"
             text={label}
             href={path}
             type="link__small"

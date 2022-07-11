@@ -19,6 +19,7 @@ const Desktop: React.FC<Props> = () => {
           My Profile
         </h1>
         <ActionItem
+          dataName="BtnSignOut"
           text={'Sign out'}
           type={'btn__default'}
           icon={<IconLogout />}
@@ -40,7 +41,11 @@ const Desktop: React.FC<Props> = () => {
             <p>pinto@gmail.com.ae</p>
             <p>+971 588 034 743</p>
 
-            <ActionItem text={'Edit profile'} href={'/'} />
+            <ActionItem
+              dataName="EditProfile"
+              text={'Edit profile'}
+              href={'/'}
+            />
           </>
         )}
       </ProfileBlock>
@@ -84,7 +89,11 @@ const Desktop: React.FC<Props> = () => {
             <small className="mute">What you&apos;ll be charged</small>
             <p>AED 198.00 ( for year )</p>
 
-            <ActionItem text={'Cancel subscription'} href={'/'} />
+            <ActionItem
+              dataName="CancelSubscription"
+              text={'Cancel subscription'}
+              href={'/'}
+            />
           </>
         )}
       </ProfileBlock>
@@ -102,12 +111,14 @@ const Desktop: React.FC<Props> = () => {
             />
             <div className="flex">
               <ActionItem
+                dataName="BtnUpdatePayment"
                 text={'Update payment'}
                 href={'/'}
                 type="link__small"
               />
               <div className="flex__left"></div>
               <ActionItem
+                dataName="BtnUpdateHistory"
                 text={'Payment history'}
                 href={'/'}
                 type="link__small"

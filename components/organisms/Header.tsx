@@ -44,12 +44,14 @@ const Header = () => {
           <div className="hidden sm:flex">
             <div className="mx-4 py-0.5">|</div>
             <ActionItem
+              dataName="SetLanguage"
               className="mx-2"
               text={'En عربى සිං'}
               title="set language"
               onClick={() => setGlobalState({ openLangPopUp: true })}
             />
             <ActionItem
+              dataName="SetSettings"
               className="mx-2 py-1.5"
               text="Settings"
               title="set theme, font size"
@@ -79,6 +81,7 @@ const Header = () => {
           )}
 
           <ActionItem
+            dataName="SetSettings"
             className={classnames(
               'px-4 hidden md:block',
               !isHomePage && 'hidden md:flex'
@@ -140,7 +143,12 @@ const NavItems = () => {
         nav_items.map(({ label, path }, key) => {
           return (
             <React.Fragment key={key}>
-              <ActionItem className="mx-2" text={label} href={path} />
+              <ActionItem
+                dataName="NavItem"
+                className="mx-2"
+                text={label}
+                href={path}
+              />
             </React.Fragment>
           )
         })}
@@ -153,6 +161,7 @@ const GetLoginBtn = () => {
 
   return (
     <ActionItem
+      dataName="HeaderLoginBtn"
       className="whitespace-nowrap"
       text={trans('login_btn_name')}
       href={routs.login}
@@ -165,6 +174,7 @@ const __getLoggedInUser = (session) => {
   return (
     <div className="overflow-ellipsis overflow-auto">
       <ActionItem
+        dataName="HeaderLoggedInUserBtn"
         text={__getUserNameInitials(session.user)}
         href={'/profile'}
         type="link"

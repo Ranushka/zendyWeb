@@ -17,6 +17,7 @@ const PremiumPopUpContent = () => {
       </div>
       <div className="inline-block">
         <ActionItem
+          dataName="BtnSubscribeToPlan"
           text="Subscribe to a plan"
           href={routs.pricing}
           type="btn__primary"

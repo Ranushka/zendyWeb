@@ -11,7 +11,12 @@ const PageNotFound: React.FC = () => {
         <p className="text-4xl my-8">
           The page you were looking for has not been found
         </p>
-        <ActionItem type="btn__primary" text={'Go to home page ➜'} href="/" />
+        <ActionItem
+          dataName="GoBackHome"
+          type="btn__primary"
+          text={'Go to home page ➜'}
+          href="/"
+        />
       </section>
     </BaseTemplate>
   )
