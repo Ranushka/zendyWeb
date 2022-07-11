@@ -32,7 +32,11 @@ const __dataRow = ({ id, name, keyWord, filters }) => (
         </div>
       </div>
       <span>
-        <ButtonFab classNames="bg_white" icon={<IconMore />} />
+        <ButtonFab
+          dataName="KeywordMore"
+          classNames="bg_white"
+          icon={<IconMore />}
+        />
       </span>
     </div>
   </div>

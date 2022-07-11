@@ -17,6 +17,7 @@ const PricingList: React.FC<Props> = () => {
 
     return (
       <ActionItem
+        dataName={`PricingListItem${plan}`}
         key={plan}
         href={`/pricing?subscribeAction=${plan}`}
         className="m-8"

@@ -14,7 +14,7 @@ const NextArticle: React.FC<Props> = (props) => {
   const { url = '/search', title, prev } = props
 
   return (
-    <ActionItem href={url}>
+    <ActionItem dataName="NextArticle" href={url}>
       <div className={classnames('rounded-md shadow bg_white')}>
         <div className="">{prev ? <IconArrowLeft /> : <IconArrowRight />}</div>
 

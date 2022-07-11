@@ -12,7 +12,7 @@ const AuthenticateRegister: React.FC<Props> = () => {
       <div className={classnames('flex items-center')}>
         <div className={classnames('mw__1 block')}>
           <div className="text-center">
-            <Logo className="" />
+            <Logo />
 
             <h2>OTP Confirm</h2>
           </div>
@@ -40,6 +40,7 @@ const AuthenticateRegister: React.FC<Props> = () => {
           </div>
           <div className="flex">
             <ActionItem
+              dataName="ConfirmOTP"
               text={'Confirm OTP'}
               href={'/authenticate/register'}
               type="btn__primary"
@@ -49,12 +50,14 @@ const AuthenticateRegister: React.FC<Props> = () => {
 
           <div className="flex">
             <ActionItem
+              dataName="ResendOTP"
               text={'Resend OTP'}
               href={'/authenticate'}
               type="link__small"
             />
             <div className="flex__left"></div>
             <ActionItem
+              dataName="ChangeNumber"
               text={'Change number'}
               href={'/authenticate'}
               type="link__small"

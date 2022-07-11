@@ -168,6 +168,7 @@ const StripePaymentElements: React.FC<Props> = (props) => {
             </div>
 
             <ActionItem
+              dataName="ConfirmPayment"
               block
               submit
               text={'Confirm secure payment'}

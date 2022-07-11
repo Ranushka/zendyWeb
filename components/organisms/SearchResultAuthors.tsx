@@ -16,6 +16,7 @@ const SearchResultAuthors = ({ authors = [], all = false }) => {
           if (name) {
             return (
               <ActionItem
+                dataName="searchByAuthor"
                 key={id}
                 text={name}
                 as={`/search?author=${name}`}

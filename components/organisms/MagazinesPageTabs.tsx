@@ -8,6 +8,7 @@ const ProfileTabs: React.FC = () => {
   return (
     <div className="flex px-8 overflowScroll items-center my-4">
       <ButtonFab
+        dataName="magazinesSearch"
         onClick={() => searchShowSet(!searchShow)}
         icon={<IconSearch />}
         classNames={'stage__1 px-4'}

@@ -1,10 +1,13 @@
 import React from 'react'
-import { ActionItem } from 'components/atoms'
 import classnames from 'classnames'
+
+import { ActionItem } from 'components/atoms'
+import { analyticsClickEvent } from 'analytics/events'
 
 type Props = {
   title?: string
   icon?: React.ReactNode
+  dataName: string
   href?: string
   small?: boolean
   onClick?: Function
@@ -12,26 +15,35 @@ type Props = {
   classNames?: string
 }
 
-const BtnFab: React.FC<Props> = ({
-  title,
-  href = '#',
-  icon,
-  small,
-  onClick,
-  tabindex = 1,
-  classNames
-}) => {
+const BtnFab: React.FC<Props> = (props) => {
+  const {
+    title,
+    href = '#',
+    dataName,
+    icon,
+    small,
+    onClick,
+    tabindex = 1,
+    classNames
+  } = props
+
   const className = classnames(
     'fab',
     small && 'fab__small',
     classNames && classNames
   )
 
+  const handleClick = () => {
+    analyticsClickEvent(props)
+    onClick()
+  }
+
   if (onClick) {
     return (
       <div
+        data-name={dataName}
         tabIndex={tabindex}
-        onClick={() => onClick()}
+        onClick={handleClick}
         className={className}
         role="button"
         title={title}
@@ -42,7 +54,12 @@ const BtnFab: React.FC<Props> = ({
   }
 
   return (
-    <ActionItem href={href} className={className} tabIndex={tabindex}>
+    <ActionItem
+      dataName={dataName}
+      href={href}
+      className={className}
+      tabIndex={tabindex}
+    >
       <>{icon}</>
     </ActionItem>
   )
