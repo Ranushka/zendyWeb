@@ -1,27 +1,36 @@
 import React from 'react'
 import classnames from 'classnames'
+import { analyticsClickEvent } from 'analytics/events'
 
 type Props = {
   id?: string | number
-  label?: string
+  text?: string
+  dataName: string
   checked?: boolean
   onClick?: Function
 }
 
-const Chip: React.FC<Props> = ({
-  id,
-  label,
-  checked = false,
-  onClick = () => {}
-}) => {
+const Chip: React.FC<Props> = (props) => {
+  const { id, text, dataName, checked = false, onClick = () => {} } = props
+
   const labelClass = classnames(
-    'bg_white border-gray-200 mb-2 rounded-md cursor-pointer px-2 py-1 mr-2 border',
-    checked && 'bg_nut2 border-gray-300'
+    'mb-2 rounded-md cursor-pointer px-2 py-1 mr-2 border',
+    checked ? 'bg_pri0 border_pri2' : 'bg_white border_nut2'
   )
 
+  const handleClick = () => {
+    analyticsClickEvent(props)
+    onClick()
+  }
+
   return (
-    <label key={id} className={labelClass} onClick={() => onClick()}>
-      <small> {label} </small>
+    <label
+      key={id}
+      data-name={dataName}
+      className={labelClass}
+      onClick={handleClick}
+    >
+      <small> {text} </small>
     </label>
   )
 }

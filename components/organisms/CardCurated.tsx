@@ -15,6 +15,7 @@ const CardCurated: React.FC<Props> = (props) => {
 
   return (
     <ActionItem
+      dataName="CardCurated"
       href={href}
       className="inline-block cursor-pointer text-left mx-2"
     >

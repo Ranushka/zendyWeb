@@ -1,3 +1,5 @@
 {
-  "cSpell.words": ["recaptcha", "sitekey"]
+  "cSpell.words": ["recaptcha", "sitekey"],
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "aiXcoder.showTrayIcon": true
 }

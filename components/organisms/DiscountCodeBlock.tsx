@@ -16,6 +16,7 @@ const DiscountCodeBlock = () => {
       return (
         <div className="text__right">
           <ActionItem
+            dataName="DiscountCodeLink"
             text={'I have Discount code'}
             type="link__small"
             onClick={() => showInputSet(true)}
@@ -59,6 +60,7 @@ const DiscountCodeBlock = () => {
             </div>
             <div className="flex__left"></div>
             <ActionItem
+              dataName="RemoveDiscountCodeBtn"
               text={'Remove'}
               type={'btn__small'}
               className="pr__0"
@@ -77,6 +79,7 @@ const DiscountCodeBlock = () => {
 const __getActionBtn = (inputVal) => {
   return (
     <ActionItem
+      dataName="ApplyDiscountCode"
       text={'Apply code'}
       type={'btn__small'}
       onClick={() => {

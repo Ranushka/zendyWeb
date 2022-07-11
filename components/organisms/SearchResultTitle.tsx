@@ -35,6 +35,7 @@ const SearchResultTitle: React.FC<SearchResultItemProps> = (data) => {
           {downloadLink && <span className="font-bold text_nut4">PDF</span>}
         </small>
         <ActionItem
+          dataName="SearchResultTitle"
           text={striptags(title.toString())}
           href="/title/[id]"
           as={`/title/${titleId}`}

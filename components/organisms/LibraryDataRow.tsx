@@ -13,7 +13,11 @@ const LibraryDataRow: React.FC<any> = (props) => {
           <span>{count}</span>
         </div>
 
-        <ButtonFab classNames="bg_white" icon={<IconMore />} />
+        <ButtonFab
+          dataName="LibraryDataMore"
+          classNames="bg_white"
+          icon={<IconMore />}
+        />
       </div>
     </div>
   )

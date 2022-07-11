@@ -10,12 +10,14 @@ const MobileHeaderNavFooter: React.FC<{}> = () => {
   return (
     <div className="my-1 flex justify-between mr-8 pt-4">
       <ActionItem
+        dataName="LinkLanguage"
         className="px-6 py-2 bg_pri1 rounded"
         text={'En عربى සිං'}
         title="set language"
         onClick={() => setGlobalState({ openLangPopUp: true })}
       />
       <ActionItem
+        dataName="LinkSettings"
         className="px-6 py-2 bg_pri1 rounded"
         text="Settings"
         title="set theme, font size"
@@ -32,14 +34,25 @@ const __sidePopupContent = () => (
     </div>
     <div className="ml-8">
       <div className="my-1">
-        <ActionItem className="block py-2" text={'Pricing'} href={'/pricing'} />
+        <ActionItem
+          dataName="LinkPricing"
+          className="block py-2"
+          text={'Pricing'}
+          href={'/pricing'}
+        />
       </div>
 
       <div className="my-1">
-        <ActionItem className="block py-2" text={'Blog'} href={'/blog'} />
+        <ActionItem
+          dataName="LinkBlog"
+          className="block py-2"
+          text={'Blog'}
+          href={'/blog'}
+        />
       </div>
       <div className="my-1">
         <ActionItem
+          dataName="LinkPlatform"
           className="block py-2"
           text={'Platform'}
           href={'/platform'}
@@ -48,6 +61,7 @@ const __sidePopupContent = () => (
       <div className="mt-4 mb-1 text_nut4 text-xs">Content</div>
       <div className="my-1">
         <ActionItem
+          dataName="LinkPublishers"
           className="block py-2"
           text={'Publishers'}
           href={'/publishers'}
@@ -55,6 +69,7 @@ const __sidePopupContent = () => (
       </div>
       <div className="my-1">
         <ActionItem
+          dataName="LinkMagazines"
           className="block py-2"
           text={'Magazines'}
           href={'/magazines'}
@@ -62,6 +77,7 @@ const __sidePopupContent = () => (
       </div>
       <div className="my-1">
         <ActionItem
+          dataName="LinkJournals"
           className="block py-2"
           text={'Journals'}
           href={'/publishers'}
@@ -69,6 +85,7 @@ const __sidePopupContent = () => (
       </div>
       <div className="my-1">
         <ActionItem
+          dataName="LinkSubjects"
           className="block py-2"
           text={'Subjects'}
           href={'/publishers'}
@@ -76,26 +93,52 @@ const __sidePopupContent = () => (
       </div>
       <div className="mt-4 mb-1 text_nut4 text-xs">Helpful</div>
       <div className="my-1">
-        <ActionItem className="block py-2" text={'About'} href={'/about'} />
-      </div>
-      <div className="my-1">
-        <ActionItem className="block py-2" text={'FAQs'} href={'/faq'} />
-      </div>
-      <div className="my-1">
-        <ActionItem className="block py-2" text={'Contact'} href={'/contact'} />
-      </div>
-      <div className="my-1">
-        <ActionItem className="block py-2" text={'CSR'} href={'/csr'} />
+        <ActionItem
+          dataName="LinkAbout"
+          className="block py-2"
+          text={'About'}
+          href={'/about'}
+        />
       </div>
       <div className="my-1">
         <ActionItem
+          dataName="LinkFaq"
+          className="block py-2"
+          text={'FAQs'}
+          href={'/faq'}
+        />
+      </div>
+      <div className="my-1">
+        <ActionItem
+          dataName="LinkContact"
+          className="block py-2"
+          text={'Contact'}
+          href={'/contact'}
+        />
+      </div>
+      <div className="my-1">
+        <ActionItem
+          dataName="LinkCsr"
+          className="block py-2"
+          text={'CSR'}
+          href={'/csr'}
+        />
+      </div>
+      <div className="my-1">
+        <ActionItem
+          dataName="LinkFeedback"
           className="block py-2"
           text={'Feedback'}
           href={'/feedback'}
         />
       </div>
       <div className="my-1">
-        <ActionItem className="block py-2" text={'Careers'} href={'/careers'} />
+        <ActionItem
+          dataName="LinkCareers"
+          className="block py-2"
+          text={'Careers'}
+          href={'/careers'}
+        />
       </div>
       <MobileHeaderNavFooter />
     </div>

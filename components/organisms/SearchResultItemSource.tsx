@@ -12,6 +12,7 @@ const SearchResultItemSource = ({
       {publicationName && (
         <span>
           <ActionItem
+            dataName="SearchResultItemSourcePublication"
             className="pr-2 first_letter_caps"
             text={publicationName}
             as={`/search?publisher=${publicationName}`}
@@ -24,6 +25,7 @@ const SearchResultItemSource = ({
       {journalTitle && (
         <span>
           <ActionItem
+            dataName="SearchResultItemSourceJournal"
             className="px-2 first_letter_caps"
             text={journalTitle}
             type="link__small"

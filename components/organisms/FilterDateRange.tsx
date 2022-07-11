@@ -11,6 +11,7 @@ const customYearsRange = (setYear) => {
       <div className="flex__between">
         <span>Custom range</span>
         <ButtonFab
+          dataName="CustomYearsRangeBtn"
           href="/search"
           icon={<IconClear />}
           classNames={'pointer rounded'}
@@ -37,6 +38,7 @@ const customYearsRange = (setYear) => {
         />
       </div>
       <ActionItem
+        dataName="ApplyRange"
         className="bg__nut2"
         text={'Apply range'}
         onClick={() => {}}
@@ -66,7 +68,8 @@ const FilterDateRange: React.FC = () => {
         id={id}
         checked={item === year}
         onClick={() => setYear(item)}
-        label={item}
+        text={item}
+        dataName="YearsRange"
       />
     )
   })

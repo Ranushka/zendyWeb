@@ -30,7 +30,8 @@ const FilterType: React.FC = () => {
         id={id}
         checked={checked}
         onClick={() => onClick(item.value)}
-        label={item.name}
+        text={item.name}
+        dataName="FilterType"
       />
     )
   })

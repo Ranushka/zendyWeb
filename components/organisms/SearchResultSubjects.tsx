@@ -12,6 +12,7 @@ const SearchResultSubjects = ({ subjects = [], all = false }) => {
         .slice(0, all ? 20 : 8)
         .map<React.ReactNode>((name, id) => (
           <ActionItem
+            dataName="SearchResultSubject"
             key={id}
             text={name}
             as={`/search?subject=${name}`}

@@ -12,7 +12,7 @@ import { applyFontSize } from 'lib/fontSize'
 import { NextIntlProvider } from 'next-intl'
 import { LoggedInUserProvider } from 'context/LoggedInUserContext'
 import { GlobalProvider } from 'context/GlobalContext'
-import { pageView } from 'analytics'
+import { analyticsViewScreen } from 'analytics/events'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import { GtmScript } from 'analytics/GtmScript'
@@ -26,10 +26,11 @@ NProgress.configure({ trickleSpeed: 300, showSpinner: false })
 Router.events.on('routeChangeStart', () => {
   NProgress.start()
 })
-Router.events.on('routeChangeComplete', (url) => {
+Router.events.on('routeChangeComplete', () => {
   NProgress.done()
   window.scrollTo(0, 0)
-  pageView(url)
+
+  analyticsViewScreen()
 })
 Router.events.on('routeChangeError', () => NProgress.done())
 
@@ -40,6 +41,7 @@ const AppRoot = ({ Component, pageProps, session }) => {
         NProgress.start()
       }
     }
+    analyticsViewScreen()
   }, [])
 
   return (

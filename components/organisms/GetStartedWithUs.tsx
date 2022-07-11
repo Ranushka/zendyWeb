@@ -23,6 +23,7 @@ const GetStartedWithUs: React.FC<Props> = () => {
           <h2 className="text-3xl font-serif mb-2">{trans('title')}</h2>
           <p>{trans('subtitle')}</p>
           <ActionItem
+            dataName="GetStartedWithUs"
             text={trans('btn')}
             href={'#'}
             type="btn__primary"

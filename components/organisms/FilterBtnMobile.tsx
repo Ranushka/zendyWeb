@@ -17,6 +17,7 @@ const FilterBtnMobile: React.FC<any> = () => {
 
   return (
     <ButtonFab
+      dataName="FilterBtnMobile"
       title="Toggle selection mode"
       icon={
         mobileFilterVisibility ? (

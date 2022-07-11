@@ -25,6 +25,7 @@ const HeroCta: React.FC<Props> = () => {
 
           <div className="pt-2 pb-2 max-w-xs">
             <ActionItem
+              dataName="BtnStartTrial"
               text={'Start your Free Trial'}
               href={'#'}
               type="btn__primary"

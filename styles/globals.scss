@@ -20,6 +20,7 @@ body {
   --pri8: #9a3412;
   --pri7: #c2410c;
   --pri6: #ea580c;
+  --pri2: #fdba74;
   --pri1: #ffedd5;
   --pri0: #fff7ed;
 
@@ -68,7 +69,7 @@ body {
   outline-color: var(--outline);
 }
 
-$colors: white, black, pri8, pri7, pri6, pri1, pri0, nut8, nut7, nut6, nut5, nut4, nut3, nut2,
+$colors: white, black, pri8, pri7, pri6, pri2, pri1, pri0, nut8, nut7, nut6, nut5, nut4, nut3, nut2,
   nut1, nut0;
 
 @each $color in $colors {

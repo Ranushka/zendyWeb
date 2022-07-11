@@ -39,6 +39,7 @@ const SelectLanguage: React.FC<any> = () => {
 
         return (
           <ActionItem
+            dataName="SelectLanguageItem"
             key={key}
             text={item}
             className={classNames(

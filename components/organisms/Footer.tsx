@@ -46,21 +46,29 @@ const Footer: React.FC<{}> = () => {
 
             <div className="flex mb-8 md:mb-3">
               <ButtonFab
+                dataName="FooterSocialFacebook"
                 classNames="mr-4"
                 icon={<IconSocialFacebook />}
                 small
               />
               <ButtonFab
+                dataName="FooterSocialLinkedIn"
                 classNames="mr-4"
                 icon={<IconSocialLinkedIn />}
                 small
               />
               <ButtonFab
+                dataName="FooterSocialInstagram"
                 classNames="mr-4"
                 icon={<IconSocialInstagram />}
                 small
               />
-              <ButtonFab classNames="mr-4" icon={<IconSocialTwitter />} small />
+              <ButtonFab
+                dataName="FooterSocialTwitter"
+                classNames="mr-4"
+                icon={<IconSocialTwitter />}
+                small
+              />
             </div>
           </section>
 

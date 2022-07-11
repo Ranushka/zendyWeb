@@ -3,15 +3,24 @@ import { ActionItem } from 'components/atoms'
 import useGetCountry from 'fetchHooks/useGetCountry'
 
 type Props = {
+  dataName?: string
   flag?: boolean
   className?: string
 }
 
-const Logo: React.FC<Props> = ({ className, flag = false }) => {
+const Logo: React.FC<Props> = ({
+  className,
+  flag = false,
+  dataName = 'logoHead'
+}) => {
   const { data } = useGetCountry()
 
   return (
-    <ActionItem href="/" className={`relative ${className}`}>
+    <ActionItem
+      dataName={dataName}
+      href="/"
+      className={`relative ${className}`}
+    >
       <div>
         <svg
           style={{ width: '7rem', verticalAlign: 'middle' }}

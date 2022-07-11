@@ -87,6 +87,7 @@ const Login: React.FC = () => {
 
         <div className="px-8">
           <ActionItem
+            dataName="SignInEmail"
             text={'Join'}
             type={'btn__primary'}
             className="mt-8"
@@ -103,6 +104,7 @@ const Login: React.FC = () => {
 
       <div className="block text-center">
         <ActionItem
+          dataName="SignInLinkedIn"
           text={'Sign in with LinkedIn'}
           type={'btn__default'}
           className="color__primary"

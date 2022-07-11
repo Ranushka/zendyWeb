@@ -20,6 +20,7 @@ const RecentSearchKeywords: React.FC<Props> = () => {
           <span key={id} className="inline-flex">
             <IconSearchHistory className="w-4 text_nut4" />
             <ActionItem
+              dataName="RecentSearchKeyword"
               text={`${title}`}
               href={`/search?q=${title}`}
               className="m-1 inline-block pr-4 py-1 first_letter_caps"

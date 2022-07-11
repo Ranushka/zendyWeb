@@ -26,12 +26,13 @@ const SearchResultItemActions = ({
   return (
     <div key={resultId}>
       <div className="flex justify-around my-4">
-        <ButtonFab icon={<IconCite />} small />
-        <ButtonFab icon={<IconLink />} small />
-        <ButtonFab icon={<IconBookmark />} small />
+        <ButtonFab dataName="BtnGetCite" icon={<IconCite />} small />
+        <ButtonFab dataName="BtnGetLink" icon={<IconLink />} small />
+        <ButtonFab dataName="BtnGetBookmark" icon={<IconBookmark />} small />
       </div>
 
       <ActionItem
+        dataName="BtnDownload"
         className="mb-4 mt-2"
         text={'Download'}
         onClick={onClickDownload}
@@ -39,6 +40,7 @@ const SearchResultItemActions = ({
         block
       />
       <ActionItem
+        dataName="BtnRead"
         text="Read"
         href={href}
         onClick={() => window.open(href)}
