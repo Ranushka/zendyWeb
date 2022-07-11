@@ -46,6 +46,7 @@ export const GtmScript: React.FC = () => {
     })(window,document,'script','dataLayer', 'GTM-WNGPH93');
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('config', 'G-ZPP1D4DXZ4');
     `
         }}
       />

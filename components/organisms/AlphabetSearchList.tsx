@@ -59,6 +59,7 @@ const AlphabetSearchList: React.FC<any> = ({ data }) => {
 
           return (
             <ActionItem
+              dataName="AlphabetSearchList"
               key={key}
               text={text}
               href={`/search?${facetLabel}`}

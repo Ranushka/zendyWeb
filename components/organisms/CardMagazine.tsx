@@ -12,7 +12,7 @@ const CardMagazine: React.FC<CardMagazineProps> = (props) => {
   )
 
   return (
-    <ActionItem href={href}>
+    <ActionItem dataName="CardMagazine" href={href}>
       <div className={__finalClassNames}>
         <Image
           src={`/${img}`}

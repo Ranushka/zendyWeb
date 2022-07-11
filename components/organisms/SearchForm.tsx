@@ -8,15 +8,15 @@ import { ButtonFab } from 'components/atoms'
 import IconSearch from 'components/icons/IconSearch'
 import IconClear from 'components/icons/IconClear'
 import IconAdvanceSearch from 'components/icons/IconAdvanceSearch'
-import analyticEvent from 'analytics/analyticEvent'
+// import analyticEvent from 'analytics/events'
 import { focusToSearchInput } from 'lib/helpers'
 import classNames from 'classnames'
 
 type Props = {
-  id?: string
+  id: string
 }
 
-const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
+const SearchForm: React.FC<Props> = ({ id }) => {
   const searchInput = React.useRef(null)
   const trans = useTranslations('header')
   const [searchText, setSearchText] = useState('')
@@ -30,7 +30,6 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
     e.preventDefault()
     e.stopPropagation()
     e.target[0].blur()
-    analyticEvent('search')
     router.push({
       pathname: routs.search,
       query: { q: searchText }
@@ -40,6 +39,13 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
   const clearInput = () => {
     setSearchText('')
     searchInput.current.focus()
+  }
+
+  const onClickSearchBtn = () => {
+    router.push({
+      pathname: routs.search,
+      query: searchText && { q: searchText }
+    })
   }
 
   React.useEffect(() => {
@@ -93,14 +99,17 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
         <div className="inline-flex absolute right-0">
           {searchText && (
             <ButtonFab
+              dataName="BtnAdvanceSearchAdd"
               classNames="rounded-full px-0 py-3 block"
               icon={<IconClear />}
               onClick={clearInput}
             />
           )}
           <ButtonFab
+            dataName="BtnAdvanceSearchAdd"
             tabindex={-1}
-            href="/search"
+            // href="/search"
+            onClick={onClickSearchBtn}
             icon={<IconSearch className="text_pri6 hover:text_pri7" />}
             classNames="rounded-full m-0.5 px-3 py-2.5 block hover:text_pri6 active:scale-95"
           />
@@ -109,6 +118,7 @@ const SearchForm: React.FC<Props> = ({ id = 'search' }) => {
 
       {!isHomePage && (
         <ButtonFab
+          dataName="BtnAdvanceSearch"
           title="To perform a complex search"
           onClick={() => {
             router.push({

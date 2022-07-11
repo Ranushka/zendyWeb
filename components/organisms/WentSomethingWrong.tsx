@@ -17,6 +17,7 @@ const WentSomethingWrong: React.FC<Props> = ({
       <small>Thanks in advance for your patients</small>
       <div className="gaps__4" />
       <ActionItem
+        dataName="BackToResults"
         text={'← Back to results'}
         onClick={() => Router.back()}
         type="btn__primary"

@@ -104,7 +104,6 @@ const SearchForm: React.FC<Props> = () => {
 
   const removeRow = (e) => {
     e.preventDefault()
-    console.log(rows)
 
     rows != 1 && setRows(rows - 1)
   }
@@ -127,6 +126,7 @@ const SearchForm: React.FC<Props> = () => {
         <div className="w-full flex justify-between">
           <h2 className="text-2xl text_nut5 font-serif ">Advanced search</h2>
           <ButtonFab
+            dataName="selectionMode"
             title="Toggle selection mode"
             icon={<IconClose className="scale-125" />}
             onClick={() => {
@@ -162,6 +162,7 @@ const SearchForm: React.FC<Props> = () => {
               </button>
             )}
             <ActionItem
+              dataName="advanceSearch"
               text="Search"
               href={'#'}
               type="btn__primary"

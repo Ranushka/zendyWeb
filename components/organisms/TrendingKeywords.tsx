@@ -15,6 +15,7 @@ const TrendingKeywords: React.FC<Props> = () => {
       <div className="max-w-4xl px-8 mx-auto text-center ">
         {data.map((title, id) => (
           <ActionItem
+            dataName="TrendingKeywords"
             key={id}
             text={title}
             href={`/search?q=${title}`}

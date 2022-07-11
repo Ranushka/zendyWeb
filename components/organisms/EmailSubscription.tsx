@@ -31,7 +31,12 @@ const EmailSubscription: React.FC<Props> = () => {
               required
             />
           </div>
-          <ActionItem text={trans('btn')} href={'#'} type="btn__secondary" />
+          <ActionItem
+            dataName="EmailSubscriptionBtn"
+            text={trans('btn')}
+            href={'#'}
+            type="btn__secondary"
+          />
         </form>
 
         <small>{trans('description')}</small>

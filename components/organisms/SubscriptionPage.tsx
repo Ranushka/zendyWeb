@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 
 import { Switch } from 'components/atoms'
 import { Pricing, WhatWeOffer, SecurityStripBlock } from 'components/organisms'
-import { analyticEvent } from 'analytics'
+import { analyticsSelectPlan } from 'analytics/events'
 
 const SubscriptionPage: React.FC<{}> = () => {
   const trans = useTranslations('common')
@@ -14,7 +14,7 @@ const SubscriptionPage: React.FC<{}> = () => {
   const currentPlan = planTypes[plan ? 'monthly' : 'yearly']
 
   const __onChange = () => {
-    analyticEvent('select_plan', 'checkout')
+    analyticsSelectPlan(currentPlan)
     planSet(!plan)
   }
 

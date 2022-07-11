@@ -19,6 +19,7 @@ const SearchResultActions = () => {
     <div className="max-w-4xl">
       <div className="flex items-center rounded-md mb-4 md:mt-4 mr-10 md:mr-0 whitespace-nowrap overflow-y-scroll hideScrollBar">
         <ButtonFab
+          dataName="ToggleSelectionMode"
           title="Toggle selection mode"
           icon={<IconSelectionMode />}
           classNames={classnames(
@@ -31,20 +32,28 @@ const SearchResultActions = () => {
         />
         {selectionMode && (
           <>
-            <ActionItem text={'Select All'} href={'/'} className="mx-4" />
             <ActionItem
+              dataName="SelectAll"
+              text={'Select All'}
+              href={'/'}
+              className="mx-4"
+            />
+            <ActionItem
+              dataName="ExportSelected"
               text={'Export selected'}
               href={'/'}
               className="mx-4"
               disabled
             />
             <ActionItem
+              dataName="AddToLibrary"
               text={'Add to library'}
               href={'/'}
               className="mx-4"
               disabled
             />
             <ActionItem
+              dataName="OpenInNewTab"
               text={'Open in new tabs'}
               href={'/'}
               className="mx-4"
@@ -57,6 +66,7 @@ const SearchResultActions = () => {
         {!selectionMode && (
           <>
             <ActionItem
+              dataName="BtnCreateAlert"
               type="btn__default"
               text={'Create alert'}
               onClick={() => {}}
@@ -65,7 +75,7 @@ const SearchResultActions = () => {
 
             <ActionItem
               type="btn__default"
-              // className="ml-4"
+              dataName="BtnSaveSearch"
               text={'Save search'}
               onClick={() => {}}
               icon={<IconSavedSearch />}
