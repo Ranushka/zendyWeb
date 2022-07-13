@@ -12,6 +12,7 @@ import SearchResultKeywords from 'components/organisms/SearchResultKeywords'
 import SearchResultSubjects from 'components/organisms/SearchResultSubjects'
 import SearchResultAuthors from 'components/organisms/SearchResultAuthors'
 import SearchResultItemAbstract from 'components/organisms/SearchResultItemAbstract'
+import SearchResultDOI from 'components/organisms/SearchResultDOI'
 
 import dynamic from 'next/dynamic'
 
@@ -21,6 +22,7 @@ const DetailPdf = dynamic(() => import('components/organisms/DetailPdf'), {
 
 const __renderContent = (data) => {
   const {
+    doi,
     abstract,
     authors,
     downloadLink,
@@ -32,6 +34,8 @@ const __renderContent = (data) => {
     title,
     volume
   } = data
+
+  console.log('data--', data)
 
   return (
     <>
@@ -53,6 +57,7 @@ const __renderContent = (data) => {
         <SearchResultKeywords keywords={keywords} all />
         <SearchResultSubjects subjects={subjects} all />
         <SearchResultAuthors authors={authors} all />
+        <SearchResultDOI doi={doi} />
       </article>
       {downloadLink && <DetailPdf pdfUrl={downloadLink} />}
       <TitleDetailNextPrevResult />
