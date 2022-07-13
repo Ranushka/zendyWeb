@@ -17,7 +17,6 @@ export const analyticsViewScreen = () => {
 
 export const analyticsClickEvent = (props: any) => {
   const { text, title, dataName } = props
-  console.log(props)
 
   analyticEvent('user_click', {
     data_text: text,

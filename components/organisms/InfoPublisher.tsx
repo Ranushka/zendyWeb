@@ -6,7 +6,7 @@ import useInfoPublisher from 'fetchHooks/useInfoPublisher'
 const ResultsWithData = ({ extract, title, description }) => {
   return (
     <section className="container">
-      <div className="bg_nut1 rounded-md px-8 py-8 mt-8 mx-4 flex justify-between">
+      <div className="border-b border_pri2 py-8 mx-4 flex justify-between">
         <div className="">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-serif">{title}</h1>
@@ -25,9 +25,9 @@ const ResultsWithData = ({ extract, title, description }) => {
 const __dataLoading = () => {
   return (
     <div className="container">
-      <div className="bg_nut1 rounded-md px-8 py-8 mt-8 mx-4">
+      <div className="border-b border_pri2 py-8 mx-4">
         <Skeleton height={20} className="mb-4 max-w-sm" />
-        <Skeleton height={10} count={6} />
+        <Skeleton height={10} count={6} className="max-w-5xl" />
       </div>
     </div>
   )
