@@ -17,7 +17,7 @@ const FilterNavigationTitle = () => {
 
   return (
     <div className="pb-6 pt-1">
-      <h3 className="text-2xl text_nut5 font-serif w-full">Refine search</h3>
+      <h3 className="text-xl text_nut5 font-serif w-full">Refine search</h3>
       <small className="w-full text-right">
         {totalResultsFormatted}+ Results
       </small>

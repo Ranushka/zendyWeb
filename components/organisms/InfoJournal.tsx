@@ -6,7 +6,7 @@ import useInfoJournal from 'fetchHooks/useInfoJournal'
 const ResultsWithData = ({ extract, title, description }) => {
   return (
     <section className="container">
-      <div className="bg_nut1 rounded-md px-8 py-8 mt-8 mx-4 flex justify-between">
+      <div className="border-b border_pri2 py-8 mx-4 flex justify-between">
         <div className="">
           <h1 className="text-4xl font-serif">{title}</h1>
           <small className="mb-4 block">{description}</small>
@@ -23,9 +23,9 @@ const ResultsWithData = ({ extract, title, description }) => {
 const __dataLoading = () => {
   return (
     <div className="container">
-      <div className="bg_nut1 rounded-md px-8 py-8 mt-8 mx-4">
+      <div className="border-b border_pri2 py-8 mx-4">
         <Skeleton height={20} className="mb-4 max-w-sm" />
-        <Skeleton height={10} count={6} />
+        <Skeleton height={10} count={6} className="max-w-5xl" />
       </div>
     </div>
   )
