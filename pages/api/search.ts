@@ -3,6 +3,7 @@ import apiSolrSearch from 'utilApi/apiSolrSearch'
 import formatAvailableFacets from 'utilApi/formatAvailableFacets'
 import formatSearchResult from 'utilApi/formatSearchResult'
 import { formatFilter, formatSort } from 'utilApi/formatSearchQuery'
+import cleanUpSearchTerm from 'utilApi/cleanUpSearchTerm'
 
 export default async function handler(
   req: NextApiRequest,
@@ -14,13 +15,16 @@ export default async function handler(
     const TERM = searchQuery[0].term
     const filter = formatFilter(facetFilters)
     const sort = formatSort(sortFilters)
+    const query = cleanUpSearchTerm(TERM)
 
     const qryOptions = {
-      query: `"${TERM}" OR ${TERM}`,
+      query,
       filter,
       sort,
       limit: 10
     }
+
+    console.log('qryOptions--', qryOptions)
 
     const dataFromSolr = await apiSolrSearch(qryOptions)
     if (dataFromSolr.error) throw new Error(JSON.stringify(dataFromSolr.error))

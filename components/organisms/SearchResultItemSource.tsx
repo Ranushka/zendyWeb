@@ -28,6 +28,8 @@ const SearchResultItemSource = ({
             dataName="SearchResultItemSourceJournal"
             className="px-2 first_letter_caps"
             text={journalTitle}
+            as={`/search?q=journal:${journalTitle}`}
+            href={`/search?q=journal:${journalTitle}`}
             type="link__small"
           />
         </span>
