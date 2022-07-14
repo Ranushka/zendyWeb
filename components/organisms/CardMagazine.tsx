@@ -14,14 +14,16 @@ const CardMagazine: React.FC<CardMagazineProps> = (props) => {
   return (
     <ActionItem dataName="CardMagazine" href={href}>
       <div className={__finalClassNames}>
-        <Image
-          src={`/${img}`}
-          alt={title.toString()}
-          placeholder="empty"
-          width={208 * 2}
-          height={272 * 2}
-        />
-        <p className="px-3">{title}</p>
+        <div className="relative w-full h-64">
+          <Image
+            alt={title.toString()}
+            src={`/${img}`}
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+          />
+        </div>
+        <p className="px-3 mt-2">{title}</p>
         <small className="px-3">{content}</small>
       </div>
     </ActionItem>

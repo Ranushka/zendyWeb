@@ -2,7 +2,7 @@ import React from 'react'
 import striptags from 'striptags'
 import { SearchResultItemProps } from 'types'
 import { CheckBox, ActionItem } from 'components/atoms'
-import { generateTitleUrlPath } from 'lib/helpers'
+import { generateTitleUrlPath } from 'helpers/utils'
 import IconOa from 'components/icons/IconOa'
 import useGlobal from 'context/GlobalContext'
 

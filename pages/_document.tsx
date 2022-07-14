@@ -1,8 +1,8 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { GtmNoScript } from 'analytics/GtmScript'
-import { getDir } from 'lib/helpers'
-// import { applyTheme } from 'lib/theme'
-// import { applyFontSize } from 'lib/fontSize'
+import { getDir } from 'helpers/utils'
+// import { applyTheme } from 'helpers/theme'
+// import { applyFontSize } from 'helpers/fontSize'
 
 import React from 'react'
 

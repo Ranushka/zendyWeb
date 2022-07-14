@@ -1,8 +1,8 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 
-import { countFormatted } from 'lib/helpers'
-import labelMapping from 'lib/labelMapping'
+import countFormatted from 'helpers/countFormatted'
+import labelMapping from 'helpers/labelMapping'
 import { CheckBox } from 'components/atoms'
 
 const checkIsChecked = (str, facetLabel) => {

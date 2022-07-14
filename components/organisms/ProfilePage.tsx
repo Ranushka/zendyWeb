@@ -6,6 +6,7 @@ import { useSession, signOut } from 'next-auth/react'
 import { IconLogout } from 'components/icons'
 import { ActionItem, CheckBox, Input } from 'components/atoms'
 
+const VERCEL_URL = process.env.VERCEL_URL
 type Props = {}
 
 const Desktop: React.FC<Props> = () => {
@@ -24,7 +25,7 @@ const Desktop: React.FC<Props> = () => {
           type={'btn__default'}
           icon={<IconLogout />}
           className={'pr__0'}
-          onClick={() => signOut({ callbackUrl: '/' })}
+          onClick={() => signOut({ callbackUrl: VERCEL_URL })}
         />
       </div>
 

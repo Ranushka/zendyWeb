@@ -1,7 +1,7 @@
 import React from 'react'
 import MagazinesPage from 'components/organisms/MagazinesPage'
-import { BaseTemplate } from 'components/templates'
-import { commonMessages } from 'lib/getMessages'
+import BaseTemplate from 'components/templates/BaseTemplate'
+import { commonMessages } from 'helpers/getMessages'
 
 const Magazines: React.FC = () => {
   return (

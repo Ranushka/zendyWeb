@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
 import { Select } from 'components/atoms'
-import { applyFontSize, saveFontSize, getFontSize } from 'lib/fontSize'
+import { applyFontSize, saveFontSize, getFontSize } from 'helpers/fontSize'
 
 type Props = {}
 

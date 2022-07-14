@@ -1,7 +1,7 @@
 import React from 'react'
-import { BaseTemplate } from 'components/templates'
+import BaseTemplate from 'components/templates/BaseTemplate'
 import ActionItem from 'components/atoms/ActionItem'
-import { commonMessages } from 'lib/getMessages'
+import { commonMessages } from 'helpers/getMessages'
 
 const PageNotFound: React.FC = () => {
   return (

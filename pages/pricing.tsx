@@ -1,12 +1,12 @@
 import React from 'react'
 import QNA from 'components/organisms/QNA'
-import { commonMessages, pricingMessages } from 'lib/getMessages'
+import { commonMessages, pricingMessages } from 'helpers/getMessages'
 import {
   Testimonials,
   SubscriptionPage,
   Publishers
 } from 'components/organisms'
-import { BaseTemplate } from 'components/templates'
+import BaseTemplate from 'components/templates/BaseTemplate'
 
 const Pricing: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import apiSolrSearchById from 'utilApi/apiSolrSearchById'
-import { getPublicationId } from 'lib/helpers'
+import apiSolrSearchById from 'helpers/apiSolrSearchById'
+import { getPublicationId } from 'helpers/utils'
 
 export default async function handler(
   req: NextApiRequest,

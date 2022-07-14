@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import apiCacheFetch from 'utilApi/apiCacheFetch'
+import apiCacheFetch from 'helpers/apiCacheFetch'
 
 export default async function handler(
   req: NextApiRequest,

@@ -5,9 +5,9 @@ import { useSession } from 'next-auth/react'
 import { ActionItem } from 'components/atoms'
 import { IconAdd } from 'components/icons'
 import { useCollections } from 'fetchHooks/useCollections'
-import { LibraryTemplate } from 'components/templates'
+import LibraryTemplate from 'components/templates/LibraryTemplate'
 import LibraryDataRow from 'components/organisms/LibraryDataRow'
-import { commonMessages } from 'lib/getMessages'
+import { commonMessages } from 'helpers/getMessages'
 
 const Collections: React.FC = () => {
   const { data } = useCollections()

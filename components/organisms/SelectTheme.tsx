@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
 import { Select } from 'components/atoms'
-import { applyTheme, saveTheme, getTheme } from 'lib/theme'
+import { applyTheme, saveTheme, getTheme } from 'helpers/theme'
 
 type Props = {}
 

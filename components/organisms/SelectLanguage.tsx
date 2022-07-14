@@ -1,7 +1,7 @@
 import React from 'react'
 import { ActionItem } from 'components/atoms'
 import { useRouter } from 'next/router'
-import { getDir } from 'lib/helpers'
+import { getDir } from 'helpers/utils'
 import classNames from 'classnames'
 
 const SelectLanguage: React.FC<any> = () => {
