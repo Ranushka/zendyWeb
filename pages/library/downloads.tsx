@@ -1,7 +1,7 @@
 import React from 'react'
 import LibraryDataRow from 'components/organisms/LibraryDataRow'
-import { LibraryTemplate } from 'components/templates'
-import { commonMessages } from 'lib/getMessages'
+import LibraryTemplate from 'components/templates/LibraryTemplate'
+import { commonMessages } from 'helpers/getMessages'
 
 const Downloads: React.FC = () => {
   return (

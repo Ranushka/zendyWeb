@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ActionItem, Input } from 'components/atoms'
-import { countFormatted } from 'lib/helpers'
+import countFormatted from 'helpers/countFormatted'
 
 const AlphabetSearchList: React.FC<any> = ({ data }) => {
   const [searchInput, setSearchInput] = React.useState('')
@@ -10,23 +10,23 @@ const AlphabetSearchList: React.FC<any> = ({ data }) => {
     setSearchInput(e.target.value)
   }
 
-  const prepareAlphabets = () => {
-    let result = []
-    for (let i = 65; i < 91; i++) {
-      result.push(
-        <button
-          type="button"
-          key={i}
-          onClick={onSearchInputChange}
-          value={String.fromCharCode(i)}
-          className="text-lg font-serif mr-8 mb-2"
-        >
-          {String.fromCharCode(i)}
-        </button>
-      )
-    }
-    return result
-  }
+  // const prepareAlphabets = () => {
+  //   let result = []
+  //   for (let i = 65; i < 91; i++) {
+  //     result.push(
+  //       <button
+  //         type="button"
+  //         key={i}
+  //         onClick={onSearchInputChange}
+  //         value={String.fromCharCode(i)}
+  //         className="text-lg font-serif mr-8 mb-2"
+  //       >
+  //         {String.fromCharCode(i)}
+  //       </button>
+  //     )
+  //   }
+  //   return result
+  // }
 
   const filteredList = data.filter((item) => {
     return (
@@ -37,14 +37,14 @@ const AlphabetSearchList: React.FC<any> = ({ data }) => {
   return (
     <div>
       <div className="my-4">
-        <div className="max-w-xs mb-4">
+        <div className="max-w-xs mb-8">
           <Input
             id="searchAlp"
             onChange={onSearchInputChange}
-            placeholder="filter items"
+            placeholder="Search publishers"
           />
         </div>
-        {prepareAlphabets()}
+        {/* {prepareAlphabets()} */}
       </div>
       <div className="columns-3">
         {filteredList.map(({ facetLabel, count }, key) => {
@@ -62,7 +62,7 @@ const AlphabetSearchList: React.FC<any> = ({ data }) => {
               dataName="AlphabetSearchList"
               key={key}
               text={text}
-              href={`/search?${facetLabel}`}
+              href={`/publisher/${facetLabel.replace(/ /g, '_')}`}
               type="link"
               className="inline-block pr-4 pb-5 w-full"
             />

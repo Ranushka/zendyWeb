@@ -1,4 +1,8 @@
 const withPWA = require('next-pwa')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true'
+})
+
 const CMS_IMG_HOSTNAME = new URL(process.env.NEXT_PUBLIC_CMS_BASE_URL).hostname
 
 const config = {
@@ -12,20 +16,43 @@ const config = {
   //   ]
   // },
 
+  // compilerOptions: {
+  //   baseUrl: '.'
+  // },
+
+  // compiler: {
+  //   removeConsole: true
+  // },
+
+  async rewrites() {
+    return [
+      {
+        source: '/publisher/:first',
+        destination: '/search?publisher=:first'
+      }
+    ]
+  },
+
   async exportPathMap(defaultPathMap) {
     return {
       ...defaultPathMap
     }
   },
   pwa: {
+    publicExcludes: ['!img/*'],
     disable: process.env.NODE_ENV === 'development',
     dest: 'public'
   }
 }
 
-module.exports = {
+const toExport = {
   images: {
-    domains: [CMS_IMG_HOSTNAME, 'picsum.photos', 'storage.googleapis.com']
+    domains: [
+      CMS_IMG_HOSTNAME,
+      'picsum.photos',
+      'storage.googleapis.com',
+      'via.placeholder.com'
+    ]
   },
   i18n: {
     locales: ['en', 'ar'],
@@ -33,3 +60,5 @@ module.exports = {
   },
   ...withPWA(config)
 }
+
+module.exports = withBundleAnalyzer(toExport)

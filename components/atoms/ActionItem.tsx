@@ -56,7 +56,7 @@ const __btn = (props: Props) => {
     icon,
     block,
     submit,
-    tabIndex = 1,
+    tabIndex = 0,
     disabled,
     className
   } = props
@@ -98,7 +98,7 @@ const __link = (props: Props) => {
     as,
     type = 'link',
     wrap = false,
-    tabIndex = 1,
+    tabIndex = 0,
     icon,
     block,
     disabled,
@@ -157,7 +157,7 @@ const __linkWithChildren = (props: Props) => {
     type = 'link__content',
     dataName,
     block,
-    tabIndex = 1,
+    tabIndex = 0,
     className,
     children
   } = props

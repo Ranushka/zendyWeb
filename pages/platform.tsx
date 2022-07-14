@@ -1,7 +1,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 
-import { commonMessages, pricingMessages } from 'lib/getMessages'
+import { commonMessages, pricingMessages } from 'helpers/getMessages'
 import {
   HeroCta,
   Publishers,
@@ -12,7 +12,7 @@ import {
   PricingList
 } from 'components/organisms'
 
-import { BaseTemplate } from 'components/templates'
+import BaseTemplate from 'components/templates/BaseTemplate'
 
 const GetStartedWithUs = dynamic(() =>
   import('components/organisms/GetStartedWithUs')

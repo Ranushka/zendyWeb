@@ -1,11 +1,11 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import useTitleDetail from 'fetchHooks/useTitleDetail'
 import Skeleton from 'react-loading-skeleton'
 
 import PublicationIssueJsonLd from 'analytics/PublicationIssueJsonLd'
 import TitleDetailNextPrevResult from 'components/organisms/TitleDetailNextPrevResult'
 import WentSomethingWrong from 'components/organisms/WentSomethingWrong'
-// import DetailPdf from 'components/organisms/DetailPdf'
 import SearchResultTitle from 'components/organisms/SearchResultTitle'
 import SearchResultItemSource from 'components/organisms/SearchResultItemSource'
 import SearchResultKeywords from 'components/organisms/SearchResultKeywords'
@@ -13,8 +13,6 @@ import SearchResultSubjects from 'components/organisms/SearchResultSubjects'
 import SearchResultAuthors from 'components/organisms/SearchResultAuthors'
 import SearchResultItemAbstract from 'components/organisms/SearchResultItemAbstract'
 import SearchResultDOI from 'components/organisms/SearchResultDOI'
-
-import dynamic from 'next/dynamic'
 
 const DetailPdf = dynamic(() => import('components/organisms/DetailPdf'), {
   ssr: false

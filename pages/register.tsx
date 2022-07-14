@@ -3,7 +3,7 @@ import { signIn } from 'next-auth/react'
 import { IconSocialLinkedIn } from 'components/icons'
 import { ActionItem, Input } from 'components/atoms'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { LoginRegisterTemplate } from 'components/templates'
+import LoginRegisterTemplate from 'components/templates/LoginRegisterTemplate'
 
 const onSubmitSignUp = async (values) => {
   const res = await signIn('credentials', {

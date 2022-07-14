@@ -1,6 +1,6 @@
-import { commonMessages } from 'lib/getMessages'
-import { getPosts } from 'fetchHooks/wordpress'
-import { BaseTemplate } from 'components/templates'
+import { commonMessages } from 'helpers/getMessages'
+import { getPosts } from 'helpers/wordpress'
+import BaseTemplate from 'components/templates/BaseTemplate'
 
 import Head from 'next/head'
 

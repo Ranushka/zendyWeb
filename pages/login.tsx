@@ -1,11 +1,15 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import { signIn } from 'next-auth/react'
 import IconSocialOrcid from 'components/icons/IconSocialOrcid'
 import IconSocialGoogle from 'components/icons/IconSocialGoogle'
 import IconSocialFacebook from 'components/icons/IconSocialFacebook'
 import { ActionItem } from 'components/atoms'
-import { LoginRegisterTemplate } from 'components/templates'
-import LoginWithEmail from 'components/organisms/LoginWithEmail'
+import LoginRegisterTemplate from 'components/templates/LoginRegisterTemplate'
+
+const LoginWithEmail = dynamic(() =>
+  import('components/organisms/LoginWithEmail')
+)
 
 const Login: React.FC = () => {
   return (

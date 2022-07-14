@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { getDate } from 'lib/helpers'
+import { getDate } from 'helpers/utils'
 
 export default function Post({ post }) {
   const router = useRouter()

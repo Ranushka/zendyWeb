@@ -1,7 +1,6 @@
-import formatSearchResult from 'utilApi/formatSearchResult'
+import formatSearchResult from 'helpers/formatSearchResult'
 
-const SOLR_TOKEN = process.env.SOLR_TOKEN
-const SOLR_URL = process.env.SOLR_URL
+const { SOLR_TOKEN, SOLR_URL } = process.env
 const url = `${SOLR_URL}/query?q=zendy_id:`
 
 export default async function apiSolrSearchById(resultId) {
@@ -9,7 +8,7 @@ export default async function apiSolrSearchById(resultId) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Basic ${SOLR_TOKEN}`
+      Authorization: SOLR_TOKEN
     }
   }
 

@@ -85,13 +85,15 @@ const Footer: React.FC<{}> = () => {
             <PrivacyList />
           </div>
           <div>
-            <Image
-              width={120}
-              height={26}
-              src="/img/powered_by_stripe.svg"
-              alt="zendy stripe payment logo"
-              placeholder="empty"
-            />
+            <div className="relative w-28 h-6">
+              <Image
+                alt="zendy stripe payment logo"
+                src="/img/powered_by_stripe.svg"
+                layout="fill"
+                objectFit="cover"
+                quality={100}
+              />
+            </div>
           </div>
         </div>
       </footer>
