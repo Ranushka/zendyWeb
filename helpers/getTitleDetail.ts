@@ -1,4 +1,4 @@
-import fetch from 'lib/request'
+import fetch from 'helpers/request'
 
 const getTitleDetail = async (article_id: string) => {
   const data = await fetch(`https://doaj.org/api/v1/articles/${article_id}`)

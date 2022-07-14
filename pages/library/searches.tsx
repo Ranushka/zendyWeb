@@ -3,9 +3,9 @@ import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import { ButtonFab } from 'components/atoms'
 import { IconMore } from 'components/icons'
-import { LibraryTemplate } from 'components/templates'
-import { commonMessages } from 'lib/getMessages'
-import routs from 'lib/routs'
+import LibraryTemplate from 'components/templates/LibraryTemplate'
+import { commonMessages } from 'helpers/getMessages'
+import routs from 'helpers/routs'
 
 const Searches: React.FC = () => {
   const { data: session, status } = useSession()

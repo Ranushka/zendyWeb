@@ -1,9 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import apiSolrSearch from 'utilApi/apiSolrSearch'
-import formatAvailableFacets from 'utilApi/formatAvailableFacets'
-import formatSearchResult from 'utilApi/formatSearchResult'
-import { formatFilter, formatSort } from 'utilApi/formatSearchQuery'
-import cleanUpSearchTerm from 'utilApi/cleanUpSearchTerm'
+import apiSolrSearch from 'helpers/apiSolrSearch'
+import formatAvailableFacets from 'helpers/formatAvailableFacets'
+import formatSearchResult from 'helpers/formatSearchResult'
+import { formatFilter, formatSort } from 'helpers/formatSearchQuery'
+import cleanUpSearchTerm from 'helpers/cleanUpSearchTerm'
 
 export default async function handler(
   req: NextApiRequest,
@@ -23,8 +23,6 @@ export default async function handler(
       sort,
       limit: 10
     }
-
-    console.log('qryOptions--', qryOptions)
 
     const dataFromSolr = await apiSolrSearch(qryOptions)
     if (dataFromSolr.error) throw new Error(JSON.stringify(dataFromSolr.error))

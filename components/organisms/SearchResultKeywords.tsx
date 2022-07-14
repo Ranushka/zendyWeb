@@ -13,7 +13,9 @@ const SearchResultItemKeywords = ({ keywords = [], all = false }) => {
         {keywords
           .slice(0, all ? 20 : 8)
           .map<React.ReactNode>((name, id) => (
-            <small key={id}>{name}</small>
+            <small key={id} className="text-xs text_nut5 first_letter_caps">
+              {name}
+            </small>
             // <ActionItem
             //   key={id}
             //   text={name}

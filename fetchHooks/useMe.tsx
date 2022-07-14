@@ -1,7 +1,5 @@
 import useSWR from 'swr'
-import { isClient } from 'lib/helpers'
-
-// const VERCEL_URL = process.env.VERCEL_URL
+import { isClient } from 'helpers/utils'
 
 const useMe = () => {
   // console.log('-----', process.env)

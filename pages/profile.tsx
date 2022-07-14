@@ -2,8 +2,8 @@ import React from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { ProfilePage } from 'components/organisms'
-import { BaseTemplate } from 'components/templates'
-import { commonMessages } from 'lib/getMessages'
+import BaseTemplate from 'components/templates/BaseTemplate'
+import { commonMessages } from 'helpers/getMessages'
 
 const Profile: React.FC = () => {
   const { data: session, status } = useSession()

@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import { lockBody } from 'lib/helpers'
+import lockBody from 'helpers/lockBody'
 import { IconClear } from 'components/icons'
 import { ButtonFab } from 'components/atoms'
 

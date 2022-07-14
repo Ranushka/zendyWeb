@@ -1,6 +1,11 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import { ActionItem } from 'components/atoms'
-import { SidePopup, StripeElementsForm } from 'components/organisms'
+import SidePopup from 'components/organisms/SidePopup'
+
+const StripeElementsForm = dynamic(() =>
+  import('components/organisms/StripeElementsForm')
+)
 
 type Props = {
   id?: string

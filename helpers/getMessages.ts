@@ -1,4 +1,4 @@
-import request from 'lib/request'
+import request from 'helpers/request'
 
 const CMS_BASE_URL = process.env.NEXT_PUBLIC_CMS_BASE_URL
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import { BaseTemplate } from 'components/templates'
-import { commonMessages } from 'lib/getMessages'
+import BaseTemplate from 'components/templates/BaseTemplate'
+import { commonMessages } from 'helpers/getMessages'
 import { SearchLandingBlock, SearchResults } from 'components/organisms'
 import InfoSubject from 'components/organisms/InfoSubject'
 import InfoJournal from 'components/organisms/InfoJournal'
@@ -16,10 +16,8 @@ const Search: React.FC = () => {
   const qAuthor = rq.author
   const qSubject = rq.subject
   const qJournal = rq.journal
-  const qPublisher = rq.publisher
+  const qPublisher = rq.publisher?.toString().replace(/_/g, ' ')
   const queryString = rq.q || qAuthor || qSubject || qJournal || qPublisher
-
-  // console.log('queryString---', queryString)
 
   React.useEffect(() => {
     const searchBoxElement = document.getElementById('mainSearch')

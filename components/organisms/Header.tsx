@@ -8,7 +8,7 @@ import { useSession } from 'next-auth/react'
 import { useMediaQuery } from 'react-responsive'
 
 import useGlobal from 'context/GlobalContext'
-import routs from 'lib/routs'
+import routs from 'helpers/routs'
 import { ActionItem, Logo } from 'components/atoms'
 import { SearchForm, CategoriesMenu, SidePopup } from 'components/organisms'
 import SettingsPopUpContent from 'components/organisms/SettingsPopUpContent'

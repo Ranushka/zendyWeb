@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import Head from 'next/head'
-import markup from 'lib/markup'
+import markup from 'helpers/markup'
 
 export interface PublicationIssueJsonLdProps {
   authorName: string
@@ -19,7 +19,7 @@ const PublicationIssueJsonLd: FC<PublicationIssueJsonLdProps> = ({
   issueNumber = null,
   keywords = [],
   name,
-  publisher,
+  publisher
 }) => {
   const jslonld = {
     '@context': 'https://schema.org',
@@ -33,9 +33,9 @@ const PublicationIssueJsonLd: FC<PublicationIssueJsonLdProps> = ({
         about: keywords,
         name: name,
         author: authorName,
-        publisher: publisher,
-      },
-    ],
+        publisher: publisher
+      }
+    ]
   }
 
   return (

@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
-import labelMapping from 'lib/labelMapping'
+import labelMapping from 'helpers/labelMapping'
 
 const getFilterObj = (categoryId, facetLabel) => {
   const refinedFacetLabel = facetLabel
@@ -25,7 +25,7 @@ const useSearchResults = () => {
   const qSubject: any = rq.subject
   const qJournal: any = rq.journal
   const qMaterial: any = rq.material
-  const qPublisher: any = rq.publisher
+  const qPublisher: any = rq.publisher?.toString().replace(/_/g, ' ')
 
   const queryString: any = rq.q || qAuthor || qSubject || qJournal || qPublisher
 

@@ -2,7 +2,7 @@ import React from 'react'
 import get from 'lodash/get'
 import Skeleton from 'react-loading-skeleton'
 
-import labelMapping from 'lib/labelMapping'
+import labelMapping from 'helpers/labelMapping'
 import { ReadMore } from 'components/atoms'
 import FilterItems from 'components/organisms/FilterItems'
 import FilterGroupTitle from 'components/organisms/FilterGroupTitle'
