@@ -1,8 +1,8 @@
 import { GetStaticPaths } from 'next'
 import Link from 'next/link'
-import { commonMessages } from 'lib/getMessages'
-import { getPost } from 'fetchHooks/wordpress'
-import { BaseTemplate } from 'components/templates'
+import { commonMessages } from 'helpers/getMessages'
+import { getPost } from 'helpers/wordpress'
+import BaseTemplate from 'components/templates/BaseTemplate'
 
 const Blog = ({ post }) => {
   if (!post) return <PostNotFound />

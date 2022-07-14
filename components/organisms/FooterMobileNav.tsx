@@ -2,8 +2,8 @@ import React from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { MobileNaveItem } from 'components/atoms'
-import { clickVibrate } from 'lib/helpers'
-import routs from 'lib/routs'
+import { clickVibrate } from 'helpers/utils'
+import routs from 'helpers/routs'
 
 import {
   IconNews,
@@ -54,6 +54,7 @@ const MobileNav: React.FC<Props> = () => {
           isActive={router.pathname === routs.profile}
         />
         <MobileNaveItem
+          text="Search"
           onClick={_clickOnSearch}
           icon={
             <span>

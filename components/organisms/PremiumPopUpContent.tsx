@@ -2,7 +2,7 @@ import React from 'react'
 // import { useTranslations } from 'next-intl'
 
 import { ActionItem } from 'components/atoms'
-import routs from 'lib/routs'
+import routs from 'helpers/routs'
 
 const PremiumPopUpContent = () => {
   // const trans = useTranslations('settings')

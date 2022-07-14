@@ -3,13 +3,13 @@ import { useRouter } from 'next/router'
 import { useTranslations } from 'next-intl'
 import { useMediaQuery } from 'react-responsive'
 
-import routs from 'lib/routs'
+import routs from 'helpers/routs'
 import { ButtonFab } from 'components/atoms'
 import IconSearch from 'components/icons/IconSearch'
 import IconClear from 'components/icons/IconClear'
 import IconAdvanceSearch from 'components/icons/IconAdvanceSearch'
 // import analyticEvent from 'analytics/events'
-import { focusToSearchInput } from 'lib/helpers'
+import { focusToSearchInput } from 'helpers/utils'
 import classNames from 'classnames'
 
 type Props = {
@@ -79,7 +79,7 @@ const SearchForm: React.FC<Props> = ({ id }) => {
       <form className="relative w-full" onSubmit={handleSubmit}>
         <input
           id={id}
-          tabIndex={1}
+          tabIndex={0}
           name="search_term_string"
           autoComplete="off"
           ref={searchInput}
@@ -108,7 +108,7 @@ const SearchForm: React.FC<Props> = ({ id }) => {
           <ButtonFab
             dataName="BtnAdvanceSearchAdd"
             tabindex={-1}
-            // href="/search"
+            title="Search"
             onClick={onClickSearchBtn}
             icon={<IconSearch className="text_pri6 hover:text_pri7" />}
             classNames="rounded-full m-0.5 px-3 py-2.5 block hover:text_pri6 active:scale-95"

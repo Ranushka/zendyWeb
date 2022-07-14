@@ -38,42 +38,6 @@ export const isClient = () => {
   return typeof window === 'object'
 }
 
-export const checkIsMobile = (request: any) => {
-  let ua: any
-
-  if (request) {
-    ua = request.headers['user-agent']
-  }
-
-  if (typeof navigator === 'object') {
-    ua = navigator.userAgent
-  }
-
-  return /mobile|iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile|ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(
-    ua
-  )
-}
-
-export const lockBody = (state: boolean) => {
-  const $body = document.querySelector('body')
-  let scrollPosition = 0
-
-  if (state) {
-    scrollPosition = window.pageYOffset
-    $body.style.overflow = 'hidden'
-    $body.style.position = 'absolute'
-    $body.style.top = `-${scrollPosition}px`
-    $body.style.width = '100%'
-    return
-  }
-
-  $body.style.removeProperty('overflow')
-  $body.style.removeProperty('position')
-  $body.style.removeProperty('top')
-  $body.style.removeProperty('width')
-  // window.scrollTo(0, scrollPosition);
-}
-
 export const clickVibrate = () => {
   if (window && window.navigator && window.navigator.vibrate) {
     window.navigator.vibrate(25)
@@ -91,25 +55,6 @@ export function getDate(date) {
     month: 'short',
     year: 'numeric'
   })
-}
-
-export function addStickyClass(id: string) {
-  try {
-    var navbar = document.getElementById(id)
-    var sticky = navbar.offsetTop
-
-    console.log(sticky)
-
-    window.onscroll = function() {
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add('pinned')
-      } else {
-        navbar.classList.remove('pinned')
-      }
-    }
-  } catch (error) {
-    console.log(error)
-  }
 }
 
 export function focusToSearchInput(event) {

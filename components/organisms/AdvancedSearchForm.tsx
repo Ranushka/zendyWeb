@@ -3,13 +3,13 @@ import { useRouter } from 'next/router'
 // import { useTranslations } from 'next-intl'
 // import { useMediaQuery } from 'react-responsive'
 
-import routs from 'lib/routs'
+import routs from 'helpers/routs'
 import { ButtonFab, Select, ActionItem } from 'components/atoms'
 // import IconSearch from 'components/icons/IconSearch'
 import IconClose from 'components/icons/IconClose'
 // import IconAdvanceSearch from 'components/icons/IconAdvanceSearch'
 // import useGlobal from 'context/GlobalContext'
-// import { focusToSearchInput } from 'lib/helpers'
+// import { focusToSearchInput } from 'helpers/utils'
 import classNames from 'classnames'
 
 type Props = {
@@ -49,7 +49,7 @@ const SearchFormRow: React.FC<any> = ({
           />
           <input
             id={id}
-            tabIndex={1}
+            tabIndex={0}
             name="search_term_string"
             autoComplete="off"
             ref={searchInput}

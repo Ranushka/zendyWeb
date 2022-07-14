@@ -15,7 +15,7 @@ type Props = {
   classNames?: string
 }
 
-const BtnFab: React.FC<Props> = (props) => {
+const ButtonFab: React.FC<Props> = (props) => {
   const {
     title,
     href = '#',
@@ -23,7 +23,7 @@ const BtnFab: React.FC<Props> = (props) => {
     icon,
     small,
     onClick,
-    tabindex = 1,
+    tabindex = 0,
     classNames
   } = props
 
@@ -65,4 +65,4 @@ const BtnFab: React.FC<Props> = (props) => {
   )
 }
 
-export default BtnFab
+export default ButtonFab

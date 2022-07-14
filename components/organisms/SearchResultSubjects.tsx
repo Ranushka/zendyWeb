@@ -18,7 +18,7 @@ const SearchResultSubjects = ({ subjects = [], all = false }) => {
             as={`/search?subject=${name}`}
             href={`/search?subject=${name}`}
             type="link__small"
-            className="text_nut5"
+            className="text_nut5 first_letter_caps"
           />
         ))
         .reduce((prev, curr) => [prev, ', ', curr])}

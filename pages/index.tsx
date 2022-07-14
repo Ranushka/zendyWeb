@@ -1,10 +1,15 @@
 import React from 'react'
+import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import Head from 'next/head'
 import { SubTitle, SearchForm } from 'components/organisms'
 import RecentSearchKeywords from 'components/organisms/RecentSearchKeywords'
 
-import { commonMessages, curatedMessages, homeMessages } from 'lib/getMessages'
+import {
+  commonMessages,
+  curatedMessages,
+  homeMessages
+} from 'helpers/getMessages'
 
 import {
   HeroCtaHome,
@@ -16,8 +21,7 @@ import {
   Subjects
 } from 'components/organisms'
 
-import { BaseTemplate } from 'components/templates'
-import classNames from 'classnames'
+import BaseTemplate from 'components/templates/BaseTemplate'
 
 const Home: React.FC = () => {
   const trans = useTranslations('common')

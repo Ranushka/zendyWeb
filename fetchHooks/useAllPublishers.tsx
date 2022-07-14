@@ -1,5 +1,5 @@
 import useSWR from 'swr'
-import request from 'lib/request'
+import request from 'helpers/request'
 
 const useAllPublishers = () => {
   const url = `/api/publishers`

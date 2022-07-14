@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import Head from 'next/head'
-import markup from 'lib/markup'
+import markup from 'helpers/markup'
 
 export interface SiteLinksSearchJsonLdProps {}
 
@@ -12,8 +12,8 @@ const SiteLinksSearchJsonLd: FC<SiteLinksSearchJsonLdProps> = () => {
     potentialAction: {
       '@type': 'SearchAction',
       target: 'https://zendy.ranushka.vercel.app/search?q={search_term_string}',
-      'query-input': 'required name=search_term_string',
-    },
+      'query-input': 'required name=search_term_string'
+    }
   }
 
   return (

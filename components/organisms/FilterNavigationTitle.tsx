@@ -2,7 +2,7 @@ import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import get from 'lodash/get'
 
-import { countFormatted } from 'lib/helpers'
+import countFormatted from 'helpers/countFormatted'
 import useSearchResults from 'fetchHooks/useSearchResults'
 
 const FilterNavigationTitle = () => {

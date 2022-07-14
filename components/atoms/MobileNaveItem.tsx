@@ -21,17 +21,18 @@ const BtnFab: React.FC<Props> = ({
     primary ? 'pt-1 pb-1' : 'pt-2 pb-1',
     primary &&
       'flex items-center justify-center bg-orange-600 -mt-2 mb-2 rounded-full shadow',
-    isActive && 'text_pri6'
+    isActive && 'text_pri7'
   )
 
   return (
     <button
+      title={text}
       onClick={() => onClick()}
       className={finalClassList}
       style={{ outline: 'none' }}
     >
       {icon}
-      {text && <small className="block -mt-1">{text}</small>}
+      {!primary && <small className="block -mt-1">{text}</small>}
     </button>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { GetStaticPaths } from 'next'
-import { commonMessages } from 'lib/getMessages'
-import { BaseTemplate } from 'components/templates'
+import { commonMessages } from 'helpers/getMessages'
+import BaseTemplate from 'components/templates/BaseTemplate'
 import { TitleDetail } from 'components/organisms'
 
 const Title: React.FC = () => {
