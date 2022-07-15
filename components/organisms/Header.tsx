@@ -189,7 +189,7 @@ const __getUserNameInitials = ({ firstName, lastName, email }) => {
   }
 
   if (email) {
-    return `${email}${email}`
+    return `${email}`
   }
 
   return 'Good, day!'
