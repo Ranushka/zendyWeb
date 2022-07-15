@@ -88,9 +88,11 @@ const SearchForm: React.FC<Props> = ({ id }) => {
           accessKey="/"
           placeholder={trans(`search_placeholder_d`)}
           className={classNames(
-            'w-full h-12 rounded-full border border_nut4',
-            'outline-4 outline-offset-2 pr-14 pl-6',
-            'shadow hover:shadow-md active:border_pri6 focus:border_pri6',
+            'w-full bg_white h-12 rounded-full border-2',
+            'outline-none pr-14 pl-6',
+            // 'outline-none pr-14 pl-6 shadow active:shadow-md hover:shadow-md',
+            'shadow-sm active:shadow-md hover:shadow-md',
+            'border_nut4 active:border_pri6 focus:border_pri6',
             'appearance-none'
           )}
           value={searchText}

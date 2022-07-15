@@ -8,7 +8,7 @@ const SearchResultAuthors = ({ authors = [], all = false }) => {
   if (!authors?.length) return <></>
 
   return (
-    <div className={classNames('py-1', !all && 'line-clamp-1')}>
+    <div className={classNames('py-1 text_nut4', !all && 'line-clamp-1')}>
       {SearchResultItemTagTitle('By')}
       {authors
         .slice(0, all ? 20 : 8)
@@ -22,12 +22,12 @@ const SearchResultAuthors = ({ authors = [], all = false }) => {
                 as={`/search?author=${name}`}
                 href={`/search?author=${name}`}
                 type="link__small"
-                className="text_nut5"
+                className="text_nut6 ml-2 first_letter_caps"
               />
             )
           }
         })
-        .reduce((prev, curr) => [prev, ', ', curr])}
+        .reduce((prev, curr) => [prev, ',', curr])}
       {/* <span>Et..al</span> */}
     </div>
   )

@@ -22,13 +22,13 @@ const credentialsConfigOptions = {
       console.log('==user===>>>', data.user)
 
       return {
-        ...data.user,
-        custom: 'dsadasdsadasdsd',
-        user: 'useruseruser',
-        token: 'tokentokentoken'
+        ...data.user
+        // custom: 'dsadasdsadasdsd',
+        // user: 'useruseruser',
+        // token: 'tokentokentoken'
       }
     }
-    // Return null if user data could not be retrieved
+
     return null
   }
 }

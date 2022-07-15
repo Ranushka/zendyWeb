@@ -12,7 +12,6 @@ type Props = {
 
 const CardCurated: React.FC<Props> = (props) => {
   const { href, imgUrl, title, content } = props
-  console.log(imgUrl)
 
   return (
     <ActionItem
