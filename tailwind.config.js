@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -7,7 +9,12 @@ module.exports = {
     container: {
       center: true
     },
-    extend: {}
+    extend: {
+      fontFamily: {
+        sans: ['Quattrocento Sans', ...defaultTheme.fontFamily.sans],
+        serif: ['Quattrocento', ...defaultTheme.fontFamily.serif]
+      }
+    }
   },
   plugins: [require('@tailwindcss/line-clamp'), require('tailwindcss-rtl')]
 }

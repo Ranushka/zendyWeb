@@ -6,8 +6,8 @@ import FilterGroupTitle from 'components/organisms/FilterGroupTitle'
 const FilterType: React.FC = () => {
   const sortBysList = [
     { name: 'Relevance', value: 'relevance' },
-    { name: 'Newest', value: 'date' },
-    { name: 'Oldest', value: 'date2' }
+    { name: 'Newest', value: 'date2' },
+    { name: 'Oldest', value: 'date' }
   ]
 
   const router = useRouter()

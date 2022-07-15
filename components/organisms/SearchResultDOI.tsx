@@ -9,7 +9,7 @@ const SearchResultDOI = ({ doi = '' }) => {
     doi && (
       <div className="py-1">
         {SearchResultItemTagTitle('DOI')}
-        <small>{doi}</small>
+        <small className="text_nut5 ml-3 first_letter_caps">{doi}</small>
       </div>
     )
   )

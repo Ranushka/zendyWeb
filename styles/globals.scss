@@ -7,8 +7,8 @@
 
 body {
   zoom: var(--zoom);
-  height: 100vh; 
-  height: -webkit-fill-available; 
+  height: 100vh;
+  height: -webkit-fill-available;
   min-height: 100vh;
   min-height: -webkit-fill-available;
 }
@@ -34,8 +34,9 @@ body {
   --nut1: #f1f5f9;
   --nut0: #f8fafc;
 
+  --mark: #fff792;
   --outline: #fdba74;
-  --backdrop: rgb(0 0 0 / 20%)
+  --backdrop: rgb(0 0 0 / 20%);
 }
 
 [data-theme='Dark'] {
@@ -51,12 +52,14 @@ body {
   --nut2: #475569;
   --nut1: #334155;
   --nut0: #1e293b;
+
+  --outline: #824d14;
 }
 
 [data-theme='Paper'] {
   --white: #fffdf4;
   --black: #78350f;
-  
+
   --nut0: #fffbeb;
 }
 
@@ -64,13 +67,14 @@ body {
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento&family=Quattrocento+Sans&display=swap');
 
 * {
   outline-color: var(--outline);
 }
 
-$colors: white, black, pri8, pri7, pri6, pri2, pri1, pri0, nut8, nut7, nut6, nut5, nut4, nut3, nut2,
-  nut1, nut0;
+$colors: white, black, pri8, pri7, pri6, pri2, pri1, pri0, nut8, nut7, nut6,
+  nut5, nut4, nut3, nut2, nut1, nut0;
 
 @each $color in $colors {
   .focus\:bg_#{$color}:focus,
@@ -181,7 +185,7 @@ textarea {
   font-size: 16px;
 }
 
-.first_letter_caps{
+.first_letter_caps {
   display: inline-block;
 }
 
@@ -194,17 +198,22 @@ textarea {
   background-color: var(--white);
 }
 
-#homeSearchSticky.pinned{
+#homeSearchSticky.pinned {
   width: 100%;
   position: fixed;
   top: 0;
   background: #fff;
 }
 
-.bg_backdrop{
-  background: var(--backdrop)
+.bg_backdrop {
+  background: var(--backdrop);
 }
 
-.annotationLayer{
+.annotationLayer {
   position: absolute;
+}
+
+mark {
+  background-color: var(--mark);
+  color: var(--nut6);
 }

@@ -19,12 +19,14 @@ const LoginRegisterTemplate: React.FC<Props> = ({ children }) => {
 
   return (
     <main className="text_nut6 bg_nut0 text-sm w-full h-full flex absolute justify-center items-center">
-      <div className="max-w-md w-full p-8 -mt-10 bg_white rounded-lg shadow mx-8">
+      <div className="max-w-md w-full -mt-10 pt-8">
         <Logo />
-        {children}
-        <small className="block mt-4">
-          Having issues? <a>support@zendy.io</a>
-        </small>
+        <div className="bg_white rounded-lg shadow mx-8 p-8 mt-8">
+          {children}
+          <small className="block mt-8">
+            Having issues? <a>support@zendy.io</a>
+          </small>
+        </div>
       </div>
     </main>
   )

@@ -181,7 +181,7 @@ const __linkWithChildren = (props: Props) => {
 const getType = (type) => {
   const types = {
     link: 'hover:text_pri6 active:scale-95 duration-150',
-    link__title: 'hover:text_pri6 duration-150 text_nut7',
+    link__title: 'hover:text_pri7 duration-150 text_nut7',
     link__small: 'text-xs hover:text_pri6 active:scale-95 duration-150',
     btn__small: 'btn__small',
     btn__default: classnames(

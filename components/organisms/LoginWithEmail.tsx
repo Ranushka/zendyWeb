@@ -12,25 +12,32 @@ const onSubmitSignUp = async (values) => {
     callbackUrl: `${window.location.origin}`
   })
 
+  console.log('req done -->')
+
   if (res?.error) {
     console.log('custom credentials fail')
     // setError(res.error)
   }
 
   console.log('custom credentials Success', res)
+
+  return true
 }
 
-const LoginWithEmail: React.FC = () => {
-  const recaptchaRef = React.useRef<ReCAPTCHA>(null)
+const LoginWithEmail: React.FC<any> = ({ setWithEmail }) => {
+  const recaptchaRef = React.useRef<ReCAPTCHA>()
   const [formData, setFormData] = React.useState({
     email: '',
     password: ''
   })
 
-  const onSubmitForm = async (e) => {
-    e.preventDefault()
+  const onSubmitForm = async (event) => {
+    event.preventDefault()
+    console.log('on submit -->')
+
     const reCaptcha = await recaptchaRef.current.executeAsync()
-    onSubmitSignUp({
+
+    await onSubmitSignUp({
       reCaptcha,
       ...formData
     })
@@ -45,11 +52,17 @@ const LoginWithEmail: React.FC = () => {
 
   return (
     <form onSubmit={onSubmitForm}>
-      <ReCAPTCHA
-        ref={recaptchaRef}
-        size="invisible"
-        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+      <ActionItem
+        dataName="LoginEmailBtn"
+        text={'← Use social logins'}
+        type="link__small"
+        onClick={() => setWithEmail(false)}
       />
+
+      <h1 className="text-3xl font-serif mt-6 mb-4 text-center">
+        Join with Email
+      </h1>
+
       <Input
         id="email"
         name="email"
@@ -68,6 +81,12 @@ const LoginWithEmail: React.FC = () => {
         value={formData.password}
         onChange={onChange}
         required
+      />
+
+      <ReCAPTCHA
+        ref={recaptchaRef}
+        size="invisible"
+        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
       />
 
       <div className="px-8">

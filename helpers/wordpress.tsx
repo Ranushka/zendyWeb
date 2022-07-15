@@ -1,15 +1,22 @@
 const BASE_URL = `https://content.zendy.io/wp-json/wp/v2`
 
 export async function getPosts() {
-  const postsRes = await fetch(`${BASE_URL}/posts`)
-  const posts = await postsRes.json()
+  const res = await fetch(`${BASE_URL}/posts`)
+  const data = await res.json()
 
-  return posts
+  return data
 }
 
 export async function getPost(slug: string) {
-  const postsRes = await fetch(`${BASE_URL}/posts?slug=${slug}`)
-  const post = await postsRes.json()
+  const res = await fetch(`${BASE_URL}/posts?slug=${slug}`)
+  const data = await res.json()
 
-  return post.length > 0 ? post[0] : null
+  return data.length > 0 ? data[0] : null
+}
+
+export async function getPage(slug: string) {
+  const res = await fetch(`${BASE_URL}/pages?slug=${slug}`)
+  const data = await res.json()
+
+  return data.length > 0 ? data[0] : null
 }
