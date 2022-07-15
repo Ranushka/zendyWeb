@@ -12,7 +12,7 @@ import SearchResultKeywords from 'components/organisms/SearchResultKeywords'
 import SearchResultSubjects from 'components/organisms/SearchResultSubjects'
 import SearchResultAuthors from 'components/organisms/SearchResultAuthors'
 import SearchResultItemAbstract from 'components/organisms/SearchResultItemAbstract'
-import SearchResultDOI from 'components/organisms/SearchResultDOI'
+import SearchResultETC from 'components/organisms/SearchResultETC'
 
 const DetailPdf = dynamic(() => import('components/organisms/DetailPdf'), {
   ssr: false
@@ -21,6 +21,8 @@ const DetailPdf = dynamic(() => import('components/organisms/DetailPdf'), {
 const __renderContent = (data) => {
   const {
     doi,
+    issn,
+    sjr,
     abstract,
     authors,
     downloadLink,
@@ -55,7 +57,10 @@ const __renderContent = (data) => {
         <SearchResultKeywords keywords={keywords} all />
         <SearchResultSubjects subjects={subjects} all />
         <SearchResultAuthors authors={authors} all />
-        <SearchResultDOI doi={doi} />
+
+        <SearchResultETC data={doi} name="DOI" />
+        <SearchResultETC data={issn.replace(/^(.{4})/, '$1-')} name="ISSN" />
+        <SearchResultETC data={sjr} name="sjr" />
       </article>
       {downloadLink && <DetailPdf pdfUrl={downloadLink} />}
       <TitleDetailNextPrevResult />

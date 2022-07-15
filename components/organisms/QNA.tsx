@@ -22,7 +22,9 @@ const questionsList = () => {
         <Accordion
           id={'qa' + id}
           open={id === 0}
-          title={<h4 className="text-sm font-serif font-light">{title}</h4>}
+          title={
+            <h4 className="text-sm font-serif font-light w-full">{title}</h4>
+          }
           content={accordionContent(content)}
         />
       </React.Fragment>

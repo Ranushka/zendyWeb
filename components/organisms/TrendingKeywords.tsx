@@ -8,6 +8,7 @@ const TrendingKeywords: React.FC<Props> = () => {
   const { data } = useGetTrendingKeywords()
 
   if (!data) return <div>loading...</div>
+  if (!data.length) return <></>
 
   return (
     <section>
