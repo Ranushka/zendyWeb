@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { ActionItem } from 'components/atoms'
+import { ActionBtn } from 'components/atoms'
 
 type Props = {}
 
@@ -22,7 +22,7 @@ const GetStartedWithUs: React.FC<Props> = () => {
         <div className="relative py-16 px-4">
           <h2 className="text-3xl font-serif mb-2">{trans('title')}</h2>
           <p>{trans('subtitle')}</p>
-          <ActionItem
+          <ActionBtn
             dataName="GetStartedWithUs"
             text={trans('btn')}
             href={'#'}

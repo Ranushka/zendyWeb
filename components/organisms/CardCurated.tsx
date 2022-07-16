@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { ActionItem } from 'components/atoms'
+import { ActionLink } from 'components/atoms'
 
 type Props = {
   href: string
@@ -14,7 +14,7 @@ const CardCurated: React.FC<Props> = (props) => {
   const { href, imgUrl, title, content } = props
 
   return (
-    <ActionItem
+    <ActionLink
       dataName="CardCurated"
       href={href}
       className="inline-block cursor-pointer text-left mx-2"
@@ -37,7 +37,7 @@ const CardCurated: React.FC<Props> = (props) => {
           </div>
         </div>
       </div>
-    </ActionItem>
+    </ActionLink>
   )
 }
 

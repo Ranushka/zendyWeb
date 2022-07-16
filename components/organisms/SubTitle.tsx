@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActionItem } from 'components/atoms'
+import { ActionLink } from 'components/atoms'
 import { SubTitleProps } from 'types'
 
 const SubTitle: React.FC<SubTitleProps> = (props) => {
@@ -11,7 +11,7 @@ const SubTitle: React.FC<SubTitleProps> = (props) => {
         <div className="text-lg font-serif text_nut5 px-4">{title}</div>/
         {linkText && (
           <strong className={'px-4'}>
-            <ActionItem dataName="SubTitle" text={linkText} href={linkHref} />
+            <ActionLink dataName="SubTitle" text={linkText} href={linkHref} />
           </strong>
         )}
       </div>

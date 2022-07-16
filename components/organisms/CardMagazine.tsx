@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { ActionItem } from 'components/atoms'
+import { ActionLink } from 'components/atoms'
 import classnames from 'classnames'
 import { CardMagazineProps } from 'types'
 
@@ -12,7 +12,7 @@ const CardMagazine: React.FC<CardMagazineProps> = (props) => {
   )
 
   return (
-    <ActionItem dataName="CardMagazine" href={href}>
+    <ActionLink dataName="CardMagazine" href={href}>
       <div className={__finalClassNames}>
         <div className="relative w-full h-64">
           <Image
@@ -26,7 +26,7 @@ const CardMagazine: React.FC<CardMagazineProps> = (props) => {
         <p className="px-3 mt-2">{title}</p>
         <small className="px-3">{content}</small>
       </div>
-    </ActionItem>
+    </ActionLink>
   )
 }
 

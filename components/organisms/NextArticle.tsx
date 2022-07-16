@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import { ActionItem } from 'components/atoms'
+import { ActionLink } from 'components/atoms'
 
 import { IconArrowLeft, IconArrowRight } from 'components/icons'
 
@@ -14,13 +14,13 @@ const NextArticle: React.FC<Props> = (props) => {
   const { url = '/search', title, prev } = props
 
   return (
-    <ActionItem dataName="NextArticle" href={url}>
+    <ActionLink dataName="NextArticle" href={url}>
       <div className={classnames('rounded-md shadow bg_white')}>
         <div className="">{prev ? <IconArrowLeft /> : <IconArrowRight />}</div>
 
         <small className="">{title}</small>
       </div>
-    </ActionItem>
+    </ActionLink>
   )
 }
 

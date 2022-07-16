@@ -2,7 +2,7 @@ import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
-import { ActionItem } from 'components/atoms'
+import { ActionLink } from 'components/atoms'
 import { IconAdd } from 'components/icons'
 import { useCollections } from 'fetchHooks/useCollections'
 import LibraryTemplate from 'components/templates/LibraryTemplate'
@@ -35,7 +35,7 @@ const __dataCollection = (data) => {
       ))}
 
       <div className="px-4">
-        <ActionItem
+        <ActionLink
           dataName="CreateNewCollection"
           text={'Create new collection'}
           href={'/'}

@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import { ActionItem, Input, Logo } from 'components/atoms'
+import { ActionLink, Input, Logo, ActionBtn } from 'components/atoms'
 
 type Props = {}
 
@@ -39,7 +39,7 @@ const AuthenticateRegister: React.FC<Props> = () => {
             <Input center type="number" id="otp1" name="otp1" required />
           </div>
           <div className="flex">
-            <ActionItem
+            <ActionBtn
               dataName="ConfirmOTP"
               text={'Confirm OTP'}
               href={'/authenticate/register'}
@@ -49,14 +49,14 @@ const AuthenticateRegister: React.FC<Props> = () => {
           </div>
 
           <div className="flex">
-            <ActionItem
+            <ActionLink
               dataName="ResendOTP"
               text={'Resend OTP'}
               href={'/authenticate'}
               type="link__small"
             />
             <div className="flex__left"></div>
-            <ActionItem
+            <ActionLink
               dataName="ChangeNumber"
               text={'Change number'}
               href={'/authenticate'}

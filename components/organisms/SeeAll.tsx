@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import { ActionItem } from 'components/atoms'
+import { ActionLink } from 'components/atoms'
 
 type Props = {
   href: string
@@ -13,7 +13,7 @@ const SeeAll: React.FC<Props> = (props) => {
 
   return (
     <div className={classnames('text-center py-4 lh__3', className)}>
-      <ActionItem dataName="SeeAll" href={href} text={text} />
+      <ActionLink dataName="SeeAll" href={href} text={text} />
     </div>
   )
 }
