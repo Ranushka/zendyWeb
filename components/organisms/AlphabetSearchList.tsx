@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ActionItem, Input } from 'components/atoms'
+import { ActionLink, Input } from 'components/atoms'
 import countFormatted from 'helpers/countFormatted'
 
 const AlphabetSearchList: React.FC<any> = ({ data }) => {
@@ -58,7 +58,7 @@ const AlphabetSearchList: React.FC<any> = ({ data }) => {
           )
 
           return (
-            <ActionItem
+            <ActionLink
               dataName="AlphabetSearchList"
               key={key}
               text={text}

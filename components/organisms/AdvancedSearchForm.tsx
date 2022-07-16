@@ -1,16 +1,10 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
-// import { useTranslations } from 'next-intl'
-// import { useMediaQuery } from 'react-responsive'
+import classNames from 'classnames'
 
 import routs from 'helpers/routs'
-import { ButtonFab, Select, ActionItem } from 'components/atoms'
-// import IconSearch from 'components/icons/IconSearch'
+import { ButtonFab, Select, ActionBtn } from 'components/atoms'
 import IconClose from 'components/icons/IconClose'
-// import IconAdvanceSearch from 'components/icons/IconAdvanceSearch'
-// import useGlobal from 'context/GlobalContext'
-// import { focusToSearchInput } from 'helpers/utils'
-import classNames from 'classnames'
 
 type Props = {
   id?: string
@@ -161,7 +155,7 @@ const SearchForm: React.FC<Props> = () => {
                 [+]
               </button>
             )}
-            <ActionItem
+            <ActionBtn
               dataName="advanceSearch"
               text="Search"
               href={'#'}

@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/router'
 
 import { Switch } from 'components/atoms'
 import { Pricing, WhatWeOffer, SecurityStripBlock } from 'components/organisms'
@@ -8,31 +9,36 @@ import { analyticsSelectPlan } from 'analytics/events'
 
 const SubscriptionPage: React.FC<{}> = () => {
   const trans = useTranslations('common')
+  const router = useRouter()
+  const { subscribeAction } = router.query
   const title = trans.raw('title')
   const planTypes = trans.raw('planTypes')
-  const [plan, planSet] = React.useState(true)
-  const currentPlan = planTypes[plan ? 'monthly' : 'yearly']
+  const [isYearlyPlan, setIsYearlyPlan] = React.useState(
+    subscribeAction !== 'monthly'
+  )
+  const currentPlan = planTypes[isYearlyPlan ? 'yearly' : 'monthly']
+
+  React.useEffect(() => {}, [router.query])
 
   const __onChange = () => {
     analyticsSelectPlan(currentPlan)
-    planSet(!plan)
+    setIsYearlyPlan(!isYearlyPlan)
   }
 
   return (
     <div>
       <div dangerouslySetInnerHTML={{ __html: title }} />
-
       <div className="flex justify-center mt-10 mb-8 text_nut5">
         <Switch
           id="selectPlan"
           name="selectPlan"
-          checked={plan}
+          checked={!isYearlyPlan}
           onChange={__onChange}
           leftLabel={
             <span
               className={classnames(
                 'h3 px-4 text-2xl font-serif',
-                !plan && 'text_pri6'
+                isYearlyPlan && 'text_pri6'
               )}
             >
               {planTypes.yearly.name}
@@ -42,7 +48,7 @@ const SubscriptionPage: React.FC<{}> = () => {
             <span
               className={classnames(
                 'h3 px-4 text-2xl font-serif',
-                plan && 'text_pri6'
+                !isYearlyPlan && 'text_pri6'
               )}
             >
               {planTypes.monthly.name}
@@ -57,9 +63,12 @@ const SubscriptionPage: React.FC<{}> = () => {
 
         <Pricing
           name={currentPlan.name}
-          content={currentPlan.content}
           price={currentPlan.price}
+          currency={currentPlan.currency}
           paying={currentPlan.paying}
+          offer={currentPlan.offer}
+          fullPrice={currentPlan.fullPrice}
+          interval={currentPlan.interval}
         />
       </div>
 

@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { ActionItem } from 'components/atoms'
+import { ActionBtn } from 'components/atoms'
 
 type Props = {}
 
 const HeroCta: React.FC<Props> = () => {
   return (
-    <>
+    <div>
       <section className="max-w-7xl flex px-4 m-auto py-8 justify-between">
         <div className={'px-8 mt-16 max-w-xl'}>
           <h3 className="text-xl text_nut5 font-serif">Welcome to Zendy</h3>
@@ -24,7 +24,7 @@ const HeroCta: React.FC<Props> = () => {
           </p>
 
           <div className="pt-2 pb-2 max-w-xs">
-            <ActionItem
+            <ActionBtn
               dataName="BtnStartTrial"
               text={'Start your Free Trial'}
               href={'#'}
@@ -47,7 +47,7 @@ const HeroCta: React.FC<Props> = () => {
           }}
         />
       </section>
-    </>
+    </div>
   )
 }
 

@@ -35,8 +35,6 @@ const __renderContent = (data) => {
     volume
   } = data
 
-  console.log('data--', data)
-
   return (
     <>
       <article className="max-w-4xl m-auto pt-16 px-8">

@@ -4,7 +4,7 @@ import Skeleton from 'react-loading-skeleton'
 import Image from 'next/image'
 import { useSession, signOut } from 'next-auth/react'
 import { IconLogout } from 'components/icons'
-import { ActionItem, CheckBox, Input } from 'components/atoms'
+import { ActionLink, ActionBtn, CheckBox, Input } from 'components/atoms'
 
 const VERCEL_URL = process.env.VERCEL_URL
 type Props = {}
@@ -19,7 +19,7 @@ const Desktop: React.FC<Props> = () => {
         <h1 className="text-center text_nut5 text-4xl font-serif">
           My Profile
         </h1>
-        <ActionItem
+        <ActionBtn
           dataName="BtnSignOut"
           text={'Sign out'}
           type={'btn__default'}
@@ -42,7 +42,7 @@ const Desktop: React.FC<Props> = () => {
             <p>pinto@gmail.com.ae</p>
             <p>+971 588 034 743</p>
 
-            <ActionItem
+            <ActionLink
               dataName="EditProfile"
               text={'Edit profile'}
               href={'/'}
@@ -90,7 +90,7 @@ const Desktop: React.FC<Props> = () => {
             <small className="mute">What you&apos;ll be charged</small>
             <p>AED 198.00 ( for year )</p>
 
-            <ActionItem
+            <ActionLink
               dataName="CancelSubscription"
               text={'Cancel subscription'}
               href={'/'}
@@ -111,14 +111,14 @@ const Desktop: React.FC<Props> = () => {
               required
             />
             <div className="flex">
-              <ActionItem
+              <ActionLink
                 dataName="BtnUpdatePayment"
                 text={'Update payment'}
                 href={'/'}
                 type="link__small"
               />
               <div className="flex__left"></div>
-              <ActionItem
+              <ActionLink
                 dataName="BtnUpdateHistory"
                 text={'Payment history'}
                 href={'/'}

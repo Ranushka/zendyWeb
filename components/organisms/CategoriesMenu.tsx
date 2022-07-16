@@ -2,14 +2,14 @@ import React from 'react'
 import { useTranslations } from 'next-intl'
 import isArray from 'lodash/isArray'
 import { IconArrowDown } from 'components/icons'
-import { ActionItem } from 'components/atoms'
+import { ActionLink, ActionBtn } from 'components/atoms'
 
 const CategoriesMenu: React.FC<{}> = () => {
   const trans = useTranslations('header')
 
   return (
     <div className="desktopMenu textNoWrap hidden md:flex">
-      <ActionItem
+      <ActionBtn
         dataName="CategoriesMenu"
         href="/"
         wrap
@@ -48,7 +48,7 @@ const __getMenuItems = (list: []) => {
     list &&
     list.map(({ label, path }, key) => {
       return (
-        <ActionItem
+        <ActionLink
           dataName="CategoriesMenuItem"
           className="my-2 block"
           key={key}

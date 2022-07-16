@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActionItem } from 'components/atoms'
+import { ActionLink } from 'components/atoms'
 import useGetTrendingKeywords from 'fetchHooks/useGetTrendingKeywords'
 
 type Props = {}
@@ -15,7 +15,7 @@ const TrendingKeywords: React.FC<Props> = () => {
       <h4 className="pt-8 pb-2 text_nut4 text-xs">Trending searches</h4>
       <div className="max-w-4xl px-8 mx-auto text-center ">
         {data.map((title, id) => (
-          <ActionItem
+          <ActionLink
             dataName="TrendingKeywords"
             key={id}
             text={title}

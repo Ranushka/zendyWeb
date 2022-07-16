@@ -2,7 +2,7 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 
 import LoginWithSocialMedia from 'components/organisms/LoginWithSocialMedia'
-import { ActionItem } from 'components/atoms'
+import { ActionBtn } from 'components/atoms'
 import LoginRegisterTemplate from 'components/templates/LoginRegisterTemplate'
 
 const LoginWithEmail = dynamic(() =>
@@ -21,7 +21,7 @@ const Login: React.FC = () => {
 
       {!withEmail && (
         <div className="block text-center my-4" key="orcid">
-          <ActionItem
+          <ActionBtn
             dataName="LoginEmailBtn"
             text={'Login with Email'}
             type={'btn__default'}

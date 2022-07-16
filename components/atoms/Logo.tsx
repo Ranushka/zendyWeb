@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActionItem } from 'components/atoms'
+import { ActionLink } from 'components/atoms'
 import useGetCountry from 'fetchHooks/useGetCountry'
 
 type Props = {
@@ -16,7 +16,7 @@ const Logo: React.FC<Props> = ({
   const { data } = useGetCountry()
 
   return (
-    <ActionItem
+    <ActionLink
       dataName={dataName}
       href="/"
       className={`relative ${className}`}
@@ -88,7 +88,7 @@ const Logo: React.FC<Props> = ({
           </span>
         )}
       </div>
-    </ActionItem>
+    </ActionLink>
   )
 }
 
