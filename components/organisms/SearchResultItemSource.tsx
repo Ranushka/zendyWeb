@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActionItem } from 'components/atoms'
+import { ActionLink } from 'components/atoms'
 
 const SearchResultItemSource = ({
   journalTitle = '',
@@ -11,7 +11,7 @@ const SearchResultItemSource = ({
     <div className="py-1">
       {publicationName && (
         <span>
-          <ActionItem
+          <ActionLink
             dataName="SearchResultItemSourcePublication"
             className="pr-2 first_letter_caps"
             text={publicationName}
@@ -24,7 +24,7 @@ const SearchResultItemSource = ({
       -
       {journalTitle && (
         <span>
-          <ActionItem
+          <ActionLink
             dataName="SearchResultItemSourceJournal"
             className="px-2 first_letter_caps"
             text={journalTitle}

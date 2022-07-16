@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActionItem } from 'components/atoms'
+import { ActionBtn } from 'components/atoms'
 import { useRouter } from 'next/router'
 import { getDir } from 'helpers/utils'
 import classNames from 'classnames'
@@ -38,7 +38,7 @@ const SelectLanguage: React.FC<any> = () => {
           .toLowerCase()
 
         return (
-          <ActionItem
+          <ActionBtn
             dataName="SelectLanguageItem"
             key={key}
             text={item}

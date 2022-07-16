@@ -1,7 +1,7 @@
 import React from 'react'
 import isArray from 'lodash/isArray'
 import { useTranslations } from 'next-intl'
-import { ActionItem } from 'components/atoms'
+import { ActionLink } from 'components/atoms'
 
 export const ExploreList = () => {
   const trans = useTranslations('footer')
@@ -12,7 +12,7 @@ export const ExploreList = () => {
     explore_list.map(({ label, path }, key) => {
       return (
         <React.Fragment key={key}>
-          <ActionItem
+          <ActionLink
             dataName="ExploreListItem"
             text={label}
             href={path}
@@ -34,7 +34,7 @@ export const NewsList = () => {
     news_list.map(({ label, path }, key) => {
       return (
         <React.Fragment key={key}>
-          <ActionItem
+          <ActionLink
             dataName="NewsListItem"
             text={label}
             href={path}
@@ -56,12 +56,12 @@ export const PrivacyList = () => {
     privacy_list.map(({ label, path }, key) => {
       return (
         <React.Fragment key={key}>
-          <ActionItem
+          <ActionLink
             dataName="PrivacyListItem"
             text={label}
             href={path}
             type="link__small"
-            className="mx-3"
+            className="mr-3"
           />
         </React.Fragment>
       )

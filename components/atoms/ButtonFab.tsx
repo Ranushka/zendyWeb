@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 
-import { ActionItem } from 'components/atoms'
+import { ActionLink } from 'components/atoms'
 import { analyticsClickEvent } from 'analytics/events'
 
 type Props = {
@@ -54,14 +54,14 @@ const ButtonFab: React.FC<Props> = (props) => {
   }
 
   return (
-    <ActionItem
+    <ActionLink
       dataName={dataName}
       href={href}
       className={className}
       tabIndex={tabindex}
     >
       <>{icon}</>
-    </ActionItem>
+    </ActionLink>
   )
 }
 

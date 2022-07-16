@@ -5,19 +5,11 @@ import { useRouter } from 'next/router'
 import { analyticsClickEvent } from 'analytics/events'
 
 type Props = {
-  type?:
-    | 'link'
-    | 'link__title'
-    | 'link__small'
-    | 'btn__small'
-    | 'btn__default'
-    | 'btn__secondary'
-    | 'btn__primary'
+  type?: 'link' | 'link__title' | 'link__small'
   icon?: React.ReactNode
   text?: React.ReactNode | string
   title?: string
   href?: string
-  onClick?: Function
   as?: string
   dataName: string
   className?: string | object
@@ -31,63 +23,14 @@ type Props = {
   children?: React.ReactChild
 }
 
-const ActionItem: React.FC<Props> = (props) => {
-  const { onClick, children } = props
-
-  if (onClick) {
-    return __btn(props)
-  }
+const ActionLink: React.FC<Props> = (props) => {
+  const { children } = props
 
   if (children) {
     return __linkWithChildren(props)
   }
 
   return __link(props)
-}
-
-const __btn = (props: Props) => {
-  const {
-    text = 'Button text',
-    title = '',
-    onClick = () => {},
-    dataName,
-    type,
-    style,
-    icon,
-    block,
-    submit,
-    tabIndex = 0,
-    disabled,
-    className
-  } = props
-
-  const finalClassNames = classnames(
-    getType(type),
-    icon && 'inline-flex whitespace-nowrap',
-    block && 'w-full',
-    disabled ? 'disabled' : 'pointer',
-    className
-  )
-
-  const handleClick = () => {
-    analyticsClickEvent(props)
-    onClick()
-  }
-
-  return (
-    <button
-      title={title}
-      style={style}
-      tabIndex={tabIndex}
-      className={finalClassNames}
-      onClick={() => handleClick()}
-      data-name={dataName}
-      type={submit ? 'submit' : 'button'}
-    >
-      {text}
-      {icon && <span className="ml-2">{icon}</span>}
-    </button>
-  )
 }
 
 const __link = (props: Props) => {
@@ -118,11 +61,15 @@ const __link = (props: Props) => {
     className
   )
 
+  const handleClick = () => {
+    analyticsClickEvent(props)
+  }
+
   if (newWindow) {
     return (
       <a
         data-name={dataName}
-        onClick={() => analyticsClickEvent(props)}
+        onClick={handleClick}
         className={finalClassNames}
         target="_blank"
         href={href}
@@ -141,7 +88,7 @@ const __link = (props: Props) => {
         data-name={dataName}
         className={finalClassNames}
         tabIndex={tabIndex}
-        onClick={() => analyticsClickEvent(props)}
+        onClick={handleClick}
       >
         <span>{text}</span>
         {icon && icon}
@@ -181,28 +128,16 @@ const __linkWithChildren = (props: Props) => {
 const getType = (type) => {
   const types = {
     link: 'hover:text_pri6 active:scale-95 duration-150',
-    link__title: 'hover:text_pri7 duration-150 text_nut7',
+    link__title: classnames(
+      'hover:text_pri7 duration-150 text_nut7',
+      'inline-block text-gray-700 font-serif',
+      'text-xl'
+    ),
     link__small: 'text-xs hover:text_pri6 active:scale-95 duration-150',
-    btn__small: 'btn__small',
-    btn__default: classnames(
-      'py-2 px-3 rounded-md flex items-center',
-      'duration-300 active:bg_pri1 active:scale-95'
-    ),
-    btn__secondary: classnames(
-      'outline-1 outline-offset-2',
-      'border py-2 px-3 rounded-md flex justify-center duration-300',
-      'shadow-sm hover:shadow active:shadow-none',
-      'border_pri1 bg_pri0 active:scale-95 text_pri7'
-    ),
-    btn__primary: classnames(
-      'outline-1 outline-offset-2 border border_pri7',
-      'py-2 px-3 rounded-md flex justify-center duration-300 uppercase',
-      'shadow-md active:shadow-sm tracking-wide',
-      'bg_pri7 active:bg_pri8 active:scale-95 text_pri0'
-    )
+    btn__small: 'btn__small'
   }
 
   return types[type] || ''
 }
 
-export default ActionItem
+export default ActionLink

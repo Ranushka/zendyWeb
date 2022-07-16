@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react'
 import { signIn } from 'next-auth/react'
 import { IconSocialLinkedIn } from 'components/icons'
-import { ActionItem, Input } from 'components/atoms'
+import { ActionBtn, Input } from 'components/atoms'
 import ReCAPTCHA from 'react-google-recaptcha'
 import LoginRegisterTemplate from 'components/templates/LoginRegisterTemplate'
 
@@ -86,7 +86,7 @@ const Login: React.FC = () => {
         />
 
         <div className="px-8">
-          <ActionItem
+          <ActionBtn
             dataName="SignInEmail"
             text={'Join'}
             type={'btn__primary'}
@@ -103,7 +103,7 @@ const Login: React.FC = () => {
       </small>
 
       <div className="block text-center">
-        <ActionItem
+        <ActionBtn
           dataName="SignInLinkedIn"
           text={'Sign in with LinkedIn'}
           type={'btn__default'}

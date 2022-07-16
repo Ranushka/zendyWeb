@@ -79,9 +79,11 @@ const Footer: React.FC<{}> = () => {
           </section>
         </div>
 
-        <div className="container px-5 pb-28 md:pb-4 justify-between md:flex text-center">
-          <small>{trans('rights_text')}</small>
-          <div className="my-4 md:my-0">
+        <div className="container px-5 pb-28 md:pb-4 justify-between md:flex">
+          <div className="my-4 md:my-0 block md:flex">
+            <small className="mr-4 text-xs block pb-4 md:pb-0">
+              {trans('rights_text')}
+            </small>
             <PrivacyList />
           </div>
           <div>

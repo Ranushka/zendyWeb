@@ -1,7 +1,7 @@
 import React from 'react'
 // import { useTranslations } from 'next-intl'
 
-import { ActionItem } from 'components/atoms'
+import { ActionBtn } from 'components/atoms'
 import routs from 'helpers/routs'
 
 const PremiumPopUpContent = () => {
@@ -16,7 +16,7 @@ const PremiumPopUpContent = () => {
         You reach the free limit, it is required to activate your subscription.
       </div>
       <div className="inline-block">
-        <ActionItem
+        <ActionBtn
           dataName="BtnSubscribeToPlan"
           text="Subscribe to a plan"
           href={routs.pricing}

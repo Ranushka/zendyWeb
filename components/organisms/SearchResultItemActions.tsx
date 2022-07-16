@@ -3,7 +3,7 @@ import get from 'lodash/get'
 import { useSession } from 'next-auth/react'
 
 import useGlobal from 'context/GlobalContext'
-import { ActionItem, ButtonFab } from 'components/atoms'
+import { ActionBtn, ButtonFab } from 'components/atoms'
 import { IconCite, IconBookmark, IconLink } from 'components/icons'
 
 const SearchResultItemActions = ({
@@ -31,7 +31,7 @@ const SearchResultItemActions = ({
         <ButtonFab dataName="BtnGetBookmark" icon={<IconBookmark />} small />
       </div>
 
-      <ActionItem
+      <ActionBtn
         dataName="BtnDownload"
         className="mb-4 mt-2"
         text={'Download'}
@@ -39,7 +39,7 @@ const SearchResultItemActions = ({
         type="btn__secondary"
         block
       />
-      <ActionItem
+      <ActionBtn
         dataName="BtnRead"
         text="Read"
         href={href}

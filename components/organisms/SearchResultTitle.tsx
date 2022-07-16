@@ -1,7 +1,7 @@
 import React from 'react'
 import striptags from 'striptags'
 import { SearchResultItemProps } from 'types'
-import { CheckBox, ActionItem } from 'components/atoms'
+import { CheckBox, ActionLink } from 'components/atoms'
 import { generateTitleUrlPath } from 'helpers/utils'
 import IconOa from 'components/icons/IconOa'
 import useGlobal from 'context/GlobalContext'
@@ -34,13 +34,13 @@ const SearchResultTitle: React.FC<SearchResultItemProps> = (data) => {
           )}
           {downloadLink && <span className="font-bold text_nut4">PDF</span>}
         </small>
-        <ActionItem
+        <ActionLink
           dataName="SearchResultTitle"
           text={striptags(title.toString())}
           href="/title/[id]"
           as={`/title/${titleId}`}
           type="link__title"
-          className="inline-block text-lg text-gray-700 font-serif"
+          className="inline-block text-gray-700 font-serif"
         />
       </div>
     </div>

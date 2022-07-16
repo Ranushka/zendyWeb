@@ -9,7 +9,7 @@ import { useMediaQuery } from 'react-responsive'
 
 import useGlobal from 'context/GlobalContext'
 import routs from 'helpers/routs'
-import { ActionItem, Logo } from 'components/atoms'
+import { ActionLink, Logo, ActionBtn } from 'components/atoms'
 import { SearchForm, CategoriesMenu, SidePopup } from 'components/organisms'
 import SettingsPopUpContent from 'components/organisms/SettingsPopUpContent'
 import LanguagePopUpContent from 'components/organisms/LanguagePopUpContent'
@@ -43,14 +43,14 @@ const Header = () => {
           <NavItems />
           <div className="hidden sm:flex">
             <div className="mx-4 py-0.5">|</div>
-            <ActionItem
+            <ActionBtn
               dataName="SetLanguage"
-              className="mx-2"
+              className="mx-2 py-1.5"
               text={'En عربى සිං'}
               title="set language"
               onClick={() => setGlobalState({ openLangPopUp: true })}
             />
-            <ActionItem
+            <ActionBtn
               dataName="SetSettings"
               className="mx-2 py-1.5"
               text="Settings"
@@ -80,7 +80,7 @@ const Header = () => {
             </div>
           )}
 
-          <ActionItem
+          <ActionLink
             dataName="SetSettings"
             className={classnames(
               'px-4 hidden md:block',
@@ -143,7 +143,7 @@ const NavItems = () => {
         nav_items.map(({ label, path }, key) => {
           return (
             <React.Fragment key={key}>
-              <ActionItem
+              <ActionLink
                 dataName="NavItem"
                 className="mx-2"
                 text={label}
@@ -158,13 +158,13 @@ const NavItems = () => {
 
 const GetLoginBtn = () => {
   const trans = useTranslations('header')
-
+  const router = useRouter()
   return (
-    <ActionItem
+    <ActionBtn
       dataName="HeaderLoginBtn"
       className="whitespace-nowrap"
       text={trans('login_btn_name')}
-      href={routs.login}
+      onClick={() => router.push(routs.login)}
       type="btn__secondary"
     />
   )
@@ -173,7 +173,7 @@ const GetLoginBtn = () => {
 const __getLoggedInUser = (session) => {
   return (
     <div className="overflow-ellipsis overflow-auto">
-      <ActionItem
+      <ActionLink
         dataName="HeaderLoggedInUserBtn"
         text={__getUserNameInitials(session.user)}
         href={'/profile'}

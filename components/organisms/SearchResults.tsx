@@ -3,7 +3,7 @@ import Skeleton from 'react-loading-skeleton'
 import get from 'lodash/get'
 import classnames from 'classnames'
 import { SearchResultItem } from 'components/organisms'
-import { ActionItem, ButtonFab, Pagination } from 'components/atoms'
+import { ActionLink, ActionBtn, ButtonFab, Pagination } from 'components/atoms'
 import {
   IconSelectionMode,
   IconSavedSearch,
@@ -32,27 +32,27 @@ const SearchResultActions = () => {
         />
         {selectionMode && (
           <>
-            <ActionItem
+            <ActionLink
               dataName="SelectAll"
               text={'Select All'}
               href={'/'}
               className="mx-4"
             />
-            <ActionItem
+            <ActionLink
               dataName="ExportSelected"
               text={'Export selected'}
               href={'/'}
               className="mx-4"
               disabled
             />
-            <ActionItem
+            <ActionLink
               dataName="AddToLibrary"
               text={'Add to library'}
               href={'/'}
               className="mx-4"
               disabled
             />
-            <ActionItem
+            <ActionLink
               dataName="OpenInNewTab"
               text={'Open in new tabs'}
               href={'/'}
@@ -65,7 +65,7 @@ const SearchResultActions = () => {
 
         {!selectionMode && (
           <>
-            <ActionItem
+            <ActionBtn
               dataName="BtnCreateAlert"
               type="btn__default"
               text={'Create alert'}
@@ -73,7 +73,7 @@ const SearchResultActions = () => {
               icon={<IconNotifications />}
             />
 
-            <ActionItem
+            <ActionBtn
               type="btn__default"
               dataName="BtnSaveSearch"
               text={'Save search'}
@@ -95,17 +95,27 @@ const __searchResultLoading = () => {
     >
       <div className="flex">
         <Skeleton height={10} width={60} className="mr-2" />
-        <Skeleton height={10} width={60} />
-      </div>
-      <Skeleton height={30} />
-      <div className="flex">
         <Skeleton height={10} width={60} className="mr-2" />
         <Skeleton height={10} width={60} />
       </div>
-      <Skeleton count={5} />
-      <div className="flex">
+      <Skeleton height={40} />
+      <div className="flex my-2">
         <Skeleton height={10} width={60} className="mr-2" />
-        <Skeleton height={10} width={60} className="mr-2" />
+        <Skeleton height={10} width={60} />
+      </div>
+      <Skeleton count={5} height={20} />
+      <div className="flex mt-4">
+        <Skeleton height={10} width={40} className="mr-2" />
+        <Skeleton height={10} width={80} className="mr-2" />
+        <Skeleton height={10} width={80} className="mr-2" />
+      </div>
+      <div className="flex mt-2">
+        <Skeleton height={10} width={40} className="mr-2" />
+        <Skeleton height={10} width={80} className="mr-2" />
+      </div>
+      <div className="flex mt-2">
+        <Skeleton height={10} width={40} className="mr-2" />
+        <Skeleton height={10} width={90} className="mr-2" />
         <Skeleton height={10} width={60} className="mr-2" />
       </div>
     </article>

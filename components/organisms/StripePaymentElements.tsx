@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import request from 'helpers/request'
-import { Input, ActionItem, Price } from 'components/atoms'
+import { Input, ActionBtn, Price } from 'components/atoms'
 import { DiscountCodeBlock, SecurityStripBlock } from 'components/organisms'
 import useDiscountCode from 'fetchHooks/useDiscountCode'
 
@@ -167,7 +167,7 @@ const StripePaymentElements: React.FC<Props> = (props) => {
               <Price large price={input.customDonation - getDiscountAmount} />
             </div>
 
-            <ActionItem
+            <ActionBtn
               dataName="ConfirmPayment"
               block
               submit
