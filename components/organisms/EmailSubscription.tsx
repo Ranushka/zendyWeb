@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
-import { ActionItem, Input, Select } from 'components/atoms'
+import { ActionBtn, Input, Select } from 'components/atoms'
 
 type Props = {}
 
@@ -31,7 +31,7 @@ const EmailSubscription: React.FC<Props> = () => {
               required
             />
           </div>
-          <ActionItem
+          <ActionBtn
             dataName="EmailSubscriptionBtn"
             text={trans('btn')}
             href={'#'}

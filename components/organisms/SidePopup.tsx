@@ -56,8 +56,8 @@ const SidePopup: React.FC<Props> = ({
   }, [open])
 
   const contentWrapperStyles = classnames(
-    'fixed w-full left-0 top-0 flex items-center',
-    'h-screen backdrop-blur-sm bg_backdrop 5 z-50',
+    'fixed w-full h-full left-0 top-0 flex items-center',
+    'backdrop-blur-sm bg_backdrop 5 z-50',
     wrapperStyleMapping(openLocation)
   )
 

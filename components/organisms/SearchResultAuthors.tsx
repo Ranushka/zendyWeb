@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ActionItem } from 'components/atoms'
+import { ActionLink } from 'components/atoms'
 import SearchResultItemTagTitle from 'components/organisms/SearchResultItemTagTitle'
 import classNames from 'classnames'
 
@@ -15,7 +15,7 @@ const SearchResultAuthors = ({ authors = [], all = false }) => {
         .map<React.ReactNode>((name, id) => {
           if (name) {
             return (
-              <ActionItem
+              <ActionLink
                 dataName="searchByAuthor"
                 key={id}
                 text={name}

@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import { ActionItem } from 'components/atoms'
+import { ActionLink } from 'components/atoms'
 import SearchResultItemTagTitle from 'components/organisms/SearchResultItemTagTitle'
 
 const SearchResultSubjects = ({ subjects = [], all = false }) => {
@@ -11,7 +11,7 @@ const SearchResultSubjects = ({ subjects = [], all = false }) => {
       {subjects
         .slice(0, all ? 20 : 8)
         .map<React.ReactNode>((name, id) => (
-          <ActionItem
+          <ActionLink
             dataName="SearchResultSubject"
             key={id}
             text={name}

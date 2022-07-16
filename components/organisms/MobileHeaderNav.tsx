@@ -2,21 +2,21 @@ import React from 'react'
 
 import useGlobal from 'context/GlobalContext'
 import { SidePopup } from 'components/organisms'
-import { ActionItem, Logo } from 'components/atoms'
+import { ActionBtn, ActionLink, Logo } from 'components/atoms'
 
 const MobileHeaderNavFooter: React.FC<{}> = () => {
   const [{ setGlobalState }] = useGlobal()
 
   return (
     <div className="my-1 flex justify-between mr-8 pt-4">
-      <ActionItem
+      <ActionBtn
         dataName="LinkLanguage"
         className="px-6 py-2 bg_pri1 rounded"
         text={'En عربى සිං'}
         title="set language"
         onClick={() => setGlobalState({ openLangPopUp: true })}
       />
-      <ActionItem
+      <ActionBtn
         dataName="LinkSettings"
         className="px-6 py-2 bg_pri1 rounded"
         text="Settings"
@@ -34,7 +34,7 @@ const __sidePopupContent = () => (
     </div>
     <div className="ml-8">
       <div className="my-1">
-        <ActionItem
+        <ActionLink
           dataName="LinkPricing"
           className="block py-2"
           text={'Pricing'}
@@ -43,7 +43,7 @@ const __sidePopupContent = () => (
       </div>
 
       <div className="my-1">
-        <ActionItem
+        <ActionLink
           dataName="LinkBlog"
           className="block py-2"
           text={'Blog'}
@@ -51,7 +51,7 @@ const __sidePopupContent = () => (
         />
       </div>
       <div className="my-1">
-        <ActionItem
+        <ActionLink
           dataName="LinkPlatform"
           className="block py-2"
           text={'Platform'}
@@ -60,7 +60,7 @@ const __sidePopupContent = () => (
       </div>
       <div className="mt-4 mb-1 text_nut4 text-xs">Content</div>
       <div className="my-1">
-        <ActionItem
+        <ActionLink
           dataName="LinkPublishers"
           className="block py-2"
           text={'Publishers'}
@@ -68,7 +68,7 @@ const __sidePopupContent = () => (
         />
       </div>
       <div className="my-1">
-        <ActionItem
+        <ActionLink
           dataName="LinkMagazines"
           className="block py-2"
           text={'Magazines'}
@@ -76,7 +76,7 @@ const __sidePopupContent = () => (
         />
       </div>
       <div className="my-1">
-        <ActionItem
+        <ActionLink
           dataName="LinkJournals"
           className="block py-2"
           text={'Journals'}
@@ -84,7 +84,7 @@ const __sidePopupContent = () => (
         />
       </div>
       <div className="my-1">
-        <ActionItem
+        <ActionLink
           dataName="LinkSubjects"
           className="block py-2"
           text={'Subjects'}
@@ -93,7 +93,7 @@ const __sidePopupContent = () => (
       </div>
       <div className="mt-4 mb-1 text_nut4 text-xs">Helpful</div>
       <div className="my-1">
-        <ActionItem
+        <ActionLink
           dataName="LinkAbout"
           className="block py-2"
           text={'About'}
@@ -101,7 +101,7 @@ const __sidePopupContent = () => (
         />
       </div>
       <div className="my-1">
-        <ActionItem
+        <ActionLink
           dataName="LinkFaq"
           className="block py-2"
           text={'FAQs'}
@@ -109,7 +109,7 @@ const __sidePopupContent = () => (
         />
       </div>
       <div className="my-1">
-        <ActionItem
+        <ActionLink
           dataName="LinkContact"
           className="block py-2"
           text={'Contact'}
@@ -117,7 +117,7 @@ const __sidePopupContent = () => (
         />
       </div>
       <div className="my-1">
-        <ActionItem
+        <ActionLink
           dataName="LinkCsr"
           className="block py-2"
           text={'CSR'}
@@ -125,7 +125,7 @@ const __sidePopupContent = () => (
         />
       </div>
       <div className="my-1">
-        <ActionItem
+        <ActionLink
           dataName="LinkFeedback"
           className="block py-2"
           text={'Feedback'}
@@ -133,7 +133,7 @@ const __sidePopupContent = () => (
         />
       </div>
       <div className="my-1">
-        <ActionItem
+        <ActionLink
           dataName="LinkCareers"
           className="block py-2"
           text={'Careers'}

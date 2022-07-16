@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActionItem } from 'components/atoms'
+import { ActionLink } from 'components/atoms'
 import IconSearchHistory from 'components/icons/IconSearchHistory'
 // import useGetTrendingKeywords from 'fetchHooks/useGetTrendingKeywords'
 
@@ -19,7 +19,7 @@ const RecentSearchKeywords: React.FC<Props> = () => {
         {data.map((title, id) => (
           <span key={id} className="inline-flex">
             <IconSearchHistory className="w-4 text_nut4" />
-            <ActionItem
+            <ActionLink
               dataName="RecentSearchKeyword"
               text={`${title}`}
               href={`/search?q=${title}`}

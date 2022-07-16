@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, ActionItem } from 'components/atoms'
+import { Input, ActionBtn } from 'components/atoms'
 import useDiscountCode, { setDiscountCode } from 'fetchHooks/useDiscountCode'
 
 const DiscountCodeBlock = () => {
@@ -15,10 +15,10 @@ const DiscountCodeBlock = () => {
     if (!showInput) {
       return (
         <div className="text__right">
-          <ActionItem
+          <ActionBtn
             dataName="DiscountCodeLink"
             text={'I have Discount code'}
-            type="link__small"
+            type="btn__small"
             onClick={() => showInputSet(true)}
             className="underline text_nut5 mb-4"
           />
@@ -59,7 +59,7 @@ const DiscountCodeBlock = () => {
               </small>
             </div>
             <div className="flex__left"></div>
-            <ActionItem
+            <ActionBtn
               dataName="RemoveDiscountCodeBtn"
               text={'Remove'}
               type={'btn__small'}
@@ -78,7 +78,7 @@ const DiscountCodeBlock = () => {
 
 const __getActionBtn = (inputVal) => {
   return (
-    <ActionItem
+    <ActionBtn
       dataName="ApplyDiscountCode"
       text={'Apply code'}
       type={'btn__small'}

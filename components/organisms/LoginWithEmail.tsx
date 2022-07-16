@@ -1,6 +1,7 @@
 import React, { ChangeEvent } from 'react'
 import { signIn } from 'next-auth/react'
-import { ActionItem, Input } from 'components/atoms'
+import { ActionBtn, Input } from 'components/atoms'
+// import { ActionLink, ActionBtn, Input } from 'components/atoms'
 import ReCAPTCHA from 'react-google-recaptcha'
 
 const onSubmitSignUp = async (values) => {
@@ -52,10 +53,10 @@ const LoginWithEmail: React.FC<any> = ({ setWithEmail }) => {
 
   return (
     <form onSubmit={onSubmitForm}>
-      <ActionItem
+      <ActionBtn
         dataName="LoginEmailBtn"
         text={'← Use social logins'}
-        type="link__small"
+        type="btn__small"
         onClick={() => setWithEmail(false)}
       />
 
@@ -90,7 +91,7 @@ const LoginWithEmail: React.FC<any> = ({ setWithEmail }) => {
       />
 
       <div className="px-8">
-        <ActionItem
+        <ActionBtn
           dataName="LoginWithEmailBtn"
           text={'Login'}
           type={'btn__primary'}

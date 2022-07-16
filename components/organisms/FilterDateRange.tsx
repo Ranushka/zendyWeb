@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Chip } from 'components/atoms'
 import { IconClear } from 'components/icons'
-import { Input, ButtonFab, ActionItem } from 'components/atoms'
+import { Input, ButtonFab, ActionBtn } from 'components/atoms'
 import FilterGroupTitle from 'components/organisms/FilterGroupTitle'
 
 const customYearsRange = (setYear) => {
@@ -37,7 +37,7 @@ const customYearsRange = (setYear) => {
           required
         />
       </div>
-      <ActionItem
+      <ActionBtn
         dataName="ApplyRange"
         className="bg__nut2"
         text={'Apply range'}

@@ -1,6 +1,6 @@
 import React from 'react'
 import Router from 'next/router'
-import { ActionItem } from 'components/atoms'
+import { ActionBtn } from 'components/atoms'
 
 type Props = { msg: string }
 
@@ -16,7 +16,7 @@ const WentSomethingWrong: React.FC<Props> = ({
       <div className="gaps__2" />
       <small>Thanks in advance for your patients</small>
       <div className="gaps__4" />
-      <ActionItem
+      <ActionBtn
         dataName="BackToResults"
         text={'← Back to results'}
         onClick={() => Router.back()}

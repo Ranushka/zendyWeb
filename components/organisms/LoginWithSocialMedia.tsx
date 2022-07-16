@@ -4,7 +4,7 @@ import { signIn } from 'next-auth/react'
 import IconSocialOrcid from 'components/icons/IconSocialOrcid'
 import IconSocialGoogle from 'components/icons/IconSocialGoogle'
 import IconSocialFacebook from 'components/icons/IconSocialFacebook'
-import { ActionItem } from 'components/atoms'
+import { ActionBtn } from 'components/atoms'
 import classNames from 'classnames'
 
 const Login: React.FC = () => {
@@ -18,7 +18,7 @@ const Login: React.FC = () => {
       <h1 className="text-3xl font-serif mb-8 text-center">Join Zendy</h1>
 
       <div className="block text-center my-4" key="Google">
-        <ActionItem
+        <ActionBtn
           dataName="LoginGoogleBtn"
           text={'Login with Google'}
           type={'btn__default'}
@@ -30,7 +30,7 @@ const Login: React.FC = () => {
       </div>
 
       <div className="block text-center my-4" key="LinkedIn">
-        <ActionItem
+        <ActionBtn
           dataName="LoginFacebookBtn"
           text={'Login with Facebook'}
           type={'btn__default'}
@@ -46,7 +46,7 @@ const Login: React.FC = () => {
       </div>
 
       <div className="block text-center my-4" key="orcid">
-        <ActionItem
+        <ActionBtn
           dataName="LoginOrcidBtn"
           text={'Login with ORCID ID'}
           type={'btn__default'}
