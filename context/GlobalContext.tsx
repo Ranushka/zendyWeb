@@ -10,6 +10,7 @@ export const GlobalProvider = ({ children }) => {
     selectionMode: false,
     mobileFilterVisibility: false,
     initialFilters: null,
+    prevPath: null,
     setGlobalState: (data: object) => {
       setState({ ...state, ...data })
     }
