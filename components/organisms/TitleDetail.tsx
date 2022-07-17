@@ -1,9 +1,13 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
+import router from 'next/router'
 import useTitleDetail from 'fetchHooks/useTitleDetail'
 import Skeleton from 'react-loading-skeleton'
 
 import PublicationIssueJsonLd from 'analytics/PublicationIssueJsonLd'
+import { ActionBtn } from 'components/atoms'
+import routs from 'helpers/routs'
+import { getPrevPage } from 'helpers/localStorage'
 import TitleDetailNextPrevResult from 'components/organisms/TitleDetailNextPrevResult'
 import WentSomethingWrong from 'components/organisms/WentSomethingWrong'
 import SearchResultTitle from 'components/organisms/SearchResultTitle'
@@ -37,7 +41,8 @@ const __renderContent = (data) => {
 
   return (
     <>
-      <article className="max-w-4xl m-auto pt-16 px-8">
+      <article className="max-w-4xl m-auto pt-12 px-8">
+        <GetGoBackBtn />
         <PublicationIssueJsonLd
           authorName={authors && authors.flatMap((auObj) => auObj.name)}
           name={title}
@@ -76,6 +81,24 @@ const __renderLoading = () => {
       <Skeleton />
       <Skeleton height="40px" />
       <Skeleton height="400px" className="mt-8" />
+    </div>
+  )
+}
+
+const GetGoBackBtn = () => {
+  if (!getPrevPage().includes(routs.search)) return <></>
+
+  return (
+    <div className="m-auto pb-4 -ml-4 relative">
+      <ActionBtn
+        dataName="RecentSearchKeyword"
+        text={'← Back to results'}
+        onClick={() => {
+          router.back()
+        }}
+        className="m-1 inline-block pr-4 py-1 first_letter_caps"
+        type="btn__small"
+      />
     </div>
   )
 }
