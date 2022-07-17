@@ -1,3 +1,5 @@
+import striptags from 'striptags'
+
 export const generateTitleUrlPath = (name: string, id: string) => {
   /* 
     Replace all underscores
@@ -12,11 +14,12 @@ export const generateTitleUrlPath = (name: string, id: string) => {
 
   let res =
     name &&
-    name
+    striptags(name)
+      .toLowerCase()
       .replace(/[^a-zA-Z]/g, '_')
       .replace(/_+/g, '_')
       .substring(0, 60)
-  let newId = id && id.replaceAll('/', '_')
+  let newId = id && id.replaceAll('/', '___')
 
   return `${res}=${newId}`
 }
@@ -29,7 +32,7 @@ export const getPublicationId = (id: string) => {
   const pubId = id
     .split('=')
     .pop()
-    .replace(/_/g, '/')
+    .replace(/___/g, '/')
 
   return pubId
 }
