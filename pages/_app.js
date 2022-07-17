@@ -5,6 +5,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 import React from 'react'
 import Head from 'next/head'
+import { setPrevPage, clearPrevPage } from 'helpers/localStorage'
 import { applyTheme } from 'helpers/theme'
 import { applyFontSize } from 'helpers/fontSize'
 import { NextIntlProvider } from 'next-intl'
@@ -12,25 +13,27 @@ import { LoggedInUserProvider } from 'context/LoggedInUserContext'
 import { GlobalProvider } from 'context/GlobalContext'
 import { analyticsViewScreen } from 'analytics/events'
 import NProgress from 'nprogress'
-import Router from 'next/router'
+import router from 'next/router'
 import { GtmScript } from 'analytics/GtmScript'
 
 if (typeof window !== 'undefined') {
   applyTheme(null)
   applyFontSize(null)
+  clearPrevPage()
 }
 
 NProgress.configure({ trickleSpeed: 300, showSpinner: false })
-Router.events.on('routeChangeStart', () => {
+router.events.on('routeChangeStart', () => {
+  setPrevPage()
   NProgress.start()
 })
-Router.events.on('routeChangeComplete', () => {
+router.events.on('routeChangeComplete', () => {
   NProgress.done()
   window.scrollTo(0, 0)
 
   analyticsViewScreen()
 })
-Router.events.on('routeChangeError', () => NProgress.done())
+router.events.on('routeChangeError', () => NProgress.done())
 
 const AppRoot = ({ Component, pageProps, session }) => {
   React.useEffect(() => {
