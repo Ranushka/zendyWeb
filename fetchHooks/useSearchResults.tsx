@@ -1,6 +1,7 @@
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
 import labelMapping from 'helpers/labelMapping'
+// import routs from 'helpers/routs'
 
 const getFilterObj = (categoryId, facetLabel) => {
   const refinedFacetLabel = facetLabel
@@ -22,19 +23,15 @@ const useSearchResults = () => {
   const router = useRouter()
   const rq = router.query
   const qAuthor: any = rq.author
-  const qSubject: any = rq.subject
-  const qJournal: any = rq.journal
   const qMaterial: any = rq.material
+  const qSubject: any = rq.subject?.toString().replace(/_/g, ' ')
+  const qJournal: any = rq.journal?.toString().replace(/_/g, ' ')
   const qPublisher: any = rq.publisher?.toString().replace(/_/g, ' ')
 
-  const queryString: any = rq.q || qAuthor || qSubject || qJournal || qPublisher
+  let queryString: any = rq.q || qAuthor || qSubject || qJournal || qPublisher
 
   const facetFilters = []
   const pageNumber = 1
-
-  // if (queryString) {
-  //   queryString = `${queryString} AND url_full_text:*.pdf`
-  // }
 
   const journalId = 'journalTitleFull'
   const journalString = rq[labelMapping(journalId + 'Url')]
@@ -48,11 +45,11 @@ const useSearchResults = () => {
     facetFilters.push(getFilterObj(langId, langString))
   }
 
-  const subjectId = 'subjectsFull'
-  const subjectString = rq[labelMapping(subjectId + 'Url')]
-  if (!qSubject && subjectString) {
-    facetFilters.push(getFilterObj(subjectId, subjectString))
-  }
+  // const subjectId = 'subjectsFull'
+  // const subjectString = rq[labelMapping(subjectId + 'Url')]
+  // if (!qSubject && subjectString) {
+  //   facetFilters.push(getFilterObj(subjectId, subjectString))
+  // }
 
   if (qMaterial) {
     facetFilters.push(getFilterObj('publicationTypeFull', qMaterial))
@@ -60,6 +57,14 @@ const useSearchResults = () => {
 
   if (qPublisher) {
     facetFilters.push(getFilterObj('publishersFull', qPublisher))
+  }
+
+  if (qSubject) {
+    facetFilters.push(getFilterObj('subSubjectsFull', qSubject))
+  }
+
+  if (qJournal) {
+    queryString = rq.q?.toString().replace(/_/g, ' ')
   }
 
   const queryParams = {

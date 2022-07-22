@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import { ActionLink } from 'components/atoms'
+import routs from 'helpers/routs'
 import SearchResultItemTagTitle from 'components/organisms/SearchResultItemTagTitle'
 
 const SearchResultSubjects = ({ subjects = [], all = false }) => {
@@ -15,8 +16,8 @@ const SearchResultSubjects = ({ subjects = [], all = false }) => {
             dataName="SearchResultSubject"
             key={id}
             text={name}
-            as={`/search?subject=${name}`}
-            href={`/search?subject=${name}`}
+            as={routs.subject(name)}
+            href={routs.subject(name)}
             type="link__small"
             className="text_nut6 ml-2 first_letter_caps"
           />

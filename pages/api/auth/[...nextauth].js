@@ -5,17 +5,17 @@ import GoogleProvider from 'next-auth/providers/google'
 import CredentialsOptions from './credentialsOptions'
 
 export default NextAuth({
-  secret: process.env.SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider(CredentialsOptions),
     LinkedinProvider({
       clientId: process.env.LINKEDIN_CLIENT_ID,
-      clientSecret: process.env.LINKEDIN_CLIENT_SECRET
+      clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET
-    })
+      clientSecret: process.env.GOOGLE_SECRET,
+    }),
   ],
   callbacks: {
     async session({ session }) {
@@ -23,6 +23,6 @@ export default NextAuth({
       // console.log('----', token)
       // console.log('----', session)
       return session
-    }
-  }
+    },
+  },
 })

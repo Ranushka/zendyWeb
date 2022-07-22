@@ -16,7 +16,7 @@ export const ExploreList = () => {
             dataName="ExploreListItem"
             text={label}
             href={path}
-            type="link__small"
+            type="link"
             className="inline-block pr-4 pb-3"
           />
         </React.Fragment>
@@ -38,7 +38,7 @@ export const NewsList = () => {
             dataName="NewsListItem"
             text={label}
             href={path}
-            type="link__small"
+            type="link"
             className="block mb-4"
           />
         </React.Fragment>

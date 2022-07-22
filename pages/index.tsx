@@ -2,8 +2,15 @@ import React from 'react'
 import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
+
 import { SubTitle, SearchForm } from 'components/organisms'
 import RecentSearchKeywords from 'components/organisms/RecentSearchKeywords'
+import {
+  JournalPersonalized,
+  SubjectPersonalized,
+  PublishersPersonalized
+} from 'components/organisms/PersonalizedContent'
 
 import {
   commonMessages,
@@ -16,12 +23,15 @@ import {
   MagazineWidget,
   Curated,
   EmailSubscription,
-  GetStartedWithUs,
-  Testimonials,
-  Subjects
+  Testimonials
+  // Subjects
 } from 'components/organisms'
 
 import BaseTemplate from 'components/templates/BaseTemplate'
+
+const GetStartedWithUs = dynamic(
+  () => import('components/organisms/GetStartedWithUs')
+)
 
 const Home: React.FC = () => {
   const trans = useTranslations('common')
@@ -37,7 +47,7 @@ const Home: React.FC = () => {
 
     observer.observe(cachedRef)
 
-    return function() {
+    return function () {
       observer.unobserve(cachedRef)
     }
   }, [])
@@ -64,12 +74,16 @@ const Home: React.FC = () => {
         linkHref="/news"
       />
       <Curated key="curated" />
-      <SubTitle
+      <JournalPersonalized />
+      <PublishersPersonalized />
+      <SubjectPersonalized />
+
+      {/* <SubTitle
         title={trans('section2')}
         linkText={trans('see_all')}
         linkHref="/subjects"
       />
-      <Subjects key="Subjects" />
+      <Subjects key="Subjects" /> */}
       <SubTitle
         title={trans('section3')}
         linkText={trans('see_all')}

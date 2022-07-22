@@ -8,14 +8,16 @@ const ResultsWithData = ({ extract, title, description }) => {
     <section className="container">
       <div className="border-b border_pri2 py-8 mx-4 flex justify-between">
         <div className="">
-          <h1 className="text-4xl font-serif">{title}</h1>
-          <small className="mb-4 block">{description}</small>
-          <div>{extract}</div>
-          <small className="mt-2 block text_nut4 text-right">
-            Powered by wikipedia
-          </small>
+          <div className="max-w-4xl">
+            <h1 className="text-4xl font-serif">{title}</h1>
+            <small className="mb-4 block">{description}</small>
+            <div>{extract}</div>
+          </div>
         </div>
       </div>
+      <small className="mt-2 mx-4 block text_nut4 text-right">
+        Powered by wikipedia
+      </small>
     </section>
   )
 }

@@ -2,8 +2,9 @@ import React from 'react'
 
 import { ActionLink, Input } from 'components/atoms'
 import countFormatted from 'helpers/countFormatted'
+import routs from 'helpers/routs'
 
-const AlphabetSearchList: React.FC<any> = ({ data }) => {
+const AlphabetSearchList: React.FC<any> = ({ data, urlKey }) => {
   const [searchInput, setSearchInput] = React.useState('')
 
   const onSearchInputChange = (e) => {
@@ -59,10 +60,10 @@ const AlphabetSearchList: React.FC<any> = ({ data }) => {
 
           return (
             <ActionLink
-              dataName="AlphabetSearchList"
+              dataName={`SearchList_${urlKey}`}
               key={key}
               text={text}
-              href={`/publisher/${facetLabel.replace(/ /g, '_')}`}
+              href={routs[urlKey](facetLabel)}
               type="link"
               className="inline-block pr-4 pb-5 w-full"
             />

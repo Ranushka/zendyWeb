@@ -9,15 +9,23 @@ import InfoAuthor from 'components/organisms/InfoAuthor'
 import FilterNavigation from 'components/organisms/FilterNavigation'
 import AdvancedSearchForm from 'components/organisms/AdvancedSearchForm'
 import { useRouter } from 'next/router'
+// import routs from 'helpers/routs'
 
 const Search: React.FC = () => {
   const router = useRouter()
-  const rq = router.query
-  const qAuthor = rq.author
-  const qSubject = rq.subject
-  const qJournal = rq.journal
-  const qPublisher = rq.publisher?.toString().replace(/_/g, ' ')
-  const queryString = rq.q || qAuthor || qSubject || qJournal || qPublisher
+  const { author, subject, journal, publisher, q } = router.query
+  const qAuthor = author
+  // const qSubject: any = subject && routs.subject(subject.toString())
+
+  // const qPublisher: any = publisher && routs.publisher(publisher.toString())
+
+  const qJournal: any = journal && `${journal}`.replace(/_/g, ' ')
+  const qPublisher: any = publisher && `${publisher}`.replace(/_/g, ' ')
+  const qSubject: any = subject && `${subject}`.replace(/_/g, ' ')
+  // const qJournal: any = journal && journal.toString().replace(/_/g, ' ')
+
+  // let queryString = q || qAuthor || qSubject || qJournal || qPublisher
+  let queryString = q
 
   React.useEffect(() => {
     const searchBoxElement = document.getElementById('mainSearch')

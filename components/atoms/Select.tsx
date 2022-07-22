@@ -42,7 +42,7 @@ const Select: React.FC<Props> = ({
 
       <select
         className={classnames(
-          'h-10 appearance-none w-full bg_nut0 border border_nut4 py-2 px-4 pr-8 rounded-md block',
+          'h-10 appearance-none w-full bg_nut0 border border_nut4 py-2 pl-3 pr-6 rounded-md block',
           small && 'border border_nut3 px-2 py-1 h-8 text-xs'
         )}
         id={id}

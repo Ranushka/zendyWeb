@@ -28,7 +28,7 @@ const SearchResultTitle: React.FC<SearchResultItemProps> = (data) => {
       )}
       <div className="block">
         <small className="block text_nut5">
-          {publicationType} - {publicationYear}{' '}
+          {publicationType} - {publicationYear}
           {!isPremium && (
             <IconOa className="inline-block h-5 relative -top-1" />
           )}

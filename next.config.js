@@ -27,8 +27,16 @@ const config = {
   async rewrites() {
     return [
       {
-        source: '/publisher/:first',
-        destination: '/search?publisher=:first'
+        source: '/publisher/:publisher',
+        destination: '/search?q=publisher%3A :publisher'
+      },
+      {
+        source: '/subject/:subject',
+        destination: `/search?q=subject%3A :subject`
+      },
+      {
+        source: '/journal/:journal',
+        destination: `/search?q=journal%3A :journal`
       }
     ]
   },

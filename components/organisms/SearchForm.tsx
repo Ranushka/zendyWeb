@@ -49,6 +49,7 @@ const SearchForm: React.FC<Props> = ({ id }) => {
   }
 
   React.useEffect(() => {
+    const asPath = router.asPath
     const query = router.query && router.query.q
     const queryAuthor = router.query && router.query.author
 
@@ -56,11 +57,15 @@ const SearchForm: React.FC<Props> = ({ id }) => {
       setSearchText(`author: ${queryAuthor.toString()}`)
     }
 
-    if (query) {
+    /* To stop the query going to search box */
+    const isNotInfoPanel = !asPath.match(
+      /\/publisher\/|\/subject\/|\/journal\//
+    )
+
+    if (query && isNotInfoPanel) {
       setSearchText(query.toString())
     }
 
-    // if (router.pathname === '/search' && !router.query.q) {
     if (!router.query.q && !isMobile) {
       searchInput.current.focus()
     }
@@ -92,9 +97,10 @@ const SearchForm: React.FC<Props> = ({ id }) => {
             'outline-none pr-14 pl-6',
             // 'outline-none pr-14 pl-6 shadow active:shadow-md hover:shadow-md',
             'shadow-sm active:shadow-md hover:shadow-md',
-            'border_nut4 active:border_pri6 focus:border_pri6',
+            'border_nut4 active:border_pri5 focus:border_pri5',
             'appearance-none'
           )}
+          style={{ borderWidth: 1.5 }}
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />

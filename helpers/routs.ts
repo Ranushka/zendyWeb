@@ -4,6 +4,9 @@ const routs = {
   search: '/search',
   profile: '/profile',
   pricing: '/pricing',
+  publisher: (label: string) => `/publisher/${label.replace(/ /g, '_')}`,
+  subject: (label: string) => `/subject/${label.replace(/ /g, '_')}`,
+  journal: (label: string) => `/journal/${label.replace(/ /g, '_')}`,
 
   fra: 'French',
   nld: 'Dutch',

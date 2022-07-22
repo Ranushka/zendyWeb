@@ -11,13 +11,17 @@ import {
   IconSocialFacebook
 } from 'components/icons'
 
+const FooterSectionTitle: React.FC<any> = ({ title }) => {
+  return <p className="mb-4 text-base font-serif text_nut5">{title}</p>
+}
+
 const Footer: React.FC<{}> = () => {
   const trans = useTranslations('footer')
 
   return (
     <>
       <svg
-        className="block h-12 md:h-16 lg:h-24 text_nut1 w-full"
+        className="block h-12 md:h-16 lg:h-24 text_white w-full"
         preserveAspectRatio="none"
         viewBox="0 0 4605 356"
         fill="none"
@@ -28,7 +32,7 @@ const Footer: React.FC<{}> = () => {
           fill="currentColor"
         />
       </svg>
-      <footer className="bg_nut1">
+      <footer className="bg_white">
         <div className="container md:flex justify-between px-5 py-10">
           <section className="max-w-xs pr-4 mb-8 md:mb-3">
             <Logo className="flex" />
@@ -36,36 +40,36 @@ const Footer: React.FC<{}> = () => {
           </section>
 
           <section className="max-w-xs pr-4">
-            <p className="mb-4">{trans('explore_title')}</p>
+            <FooterSectionTitle title={trans('explore_title')} />
 
             <div className="block pb-4">
               <ExploreList />
             </div>
 
-            <p className="mb-4">{trans('reach_title')}</p>
+            <FooterSectionTitle title={trans('reach_title')} />
 
             <div className="flex mb-8 md:mb-3">
               <ButtonFab
                 dataName="FooterSocialFacebook"
-                classNames="mr-4"
+                classNames="mr-6 scale-125"
                 icon={<IconSocialFacebook />}
                 small
               />
               <ButtonFab
                 dataName="FooterSocialLinkedIn"
-                classNames="mr-4"
+                classNames="mr-6 scale-125"
                 icon={<IconSocialLinkedIn />}
                 small
               />
               <ButtonFab
                 dataName="FooterSocialInstagram"
-                classNames="mr-4"
+                classNames="mr-6 scale-125"
                 icon={<IconSocialInstagram />}
                 small
               />
               <ButtonFab
                 dataName="FooterSocialTwitter"
-                classNames="mr-4"
+                classNames="mr-6 scale-125"
                 icon={<IconSocialTwitter />}
                 small
               />
@@ -73,15 +77,14 @@ const Footer: React.FC<{}> = () => {
           </section>
 
           <section className="max-w-xs pr-4">
-            <p className="mb-4">{trans('news_title')}</p>
-
+            <FooterSectionTitle title={trans('news_title')} />
             <NewsList />
           </section>
         </div>
 
-        <div className="container px-5 pb-28 md:pb-4 justify-between md:flex">
-          <div className="my-4 md:my-0 block md:flex">
-            <small className="mr-4 text-xs block pb-4 md:pb-0">
+        <div className="container px-5 pb-28 md:pb-10 justify-between md:flex">
+          <div className="my-4 md:my-0 block md:flex items-center">
+            <small className="mr-4 text-xs block pb-4 md:pb-0 text_nut5">
               {trans('rights_text')}
             </small>
             <PrivacyList />

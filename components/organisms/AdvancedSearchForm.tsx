@@ -116,7 +116,7 @@ const SearchForm: React.FC<Props> = () => {
 
   return (
     <div className="container mt-4 px-4">
-      <div className="w-full max-w-5xl bg_nut1 p-8 pb-10 rounded-md">
+      <div className="w-full max-w-5xl bg_white p-8 pb-10 m-auto rounded-md">
         <div className="w-full flex justify-between">
           <h2 className="text-2xl text_nut5 font-serif ">Advanced search</h2>
           <ButtonFab

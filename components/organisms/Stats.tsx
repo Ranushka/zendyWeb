@@ -40,8 +40,10 @@ type Props = {}
 
 const Stats: React.FC<Props> = () => {
   return (
-    <section className="max-w-6xl text-center mx-auto">
-      <h2 className="text_nut5">Premium content data stats</h2>
+    <section className="max-w-6xl text-center mx-auto pt-4">
+      <h2 className="pt-8 px-4 text-center text-3xl text_nut5 font-serif">
+        Premium content data stats
+      </h2>
       <p className="mb-8">
         Sneak peek to our curated premium data status, it’s updating every day.
       </p>

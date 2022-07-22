@@ -1,5 +1,6 @@
 import React from 'react'
 import { ActionLink } from 'components/atoms'
+import routs from 'helpers/routs'
 
 const SearchResultItemSource = ({
   journalTitle = '',
@@ -15,8 +16,8 @@ const SearchResultItemSource = ({
             dataName="SearchResultItemSourcePublication"
             className="pr-2 first_letter_caps"
             text={publicationName}
-            as={`/search?publisher=${publicationName}`}
-            href={`/search?publisher=${publicationName}`}
+            as={routs.publisher(publicationName)}
+            href={routs.publisher(publicationName)}
             type="link__small"
           />
         </span>
@@ -26,10 +27,10 @@ const SearchResultItemSource = ({
         <span>
           <ActionLink
             dataName="SearchResultItemSourceJournal"
-            className="px-2 first_letter_caps"
+            className="px-2 first_letter_caps italic"
             text={journalTitle}
-            as={`/search?q=journal:${journalTitle}`}
-            href={`/search?q=journal:${journalTitle}`}
+            as={routs.journal(journalTitle)}
+            href={routs.journal(journalTitle)}
             type="link__small"
           />
         </span>

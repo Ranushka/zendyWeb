@@ -10,7 +10,7 @@ const Magazines: React.FC<{}> = () => {
   if (!magazinesData) return <div>loading...</div>
 
   return (
-    <section className={'max-w-6xl text-center mx-auto'}>
+    <section className="max-w-6xl text-center mx-auto pt-4">
       <h1 className="text-4xl font-serif mt-8 mb-4">Magazines</h1>
 
       <MagazinesPageTabs />

@@ -25,6 +25,7 @@ const DetailPdf = dynamic(() => import('components/organisms/DetailPdf'), {
 const __renderContent = (data) => {
   const {
     doi,
+    language,
     issn,
     sjr,
     abstract,
@@ -64,6 +65,7 @@ const __renderContent = (data) => {
         <SearchResultETC data={doi} name="DOI" />
         <SearchResultETC data={issn.replace(/^(.{4})/, '$1-')} name="ISSN" />
         <SearchResultETC data={sjr} name="sjr" />
+        <SearchResultETC data={language} name="Language" />
       </article>
       {downloadLink && <DetailPdf pdfUrl={downloadLink} />}
       <TitleDetailNextPrevResult />

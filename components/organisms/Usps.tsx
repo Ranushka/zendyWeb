@@ -42,8 +42,10 @@ type Props = {}
 
 const Usps: React.FC<Props> = () => {
   return (
-    <section className={'max-w-6xl text-center mx-auto'}>
-      <h2 className="py-8 text_nut5">Why Zendy plus ?</h2>
+    <section className="max-w-6xl text-center mx-auto pt-4">
+      <h2 className="py-8 px-4 text-center text-3xl text_nut5 font-serif">
+        Why Zendy plus ?
+      </h2>
       <div className="flex flex-wrap justify-center">
         {data.map((item, id) => (
           <UspItem
