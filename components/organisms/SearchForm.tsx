@@ -10,6 +10,7 @@ import IconClear from 'components/icons/IconClear'
 import IconAdvanceSearch from 'components/icons/IconAdvanceSearch'
 // import analyticEvent from 'analytics/events'
 import { focusToSearchInput } from 'helpers/utils'
+import { setPersonalizedKeywords } from 'helpers/localStorage'
 import classNames from 'classnames'
 
 type Props = {
@@ -30,6 +31,7 @@ const SearchForm: React.FC<Props> = ({ id }) => {
     e.preventDefault()
     e.stopPropagation()
     e.target[0].blur()
+    setPersonalizedKeywords({ subjects: [searchText] })
     router.push({
       pathname: routs.search,
       query: { q: searchText }

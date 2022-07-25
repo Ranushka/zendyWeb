@@ -147,7 +147,7 @@ const __resultData = () => {
 }
 
 const ResultsWithData: React.FC<any> = ({ results, totalResults }) => {
-  const [page, setMyPage] = React.useState(1) // this an example using hooks
+  const [page, setMyPage] = React.useState(1)
   const setPage = (e, p) => {
     setMyPage(p)
   }

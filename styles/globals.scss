@@ -68,14 +68,14 @@ body {
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Quattrocento&family=Quattrocento+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento&family=Quattrocento+Sans:wght@400;700&display=swap');
 
 * {
   outline-color: var(--outline);
 }
 
-$colors: white, black, pri8, pri7, pri6, pri5, pri2, pri1, pri0, nut8, nut7, nut6,
-  nut5, nut4, nut3, nut2, nut1, nut0;
+$colors: white, black, pri8, pri7, pri6, pri5, pri2, pri1, pri0, nut8, nut7,
+  nut6, nut5, nut4, nut3, nut2, nut1, nut0;
 
 @each $color in $colors {
   .focus\:bg_#{$color}:focus,

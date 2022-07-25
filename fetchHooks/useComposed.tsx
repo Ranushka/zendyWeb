@@ -1,25 +1,19 @@
 import useSWR from 'swr'
-import { useRouter } from 'next/router'
+
 import request from 'helpers/request'
 import { isClient } from 'helpers/utils'
-import {
-  getPersonalizedKeywords,
-  setPersonalizedKeywords
-} from 'helpers/localStorage'
+import { getPersonalizedKeywords } from 'helpers/localStorage'
 
 const useComposed = () => {
-  const router = useRouter()
-  const { utm_content } = router.query
-
-  if (utm_content) {
-    setPersonalizedKeywords(utm_content)
-  }
-
   const keywordsLocal = getPersonalizedKeywords()
+  const keywordsLocalString = JSON.stringify(keywordsLocal)
 
-  const url = isClient() && `/api/composed?keywords=${keywordsLocal}`
+  const url = isClient() && `/api/composed?keywords=${keywordsLocalString}`
 
-  return useSWR(url, (url) => request(url))
+  return useSWR(url, (url) => request(url), {
+    revalidateIfStale: false,
+    revalidateOnMount: true
+  })
 }
 
 export default useComposed

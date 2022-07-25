@@ -9,8 +9,6 @@ const StripePaymentRequestBtn: React.FC<Props> = ({ price }) => {
   const stripe = useStripe()
   const [paymentRequest, setPaymentRequest] = useState(null)
 
-  console.log('---------->', price)
-
   useEffect(() => {
     if (stripe) {
       const pr = stripe.paymentRequest({

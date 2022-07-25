@@ -9,7 +9,7 @@ const GetStartedWithUs: React.FC<Props> = () => {
   const trans = useTranslations('cta_final')
 
   return (
-    <section className={'container px-5 py-10 text-center'}>
+    <section className={'container px-5 py-16 text-center'}>
       <div className="relative rounded-xl shadow overflow-hidden max-w-5xl m-auto">
         <Image
           placeholder="empty"
@@ -21,7 +21,7 @@ const GetStartedWithUs: React.FC<Props> = () => {
         />
         <div className="relative py-16 px-4">
           <h2 className="text-3xl font-serif mb-2">{trans('title')}</h2>
-          <p>{trans('subtitle')}</p>
+          <p className="text-base">{trans('subtitle')}</p>
           <ActionBtn
             dataName="GetStartedWithUs"
             text={trans('btn')}

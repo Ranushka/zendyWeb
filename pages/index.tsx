@@ -3,7 +3,9 @@ import classNames from 'classnames'
 import { useTranslations } from 'next-intl'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 
+import { setPersonalizedKeywords } from 'helpers/localStorage'
 import { SubTitle, SearchForm } from 'components/organisms'
 import RecentSearchKeywords from 'components/organisms/RecentSearchKeywords'
 import {
@@ -11,20 +13,17 @@ import {
   SubjectPersonalized,
   PublishersPersonalized
 } from 'components/organisms/PersonalizedContent'
-
 import {
   commonMessages,
   curatedMessages,
   homeMessages
 } from 'helpers/getMessages'
-
 import {
   HeroCtaHome,
   MagazineWidget,
   Curated,
   EmailSubscription,
   Testimonials
-  // Subjects
 } from 'components/organisms'
 
 import BaseTemplate from 'components/templates/BaseTemplate'
@@ -37,6 +36,13 @@ const Home: React.FC = () => {
   const trans = useTranslations('common')
   const [isSticky, setIsSticky] = React.useState(false)
   const homeSearchStickyRef = React.useRef(null)
+  const router = useRouter()
+  const { utm_content } = router.query
+
+  if (utm_content) {
+    const subjects = utm_content.toString().split('_')
+    setPersonalizedKeywords({ subjects })
+  }
 
   React.useEffect(() => {
     const cachedRef = homeSearchStickyRef.current,

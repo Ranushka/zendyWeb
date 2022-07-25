@@ -17,10 +17,12 @@ const SearchResultItem: React.FC<SearchResultItemProps> = (data) => {
     publicationName,
     authors,
     keywords,
-    link,
+    zendyLink,
     downloadLink,
     subjects
   } = data
+
+  // console.log('--data-->', data)
 
   return (
     <article className="flex items-center rounded-md mb-4 max-w-4xl bg_white shadow-sm hover:shadow">
@@ -38,7 +40,7 @@ const SearchResultItem: React.FC<SearchResultItemProps> = (data) => {
         </section>
         <section className="pl-0 sm:pl-8 w-full sm:w-3/12">
           <SearchResultItemActions
-            link={link}
+            link={zendyLink}
             resultId={resultId}
             downloadLink={downloadLink}
           />

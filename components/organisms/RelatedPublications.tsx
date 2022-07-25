@@ -23,6 +23,7 @@ const RelatedPublications: React.FC<any> = () => {
               keywords={['name one']}
               subjects={['subject']}
               link={[]}
+              zendyLink="#"
               title="Platform Competition in the Sharing Economy: Understanding How Ride-Hailing Services Influence New Car Purchases."
               abstract="Ride-hailing services provide not only alternative transportation for passengers but also job opportunities for potential drivers,  in both negative and positive effects on new car purchases. Our study assesses the impact of ride-hailing platforms' market entry on new car purchases in the presence. Entry on new ca..."
             />

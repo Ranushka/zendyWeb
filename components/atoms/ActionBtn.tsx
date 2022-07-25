@@ -14,6 +14,7 @@ type Props = {
   className?: string | object
   newWindow?: boolean
   block?: boolean
+  bold?: boolean
   submit?: boolean
   disabled?: boolean
   wrap?: boolean
@@ -32,6 +33,7 @@ const ActionBtn: React.FC<Props> = (props) => {
     style,
     icon,
     block,
+    bold,
     submit,
     tabIndex = 0,
     disabled,
@@ -42,6 +44,7 @@ const ActionBtn: React.FC<Props> = (props) => {
     getType(type),
     icon && 'inline-flex whitespace-nowrap',
     block && 'w-full',
+    bold && 'font-bold',
     disabled ? 'disabled' : 'pointer',
     className
   )
@@ -76,13 +79,13 @@ const getType = (type) => {
     ),
     btn__secondary: classnames(
       'outline-1 outline-offset-2',
-      'border py-2 px-3 rounded-md flex justify-center duration-300',
+      'border py-2 px-4 rounded-md flex justify-center duration-300',
       'shadow-sm hover:shadow active:shadow-none',
       'border_pri2 bg_pri0 active:scale-95 text_pri7'
     ),
     btn__primary: classnames(
       'outline-1 outline-offset-2 border border_pri7',
-      'py-2 px-3 rounded-md flex justify-center duration-300 uppercase',
+      'py-2 px-4 rounded-md flex justify-center duration-300 uppercase',
       'shadow-md active:shadow-sm tracking-wide',
       'bg_pri7 active:bg_pri8 active:scale-95 text_pri0'
     )

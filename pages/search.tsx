@@ -9,22 +9,21 @@ import InfoAuthor from 'components/organisms/InfoAuthor'
 import FilterNavigation from 'components/organisms/FilterNavigation'
 import AdvancedSearchForm from 'components/organisms/AdvancedSearchForm'
 import { useRouter } from 'next/router'
-// import routs from 'helpers/routs'
+import { setPersonalizedKeywords } from 'helpers/localStorage'
 
 const Search: React.FC = () => {
   const router = useRouter()
   const { author, subject, journal, publisher, q } = router.query
   const qAuthor = author
-  // const qSubject: any = subject && routs.subject(subject.toString())
-
-  // const qPublisher: any = publisher && routs.publisher(publisher.toString())
 
   const qJournal: any = journal && `${journal}`.replace(/_/g, ' ')
   const qPublisher: any = publisher && `${publisher}`.replace(/_/g, ' ')
   const qSubject: any = subject && `${subject}`.replace(/_/g, ' ')
-  // const qJournal: any = journal && journal.toString().replace(/_/g, ' ')
 
-  // let queryString = q || qAuthor || qSubject || qJournal || qPublisher
+  if (qSubject) setPersonalizedKeywords({ subjects: [qSubject] })
+  if (qPublisher) setPersonalizedKeywords({ publishers: [qPublisher] })
+  if (qJournal) setPersonalizedKeywords({ journals: [qJournal] })
+
   let queryString = q
 
   React.useEffect(() => {

@@ -14,6 +14,7 @@ export interface SearchResultItemProps {
   authors: [string]
   keywords: [string]
   subjects: [string]
+  zendyLink: string
   link: []
   isReviewed?: boolean
   isReferenced?: boolean

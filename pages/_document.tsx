@@ -20,6 +20,8 @@ class MyDocument extends Document {
     return (
       <Html dir={getDir(this.props.locale)}>
         <Head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="manifest" href="/manifest.json" />
           <meta name="theme-color" content="#fff" />
 
@@ -49,7 +51,7 @@ class MyDocument extends Document {
           <meta name="og:description" content={data.description} />
           <meta property="og:image" content={data.image} />
         </Head>
-        <body>
+        <body className="font-sans">
           <GtmNoScript />
           <Main />
           <NextScript />

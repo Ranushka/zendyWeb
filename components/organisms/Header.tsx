@@ -166,6 +166,7 @@ const GetLoginBtn = () => {
       text={trans('login_btn_name')}
       onClick={() => router.push(routs.login)}
       type="btn__secondary"
+      bold
     />
   )
 }
