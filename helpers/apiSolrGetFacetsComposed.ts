@@ -16,7 +16,6 @@ export default async function apiSolrGetFacetsComposed(keywords) {
     'qf=subSubjectsFull^3 abstract^2 title^1',
     'facet.limit=12',
     'facet.sort=count',
-    // 'bq=sponsored:true',
     'bq=subSubjectsFull:swot',
     'rows=0'
   ]
