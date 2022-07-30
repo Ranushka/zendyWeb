@@ -32,7 +32,7 @@ const SearchFormRow: React.FC<any> = ({
             data={['OR', 'AND', 'NOT']}
           />
         )}
-        <div className="flex bg_white p-1 rounded-md relative">
+        <div className="bg_white relative flex rounded-md p-1">
           <Select
             key="type"
             block
@@ -51,17 +51,18 @@ const SearchFormRow: React.FC<any> = ({
             accessKey="/"
             placeholder={'Any word'}
             className={classNames(
-              'w-48 h-10 rounded-md border border_nut4',
-              'outline-4 outline-offset-2 px-4',
+              'border_nut4 h-10 w-48 rounded-md border',
+              'px-4 outline-4 outline-offset-2',
               'active:border_pri6 focus:border_pri6'
             )}
+            style={{ borderWidth: 1.5 }}
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
 
           {index >= 1 && (
             <button
-              className="rounded-full block absolute right-0 bg_nut1 w-7 h-7 mt-1.5 -mr-2 text-xs pb-0.5 border border_nut3"
+              className="bg_nut1 border_nut3 absolute right-0 mt-1.5 -mr-2 block h-7 w-7 rounded-full border pb-0.5 text-xs"
               onClick={removeRow}
             >
               [-]
@@ -116,9 +117,9 @@ const SearchForm: React.FC<Props> = () => {
 
   return (
     <div className="container mt-4 px-4">
-      <div className="w-full max-w-5xl bg_white p-8 pb-10 m-auto rounded-md">
-        <div className="w-full flex justify-between">
-          <h2 className="text-2xl text_nut5 font-serif ">Advanced search</h2>
+      <div className="bg_white m-auto w-full max-w-5xl rounded-md p-8 pb-10">
+        <div className="flex w-full justify-between">
+          <h2 className="text_nut5 font-serif text-2xl ">Advanced search</h2>
           <ButtonFab
             dataName="selectionMode"
             title="Toggle selection mode"
@@ -146,10 +147,10 @@ const SearchForm: React.FC<Props> = () => {
             />
           ))}
 
-          <div className="p-1 flex items-center mt-4">
+          <div className="mt-4 flex items-center p-1">
             {rows !== 6 && (
               <button
-                className="rounded-full block bg_pri0 border border_pri1 p-2 mr-2 ml-4"
+                className="bg_pri0 border_pri1 mr-2 ml-4 block rounded-full border p-2"
                 onClick={addRow}
               >
                 [+]

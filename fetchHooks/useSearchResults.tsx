@@ -97,7 +97,7 @@ const useSearchResults = () => {
     })
   }
 
-  return useSWR([url, queryParams], fetcher)
+  return useSWR([url, queryParams], fetcher, {})
 }
 
 export default useSearchResults

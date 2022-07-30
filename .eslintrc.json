@@ -1,6 +1,6 @@
 {
   "extends": ["next/core-web-vitals", "eslint:recommended"],
   "rules": {
-    "max-lines": ["error", { "max": 210 }]
+    // "max-lines": ["error", { "max": 220 }]
   }
 }

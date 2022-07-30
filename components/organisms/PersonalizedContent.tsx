@@ -1,10 +1,10 @@
 import React from 'react'
 import SubTitle from 'components/organisms/SubTitle'
 import PersonalizedDataItems from 'components/organisms/PersonalizedDataItems'
-import useComposed from 'fetchHooks/useComposed'
+import useRecommendation from 'fetchHooks/useRecommendation'
 
 export const JournalPersonalized: React.FC<{}> = () => {
-  const { data } = useComposed()
+  const { data } = useRecommendation()
 
   const jData = data && data['journalTitleFull']
 
@@ -23,7 +23,7 @@ export const JournalPersonalized: React.FC<{}> = () => {
 }
 
 export const PublishersPersonalized: React.FC<{}> = () => {
-  const { data } = useComposed()
+  const { data } = useRecommendation()
 
   let jData = data && data['publishersFull']
 
@@ -42,7 +42,7 @@ export const PublishersPersonalized: React.FC<{}> = () => {
 }
 
 export const SubjectPersonalized: React.FC<{}> = () => {
-  const { data } = useComposed()
+  const { data } = useRecommendation()
 
   const jData = data && data['subSubjectsFull']
 

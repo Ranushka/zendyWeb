@@ -9,8 +9,8 @@ const Blog = ({ post }) => {
 
   return (
     <BaseTemplate>
-      <div className="max-w-3xl m-auto pt-16 px-4 md:px-8 overflow-x-hidden">
-        <h1 className="pb-8 text-4xl font-serif">{post.title.rendered}</h1>
+      <div className="m-auto max-w-3xl overflow-x-hidden px-4 pt-16 md:px-8">
+        <h1 className="pb-8 font-serif text-4xl">{post.title.rendered}</h1>
         <div
           className="card-text pb-8"
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}
@@ -26,8 +26,8 @@ const Blog = ({ post }) => {
 const PostNotFound = () => {
   return (
     <BaseTemplate>
-      <div className="max-w-3xl m-auto pt-16 px-4 md:px-8 overflow-x-hidden">
-        <h1 className="pb-8 text-4xl font-serif">Post not found</h1>
+      <div className="m-auto max-w-3xl overflow-x-hidden px-4 pt-16 md:px-8">
+        <h1 className="pb-8 font-serif text-4xl">Post not found</h1>
 
         <Link href="/">
           <a className="btn btn-primary">Back to Home</a>

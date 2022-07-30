@@ -10,6 +10,7 @@ import FilterNavigation from 'components/organisms/FilterNavigation'
 import AdvancedSearchForm from 'components/organisms/AdvancedSearchForm'
 import { useRouter } from 'next/router'
 import { setPersonalizedKeywords } from 'helpers/localStorage'
+// import Autocomplete from 'components/organisms/Autocomplete'
 
 const Search: React.FC = () => {
   const router = useRouter()
@@ -45,7 +46,8 @@ const Search: React.FC = () => {
           {qJournal && <InfoJournal publicationName={qJournal} />}
           {qAuthor && <InfoAuthor authorName={qAuthor} />}
           {qSubject && <InfoSubject subject={qSubject} />}
-          <div className="container p-4 flex">
+          {/* <Autocomplete /> */}
+          <div className="container flex p-4">
             <FilterNavigation />
             <SearchResults />
           </div>

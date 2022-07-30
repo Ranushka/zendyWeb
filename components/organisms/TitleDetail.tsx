@@ -42,7 +42,7 @@ const __renderContent = (data) => {
 
   return (
     <>
-      <article className="max-w-4xl m-auto pt-12 px-8">
+      <article className="m-auto max-w-4xl px-8 pt-12">
         <GetGoBackBtn />
         <PublicationIssueJsonLd
           authorName={authors && authors.flatMap((auObj) => auObj.name)}
@@ -75,7 +75,7 @@ const __renderContent = (data) => {
 
 const __renderLoading = () => {
   return (
-    <div className="max-w-4xl m-auto pt-16 px-8 pb-16">
+    <div className="m-auto max-w-4xl px-8 pt-16 pb-16">
       <Skeleton />
       <Skeleton height="80px" />
       <Skeleton />
@@ -91,14 +91,14 @@ const GetGoBackBtn = () => {
   if (!getPrevPage().includes(routs.search)) return <></>
 
   return (
-    <div className="m-auto pb-4 -ml-4 relative">
+    <div className="relative m-auto -ml-4 pb-4">
       <ActionBtn
-        dataName="RecentSearchKeyword"
+        dataName="GetGoBackBtn"
         text={'← Back to results'}
         onClick={() => {
           router.back()
         }}
-        className="m-1 inline-block pr-4 py-1 first_letter_caps"
+        className="first_letter_caps m-1 inline-block py-1 pr-4"
         type="btn__small"
       />
     </div>

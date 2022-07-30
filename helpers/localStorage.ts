@@ -41,8 +41,6 @@ export function setPersonalizedKeywords(newData: personalizedDataProps) {
     journals: jou
   }
 
-  console.log('data--->', data)
-
   const strData = JSON.stringify(data)
 
   return isClient() && localStorage.setItem('personalization', strData)

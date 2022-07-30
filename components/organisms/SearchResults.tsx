@@ -17,7 +17,7 @@ const SearchResultActions = () => {
 
   return (
     <div className="max-w-4xl">
-      <div className="flex items-center rounded-md mb-4 md:mt-4 mr-10 md:mr-0 whitespace-nowrap overflow-y-scroll hideScrollBar">
+      <div className="hideScrollBar mb-4 mr-10 flex items-center overflow-y-scroll whitespace-nowrap rounded-md md:mt-4 md:mr-0">
         <ButtonFab
           dataName="ToggleSelectionMode"
           title="Toggle selection mode"
@@ -61,7 +61,7 @@ const SearchResultActions = () => {
             />
           </>
         )}
-        <div className="hidden md:block ml-auto" />
+        <div className="ml-auto hidden md:block" />
 
         {!selectionMode && (
           <>
@@ -91,7 +91,7 @@ const __searchResultLoading = () => {
   return [1, 2, 3].map((id) => (
     <article
       key={'skeletonSearchResult' + id}
-      className="items-center rounded-md mb-4 max-w-4xl bg_white shadow-sm p-4"
+      className="bg_white mb-4 max-w-4xl items-center rounded-md p-4 shadow-sm"
     >
       <div className="flex">
         <Skeleton height={10} width={60} className="mr-2" />
@@ -99,21 +99,21 @@ const __searchResultLoading = () => {
         <Skeleton height={10} width={60} />
       </div>
       <Skeleton height={40} />
-      <div className="flex my-2">
+      <div className="my-2 flex">
         <Skeleton height={10} width={60} className="mr-2" />
         <Skeleton height={10} width={60} />
       </div>
       <Skeleton count={5} height={20} />
-      <div className="flex mt-4">
+      <div className="mt-4 flex">
         <Skeleton height={10} width={40} className="mr-2" />
         <Skeleton height={10} width={80} className="mr-2" />
         <Skeleton height={10} width={80} className="mr-2" />
       </div>
-      <div className="flex mt-2">
+      <div className="mt-2 flex">
         <Skeleton height={10} width={40} className="mr-2" />
         <Skeleton height={10} width={80} className="mr-2" />
       </div>
-      <div className="flex mt-2">
+      <div className="mt-2 flex">
         <Skeleton height={10} width={40} className="mr-2" />
         <Skeleton height={10} width={90} className="mr-2" />
         <Skeleton height={10} width={60} className="mr-2" />
@@ -124,7 +124,7 @@ const __searchResultLoading = () => {
 
 const __noResultData = () => {
   return (
-    <div className="text-center py-8">
+    <div className="py-8 text-center">
       Oops...!, Unfortunately we could not found more results.
     </div>
   )
@@ -170,7 +170,7 @@ const ResultsWithData: React.FC<any> = ({ results, totalResults }) => {
 
 const SearchResults: React.FC<any> = () => {
   return (
-    <section className="w-full md:w-9/12 z-0">
+    <section className="z-0 w-full md:w-9/12">
       {SearchResultActions()}
       {__resultData()}
     </section>

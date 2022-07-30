@@ -7,7 +7,6 @@ import { useRouter } from 'next/router'
 
 import { setPersonalizedKeywords } from 'helpers/localStorage'
 import { SubTitle, SearchForm } from 'components/organisms'
-import RecentSearchKeywords from 'components/organisms/RecentSearchKeywords'
 import {
   JournalPersonalized,
   SubjectPersonalized,
@@ -67,13 +66,13 @@ const Home: React.FC = () => {
       <section
         ref={homeSearchStickyRef}
         className={classNames(
-          'sticky flex justify-center -top-0.5 z-20 px-4 py-2 bg_white',
-          isSticky && 'shadow bg_white'
+          'bg_white sticky -top-1 z-20 flex justify-center px-4 py-3',
+          isSticky && 'bg_white shadow'
         )}
       >
         <SearchForm id="mainSearch" />
       </section>
-      <RecentSearchKeywords />
+      <div className="bg_white pt-20" />
       <SubTitle
         title={trans('section1')}
         linkText={trans('see_all')}
