@@ -35,10 +35,8 @@ const Autocomplete = ({
   const router = useRouter()
   const isHomePage = router.pathname === routs.index
   const rq = router.query
-  JSON.stringify(rq)
 
-  // const qPublisher: string = rq.publisher?.toString().replace(/_/g, ' ')
-  const qPublisher: string = 'Elsav'
+  const qPublisher: string = rq.publisher?.toString().replace(/_/g, ' ')
 
   React.useEffect(() => {
     const asPath = router.asPath
@@ -82,11 +80,6 @@ const Autocomplete = ({
     const suggestionList = [
       ...searchWithInPub,
       ...searchHistorySubjects,
-      ...[
-        { type: 'suggestion', text: 'aabb' },
-        { type: 'suggestion', text: 'aaccc' },
-        { type: 'suggestion', text: 'aadd' }
-      ],
       ...journals,
       ...publishers,
       ...subjects

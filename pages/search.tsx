@@ -2,15 +2,26 @@ import React from 'react'
 import BaseTemplate from 'components/templates/BaseTemplate'
 import { commonMessages } from 'helpers/getMessages'
 import { SearchLandingBlock, SearchResults } from 'components/organisms'
-import InfoSubject from 'components/organisms/InfoSubject'
-import InfoJournal from 'components/organisms/InfoJournal'
-import InfoPublisher from 'components/organisms/InfoPublisher'
-import InfoAuthor from 'components/organisms/InfoAuthor'
+// import InfoSubject from 'components/organisms/InfoSubject'
+// import InfoJournal from 'components/organisms/InfoJournal'
+// import InfoPublisher from 'components/organisms/InfoPublisher'
+// import InfoAuthor from 'components/organisms/InfoAuthor'
 import FilterNavigation from 'components/organisms/FilterNavigation'
-import AdvancedSearchForm from 'components/organisms/AdvancedSearchForm'
+// import AdvancedSearchForm from 'components/organisms/AdvancedSearchForm'
 import { useRouter } from 'next/router'
 import { setPersonalizedKeywords } from 'helpers/localStorage'
-// import Autocomplete from 'components/organisms/Autocomplete'
+
+import dynamic from 'next/dynamic'
+
+const InfoSubject = dynamic(() => import('components/organisms/InfoSubject'))
+const InfoJournal = dynamic(() => import('components/organisms/InfoJournal'))
+const InfoAuthor = dynamic(() => import('components/organisms/InfoAuthor'))
+const InfoPublisher = dynamic(
+  () => import('components/organisms/InfoPublisher')
+)
+const AdvancedSearchForm = dynamic(
+  () => import('components/organisms/AdvancedSearchForm')
+)
 
 const Search: React.FC = () => {
   const router = useRouter()

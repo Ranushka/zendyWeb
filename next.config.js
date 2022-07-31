@@ -20,9 +20,9 @@ const config = {
   //   baseUrl: '.'
   // },
 
-  // compiler: {
-  //   removeConsole: true
-  // },
+  compiler: {
+    removeConsole: true
+  },
 
   async rewrites() {
     return [
@@ -66,6 +66,8 @@ const toExport = {
     locales: ['en', 'ar'],
     defaultLocale: 'en'
   },
+  // reactStrictMode: true,
+  // swcMinify: true,
   ...withPWA(config)
 }
 
