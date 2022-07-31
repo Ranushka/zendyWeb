@@ -19,7 +19,7 @@ const CategoriesMenu: React.FC<{}> = () => {
         className="mx-3"
         onClick={() => {}}
       />
-      <section className="bg_white rounded-md shadow-lg absolute mt-10 hidden menu">
+      <section className="bg_white menu absolute mt-10 hidden rounded-md shadow-lg">
         <div className="flex py-8">{__getMenuColumns()}</div>
       </section>
     </div>
@@ -49,7 +49,7 @@ const __getMenuItems = (list: []) => {
     list.map(({ label, path }, key) => {
       return (
         <ActionLink
-          dataName="CategoriesMenuItem"
+          dataName="MenuItems"
           className="my-2 block"
           key={key}
           text={label}

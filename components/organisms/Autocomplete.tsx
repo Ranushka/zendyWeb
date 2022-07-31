@@ -23,6 +23,7 @@ const Autocomplete = ({
   setSearchText,
   searchText
 }) => {
+  const [dirty, setDirty] = useState(false)
   const [active, setActive] = useState(0)
   const [isShow, setIsShow] = useState(false)
   const [suggestions, setSuggestions] = useState([])
@@ -95,6 +96,7 @@ const Autocomplete = ({
   }, [recData, searchText, qPublisher])
 
   const onChange = () => {
+    setDirty(true)
     setIsShow(true)
   }
 
@@ -212,7 +214,7 @@ const Autocomplete = ({
           value={searchText}
         />
       </div>
-      {isShow && (
+      {dirty && isShow && (
         <div className="absolute w-full">
           <div
             className={classNames(
@@ -224,7 +226,9 @@ const Autocomplete = ({
           </div>
         </div>
       )}
-      {isShow && <div className="autocomplete_overlay" onClick={onBlur} />}
+      {dirty && isShow && (
+        <div className="autocomplete_overlay" onClick={onBlur} />
+      )}
     </section>
   )
 }

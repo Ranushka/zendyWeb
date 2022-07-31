@@ -73,3 +73,14 @@ export function countFormatted(totalResults) {
     compactDisplay: 'short'
   }).format(totalResults)
 }
+
+export function getRandomColor(input) {
+  var hash = 0,
+    len = input.length
+  for (var i = 0; i < len; i++) {
+    hash = (hash << 5) - hash + input.charCodeAt(i)
+    hash |= 0 // to 32bit integer
+  }
+  // return parseFloat(`0.${hash >>> 0}`) * 360
+  return hash >>> 0
+}
