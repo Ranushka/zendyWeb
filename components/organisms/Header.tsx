@@ -38,21 +38,21 @@ const Header = () => {
 
   return (
     <React.Fragment key="header">
-      <section key="headerTop" className="bg_nut2">
-        <div className="flex justify-end items-center px-4 py-2 md:py-0">
+      <section key="headerTop" className="bg_white relative z-50">
+        <div className="-mb-2 hidden items-center justify-end px-4 md:flex">
           <NavItems />
-          <div className="hidden sm:flex">
+          <div className="flex items-center">
             <div className="mx-4 py-0.5">|</div>
             <ActionBtn
               dataName="SetLanguage"
-              className="mx-2 py-1.5"
+              className="mx-2 py-2"
               text={'En عربى සිං'}
               title="set language"
               onClick={() => setGlobalState({ openLangPopUp: true })}
             />
             <ActionBtn
               dataName="SetSettings"
-              className="mx-2 py-1.5"
+              className="mx-2 py-2"
               text="Settings"
               title="set theme, font size"
               onClick={() => setGlobalState({ openSettingsPopUp: true })}
@@ -64,18 +64,18 @@ const Header = () => {
         key="headerLogoSection"
         className={classnames(
           'relative top-0 z-30',
-          isHomePage ? 'bg_white' : 'bg_white md:sticky shadow-none md:shadow'
+          isHomePage ? 'bg_white' : 'bg_white shadow-none md:sticky md:shadow'
         )}
       >
-        <div className="container px-4 py-2 md:py-3 flex items-center md:justify-between">
+        <div className="container flex items-center px-4 py-4 md:justify-between md:py-3">
           <MobileHeaderNav />
 
-          <Logo flag className="max-h-9 mr-3 pl-4 md:pl-0" />
+          <Logo flag className="mr-3 max-h-9 pl-4 md:pl-0" />
 
           <CategoriesMenu />
 
           {!isMobile && (
-            <div className="w-full justify-center flex top-0 h-12">
+            <div className="top-0 flex h-12 w-full justify-center">
               {!isHomePage && <SearchForm id="mainSearch" />}
             </div>
           )}
@@ -83,7 +83,7 @@ const Header = () => {
           <ActionLink
             dataName="SetSettings"
             className={classnames(
-              'px-4 hidden md:block',
+              'hidden px-4 md:block',
               !isHomePage && 'hidden md:flex'
             )}
             wrap
@@ -99,7 +99,7 @@ const Header = () => {
       {!isHomePage && isMobile && (
         <section
           key="headerMobileSearch"
-          className="w-full justify-center flex sticky top-0 bg_white pl-4 pb-2 pt-2.5 shadow z-10"
+          className="bg_white sticky top-0 z-10 flex w-full justify-center pl-4 pb-2.5 pt-2.5 shadow"
         >
           <SearchForm id="mainSearchMobile" />
         </section>
@@ -145,7 +145,7 @@ const NavItems = () => {
             <React.Fragment key={key}>
               <ActionLink
                 dataName="NavItem"
-                className="mx-2"
+                className="mx-2 py-2"
                 text={label}
                 href={path}
               />
@@ -165,7 +165,7 @@ const GetLoginBtn = () => {
       className="whitespace-nowrap"
       text={trans('login_btn_name')}
       onClick={() => router.push(routs.login)}
-      type="btn__secondary"
+      type="btn__primary"
       bold
     />
   )
@@ -173,7 +173,7 @@ const GetLoginBtn = () => {
 
 const __getLoggedInUser = (session) => {
   return (
-    <div className="overflow-ellipsis overflow-auto">
+    <div className="overflow-auto overflow-ellipsis">
       <ActionLink
         dataName="HeaderLoggedInUserBtn"
         text={__getUserNameInitials(session.user)}

@@ -78,16 +78,16 @@ const getType = (type) => {
       'duration-300 active:bg_pri1 active:scale-95'
     ),
     btn__secondary: classnames(
-      'outline-1 outline-offset-2',
+      'outline-1 outline-offset-2 font-lg items-center',
       'border py-2 px-4 rounded-md flex justify-center duration-300',
       'shadow-sm hover:shadow active:shadow-none',
-      'border_pri2 bg_pri0 active:scale-95 text_pri7'
+      'border_pri2 bg_pri0 active:scale-95 text_nut6'
     ),
     btn__primary: classnames(
-      'outline-1 outline-offset-2 border border_pri7',
-      'py-2 px-4 rounded-md flex justify-center duration-300 uppercase',
+      'outline-1 outline-offset-2 border border_pri5 font-bold font-lg',
+      'py-2 px-4 rounded-md flex justify-center duration-300',
       'shadow-md active:shadow-sm tracking-wide',
-      'bg_pri7 active:bg_pri8 active:scale-95 text_pri0'
+      'bg_pri5 active:bg_pri6 active:scale-95 text_pri9'
     )
   }
 

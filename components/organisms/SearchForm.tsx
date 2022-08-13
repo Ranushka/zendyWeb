@@ -7,7 +7,7 @@ import { ButtonFab } from 'components/atoms'
 import IconSearch from 'components/icons/IconSearch'
 import IconClear from 'components/icons/IconClear'
 import IconAdvanceSearch from 'components/icons/IconAdvanceSearch'
-import Autocomplete from 'components/organisms/Autocomplete'
+import SearchInput from 'components/organisms/SearchInput'
 // import analyticEvent from 'analytics/events'
 import { focusToSearchInput } from 'helpers/utils'
 // import { setPersonalizedKeywords } from 'helpers/localStorage'
@@ -52,7 +52,7 @@ const SearchForm: React.FC<Props> = ({ id }) => {
   return (
     <div className="flex w-full max-w-2xl">
       <form className="relative w-full" onSubmit={handleSubmit}>
-        <Autocomplete
+        <SearchInput
           id={id}
           searchInputRef={searchInputRef}
           setSearchText={setSearchText}
@@ -62,18 +62,18 @@ const SearchForm: React.FC<Props> = ({ id }) => {
         <div className="absolute top-0 right-0 z-30 inline-flex">
           {searchText && (
             <ButtonFab
-              dataName="BtnAdvanceSearchAdd"
+              dataName="BtnSearchClear"
               classNames="rounded-full px-0 py-3 block"
               icon={<IconClear />}
               onClick={clearInput}
             />
           )}
           <ButtonFab
-            dataName="BtnAdvanceSearchAdd"
+            dataName="BtnSearchAdd"
             tabindex={-1}
             title="Search"
             onClick={onClickSearchBtn}
-            icon={<IconSearch className="text_pri6 hover:text_pri7" />}
+            icon={<IconSearch className="text_nut6 hover:text_pri6" />}
             classNames="rounded-full m-0.5 px-3 py-2.5 block hover:text_pri6 active:scale-95"
           />
         </div>

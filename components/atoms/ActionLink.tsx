@@ -127,7 +127,11 @@ const __linkWithChildren = (props: Props) => {
 
 const getType = (type) => {
   const types = {
-    link: 'hover:text_pri6 active:scale-95 duration-150',
+    link: classnames(
+      'hover:underline decoration-2 underline-offset-2',
+      'decoration-sky-500 decoration-amber-400',
+      'active:scale-95 duration-150'
+    ),
     link__title: classnames(
       'hover:text_pri7 duration-150 text_nut7',
       'inline-block text-gray-700 font-serif',

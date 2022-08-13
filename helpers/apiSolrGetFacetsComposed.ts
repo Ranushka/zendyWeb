@@ -1,5 +1,6 @@
 import formatAvailableFacets from 'helpers/formatAvailableFacets'
 import routs from 'helpers/routs'
+import apiCacheFetch from 'helpers/apiCacheFetch'
 
 const { SOLR_TOKEN, SOLR_URL } = process.env
 
@@ -21,9 +22,9 @@ export default async function apiSolrGetFacetsComposed(keywords) {
   ]
 
   const kw = []
-  keywords !== 'null'
+  const hasKeywords = keywords !== 'null'
 
-  if (keywords) {
+  if (hasKeywords) {
     const keywordsObj = JSON.parse(keywords)
     const subjects = keywordsObj?.subjects || {}
     // const { subjects, publishers, journals } = JSON.parse(keywords)
@@ -53,9 +54,7 @@ export default async function apiSolrGetFacetsComposed(keywords) {
 
     optionsList.push(`q=${keywordsList}`)
     // console.log('keywords-->', keywordsList)
-  }
-
-  if (keywords !== 'null') {
+  } else {
     optionsList.push(`q=*`)
   }
 
@@ -83,8 +82,7 @@ export default async function apiSolrGetFacetsComposed(keywords) {
     }
   }
 
-  const res = await fetch(url, options)
-  const dataFromSolr = await res.json()
+  const dataFromSolr = await apiCacheFetch(url, options)
 
   if (dataFromSolr.error) throw new Error(JSON.stringify(dataFromSolr.error))
 

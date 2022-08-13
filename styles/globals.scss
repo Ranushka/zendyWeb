@@ -11,23 +11,28 @@ body {
   height: -webkit-fill-available;
   min-height: 100vh;
   min-height: -webkit-fill-available;
+  padding-right: env(safe-area-inset-right);
+  padding-left: env(safe-area-inset-left);
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  // padding: env(safe-area-inset-top, 20px) 0 env(safe-area-inset-bottom, 60px) 0;
 }
 
 :root {
   --white: #fff;
   --black: #000;
 
-  --pri8: #9a3412;
-  --pri7: #c2410c;
-  --pri6: #ea580c;
-  --pri5: #fb923c;
-  --pri2: #fdba74;
-  --pri1: #ffedd5;
-  --pri0: #fff7ed;
+  --pri8: #713f12;
+  --pri7: #a16207;
+  --pri6: #f59e0b;
+  --pri5: #fbbf24;
+  --pri2: #fcd34d;
+  --pri1: #fef3c7;
+  --pri0: #fefce8;
 
   --nut8: #1e293b;
   --nut7: #334155;
-  --nut6: #475569;
+  --nut6: #2f4858;
   --nut5: #64748b;
   --nut4: #94a3b8;
   --nut3: #cbd5e1;
@@ -76,6 +81,14 @@ body {
 
 $colors: white, black, pri8, pri7, pri6, pri5, pri2, pri1, pri0, nut8, nut7,
   nut6, nut5, nut4, nut3, nut2, nut1, nut0;
+
+.logo_sec {
+  fill: var(--nut6);
+}
+
+.logo_pri {
+  fill: var(--pri6);
+}
 
 @each $color in $colors {
   .focus\:bg_#{$color}:focus,
@@ -233,4 +246,9 @@ mark {
   height: 100%;
   z-index: -1;
   left: 0px;
+}
+
+a.under_line:hover {
+  text-decoration-color: red;
+  text-decoration: underline;
 }

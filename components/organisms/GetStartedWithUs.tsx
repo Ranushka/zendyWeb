@@ -10,7 +10,7 @@ const GetStartedWithUs: React.FC<Props> = () => {
 
   return (
     <section className={'container px-5 py-16 text-center'}>
-      <div className="relative rounded-xl shadow overflow-hidden max-w-5xl m-auto">
+      <div className="relative m-auto max-w-5xl overflow-hidden rounded-xl shadow">
         <Image
           placeholder="empty"
           objectFit="cover"
@@ -20,14 +20,14 @@ const GetStartedWithUs: React.FC<Props> = () => {
           src="/img/lastCallBackground.png"
         />
         <div className="relative py-16 px-4">
-          <h2 className="text-3xl font-serif mb-2">{trans('title')}</h2>
+          <h2 className="mb-2 font-serif text-3xl">Try Zendy Plus for Free</h2>
           <p className="text-base">{trans('subtitle')}</p>
           <ActionBtn
             dataName="GetStartedWithUs"
             text={trans('btn')}
             href={'#'}
             type="btn__primary"
-            className="max-w-xs m-auto mt-4"
+            className="m-auto mt-4 max-w-xs"
           />
         </div>
       </div>

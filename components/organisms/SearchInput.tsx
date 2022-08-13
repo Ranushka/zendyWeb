@@ -27,6 +27,7 @@ const Autocomplete = ({
   const [active, setActive] = useState(0)
   const [isShow, setIsShow] = useState(false)
   const [suggestions, setSuggestions] = useState([])
+  const hasSuggestions = suggestions.length > 0
   const isMobile = useMediaQuery({
     query: '(max-width: 786px)'
   })
@@ -200,9 +201,10 @@ const Autocomplete = ({
           accessKey="/"
           type="text"
           className={classNames(
-            'bg-tr border_nut4 focus:border_pri5 h-12 w-full rounded-3xl border-2 bg-transparent',
+            'rounded-3xl border-2 focus:shadow',
+            'bg-tr border_pri5 h-12 w-full',
             'relative z-10 appearance-none pr-14 pl-6 outline-none',
-            suggestions.length && isShow ? 'bg_white' : 'bg-transparent'
+            hasSuggestions && isShow ? 'bg_white' : 'bg-transparent'
           )}
           autoComplete="off"
           onFocus={onFocus}
@@ -214,7 +216,7 @@ const Autocomplete = ({
           value={searchText}
         />
       </div>
-      {dirty && isShow && (
+      {dirty && isShow && hasSuggestions && (
         <div className="absolute w-full">
           <div
             className={classNames(

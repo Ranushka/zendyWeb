@@ -11,14 +11,14 @@ export const JournalPersonalized: React.FC<{}> = () => {
   if (!jData) return <></>
 
   return (
-    <div className="px-8">
+    <section>
       <SubTitle
         title={'Journals You might like'}
         linkText={'See all'}
         linkHref="/journals"
       />
       <PersonalizedDataItems data={jData} />
-    </div>
+    </section>
   )
 }
 
@@ -30,14 +30,14 @@ export const PublishersPersonalized: React.FC<{}> = () => {
   if (!jData) return <></>
 
   return (
-    <div className="px-8">
+    <section>
       <SubTitle
         title={'Publishers You might like'}
         linkText={'See all'}
         linkHref="/publishers"
       />
       <PersonalizedDataItems data={jData} />
-    </div>
+    </section>
   )
 }
 
@@ -49,13 +49,13 @@ export const SubjectPersonalized: React.FC<{}> = () => {
   if (!jData) return <></>
 
   return (
-    <div className="px-8">
+    <section>
       <SubTitle
         title={'Browse by subject'}
         linkText={'See all'}
         linkHref="/subjects"
       />
       <PersonalizedDataItems data={jData} />
-    </div>
+    </section>
   )
 }

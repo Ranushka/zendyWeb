@@ -8,17 +8,17 @@ const MobileHeaderNavFooter: React.FC<{}> = () => {
   const [{ setGlobalState }] = useGlobal()
 
   return (
-    <div className="my-1 flex justify-between mr-8 pt-4">
+    <div className="my-1 mr-8 flex justify-between pt-4 pb-16">
       <ActionBtn
         dataName="LinkLanguage"
-        className="px-6 py-2 bg_pri1 rounded"
+        className="bg_pri1 rounded px-6 py-2"
         text={'En عربى සිං'}
         title="set language"
         onClick={() => setGlobalState({ openLangPopUp: true })}
       />
       <ActionBtn
         dataName="LinkSettings"
-        className="px-6 py-2 bg_pri1 rounded"
+        className="bg_pri1 rounded px-6 py-2"
         text="Settings"
         title="set theme, font size"
         onClick={() => setGlobalState({ openSettingsPopUp: true })}
@@ -28,8 +28,8 @@ const MobileHeaderNavFooter: React.FC<{}> = () => {
 }
 
 const __sidePopupContent = () => (
-  <div className="h-screen relative overflow-scroll pb-8">
-    <div className="py-4 px-8 flex">
+  <div className="relative h-screen overflow-scroll">
+    <div className="flex py-4 px-8">
       <Logo />
     </div>
     <div className="ml-8">
@@ -58,7 +58,7 @@ const __sidePopupContent = () => (
           href={'/platform'}
         />
       </div>
-      <div className="mt-4 mb-1 text_nut4 text-xs">Content</div>
+      <div className="text_nut4 mt-4 mb-1 text-xs">Content</div>
       <div className="my-1">
         <ActionLink
           dataName="LinkPublishers"
@@ -91,7 +91,7 @@ const __sidePopupContent = () => (
           href={'/publishers'}
         />
       </div>
-      <div className="mt-4 mb-1 text_nut4 text-xs">Helpful</div>
+      <div className="text_nut4 mt-4 mb-1 text-xs">Helpful</div>
       <div className="my-1">
         <ActionLink
           dataName="LinkAbout"
@@ -151,10 +151,10 @@ const MobileToggleMenu = ({ setModelOpen }) => {
       <button
         onClick={() => setModelOpen()}
         type="button"
-        className="text_nut5 hover:text_nut6 focus:outline-none focus:text_nut6"
+        className="text_nut5 hover:text_nut6 focus:text_nut6 relative z-30 -mx-2 cursor-pointer p-1.5 focus:outline-none"
         aria-label="toggle menu"
       >
-        <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
+        <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
           <path
             fillRule="evenodd"
             d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"

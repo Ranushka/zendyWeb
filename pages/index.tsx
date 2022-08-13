@@ -72,7 +72,7 @@ const Home: React.FC = () => {
       >
         <SearchForm id="mainSearch" />
       </section>
-      <div className="bg_white pt-20" />
+      <div className="bg_white pt-12 md:pt-20" />
       <SubTitle
         title={trans('section1')}
         linkText={trans('see_all')}

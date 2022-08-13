@@ -1,40 +1,48 @@
 import React from 'react'
 import { ActionLink } from 'components/atoms'
 import { getRandomColor } from 'helpers/utils'
+import classNames from 'classnames'
 
 const PersonalizedDataItems = ({ data }) => {
   return (
-    <div className="m-auto flex max-w-7xl flex-wrap justify-center">
-      {data.length &&
-        data.map(({ facetLabel, url }, key) => {
-          return (
-            <ActionLink
-              dataName="CategoriesMenuItem"
-              className="flex items-center justify-center text-center"
-              key={key}
-              text={textWrapper(facetLabel)}
-              href={url}
-            />
-          )
-        })}
+    <div className="px-4 text-center">
+      <div className="m-auto flex max-w-6xl flex-wrap md:justify-center">
+        {data.length &&
+          data.map(({ facetLabel, url }, key) => {
+            return (
+              <ActionLink
+                dataName="CategoriesMenuItem"
+                className="flex items-center justify-center text-center"
+                key={key}
+                text={textWrapper(facetLabel)}
+                href={url}
+              />
+            )
+          })}
+      </div>
     </div>
   )
 }
+
 const textWrapper = (facetLabel) => {
   const randC = getRandomColor(facetLabel)
 
   return (
     <div
-      className="bg_white my-2 mx-2 rounded-md border px-6 py-2 text-base capitalize  hover:shadow-sm"
+      className={classNames(
+        'bg_white my-1 mx-1 px-2 py-1 md:mx-2 md:my-2 md:px-6 md:py-2',
+        'rounded-md border capitalize  hover:shadow-sm',
+        'text-sm md:text-base'
+      )}
       style={{
-        maxWidth: 180,
-        minWidth: 120,
+        maxWidth: 210,
+        minWidth: 100,
         color: `hsl(${randC}, 24%, 40%)`,
         borderColor: `hsl(${randC}, 24%, 90%)`,
         backgroundColor: `hsl(${randC}, 24%, 96%)`
       }}
     >
-      <div className="line-clamp-2">{facetLabel}</div>
+      <div className="line-clamp-1 ">{facetLabel}</div>
     </div>
   )
 }

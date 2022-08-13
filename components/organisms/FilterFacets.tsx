@@ -13,7 +13,7 @@ import useSearchResults from 'fetchHooks/useSearchResults'
 
 const __searchFiltersLoading = () => {
   return [1, 2, 3, 4].map((id) => (
-    <article key={'skeletonSearchResult' + id} className="mw__4 ml__0">
+    <article key={'skeletonSearchResult' + id} className="mb-6">
       <Skeleton height={30} />
       <Skeleton height={14} count={8} />
     </article>

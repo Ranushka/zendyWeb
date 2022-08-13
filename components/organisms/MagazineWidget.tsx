@@ -5,14 +5,14 @@ import useGetMagazines from 'fetchHooks/useGetMagazines'
 
 type Props = {}
 
-const Magazines: React.FC<Props> = () => {
+const MagazineWidget: React.FC<Props> = () => {
   const { data } = useGetMagazines()
   const magazinesData = get(data, 'data.attributes.common.magazines', null)
 
   if (!magazinesData) return <div>loading...</div>
 
   return (
-    <section className="md:container p-4 text-center whitespace-nowrap md:whitespace-normal overflow-y-scroll hideScrollBar">
+    <section className="hideScrollBar overflow-y-scroll whitespace-nowrap p-4 text-center md:container md:whitespace-normal">
       {magazinesData.slice(0, 9).map(({ title, image, href }, id) => (
         <CardMagazine
           key={`magazineItem${id}`}
@@ -26,4 +26,4 @@ const Magazines: React.FC<Props> = () => {
   )
 }
 
-export default Magazines
+export default MagazineWidget

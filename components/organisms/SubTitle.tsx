@@ -6,11 +6,11 @@ const SubTitle: React.FC<SubTitleProps> = (props) => {
   const { title, linkHref = '#', linkText = '' } = props
 
   return (
-    <section className="container pt-16 pb-4">
-      <div className="flex justify-center items-center">
-        <div className="text-lg font-serif text_nut5 px-4">{title}</div>/
+    <section className="container px-6 pt-8 pb-0 md:pb-4 md:pt-16">
+      <div className="flex items-center md:justify-center">
+        <div className="text_nut5 pr-4 font-serif text-lg">{title}</div>/
         {linkText && (
-          <strong className={'px-4'}>
+          <strong className="whitespace-nowrap px-4">
             <ActionLink dataName="SubTitle" text={linkText} href={linkHref} />
           </strong>
         )}
