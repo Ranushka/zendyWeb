@@ -9,6 +9,12 @@ import SearchResultAuthors from 'components/organisms/SearchResultAuthors'
 import SearchResultItemAbstract from 'components/organisms/SearchResultItemAbstract'
 import SearchResultItemActions from 'components/organisms/SearchResultItemActions'
 
+/* __DOC
+
+SearchResultItem
+
+DOC__ */
+
 const SearchResultItem: React.FC<SearchResultItemProps> = (data) => {
   const {
     resultId,
@@ -25,9 +31,9 @@ const SearchResultItem: React.FC<SearchResultItemProps> = (data) => {
   // console.log('--data-->', data)
 
   return (
-    <article className="flex items-center rounded-md mb-4 max-w-4xl bg_white shadow-sm hover:shadow">
-      <div className="py-4 px-6 w-full block sm:flex">
-        <section className="w-full sm:w-9/12 block">
+    <article className="bg_white mb-4 flex max-w-4xl items-center rounded-md shadow-sm hover:shadow">
+      <div className="block w-full py-4 px-6 sm:flex">
+        <section className="block w-full sm:w-9/12">
           <SearchResultTitle {...data} />
           <SearchResultItemSource
             journalTitle={journalTitle}
@@ -38,7 +44,7 @@ const SearchResultItem: React.FC<SearchResultItemProps> = (data) => {
           <SearchResultSubjects subjects={subjects} />
           <SearchResultAuthors authors={authors} />
         </section>
-        <section className="pl-0 sm:pl-8 w-full sm:w-3/12">
+        <section className="w-full pl-0 sm:w-3/12 sm:pl-8">
           <SearchResultItemActions
             link={zendyLink}
             resultId={resultId}

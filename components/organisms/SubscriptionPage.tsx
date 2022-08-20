@@ -28,7 +28,7 @@ const SubscriptionPage: React.FC<{}> = () => {
   return (
     <div>
       <div dangerouslySetInnerHTML={{ __html: title }} />
-      <div className="flex justify-center mt-10 mb-8 text_nut5">
+      <div className="text_nut5 mt-10 mb-8 flex justify-center">
         <Switch
           id="selectPlan"
           name="selectPlan"
@@ -37,38 +37,38 @@ const SubscriptionPage: React.FC<{}> = () => {
           leftLabel={
             <span
               className={classnames(
-                'h3 px-4 text-2xl font-serif',
+                'h3 px-4 font-serif text-2xl',
                 isYearlyPlan && 'text_pri6'
               )}
             >
-              {planTypes.yearly.name}
+              {planTypes?.yearly?.name}
             </span>
           }
           rightLabel={
             <span
               className={classnames(
-                'h3 px-4 text-2xl font-serif',
+                'h3 px-4 font-serif text-2xl',
                 !isYearlyPlan && 'text_pri6'
               )}
             >
-              {planTypes.monthly.name}
+              {planTypes?.monthly?.name}
             </span>
           }
         />
       </div>
 
-      <div className="flex justify-center flex-col-reverse md:flex-row items-center max-w-2xl m-auto px-4">
+      <div className="m-auto flex max-w-2xl flex-col-reverse items-center justify-center px-4 md:flex-row">
         <WhatWeOffer />
         <div className="mx-4" />
 
         <Pricing
-          name={currentPlan.name}
-          price={currentPlan.price}
-          currency={currentPlan.currency}
-          paying={currentPlan.paying}
-          offer={currentPlan.offer}
-          fullPrice={currentPlan.fullPrice}
-          interval={currentPlan.interval}
+          name={currentPlan?.name}
+          price={currentPlan?.price}
+          currency={currentPlan?.currency}
+          paying={currentPlan?.paying}
+          offer={currentPlan?.offer}
+          fullPrice={currentPlan?.fullPrice}
+          interval={currentPlan?.interval}
         />
       </div>
 

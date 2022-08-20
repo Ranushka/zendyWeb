@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { PaymentRequestButtonElement, useStripe } from '@stripe/react-stripe-js'
 
+/* __DOC
+
+StripePaymentRequestBtn
+
+DOC__ */
+
 type Props = {
   price?: string
 }
@@ -32,7 +38,7 @@ const StripePaymentRequestBtn: React.FC<Props> = ({ price }) => {
 
   if (paymentRequest) {
     return (
-      <div className="py-4 pt__0">
+      <div className="pt__0 py-4">
         <span>Subscribe with google pay</span>
         <PaymentRequestButtonElement options={{ paymentRequest }} />
       </div>

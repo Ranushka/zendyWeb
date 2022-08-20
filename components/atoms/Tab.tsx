@@ -3,6 +3,12 @@ import * as NextLink from 'next/link'
 import classnames from 'classnames'
 import { useRouter } from 'next/router'
 
+/* __DOC
+
+<Tab href={'#'}>Tab Content</Tab>
+
+DOC__ */
+
 type Props = {
   href: string | Object
   children: React.ReactNode

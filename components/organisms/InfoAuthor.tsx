@@ -3,13 +3,19 @@ import Skeleton from 'react-loading-skeleton'
 
 import useInfoAuthor from 'fetchHooks/useInfoAuthor'
 
+/* __DOC
+
+InfoAuthor
+
+DOC__ */
+
 const ResultsWithData = ({ data }) => {
   var { orcidDetails, firstName, lastName } = data
   var { orcid, organizations, education } = orcidDetails
 
   return (
     <section className="container">
-      <div className="bg_nut1 rounded-md px-8 py-8 mt-8 mx-4 flex justify-between">
+      <div className="bg_nut1 mx-4 mt-8 flex justify-between rounded-md px-8 py-8">
         <div className="">
           <div className="mb-4">
             <small className="mute">Name</small>
@@ -26,7 +32,7 @@ const ResultsWithData = ({ data }) => {
           <div>
             <small className="mute">Organizations</small>
             {organizations.map(({ organization }, key) => (
-              <div key={key} className="py-2 pb__0">
+              <div key={key} className="pb__0 py-2">
                 {organization}
               </div>
             ))}
@@ -37,7 +43,7 @@ const ResultsWithData = ({ data }) => {
           <div>
             <small className="mute">Education</small>
             {education.map(({ organization, startYear }, key) => (
-              <div key={key} className="py-2 pb__0">
+              <div key={key} className="pb__0 py-2">
                 {organization}-{startYear}
               </div>
             ))}
@@ -50,7 +56,7 @@ const ResultsWithData = ({ data }) => {
 
 const __dataLoading = () => {
   return (
-    <div className="container py-8 px-8 pb__0">
+    <div className="pb__0 container py-8 px-8">
       <Skeleton height={10} count={6} />
     </div>
   )

@@ -5,6 +5,12 @@ import Skeleton from 'react-loading-skeleton'
 import useInfoPublisher from 'fetchHooks/useInfoPublisher'
 // import SearchFormNarrow from 'components/organisms/SearchFormNarrow'
 
+/* __DOC
+
+InfoPublisher
+
+DOC__ */
+
 const ResultsWithData = ({ extract, title, description }) => {
   return (
     <section className="container">

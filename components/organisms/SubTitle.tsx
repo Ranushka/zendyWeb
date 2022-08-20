@@ -2,6 +2,12 @@ import React from 'react'
 import { ActionLink } from 'components/atoms'
 import { SubTitleProps } from 'types'
 
+/* __DOC
+
+SubTitle
+
+DOC__ */
+
 const SubTitle: React.FC<SubTitleProps> = (props) => {
   const { title, linkHref = '#', linkText = '' } = props
 

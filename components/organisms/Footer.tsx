@@ -2,7 +2,9 @@ import React from 'react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { Logo, ButtonFab } from 'components/atoms'
-import { PrivacyList, ExploreList, NewsList } from './FooterCommon'
+import FooterPrivacyList from './FooterPrivacyList'
+import FooterExploreList from './FooterExploreList'
+import FooterNewsList from './FooterNewsList'
 import MobileNav from './FooterMobileNav'
 import {
   IconSocialLinkedIn,
@@ -12,7 +14,7 @@ import {
 } from 'components/icons'
 
 const FooterSectionTitle: React.FC<any> = ({ title }) => {
-  return <p className="mb-4 text-base font-serif text_nut5">{title}</p>
+  return <p className="text_nut5 mb-4 font-serif text-base">{title}</p>
 }
 
 const Footer: React.FC<{}> = () => {
@@ -21,7 +23,7 @@ const Footer: React.FC<{}> = () => {
   return (
     <>
       <svg
-        className="block h-12 md:h-16 lg:h-24 text_white w-full"
+        className="text_white block h-12 w-full md:h-16 lg:h-24"
         preserveAspectRatio="none"
         viewBox="0 0 4605 356"
         fill="none"
@@ -33,8 +35,8 @@ const Footer: React.FC<{}> = () => {
         />
       </svg>
       <footer className="bg_white">
-        <div className="container md:flex justify-between px-5 py-10">
-          <section className="max-w-xs pr-4 mb-8 md:mb-3">
+        <div className="container justify-between px-5 py-10 md:flex">
+          <section className="mb-8 max-w-xs pr-4 md:mb-3">
             <Logo className="flex" />
             <div className="small mt-4">{trans('about_text')}</div>
           </section>
@@ -43,12 +45,12 @@ const Footer: React.FC<{}> = () => {
             <FooterSectionTitle title={trans('explore_title')} />
 
             <div className="block pb-4">
-              <ExploreList />
+              <FooterExploreList />
             </div>
 
             <FooterSectionTitle title={trans('reach_title')} />
 
-            <div className="flex mb-8 md:mb-3">
+            <div className="mb-8 flex md:mb-3">
               <ButtonFab
                 dataName="FooterSocialFacebook"
                 classNames="mr-6 scale-125"
@@ -78,19 +80,19 @@ const Footer: React.FC<{}> = () => {
 
           <section className="max-w-xs pr-4">
             <FooterSectionTitle title={trans('news_title')} />
-            <NewsList />
+            <FooterNewsList />
           </section>
         </div>
 
-        <div className="container px-5 pb-28 md:pb-10 justify-between md:flex">
-          <div className="my-4 md:my-0 block md:flex items-center">
-            <small className="mr-4 text-xs block pb-4 md:pb-0 text_nut5">
+        <div className="container justify-between px-5 pb-28 md:flex md:pb-10">
+          <div className="my-4 block items-center md:my-0 md:flex">
+            <small className="text_nut5 mr-4 block pb-4 text-xs md:pb-0">
               {trans('rights_text')}
             </small>
-            <PrivacyList />
+            <FooterPrivacyList />
           </div>
           <div>
-            <div className="relative w-28 h-6">
+            <div className="relative h-6 w-28">
               <Image
                 alt="zendy stripe payment logo"
                 src="/img/powered_by_stripe.svg"

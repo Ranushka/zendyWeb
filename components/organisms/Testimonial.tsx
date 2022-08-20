@@ -1,5 +1,11 @@
 import React from 'react'
 
+/* __DOC
+
+ <Testimonial key={`uspItem`} quote={'quote'} name={'name'} title={'title'} />
+
+DOC__ */
+
 type Props = {
   quote: string
   name: string
@@ -14,7 +20,7 @@ const Testimonial: React.FC<Props> = (props) => {
   } = props
 
   return (
-    <div className="bg_white shadow rounded my-3 m-auto p-3 max-w-md md:m-3">
+    <div className="bg_white m-auto my-3 max-w-md rounded p-3 shadow md:m-3">
       <p className="color__nut7">{quote}</p>
 
       <p className="mt-4">{name}</p>

@@ -3,6 +3,12 @@ import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import { Logo } from 'components/atoms'
 
+/* __DOC
+
+LoginRegisterTemplate
+
+DOC__ */
+
 type Props = {
   isSearchPage?: boolean
   children?: React.ReactNode
@@ -18,12 +24,12 @@ const LoginRegisterTemplate: React.FC<Props> = ({ children }) => {
   }
 
   return (
-    <main className="text_nut6 bg_nut0 text-sm w-full h-full flex absolute justify-center items-center">
-      <div className="max-w-md w-full -mt-10 pt-8">
+    <main className="text_nut6 bg_nut0 absolute flex h-full w-full items-center justify-center text-sm">
+      <div className="-mt-10 w-full max-w-md pt-8">
         <Logo />
-        <div className="bg_white rounded-lg shadow mx-8 p-8 mt-8">
+        <div className="bg_white mx-8 mt-8 rounded-lg p-8 shadow">
           {children}
-          <small className="block mt-8">
+          <small className="mt-8 block">
             Having issues? <a>support@zendy.io</a>
           </small>
         </div>

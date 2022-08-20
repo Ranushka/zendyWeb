@@ -4,6 +4,12 @@ import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import { analyticsClickEvent } from 'analytics/events'
 
+/* __DOC
+
+<ActionLink dataName="ResendOTP" text={'Resend OTP'} href={'/authenticate'} type="link__small" />
+
+DOC__ */
+
 type Props = {
   type?: 'link' | 'link__title' | 'link__small'
   icon?: React.ReactNode

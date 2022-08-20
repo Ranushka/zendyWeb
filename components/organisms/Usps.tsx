@@ -42,11 +42,12 @@ type Props = {}
 
 const Usps: React.FC<Props> = () => {
   return (
-    <section className="max-w-6xl text-center mx-auto pt-4">
-      <h2 className="py-8 px-4 text-center text-3xl text_nut5 font-serif">
+    <section className="mx-auto max-w-6xl pt-4 text-center">
+      <h2 className="text_nut5 py-8 px-4 text-center font-serif text-3xl">
         Why Zendy plus ?
       </h2>
       <div className="flex flex-wrap justify-center">
+        {/* {JSON.stringify(data)} */}
         {data.map((item, id) => (
           <UspItem
             key={`uspItem${id}`}

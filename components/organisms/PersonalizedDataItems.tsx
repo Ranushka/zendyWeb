@@ -3,11 +3,17 @@ import { ActionLink } from 'components/atoms'
 import { getRandomColor } from 'helpers/utils'
 import classNames from 'classnames'
 
+/* __DOC
+
+<PersonalizedDataItems data={[{facetLabel: 'test one', url: '/'}, {facetLabel: 'test two', url: '/'}]} />
+
+DOC__ */
+
 const PersonalizedDataItems = ({ data }) => {
   return (
     <div className="px-4 text-center">
       <div className="m-auto flex max-w-6xl flex-wrap md:justify-center">
-        {data.length &&
+        {data?.length &&
           data.map(({ facetLabel, url }, key) => {
             return (
               <ActionLink

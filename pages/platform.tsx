@@ -14,8 +14,8 @@ import {
 
 import BaseTemplate from 'components/templates/BaseTemplate'
 
-const GetStartedWithUs = dynamic(() =>
-  import('components/organisms/GetStartedWithUs')
+const GetStartedWithUs = dynamic(
+  () => import('components/organisms/GetStartedWithUs')
 )
 
 const Platform: React.FC = () => {

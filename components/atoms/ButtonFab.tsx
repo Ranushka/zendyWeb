@@ -4,6 +4,12 @@ import classnames from 'classnames'
 import { ActionLink } from 'components/atoms'
 import { analyticsClickEvent } from 'analytics/events'
 
+/* __DOC
+
+<ButtonFab dataName="FooterSocialFacebook" classNames="mr-6 scale-125" icon={<IconSocialFacebook />} small />
+
+DOC__ */
+
 type Props = {
   title?: string
   icon?: React.ReactNode

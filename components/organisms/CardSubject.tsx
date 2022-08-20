@@ -1,6 +1,12 @@
 import React from 'react'
 import { ActionLink } from 'components/atoms'
 
+/* __DOC
+
+CardSubject
+
+DOC__ */
+
 type Props = {
   href: string
   title: React.ReactNode
@@ -13,7 +19,7 @@ const CardSubject: React.FC<Props> = (props) => {
     <ActionLink
       dataName="CardSubject"
       href={href}
-      className="inline-block bg_white mx-2 my-2 py-2 px-3 rounded-md shadow"
+      className="bg_white mx-2 my-2 inline-block rounded-md py-2 px-3 shadow"
     >
       <>{title}</>
     </ActionLink>

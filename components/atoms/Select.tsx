@@ -1,6 +1,12 @@
 import React from 'react'
 import classnames from 'classnames'
 
+/* __DOC
+
+Select
+
+DOC__ */
+
 type Props = {
   label?: string
   name?: string
@@ -35,26 +41,27 @@ const Select: React.FC<Props> = ({
       )}
     >
       {label && (
-        <label htmlFor={id} className="pb-1 pt-4 block">
+        <label htmlFor={id} className="block pb-1 pt-4">
           {label}
         </label>
       )}
 
       <select
         className={classnames(
-          'h-10 appearance-none w-full bg_nut0 border border_nut4 py-2 pl-3 pr-6 rounded-md block',
-          small && 'border border_nut3 px-2 py-1 h-8 text-xs'
+          'bg_nut0 border_nut4 block h-10 w-full appearance-none rounded-md border py-2 pl-3 pr-6',
+          small && 'border_nut3 h-8 border px-2 py-1 text-xs'
         )}
         id={id}
         name={name}
         onChange={onChange}
         value={value}
       >
-        {data.map((item) => (
-          <option key={item} value={item}>
-            {item}
-          </option>
-        ))}
+        {data &&
+          data.map((item) => (
+            <option key={item} value={item}>
+              {item}
+            </option>
+          ))}
       </select>
     </div>
   )

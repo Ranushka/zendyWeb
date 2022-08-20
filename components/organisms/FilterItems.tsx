@@ -5,6 +5,12 @@ import countFormatted from 'helpers/countFormatted'
 import labelMapping from 'helpers/labelMapping'
 import { CheckBox } from 'components/atoms'
 
+/* __DOC
+
+FilterItems
+
+DOC__ */
+
 const checkIsChecked = (str, facetLabel) => {
   const hasFound =
     str && str.split(',').find((element) => element === facetLabel)
@@ -16,7 +22,9 @@ const FilterItems = ({ items, groupId }) => {
   const router = useRouter()
   const queryString = router.query
 
-  return items.map((item, id) => {
+  if (!items) return <></>
+
+  return items?.map((item, id) => {
     const facetLabel = item.facetLabel
 
     const checked = checkIsChecked(queryString[groupId], facetLabel)
@@ -60,7 +68,7 @@ const FilterItems = ({ items, groupId }) => {
           label={
             <span>
               {labelMapping(item.facetLabel)}
-              <small className="ml-2 text_nut4">
+              <small className="text_nut4 ml-2">
                 ({countFormatted(item.count)})
               </small>
             </span>

@@ -1,5 +1,11 @@
 import React from 'react'
 
+/* __DOC
+
+Switch
+
+DOC__ */
+
 type Props = {
   rightLabel: React.ReactNode
   leftLabel: React.ReactNode
@@ -23,10 +29,10 @@ const Switch: React.FC<Props> = ({
     <div className={className}>
       <label
         htmlFor={id}
-        className="flex items-center justify-center w-full cursor-pointer"
+        className="flex w-full cursor-pointer items-center justify-center"
       >
         {leftLabel}
-        <div className="flex items-center cursor-pointer mx-4">
+        <div className="mx-4 flex cursor-pointer items-center">
           <div className="relative">
             <input
               className="sr-only"
@@ -36,8 +42,8 @@ const Switch: React.FC<Props> = ({
               id={id}
               onChange={() => onChange()}
             />
-            <div className="block bg_nut5 w-10 h-6 rounded-full"></div>
-            <div className="dot absolute left-1 top-1 bg_white w-4 h-4 rounded-full transition"></div>
+            <div className="bg_nut5 block h-6 w-10 rounded-full"></div>
+            <div className="dot bg_white absolute left-1 top-1 h-4 w-4 rounded-full transition"></div>
           </div>
         </div>
         {rightLabel}

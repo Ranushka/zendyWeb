@@ -13,6 +13,12 @@ import { focusToSearchInput } from 'helpers/utils'
 // import { setPersonalizedKeywords } from 'helpers/localStorage'
 // import classNames from 'classnames'
 
+/* __DOC
+
+<SearchForm id="test" />
+
+DOC__ */
+
 type Props = {
   id: string
 }

@@ -4,6 +4,12 @@ import lockBody from 'helpers/lockBody'
 import { IconClear } from 'components/icons'
 import { ButtonFab } from 'components/atoms'
 
+/* __DOC
+
+SidePopup
+
+DOC__ */
+
 type Props = {
   content: React.ReactNode
   small?: boolean
@@ -72,23 +78,21 @@ const SidePopup: React.FC<Props> = ({
     buttonStyleMapping(openLocation)
   )
 
+  if (!open) return <></>
+
   return (
-    open && (
-      <>
-        <div className={contentWrapperStyles}>
-          <section className={innerContentStyles}>
-            <ButtonFab
-              dataName="SidePopupClose"
-              classNames={buttonStyles}
-              onClick={() => closeFunc(false)}
-              icon={<IconClear className="scale-125" />}
-            />
-            <span className="scale-125"></span>
-            {content}
-          </section>
-        </div>
-      </>
-    )
+    <div className={contentWrapperStyles}>
+      <section className={innerContentStyles}>
+        <ButtonFab
+          dataName="SidePopupClose"
+          classNames={buttonStyles}
+          onClick={() => closeFunc(false)}
+          icon={<IconClear className="scale-125" />}
+        />
+        <span className="scale-125"></span>
+        {content}
+      </section>
+    </div>
   )
 }
 

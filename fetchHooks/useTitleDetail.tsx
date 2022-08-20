@@ -9,7 +9,7 @@ const fetcher = (url: string) => {
 
 const useTitleDetail = () => {
   const router = useRouter()
-  const queryId = router.query.id.toString()
+  const queryId = router?.query?.id?.toString()
 
   const url = `/api/details?id=${queryId}`
 

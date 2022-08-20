@@ -4,6 +4,12 @@ import countFormatted from 'helpers/countFormatted'
 import labelMapping from 'helpers/labelMapping'
 import { CheckBox } from 'components/atoms'
 
+/* __DOC
+
+FilterItem
+
+DOC__ */
+
 const FilterItem = ({ id, facetLabel, onClick, checked, count = null }) => {
   return (
     <div
@@ -21,7 +27,7 @@ const FilterItem = ({ id, facetLabel, onClick, checked, count = null }) => {
           <span>
             {labelMapping(facetLabel)}
             {count && (
-              <small className="ml-2 text_nut4">
+              <small className="text_nut4 ml-2">
                 ({countFormatted(count)})
               </small>
             )}

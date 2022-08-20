@@ -4,12 +4,14 @@ type Props = {
   price: number
   large?: boolean
 }
+/* __DOC
+
+<Price price={450.05} />
+
+DOC__ */
 
 const Price: React.FC<Props> = ({ large, price }) => {
-  const fullAmount = price
-    .toFixed(2)
-    .toString()
-    .split('.')
+  const fullAmount = price.toFixed(2).toString().split('.')
   const priceNumber = fullAmount[0]
   const priceFloat = fullAmount[1]
   const currency = 'AED'

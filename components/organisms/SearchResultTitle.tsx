@@ -6,6 +6,12 @@ import { generateTitleUrlPath } from 'helpers/utils'
 import IconOa from 'components/icons/IconOa'
 import useGlobal from 'context/GlobalContext'
 
+/* __DOC
+
+SearchResultTitle
+
+DOC__ */
+
 const SearchResultTitle: React.FC<SearchResultItemProps> = (data) => {
   const {
     resultId,
@@ -22,25 +28,25 @@ const SearchResultTitle: React.FC<SearchResultItemProps> = (data) => {
   return (
     <div className="block">
       {selectionMode && (
-        <div className="-ml-9 pl-2 py-2 absolute shadow rounded-md bg_white">
+        <div className="bg_white absolute -ml-9 rounded-md py-2 pl-2 shadow">
           <CheckBox className={''} id={'it_id' + resultId} />
         </div>
       )}
       <div className="block">
-        <small className="block text_nut5">
+        <small className="text_nut5 block">
           {publicationType} - {publicationYear}
           {!isPremium && (
-            <IconOa className="inline-block h-5 relative -top-1" />
+            <IconOa className="relative -top-1 inline-block h-5" />
           )}
-          {downloadLink && <span className="font-bold text_nut4">PDF</span>}
+          {downloadLink && <span className="text_nut4 font-bold">PDF</span>}
         </small>
         <ActionLink
           dataName="SearchResultTitle"
-          text={striptags(title.toString())}
+          text={striptags(title?.toString())}
           href="/title/[id]"
           as={`/title/${titleId}`}
           type="link__title"
-          className="inline-block text-gray-700 font-serif"
+          className="inline-block font-serif text-gray-700"
         />
       </div>
     </div>

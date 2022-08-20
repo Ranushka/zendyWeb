@@ -2,6 +2,12 @@ import React from 'react'
 import classnames from 'classnames'
 import { analyticsClickEvent } from 'analytics/events'
 
+/* __DOC
+
+<ActionBtn dataName="advanceSearch" text="Search" href={'#'} type="btn__primary" className="ml-2" />
+
+DOC__ */
+
 type Props = {
   type?: 'btn__small' | 'btn__default' | 'btn__secondary' | 'btn__primary'
   icon?: React.ReactNode

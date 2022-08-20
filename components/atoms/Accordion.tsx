@@ -8,6 +8,12 @@ type Props = {
   open?: boolean
 }
 
+/* __DOC
+
+  <Accordion id={'Accordion'} open={true} title={ <h4 className="text-sm font-serif font-light w-full">Title</h4> } content={'Accordion content'} />
+  
+DOC__ */
+
 /**
  * Component for showing details of the user.
  *
@@ -31,7 +37,7 @@ const Accordion: React.FC<Props> = (props) => {
         id={id}
       />
       <label
-        className="flex justify-between mb-2 cursor-pointer select-none"
+        className="mb-2 flex cursor-pointer select-none justify-between"
         htmlFor={id}
       >
         {title} <IconArrowUp />

@@ -5,6 +5,12 @@ import { Input, ActionBtn, Price } from 'components/atoms'
 import { DiscountCodeBlock, SecurityStripBlock } from 'components/organisms'
 import useDiscountCode from 'fetchHooks/useDiscountCode'
 
+/* __DOC
+
+StripePaymentElements
+
+DOC__ */
+
 const CARD_OPTIONS = {
   hidePostalCode: true,
   style: {
@@ -124,9 +130,9 @@ const StripePaymentElements: React.FC<Props> = (props) => {
 
           <div className="mt-4">
             <label>
-              <span className="py-1 pt__0">Card info</span>
+              <span className="pt__0 py-1">Card info</span>
               <CardElement
-                className="w-full rounded-md border border_nut4 px-4 py-3 outline-blue-200 outline-1 outline-offset-4 appearance-none hover:shadow-md active:shadow-md focus:shadow-md bg_nut0"
+                className="border_nut4 bg_nut0 w-full appearance-none rounded-md border px-4 py-3 outline-1 outline-offset-4 outline-blue-200 hover:shadow-md focus:shadow-md active:shadow-md"
                 options={CARD_OPTIONS}
                 onChange={(e) => {
                   if (e.error) {
@@ -142,10 +148,10 @@ const StripePaymentElements: React.FC<Props> = (props) => {
 
           <DiscountCodeBlock />
         </fieldset>
-        <div className="p-8 bg_nut1">
-          <div className="max-w-xs mx-auto">
+        <div className="bg_nut1 p-8">
+          <div className="mx-auto max-w-xs">
             {data && data.percent_off && (
-              <div className="py-2 flex justify-between">
+              <div className="flex justify-between py-2">
                 <p>Coupon discount</p>
                 <div className="flex">
                   (- <Price price={getDiscountAmount} />)
@@ -153,16 +159,16 @@ const StripePaymentElements: React.FC<Props> = (props) => {
               </div>
             )}
 
-            <div className="py-2 flex justify-between">
+            <div className="flex justify-between py-2">
               <p>{name}</p>
               <div className="flex">
                 <Price price={input.customDonation + getDiscountAmount} />
               </div>
             </div>
 
-            <div className="border-t border_nut3 my-2" />
+            <div className="border_nut3 my-2 border-t" />
 
-            <div className="py-2 flex justify-between mb-4">
+            <div className="mb-4 flex justify-between py-2">
               <p>Due today</p> <div className="flex__left"></div>
               <Price large price={input.customDonation - getDiscountAmount} />
             </div>

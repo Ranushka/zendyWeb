@@ -2,6 +2,12 @@ import React from 'react'
 import Image from 'next/image'
 import { ActionLink } from 'components/atoms'
 
+/* __DOC
+
+CardCurated
+
+DOC__ */
+
 type Props = {
   href: string
   imgUrl: string
@@ -17,22 +23,22 @@ const CardCurated: React.FC<Props> = (props) => {
     <ActionLink
       dataName="CardCurated"
       href={href}
-      className="inline-block cursor-pointer text-left mx-2"
+      className="mx-2 inline-block cursor-pointer text-left"
     >
-      <div className="overflow-hidden shadow rounded-lg h-90 w-80 m-auto whitespace-pre-wrap">
-        <div className="w-full block h-full">
-          <div className="relative w-full h-52">
+      <div className="h-90 m-auto w-80 overflow-hidden whitespace-pre-wrap rounded-lg shadow">
+        <div className="block h-full w-full">
+          <div className="relative h-52 w-full">
             <Image
               priority
-              alt={title.toString()}
-              src={imgUrl}
+              alt={title?.toString()}
+              src={imgUrl || '/'}
               layout="fill"
               objectFit="cover"
               quality={100}
             />
           </div>
           <div className="bg_white w-full p-4">
-            <p className="text-xl font-medium mb-2 font-serif">{title}</p>
+            <p className="mb-2 font-serif text-xl font-medium">{title}</p>
             <p className="text_nut5 line-clamp-4">{content}</p>
           </div>
         </div>

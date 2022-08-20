@@ -7,11 +7,10 @@ import { useRouter } from 'next/router'
 
 import { setPersonalizedKeywords } from 'helpers/localStorage'
 import { SubTitle, SearchForm } from 'components/organisms'
-import {
-  JournalPersonalized,
-  SubjectPersonalized,
-  PublishersPersonalized
-} from 'components/organisms/PersonalizedContent'
+import PersonalizedJournal from 'components/organisms/PersonalizedJournal'
+import PersonalizedPublishers from 'components/organisms/PersonalizedPublishers'
+import PersonalizedSubject from 'components/organisms/PersonalizedSubject'
+
 import {
   commonMessages,
   curatedMessages,
@@ -79,9 +78,9 @@ const Home: React.FC = () => {
         linkHref="/news"
       />
       <Curated key="curated" />
-      <JournalPersonalized />
-      <PublishersPersonalized />
-      <SubjectPersonalized />
+      <PersonalizedPublishers />
+      <PersonalizedJournal />
+      <PersonalizedSubject />
 
       {/* <SubTitle
         title={trans('section2')}

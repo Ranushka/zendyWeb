@@ -4,6 +4,12 @@ import { ActionLink } from 'components/atoms'
 import classnames from 'classnames'
 import { CardMagazineProps } from 'types'
 
+/* __DOC
+
+CardMagazine
+
+DOC__ */
+
 const CardMagazine: React.FC<CardMagazineProps> = (props) => {
   const { href, img, title, content, className } = props
   const __finalClassNames = classnames(
@@ -14,16 +20,16 @@ const CardMagazine: React.FC<CardMagazineProps> = (props) => {
   return (
     <ActionLink dataName="CardMagazine" href={href}>
       <div className={__finalClassNames}>
-        <div className="relative w-full h-64">
+        <div className="relative h-64 w-full">
           <Image
-            alt={title.toString()}
+            alt={title?.toString()}
             src={`/${img}`}
             layout="fill"
             objectFit="cover"
             quality={100}
           />
         </div>
-        <p className="px-3 mt-2">{title}</p>
+        <p className="mt-2 px-3">{title}</p>
         <small className="px-3">{content}</small>
       </div>
     </ActionLink>

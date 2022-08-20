@@ -8,6 +8,12 @@ import useRecommendation from 'fetchHooks/useRecommendation'
 import IconSearchHistory from 'components/icons/IconSearchHistory'
 import { setPersonalizedKeywords } from 'helpers/localStorage'
 
+/* __DOC
+
+SearchInput
+
+DOC__ */
+
 const prepSearchResultSuggestion = (data) => {
   return (
     data?.map((a) => {
@@ -16,7 +22,7 @@ const prepSearchResultSuggestion = (data) => {
   )
 }
 
-const Autocomplete = ({
+const SearchInput = ({
   id,
   searchInputRef,
   placeholder,
@@ -88,7 +94,7 @@ const Autocomplete = ({
     ]
 
     const filteredSuggestions = suggestionList.filter((item) => {
-      return item?.text?.toLowerCase().indexOf(searchText.toLowerCase()) > -1
+      return item?.text?.toLowerCase().indexOf(searchText?.toLowerCase()) > -1
     })
     const suggestionsToShow = filteredSuggestions.slice(0, 5)
 
@@ -235,4 +241,4 @@ const Autocomplete = ({
   )
 }
 
-export default Autocomplete
+export default SearchInput

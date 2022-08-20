@@ -2,6 +2,12 @@ import React from 'react'
 import classnames from 'classnames'
 import { analyticsClickEvent } from 'analytics/events'
 
+/* __DOC
+
+<Chip key="checkbox" id="checkbox" checked onClick={() => {}} text={"some checkbox"} dataName="FilterType" />
+
+DOC__ */
+
 type Props = {
   id?: string | number
   text?: string

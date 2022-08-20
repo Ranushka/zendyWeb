@@ -1,6 +1,12 @@
 import React from 'react'
 import classnames from 'classnames'
 
+/* __DOC
+
+<Input id="test-input" />
+
+DOC__ */
+
 type Props = {
   label?: string
   type?: 'text' | 'search' | 'email' | 'password' | 'number'
@@ -41,7 +47,7 @@ const Input: React.FC<Props> = ({
   return (
     <div className={classnames(block && 'block')}>
       {label && (
-        <label className="pb-1 pt-4 block" htmlFor={id}>
+        <label className="block pb-1 pt-4" htmlFor={id}>
           {label}
         </label>
       )}

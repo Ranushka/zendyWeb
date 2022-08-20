@@ -5,6 +5,12 @@ import { useSession } from 'next-auth/react'
 import routs from 'helpers/routs'
 import BaseTemplate from './BaseTemplate'
 
+/* __DOC
+
+LibraryTemplate
+
+DOC__ */
+
 type Props = {
   children?: React.ReactNode
 }
@@ -20,7 +26,7 @@ const LibraryTemplate: React.FC<Props> = ({ children }) => {
 
   return (
     <BaseTemplate>
-      <div className="px-4 max-w-4xl mx-auto min-h pt-10 mb-8">
+      <div className="min-h mx-auto mb-8 max-w-4xl px-4 pt-10">
         <ProfileTabs />
         {children}
       </div>

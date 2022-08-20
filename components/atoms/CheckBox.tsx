@@ -1,6 +1,12 @@
 import React, { ReactNode } from 'react'
 import classnames from 'classnames'
 
+/* __DOC
+
+<CheckBox className={''} id={'it_id'} />
+
+DOC__ */
+
 type Props = {
   label?: string | ReactNode
   name?: string
@@ -24,7 +30,7 @@ const CheckBox: React.FC<Props> = ({
     <label
       htmlFor={id}
       className={classnames(
-        'block cursor-pointer checkbox',
+        'checkbox block cursor-pointer',
         className && className
       )}
     >
@@ -38,7 +44,7 @@ const CheckBox: React.FC<Props> = ({
         value={value}
         onChange={() => onChange()}
       />
-      <div className="relative inline-block -top-px pr-2" />
+      <div className="relative -top-px inline-block pr-2" />
       {name && <span className="">{label}</span>}
     </label>
   )

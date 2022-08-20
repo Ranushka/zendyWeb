@@ -29,7 +29,7 @@ const AlphabetSearchList: React.FC<any> = ({ data, urlKey }) => {
   //   return result
   // }
 
-  const filteredList = data.filter((item) => {
+  const filteredList = data?.filter((item) => {
     return (
       item.facetLabel.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1
     )
@@ -38,7 +38,7 @@ const AlphabetSearchList: React.FC<any> = ({ data, urlKey }) => {
   return (
     <div>
       <div className="my-4">
-        <div className="max-w-xs mb-8">
+        <div className="mb-8 max-w-xs">
           <Input
             id="searchAlp"
             onChange={onSearchInputChange}
@@ -48,11 +48,11 @@ const AlphabetSearchList: React.FC<any> = ({ data, urlKey }) => {
         {/* {prepareAlphabets()} */}
       </div>
       <div className="columns-3">
-        {filteredList.map(({ facetLabel, count }, key) => {
+        {filteredList?.map(({ facetLabel, count }, key) => {
           const text = (
             <>
               {facetLabel}
-              <span className="text-xs text_nut4">
+              <span className="text_nut4 text-xs">
                 {` (${countFormatted(count)}) `}
               </span>
             </>
@@ -65,7 +65,7 @@ const AlphabetSearchList: React.FC<any> = ({ data, urlKey }) => {
               text={text}
               href={routs[urlKey](facetLabel)}
               type="link"
-              className="inline-block pr-4 pb-5 w-full"
+              className="inline-block w-full pr-4 pb-5"
             />
           )
         })}

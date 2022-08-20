@@ -1,6 +1,10 @@
 import React from 'react'
 import classnames from 'classnames'
 
+/* __DOC
+  <Pagination page={1} setPage={() => {}} total={999} perPage={10} />
+DOC__ */
+
 const Pagination = ({
   total,
   page = 1,
@@ -52,7 +56,7 @@ const Pagination = ({
   )
 
   return (
-    <div className="flex justify-around max-w-4xl">
+    <div className="flex max-w-4xl justify-around">
       {hideFirstLast ? (
         ''
       ) : (
@@ -88,7 +92,7 @@ const Pagination = ({
         .map((v, i) => (
           <button
             className={classnames(
-              'm-2 p-2 rounded w-10 shadow-sm bg_white',
+              'bg_white m-2 w-10 rounded p-2 shadow-sm',
               page === i + firstVisiblePage
                 ? 'text_pri6 border border-orange-200'
                 : 'text_nut5 border border-gray-200'

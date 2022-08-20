@@ -1,5 +1,11 @@
 import React from 'react'
 
+/* __DOC
+
+<ReadMore id="testReadMore" content="some string list" />
+
+DOC__ */
+
 type Props = {
   id: string
   content: any
@@ -15,14 +21,14 @@ const ReadMore: React.FC<Props> = (props) => {
   let content = props.content
 
   React.useEffect(() => {
-    const overFlowState = content.props.items.length > 5
+    const overFlowState = content?.props?.items?.length > 5
 
     if (overFlowState) {
       isOpenSet(overFlowState)
     }
-  }, [content.props.items.length])
+  }, [content?.props?.items.length])
 
-  if (isOpen && content.props.items.length > 5) {
+  if (isOpen && content?.props?.items?.length > 5) {
     const newItems = content.props.items.slice(0, 5)
 
     content = {
@@ -40,7 +46,7 @@ const ReadMore: React.FC<Props> = (props) => {
 
       {isOpen !== null && (
         <label
-          className="readMoreWrapper cursor-pointer block -mt-1"
+          className="readMoreWrapper -mt-1 block cursor-pointer"
           htmlFor={id}
         >
           <input
