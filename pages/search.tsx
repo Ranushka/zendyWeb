@@ -2,12 +2,7 @@ import React from 'react'
 import BaseTemplate from 'components/templates/BaseTemplate'
 import { commonMessages } from 'helpers/getMessages'
 import { SearchLandingBlock, SearchResults } from 'components/organisms'
-// import InfoSubject from 'components/organisms/InfoSubject'
-// import InfoJournal from 'components/organisms/InfoJournal'
-// import InfoPublisher from 'components/organisms/InfoPublisher'
-// import InfoAuthor from 'components/organisms/InfoAuthor'
 import FilterNavigation from 'components/organisms/FilterNavigation'
-// import AdvancedSearchForm from 'components/organisms/AdvancedSearchForm'
 import { useRouter } from 'next/router'
 import { setPersonalizedKeywords } from 'helpers/localStorage'
 
@@ -57,7 +52,6 @@ const Search: React.FC = () => {
           {qJournal && <InfoJournal publicationName={qJournal} />}
           {qAuthor && <InfoAuthor authorName={qAuthor} />}
           {qSubject && <InfoSubject subject={qSubject} />}
-          {/* <Autocomplete /> */}
           <div className="container flex p-4">
             <FilterNavigation />
             <SearchResults />

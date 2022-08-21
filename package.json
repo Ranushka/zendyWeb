@@ -4,10 +4,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "rimraf .next && next dev",
-    "build": "rimraf .next && next build",
+    "build": "rimraf ./pages/docs.tsx && rimraf .next && next build",
     "start": "next start",
     "prod": "yarn build && yarn start",
     "tsc": "tsc",
+    "docs": "node buildDocs.js",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",

@@ -7,6 +7,7 @@ export function formatFilter(facetFilters) {
     return `${categoryId}:${facetLabel.trim()}`
   })
 }
+
 export function formatSort(sortFilters) {
   if (sortFilters === 'date2') {
     return `publication_year desc,zendy_id asc`

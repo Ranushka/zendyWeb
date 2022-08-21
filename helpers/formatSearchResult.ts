@@ -1,6 +1,4 @@
 export default function formatSearchResult(docs, highlighting) {
-  // console.log('docs-1---', docs)
-
   if (!docs.length) return []
 
   return docs.map((doc) => {

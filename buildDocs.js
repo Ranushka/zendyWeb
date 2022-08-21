@@ -27,6 +27,8 @@ async function getCompFiles() {
     const moduleName = path.basename(fileRelPath).replace('.tsx', '')
 
     const hasCustomDoc = getStringBetween(fileContent)
+    const importFilePath = `../${fileRelPath.replace('.tsx', '')}`
+    const importLine = `import ${moduleName} from '${importFilePath}'`
 
     if (hasCustomDoc) {
       componentsContent = hasCustomDoc
@@ -36,18 +38,26 @@ async function getCompFiles() {
 
     // not to import component if it's empty
     if (componentsContent.trim() !== moduleName) {
-      compNameList.push(
-        `import ${moduleName} from '../${fileRelPath.replace('.tsx', '')}'`
-      )
+      compNameList.push(importLine)
     }
 
     sidePanelContent.push(`'${moduleName}'`)
 
     compList.push(
-      `<article className="docStage" key="${moduleName}">
-      <div className="docAnchor" id="${moduleName}" />
-      <header className="docHeader"><a href="http://localhost:3000/__nextjs_launch-editor?file=${fileRelPath}">${moduleName}</a></header>
-      ${componentsContent}
+      `<article className="docStage mod_${moduleName}" key="${moduleName}">
+        <div className="docAnchor" id="${moduleName}" />
+        <header className="docHeader">
+          <h2 className="docModuleName">${moduleName}</h2>
+          <div>
+            <a href="http://localhost:3000/__nextjs_launch-editor?file=${fileRelPath}" className="goToCode">Go to code</a>
+            <a href="javascript:void(0);" data-content="${btoa(
+              importLine + '\n' + componentsContent
+            )}" onClick={(e)=>{alert(atob(e.currentTarget.dataset.content))}}>Get code</a>
+          </div>
+        </header>
+        <div className="docStageContent">
+          ${componentsContent}
+        </div>
       </article>`
     )
   }
@@ -108,6 +118,9 @@ const StyleGuide: React.FC = () => {
     top: -100px;
     position: relative;
   }
+  .docModuleName {
+    font-size: 16px;
+  }
   .docContent {
     flex: 1;
     overflow-y: auto;
@@ -141,32 +154,49 @@ const StyleGuide: React.FC = () => {
   .docHeader {
     font-size: 12px;
     color: #979797;
-    margin: 8px 0;
+    margin: 0 0 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #efefef;
+    padding: 4px 8px;
   }
   .docPanelItem {
     padding: 4px 16px;
     display: block;
   }
   .docStage {
+    display:none;
     position: relative;
     margin: 16px;
-    padding: 0 16px 16px;
     overflow: scroll;
     box-shadow: 0px 1px 4px -1px rgb(0 0 0 / 20%);
     border-radius: 3px;
+  }
+  .docStageContent {
+    position: relative;
+    margin: 16px;
+    padding: 16px;
+    overflow: scroll;
+  }
+  .goToCode {
+    margin: 0 8px;
+  }
+  \${filteredList?.map((mn) => '.mod_' + mn)} {
+    display: block;
   }
 \`
   }}
 />
     <nav className="docNav">
       <h1 className="docNavH1">Style guide / Components list</h1>
-      <input className="docInput" placeholder="search component" onChange={onChangeInput} />
+      <input type="search" className="docInput" placeholder="search component" onChange={onChangeInput} />
     </nav>
     <section className="docWrapper">
       <aside className="docPanel">
-      {filteredList?.map((moduleName) => {
-        return <a key={moduleName} className="docPanelItem" href={'#'+moduleName}>{moduleName}</a>
-      })}
+        {filteredList?.map((moduleName) => {
+          return <a key={moduleName} className="docPanelItem" href={'#'+moduleName}>{moduleName}</a>
+        })}
       </aside>
       <div className="docContent">__REACT_COMPS__</div>
     </section>
@@ -177,7 +207,7 @@ export default StyleGuide
 `
 
 const updateStyleGuide = (compListData, compNameList, sidePanelContent) => {
-  const styleGuideNew = './pages/styleguide.tsx'
+  const styleGuideNew = './pages/docs.tsx'
   const resultTemplate = template
     .replace('__COMPONENT_LIST__', compNameList)
     .replace('__REACT_COMPS__', compListData)

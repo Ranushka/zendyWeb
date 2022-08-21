@@ -3,8 +3,8 @@ import dynamic from 'next/dynamic'
 import { ActionBtn } from 'components/atoms'
 import SidePopup from 'components/organisms/SidePopup'
 
-const StripeElementsForm = dynamic(() =>
-  import('components/organisms/StripeElementsForm')
+const StripeElementsForm = dynamic(
+  () => import('components/organisms/StripeElementsForm')
 )
 
 type Props = {
@@ -32,23 +32,23 @@ const Pricing: React.FC<Props> = (props) => {
 
   return (
     <>
-      <div className="text-center block rounded-lg bg_white shadow-lg px-8 py-8 w-72">
+      <div className="bg_white block w-72 rounded-lg px-8 py-8 text-center shadow-lg">
         <div className="text-center">
-          <h2 className="text-3xl font-serif">{name}</h2>
-          <div className="flex justify-center items-center pb-2 pt-2">
-            <span className="text-sm px-2 font-bold">AED</span>
+          <h2 className="font-serif text-3xl">{name}</h2>
+          <div className="flex items-center justify-center pb-2 pt-2">
+            <span className="px-2 text-sm font-bold">AED</span>
             <span
-              className="text-8xl px-2 font-extrabold"
+              className="px-2 text-8xl font-extrabold"
               style={{ fontFamily: 'serif' }}
             >
               {price}
             </span>
-            <span className="text-sm px-2 font-bold">/mo</span>
+            <span className="px-2 text-sm font-bold">/mo</span>
           </div>
           <strong className="block">{offer}</strong>
           <div className="py-4">
             <del>{`${currency} ${fullPrice}`}</del>
-            <span className="font-bold text-base px-1">{`${currency} ${paying}`}</span>
+            <span className="px-1 text-base font-bold">{`${currency} ${paying}`}</span>
             <span> billed {interval}</span>
           </div>
         </div>
@@ -73,7 +73,7 @@ const Pricing: React.FC<Props> = (props) => {
 
 const SidePopupContent = (paying, name) => (
   <div className="block">
-    <h2 className="text-center py-8 px-4 text-3xl text_nut6 font-serif">
+    <h2 className="text_nut6 py-8 px-4 text-center font-serif text-3xl">
       Secure payment
     </h2>
     <StripeElementsForm paying={paying} name={name} />
