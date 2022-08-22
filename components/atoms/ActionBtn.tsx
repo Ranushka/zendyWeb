@@ -84,13 +84,13 @@ const getType = (type) => {
       'duration-300 active:bg_pri1 active:scale-95'
     ),
     btn__secondary: classnames(
-      'outline-1 outline-offset-2 font-lg items-center',
+      'outline-1 outline-offset-2 text-base items-center',
       'border py-2 px-4 rounded-md flex justify-center duration-300',
       'shadow-sm hover:shadow active:shadow-none',
       'border_pri2 bg_pri0 active:scale-95 text_nut6'
     ),
     btn__primary: classnames(
-      'outline-1 outline-offset-2 border border_pri5 font-bold font-lg',
+      'outline-1 outline-offset-2 font-bold text-base',
       'py-2 px-4 rounded-md flex justify-center duration-300',
       'shadow-md active:shadow-sm tracking-wide',
       'bg_pri5 active:bg_pri6 active:scale-95 text_pri9'

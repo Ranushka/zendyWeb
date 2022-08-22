@@ -43,7 +43,7 @@ const textWrapper = (facetLabel) => {
       style={{
         maxWidth: 210,
         minWidth: 100,
-        color: `hsl(${randC}, 24%, 40%)`,
+        color: `hsl(${randC}, 24%, 30%)`,
         borderColor: `hsl(${randC}, 24%, 90%)`,
         backgroundColor: `hsl(${randC}, 24%, 96%)`
       }}

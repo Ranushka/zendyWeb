@@ -14,13 +14,13 @@ const Login: React.FC = () => {
   )
 
   return (
-    <>
-      <h1 className="text-3xl font-serif mb-8 text-center">Join Zendy</h1>
+    <div>
+      <h1 className="mb-8 text-center font-serif text-3xl">Join Zendy</h1>
 
-      <div className="block text-center my-4" key="Google">
+      <div className="my-4 block text-center" key="Google">
         <ActionBtn
           dataName="LoginGoogleBtn"
-          text={'Login with Google'}
+          text={'Continue with Google'}
           type={'btn__default'}
           className={socialBtnClass}
           style={{ backgroundColor: '#fff' }}
@@ -29,10 +29,10 @@ const Login: React.FC = () => {
         />
       </div>
 
-      <div className="block text-center my-4" key="LinkedIn">
+      <div className="my-4 block text-center" key="LinkedIn">
         <ActionBtn
           dataName="LoginFacebookBtn"
-          text={'Login with Facebook'}
+          text={'Continue with Facebook'}
           type={'btn__default'}
           className={socialBtnClass}
           style={{
@@ -45,10 +45,10 @@ const Login: React.FC = () => {
         />
       </div>
 
-      <div className="block text-center my-4" key="orcid">
+      <div className="my-4 block text-center" key="orcid">
         <ActionBtn
           dataName="LoginOrcidBtn"
-          text={'Login with ORCID ID'}
+          text={'Continue with ORCID ID'}
           type={'btn__default'}
           className={socialBtnClass}
           style={{ backgroundColor: '#a5cd39', color: '#fff' }}
@@ -57,10 +57,10 @@ const Login: React.FC = () => {
         />
       </div>
 
-      <small className="block text-center text-gray-400 mt-4">
+      <small className="mt-4 block text-center text-gray-400">
         ---- or ----
       </small>
-    </>
+    </div>
   )
 }
 

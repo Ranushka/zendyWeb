@@ -31,7 +31,7 @@ const Header = () => {
   ] = useGlobal()
 
   const btnGuestOrUser = () => {
-    if (loading) return <Skeleton height={38} width={126} />
+    if (loading) return <Skeleton height={38} width={150} />
     if (session) return __getLoggedInUser(session)
     return <GetLoginBtn />
   }
@@ -90,7 +90,10 @@ const Header = () => {
             text={trans('my_link')}
             href="/library/collections"
           />
-          <div className="ml-auto w-full" style={{ maxWidth: '8rem' }}>
+          <div
+            className="ml-auto flex w-full justify-end"
+            style={{ maxWidth: '10rem' }}
+          >
             {btnGuestOrUser()}
           </div>
         </div>
