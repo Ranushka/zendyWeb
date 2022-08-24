@@ -78,7 +78,7 @@ const Logo: React.FC<Props> = ({
               lineHeight: '12px'
             }}
           >
-            {data && data.country_code}
+            -{data && data.country_code}-
           </span>
         )}
       </div>
