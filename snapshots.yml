@@ -1,0 +1,9 @@
+- name: Home
+  url: http://localhost:3000
+- name: Platform
+  url: http://localhost:3000/platform
+- name: Pricing
+  url: http://localhost:3000/pricing
+- name: Search query
+  waitForTimeout: 8000
+  url: http://localhost:3000/search?q=artificial+intelligence
