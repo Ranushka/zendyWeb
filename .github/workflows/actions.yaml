@@ -27,7 +27,7 @@ jobs:
           echo "Test status:${{steps.plan.outcome}}" >> $GITHUB_STEP_SUMMARY
 
       - name: Percy
-        run: yarn e2e:ci
+        run: yarn e2e:visual
         env:
           VERCEL_URL: ${{steps.deployment-url.outputs.url}}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

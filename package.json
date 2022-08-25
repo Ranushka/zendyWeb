@@ -12,7 +12,7 @@
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
-    "e2e:visual": "npx --yes percy snapshot snapshots.yml",
+    "e2e:visual": "npx --yes percy snapshot snapshots.js",
     "e2e:ci": "yarn start && yarn e2e:visual",
     "lint": "next lint"
   },
