@@ -5,7 +5,7 @@ console.log(process.env)
 module.exports = [
   {
     name: 'Home',
-    url: PREVIEW_URL + ''
+    url: PREVIEW_URL + '/'
   },
   {
     name: 'Platform',
