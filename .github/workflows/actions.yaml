@@ -1,4 +1,8 @@
-name: CI
+name: E2E visual test
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 on:
   pull_request:
@@ -6,18 +10,20 @@ on:
       - master
 
 jobs:
-  CI_Workflow:
+  deploy-preview:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v1
-      - name: Yarn Install
-        run: yarn install
-      - name: Yarn Build
-        run: yarn build
-      - name: Yarn Build
-        run: yarn start
-      - name: Percy
-        run: yarn e2e:ci
+      - uses: actions/checkout@v2
+      - name: Install Vercel CLI
+        run: npm install --global vercel
+      - name: Deploy Project to Vercel
+        run: vercel --token=${{ secrets.VERCEL_TOKEN }} > deployment-url.txt
+      - name: Set deployment url to output
+        id: deployment-url
+        run: echo ::set-output name=url::$(cat deployment-url.txt)
+            - run: yarn install --frozen-lockfile
+      - run: npx playwright install --with-deps
+      - name: Run tests
+        run: yarn run e2e:ci
         env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          VERCEL_URL: ${{steps.deployment-url.outputs.url}}
