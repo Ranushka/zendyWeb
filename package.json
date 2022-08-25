@@ -12,12 +12,13 @@
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
-    "e2e:visual": "npx @percy/cli --yes snapshot snapshots.js",
+    "e2e:visual": "yarn percy snapshot snapshots.js",
     "e2e:ci": "yarn start && yarn e2e:visual",
     "lint": "next lint"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^12.2.2",
+    "@percy/cli": "^1.10.0",
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.9.0",
     "@types/classnames": "^2.2.10",
