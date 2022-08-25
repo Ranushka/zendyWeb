@@ -10,25 +10,24 @@ on:
       - master
 
 jobs:
-  deploy-preview:
+  CI_Workflow:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
+
       - name: Vercel CLI
-        run: |- 
+        run: echo "Test status:${{steps}}"
+
+      - name: Vercel CLI
+        run: echo "${{steps.deployment-url.outputs.url}}"
+
+      - name: Vercel CLI
+        run: |-
           echo "Test status:${{steps.plan.outcome}}" >> $GITHUB_STEP_SUMMARY
-      - name: Vercel CLI
-        run:  echo "Test status:${{steps}}"
-      - name: Install Vercel CLI
-        run: npm install --global vercel
-      - name: Deploy Project to Vercel
-        run: vercel --token=${{ secrets.VERCEL_TOKEN }} > deployment-url.txt
-      - name: Set deployment url to output
-        id: deployment-url
-        run: echo ::set-output name=url::$(cat deployment-url.txt)
-            - run: yarn install --frozen-lockfile
-      - run: npx playwright install --with-deps
-      - name: Run tests
-        run: yarn run e2e:ci
+
+      - name: Percy
+        run: yarn e2e:ci
         env:
           VERCEL_URL: ${{steps.deployment-url.outputs.url}}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
