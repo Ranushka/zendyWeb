@@ -1,13 +1,8 @@
-name: E2E visual testing
-
-env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+name: ci
 
 on:
-  push:
-    branches-ignore:
-      - master
+  pull_request:
+    branches: [main]
 
 jobs:
   wait_for_vercel:
@@ -17,29 +12,34 @@ jobs:
       preview_url: ${{ steps.waitForVercelPreviewDeployment.outputs.url }}
     steps:
       - name: Wait for Vercel preview deployment to be ready
-        uses: patrickedqvist/wait-for-vercel-preview@main
+        uses: patrickedqvist/wait-for-vercel-preview@master
         id: waitForVercelPreviewDeployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           max_timeout: 120
-
   tests:
     name: End-to-end tests
     needs: wait_for_vercel
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Vercel steps.dep
-        run: echo "${{steps.deployment-url.outputs.url}}"
-
-      - name: Vercel CLI
-        run: |-
-          echo "Test status:${{steps.plan.outcome}}" >> $GITHUB_STEP_SUMMARY
-
-      - name: Percy
-        run: npx @percy/cli snapshot snapshots.js
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - uses: microsoft/playwright-github-action@v1
+      - run: npm install --include=dev
+      - run: npm test
         env:
           VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
           VERCEL_ENV: preview
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+  pa11y:
+    name: Accessibility tests
+    needs: wait_for_vercel
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - run: npm install -g pa11y-ci
+      - run: pa11y-ci --sitemap ${{ needs.wait_for_vercel.outputs.preview_url }}/sitemap.xml
