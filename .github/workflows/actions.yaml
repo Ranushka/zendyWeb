@@ -1,4 +1,4 @@
-name: E2E visual test
+name: E2E visual testing
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
