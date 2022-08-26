@@ -1,6 +1,6 @@
 const PREVIEW_URL = process.env.VERCEL_URL
 
-console.log(process.env)
+// console.log(process.env)
 
 module.exports = [
   {

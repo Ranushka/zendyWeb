@@ -27,11 +27,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14.x
-      # - uses: microsoft/playwright-github-action@v1
-      # - run: npm install --include=dev
-      # - run: echo "---> ${{ needs.wait_for_vercel.outputs.preview_url }}"
-      - run: npx @percy/cli snapshot snapshots.js
-        # - run: yarn e2e:visual
+      - run: yarn global add @percy/cli
+      - run: arn percy snapshot snapshots.js
         env:
           VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
           VERCEL_ENV: preview
