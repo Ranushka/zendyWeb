@@ -27,10 +27,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14.x
-        - run: npm install @percy/cli -g
-        # - run: yarn global add @percy/cli
-        - run: npm percy snapshot snapshots.js
-        # - run: npx @percy/cli snapshot snapshots.js
+      - run: npm install @percy/cli -g
+      - run: npm percy snapshot snapshots.js
+      - run: yarn e2e:visual
         env:
           VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
           VERCEL_ENV: preview
