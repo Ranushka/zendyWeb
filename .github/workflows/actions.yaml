@@ -24,12 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-      - run: npm install @percy/cli -g
-      - run: npm run percy snapshot snapshots.js
-      - run: yarn e2e:visual
+      - run: npx @percy/cli snapshot snapshots.js
+        # - run: npm run percy snapshot snapshots.js
+        # - run: yarn e2e:visual
         env:
           VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
           VERCEL_ENV: preview
