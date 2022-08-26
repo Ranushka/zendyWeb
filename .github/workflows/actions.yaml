@@ -10,16 +10,44 @@ on:
       - master
 
 jobs:
+  wait_for_vercel:
+    name: Wait for vercel
+    runs-on: ubuntu-latest
+    outputs:
+      preview_url: ${{ steps.waitForVercelPreviewDeployment.outputs.url }}
+    steps:
+      - name: Wait for Vercel preview deployment to be ready
+        uses: patrickedqvist/wait-for-vercel-preview@master
+        id: waitForVercelPreviewDeployment
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          max_timeout: 120
+  # tests:
+  #   name: End-to-end tests
+  #   needs: wait_for_vercel
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 14.x
+  #     - uses: microsoft/playwright-github-action@v1
+  #     - run: npm install --include=dev
+  #     - run: npm test
+  #       env:
+  #         VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
+  #         VERCEL_ENV: preview
+
   CI_Workflow:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: Vercel CLI
-        run: echo "Test status:${{steps}}"
+      - name: Vercel Test
+        run: echo "Test status:${{console.log(JSON.stringify(data));}}"
 
-      - name: Vercel CLI
+      - name: Vercel steps.dep
         run: echo "${{steps.deployment-url.outputs.url}}"
 
       - name: Vercel CLI
@@ -29,5 +57,6 @@ jobs:
       - name: Percy
         run: npx @percy/cli snapshot snapshots.js
         env:
-          VERCEL_URL: ${{steps.deployment-url.outputs.url}}
+          VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
+          VERCEL_ENV: preview
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
