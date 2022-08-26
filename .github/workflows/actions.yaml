@@ -5,8 +5,8 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 on:
-  pull_request:
-    branches:
+  push:
+    branches-ignore:
       - master
 
 jobs:
@@ -17,20 +17,18 @@ jobs:
       preview_url: ${{ steps.waitForVercelPreviewDeployment.outputs.url }}
     steps:
       - name: Wait for Vercel preview deployment to be ready
-        uses: patrickedqvist/wait-for-vercel-preview@master
+        uses: patrickedqvist/wait-for-vercel-preview@main
         id: waitForVercelPreviewDeployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           max_timeout: 120
 
-  CI_Workflow:
+  tests:
+    name: End-to-end tests
+    needs: wait_for_vercel
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-
-      - name: Vercel Test
-        run: echo "Test status:${{console.log(JSON.stringify(data));}}"
 
       - name: Vercel steps.dep
         run: echo "${{steps.deployment-url.outputs.url}}"
