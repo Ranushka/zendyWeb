@@ -5,7 +5,8 @@ console.log(process.env)
 module.exports = [
   {
     name: 'Home',
-    url: PREVIEW_URL + '/'
+    url: PREVIEW_URL + '/',
+    waitForTimeout: 5000
   },
   {
     name: 'Platform',

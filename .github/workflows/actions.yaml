@@ -23,27 +23,15 @@ jobs:
     needs: wait_for_vercel
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v1
         with:
           node-version: 14.x
-      - uses: microsoft/playwright-github-action@v1
-      - run: npm install --include=dev
-      - run: echo "---> ${{ needs }}" >> test.txt
-      - run: echo "---> ${{ needs.wait_for_vercel.outputs.preview_url }}"
-      - run: cat test.txt
-      - run: npm test
+      # - uses: microsoft/playwright-github-action@v1
+      # - run: npm install --include=dev
+      # - run: echo "---> ${{ needs.wait_for_vercel.outputs.preview_url }}"
+      - run: npx @percy/cli snapshot snapshots.js
+        # - run: yarn e2e:visual
         env:
           VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
           VERCEL_ENV: preview
-  pa11y:
-    name: Accessibility tests
-    needs: wait_for_vercel
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-      - run: npm install -g pa11y-ci
-      - run: pa11y-ci --sitemap ${{ needs.wait_for_vercel.outputs.preview_url }}/sitemap.xml
