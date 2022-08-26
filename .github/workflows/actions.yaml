@@ -29,9 +29,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Vercel Test
-        run: echo "Test status:${{console.log(JSON.stringify(data));}}"
-
       - name: Vercel steps.dep
         run: echo "${{steps.deployment-url.outputs.url}}"
 
