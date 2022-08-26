@@ -1,8 +1,8 @@
 name: ci
 
 on:
-  branches-ignore:
-    branches:
+  push:
+    branches-ignore:
       - master
 
 jobs:
