@@ -23,9 +23,10 @@ jobs:
     needs: wait_for_vercel
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - run: npx @percy/cli snapshot snapshots.js
         env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          # PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          PERCY_TOKEN: 511c337188afe56645c7b908b98b1704a26b8c71f9ee8426c583676d120586ad
           VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
           VERCEL_ENV: preview
