@@ -1,11 +1,12 @@
 const PREVIEW_URL = process.env.VERCEL_URL
 
 // console.log(process.env)
+console.log('url--', PREVIEW_URL)
 
 module.exports = [
   {
     name: 'Home',
-    url: PREVIEW_URL + '/',
+    url: PREVIEW_URL,
     waitForTimeout: 5000
   },
   {
