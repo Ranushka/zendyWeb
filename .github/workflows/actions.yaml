@@ -35,25 +35,23 @@ jobs:
     timeout-minutes: 60
     needs: wait_for_vercel
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.25.0-focal
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          node-version: '14'
 
       - name: Install dependencies
-        run: |
-          npx playwright install-deps
-          npx playwright install
+        run: npm ci
 
-      - name: Run Playwright Tests
-        continue-on-error: false
-        run: |
-          npx playwright test
+      - name: Run your tests
+        run: npx playwright test
 
       - uses: actions/upload-artifact@v2
-        if: ${{ always() }}
+        if: always()
         with:
-          name: test-artifacts
-          path: path/to/artifacts
+          name: playwright-report
+          path: playwright-report/
           retention-days: 30
