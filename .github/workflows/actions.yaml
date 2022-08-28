@@ -1,0 +1,33 @@
+name: ci
+
+on:
+  push:
+    branches-ignore:
+      - master
+
+jobs:
+  wait_for_vercel:
+    name: Wait for vercel
+    runs-on: ubuntu-latest
+    outputs:
+      preview_url: ${{ steps.waitForVercelPreviewDeployment.outputs.url }}
+    steps:
+      - name: Wait for Vercel preview deployment to be ready
+        uses: patrickedqvist/wait-for-vercel-preview@main
+        id: waitForVercelPreviewDeployment
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          max_timeout: 360
+  tests:
+    name: End-to-end tests
+    needs: wait_for_vercel
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "--> ${{secrets.PERCY_TOKEN}}"
+      - run: npx @percy/cli snapshot snapshots.js
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          # PERCY_TOKEN: 511c337188afe56645c7b908b98b1704a26b8c71f9ee8426c583676d120586ad
+          VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
+          VERCEL_ENV: preview
