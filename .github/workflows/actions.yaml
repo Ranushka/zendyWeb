@@ -44,6 +44,8 @@ jobs:
           node-version: '14'
 
       - name: Run your tests
+        run: yarn init -y
+        run: yarn add --dev @playwright/test
         run: npx playwright test
 
       - uses: actions/upload-artifact@v2
