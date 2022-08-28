@@ -44,9 +44,7 @@ jobs:
           node-version: '14'
 
       - name: int
-        run: yarn init -y
-      - name: playwright install
-        run: yarn init -y
+        run: yarn
       - name: run test
         run: yarn playwright test
 
