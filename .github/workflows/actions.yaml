@@ -48,7 +48,7 @@ jobs:
       - name: playwright install
         run: yarn init -y
       - name: run test
-        run: npx playwright test
+        run: yarn playwright test
 
       - uses: actions/upload-artifact@v2
         if: always()
