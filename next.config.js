@@ -21,7 +21,7 @@ const config = {
   // },
 
   compiler: {
-    removeConsole: true
+    // removeConsole: true
   },
 
   async rewrites() {

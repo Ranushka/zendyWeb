@@ -71,7 +71,7 @@ const ActionBtn: React.FC<Props> = (props) => {
       type={submit ? 'submit' : 'button'}
     >
       {text}
-      {icon && <span className="ml-2">{icon}</span>}
+      {icon && <span className="h ml-2">{icon}</span>}
     </button>
   )
 }
@@ -90,8 +90,9 @@ const getType = (type) => {
       'border_pri2 bg_pri0 active:scale-95 text_nut6'
     ),
     btn__primary: classnames(
+      'flex items-center justify-center',
       'outline-1 outline-offset-2 font-bold text-base',
-      'py-2 px-4 rounded-md flex justify-center duration-300',
+      'py-2 px-4 leading-relaxed rounded-md  duration-300 l',
       'shadow-md active:shadow-sm tracking-wide',
       'bg_pri5 active:bg_pri6 active:scale-95 text_pri9'
     )

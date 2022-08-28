@@ -15,7 +15,7 @@ const Login: React.FC = () => {
 
   return (
     <div>
-      <h1 className="mb-8 text-center font-serif text-3xl">Join Zendy</h1>
+      <h1 className="mb-8 text-center font-serif text-3xl">Login / Register</h1>
 
       <div className="my-4 block text-center" key="Google">
         <ActionBtn
