@@ -47,6 +47,8 @@ jobs:
         run: yarn
       - name: run test
         run: yarn playwright test
+        env:
+          VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
 
       - uses: actions/upload-artifact@v2
         if: always()
