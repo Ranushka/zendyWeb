@@ -13,7 +13,7 @@
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
     "e2e:visual": "yarn percy snapshot snapshots.js",
-    "e2e:ci": "yarn start && yarn e2e:visual",
+    "e2e:functional": "npx playwright test",
     "lint": "next lint"
   },
   "dependencies": {
@@ -61,6 +61,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
+    "@playwright/test": "^1.25.1",
     "@tailwindcss/line-clamp": "^0.4.0",
     "@types/node": "^17.0.14",
     "@types/react": "^17.0.38",
