@@ -2,8 +2,6 @@ name: ci
 
 on:
   push:
-    branches-ignore:
-      - master
 
 jobs:
   wait_for_vercel:
