@@ -18,16 +18,34 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           max_timeout: 360
-  tests:
-    name: End-to-end tests
+  visual:
+    name: e2e:visual
     needs: wait_for_vercel
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo "--> ${{secrets.PERCY_TOKEN}}"
       - run: npx @percy/cli snapshot snapshots.js
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-          # PERCY_TOKEN: 511c337188afe56645c7b908b98b1704a26b8c71f9ee8426c583676d120586ad
           VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
           VERCEL_ENV: preview
+
+  functional:
+    name: e2e:functional
+    timeout-minutes: 60
+    needs: wait_for_vercel
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - uses: microsoft/playwright-github-action@v1
+      - name: Run Playwright tests
+        run: npx playwright test
+        env:
+          VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
