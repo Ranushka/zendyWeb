@@ -38,11 +38,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-      - uses: microsoft/playwright-github-action@v1
+      # - uses: microsoft/playwright-github-action@v1
+      - name: Install Playwright Browsers
+        run: npm install -D @playwright/test
       - name: Run Playwright tests
         run: npx playwright test
-        env:
-          VERCEL_URL: ${{ needs.wait_for_vercel.outputs.preview_url }}
       - uses: actions/upload-artifact@v2
         if: always()
         with:
