@@ -19,7 +19,7 @@ const SearchFormRow: React.FC<any> = ({
   removeRow
 }) => {
   return (
-    <section key={id} className="mt-4">
+    <section key={id} className="mt-1">
       <div className="flex items-center">
         {index >= 1 && (
           <Select
@@ -55,7 +55,6 @@ const SearchFormRow: React.FC<any> = ({
               'px-4 outline-4 outline-offset-2',
               'active:border_pri6 focus:border_pri6'
             )}
-            style={{ borderWidth: 1.5 }}
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
@@ -147,7 +146,7 @@ const SearchForm: React.FC<Props> = () => {
             />
           ))}
 
-          <div className="mt-4 flex items-center p-1">
+          <div className="mt-1 flex items-center p-1">
             {rows !== 6 && (
               <button
                 className="bg_pri0 border_pri1 mr-2 ml-4 block rounded-full border p-2"

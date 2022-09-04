@@ -70,7 +70,7 @@ const Header = () => {
         <div className="container flex items-center px-4 py-4 md:justify-between md:py-3">
           <MobileHeaderNav />
 
-          <Logo flag className="mr-3 max-h-9 pl-4 md:pl-0" />
+          <Logo flag className="mr-3 ml-4 max-h-9 md:pl-0" />
 
           <CategoriesMenu />
 

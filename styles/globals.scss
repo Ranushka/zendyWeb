@@ -247,3 +247,15 @@ mark {
   z-index: -1;
   left: 0px;
 }
+
+@supports (-webkit-touch-callout: none) {
+  .h-full,
+  .h-screen {
+    height: -webkit-fill-available;
+  }
+}
+
+.safe_area {
+  padding: env(safe-area-inset-top, 4px) env(safe-area-inset-right, 4px)
+    env(safe-area-inset-bottom, 4px) env(safe-area-inset-left, 4px);
+}

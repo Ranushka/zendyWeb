@@ -40,7 +40,7 @@ const MobileNav: React.FC<Props> = () => {
 
   return (
     <>
-      <section className="mobile-nav bg_white fixed bottom-0 w-full flex md:hidden">
+      <section className="mobile-nav bg_white safe_area fixed bottom-0 flex w-full md:hidden">
         <MobileNaveItem
           onClick={() => __routeOnClick(routs.index)}
           text="Home"
@@ -57,7 +57,7 @@ const MobileNav: React.FC<Props> = () => {
           text="Search"
           onClick={_clickOnSearch}
           icon={
-            <span>
+            <span className="scale-110">
               <IconSearch className="text-white" />
             </span>
           }

@@ -28,7 +28,7 @@ const MobileHeaderNavFooter: React.FC<{}> = () => {
 }
 
 const __sidePopupContent = () => (
-  <div className="relative h-screen overflow-scroll">
+  <div className="relative h-full overflow-scroll">
     <div className="flex py-4 px-8">
       <Logo />
     </div>

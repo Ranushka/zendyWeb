@@ -23,7 +23,7 @@ const Searches: React.FC = () => {
 
 const __dataRow = ({ id, name, keyWord, filters }) => (
   <div key={id}>
-    <div className="px-4 py-4 flex flex__between bg_white shadow rounded-md">
+    <div className="bg_white mb-2 flex rounded-md px-4 py-4 shadow">
       <div className="first_letter_caps">
         <h3>{name}</h3>
         <div>
