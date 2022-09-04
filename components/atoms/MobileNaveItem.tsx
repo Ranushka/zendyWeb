@@ -9,7 +9,7 @@ type Props = {
   isActive?: boolean
 }
 
-const BtnFab: React.FC<Props> = ({
+const MobileNaveItem: React.FC<Props> = ({
   icon,
   text,
   primary,
@@ -20,7 +20,7 @@ const BtnFab: React.FC<Props> = ({
     'noSelect w-full flex-col items-center ',
     primary ? 'pt-1 pb-1' : 'pt-2 pb-1',
     primary &&
-      'flex items-center justify-center bg-orange-600 -mt-2 mb-2 rounded-full shadow',
+      'flex items-center justify-center bg-orange-600 mt-1 mb-1 rounded-full shadow',
     isActive && 'text_pri7'
   )
 
@@ -32,9 +32,9 @@ const BtnFab: React.FC<Props> = ({
       style={{ outline: 'none' }}
     >
       {icon}
-      {!primary && <small className="block -mt-1">{text}</small>}
+      {!primary && <small className="-mt-1 block">{text}</small>}
     </button>
   )
 }
 
-export default BtnFab
+export default MobileNaveItem

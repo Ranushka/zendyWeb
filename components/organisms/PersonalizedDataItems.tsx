@@ -12,7 +12,7 @@ DOC__ */
 const PersonalizedDataItems = ({ data }) => {
   return (
     <div className="px-4 text-center">
-      <div className="m-auto flex max-w-6xl flex-wrap md:justify-center">
+      <div className="m-auto flex max-w-6xl flex-wrap justify-center">
         {data?.length &&
           data.map(({ facetLabel, url }, key) => {
             return (

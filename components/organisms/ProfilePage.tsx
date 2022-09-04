@@ -4,7 +4,7 @@ import Skeleton from 'react-loading-skeleton'
 import Image from 'next/image'
 import { useSession, signOut } from 'next-auth/react'
 import { IconLogout } from 'components/icons'
-import { ActionLink, ActionBtn, CheckBox, Input } from 'components/atoms'
+import { ActionLink, ActionBtn, CheckBox } from 'components/atoms'
 
 const VERCEL_URL = process.env.VERCEL_URL
 type Props = {}
@@ -14,9 +14,9 @@ const Desktop: React.FC<Props> = () => {
   const loading = status === 'loading'
 
   return (
-    <section className="max-w-2xl mx-auto mt-10">
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-center text_nut5 text-4xl font-serif">
+    <section className="mx-auto mt-10 max-w-2xl">
+      <div className="mb-8 flex items-center justify-between">
+        <h1 className="text_nut5 text-center font-serif text-4xl">
           My Profile
         </h1>
         <ActionBtn
@@ -60,21 +60,21 @@ const Desktop: React.FC<Props> = () => {
               id={'subscribe_to_newsletter'}
               name={'subscribe_to_newsletter'}
               label={'Subscribe to Newsletter'}
-              className="my-8 mt__0"
+              className="mt__0 my-8"
             />
             <CheckBox
               key={'emails_on_interests'}
               id={'emails_on_interests'}
               name={'emails_on_interests'}
               label={'Emails on your interests'}
-              className="my-8 mt__0"
+              className="mt__0 my-8"
             />
             <CheckBox
               key={'notification_on_interests'}
               id={'notification_on_interests'}
               name={'notification_on_interests'}
               label={'Notifications on your interests'}
-              className="my-8 mt__0"
+              className="mt__0 my-8"
             />
           </>
         )}
@@ -102,27 +102,19 @@ const Desktop: React.FC<Props> = () => {
       <ProfileBlock title="Payment method">
         {session && (
           <>
-            <Input
-              id="cardNumber"
-              name="cardNumber"
-              label={'Subscribed with'}
-              type="text"
-              content={<InputContent />}
-              required
-            />
-            <div className="flex">
+            <InputContent />
+            <div className="flex justify-between">
               <ActionLink
                 dataName="BtnUpdatePayment"
                 text={'Update payment'}
                 href={'/'}
-                type="link__small"
+                type="link"
               />
-              <div className="flex__left"></div>
               <ActionLink
                 dataName="BtnUpdateHistory"
                 text={'Payment history'}
                 href={'/'}
-                type="link__small"
+                type="link"
               />
             </div>
           </>
@@ -133,7 +125,7 @@ const Desktop: React.FC<Props> = () => {
 }
 
 const InputContent = () => (
-  <div className="flex justify-between">
+  <div className="bg_nut0 mb-4 flex justify-between rounded border px-3 py-2">
     <div>
       Card ending <strong>1537</strong>
     </div>
@@ -149,13 +141,13 @@ const InputContent = () => (
 )
 
 const ProfileBlock = ({ children, title }) => (
-  <section className="flex mb-8">
+  <section className="mb-8 flex">
     <div className="w-5/12">
-      <h3 className="py-4 block text_nut5 text-xl font-serif border-b-2">
+      <h3 className="text_nut5 block border-b-2 py-4 font-serif text-xl">
         {title}
       </h3>
     </div>
-    <div className="w-7/12 shadow block px-8 py-8 rounded-md text-left bg_white">
+    <div className="bg_white block w-7/12 rounded-md px-8 py-8 text-left shadow">
       {children}
     </div>
   </section>

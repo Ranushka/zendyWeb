@@ -9,18 +9,18 @@ const EmailSubscription: React.FC<Props> = () => {
 
   return (
     <section className="bg_white py-16">
-      <div className={'max-w-3xl px-4 m-auto'}>
-        <h2 className="text-3xl font-serif mb-2">{trans('title')}</h2>
+      <div className={'m-auto max-w-lg px-4 md:max-w-3xl'}>
+        <h2 className="mb-2 font-serif text-3xl">{trans('title')}</h2>
         <p className="mb-4">{trans('subtitle')}</p>
 
-        <form className="flex items-center">
+        <form className=" items-center md:flex">
           <Select
             block
             id="primaryInterest"
             name="name"
             data={['Researcher', 'Mathematics']}
           />
-          <div className="mx-4 block w-full max-w-xs">
+          <div className="my-2 block w-full md:mx-4 md:max-w-xs">
             <Input
               id="subscribeEmail"
               placeholder="your@email.com"
@@ -39,7 +39,7 @@ const EmailSubscription: React.FC<Props> = () => {
           />
         </form>
 
-        <small>{trans('description')}</small>
+        <small className="block pt-2 text-xs">{trans('description')}</small>
       </div>
     </section>
   )

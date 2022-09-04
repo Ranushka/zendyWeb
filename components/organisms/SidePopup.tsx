@@ -40,7 +40,7 @@ const contentStyleMapping = (place) => {
 const buttonStyleMapping = (place) => {
   const locationList = {
     center: '-mt-4 absolute right-4',
-    left: 'absolute -right-12 top-4'
+    left: 'absolute -right-5 top-4 z-10'
   }
 
   return locationList[place]
@@ -69,7 +69,7 @@ const SidePopup: React.FC<Props> = ({
 
   const innerContentStyles = classnames(
     'bg_white w-full max-w-md rounded relative',
-    fullHeight && 'h-screen',
+    fullHeight && 'h-full',
     contentStyleMapping(openLocation)
   )
 

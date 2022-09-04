@@ -120,6 +120,7 @@ const SearchInput = ({
     if (e.keyCode === 13) {
       /* enter key */
       doSearch()
+      e.target.blur()
 
       return
     } else if (e.keyCode === 38) {
