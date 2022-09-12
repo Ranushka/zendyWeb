@@ -1,14 +1,15 @@
 import React from 'react'
-import { SearchResultItem, SubTitle } from 'components/organisms'
+import { SubTitle } from 'components/organisms'
+import SearchResultItemCompact from 'components/organisms/SearchResultItemCompact'
 
 const RelatedPublications: React.FC<any> = () => {
   return (
-    <div className="mw__5">
+    <div className="mx-auto max-w-xl">
       <SubTitle title="Related publications" />
-      <div className="px-4">
+      <div className="mx-auto max-w-xl px-4">
         {[1, 2, 3, 4].map((id) => {
           return (
-            <SearchResultItem
+            <SearchResultItemCompact
               key={id}
               resultId="sss"
               href={'/'}

@@ -4,6 +4,7 @@ const routs = {
   search: '/search',
   profile: '/profile',
   pricing: '/pricing',
+  loginEmail: '/loginEmail',
   publisher: (label: string) => `/publisher/${label.replace(/ /g, '_')}`,
   subject: (label: string) => `/subject/${label.replace(/ /g, '_')}`,
   journal: (label: string) => `/journal/${label.replace(/ /g, '_')}`,

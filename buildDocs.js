@@ -178,6 +178,7 @@ const StyleGuide: React.FC = () => {
     margin: 16px;
     padding: 16px;
     overflow: scroll;
+    transform: translateZ(0);
   }
   .goToCode {
     margin: 0 8px;

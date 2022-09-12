@@ -1,9 +1,9 @@
 import React, { ChangeEvent } from 'react'
 import { signIn } from 'next-auth/react'
-import ReCAPTCHA from 'react-google-recaptcha'
-
 import { ActionBtn, Input } from 'components/atoms'
-import ActionLink from 'components/atoms/ActionLink'
+import routs from 'helpers/routs'
+import { useRouter } from 'next/router'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 const onSubmitSignUp = async (values) => {
   const res = await signIn('credentials', {
@@ -26,7 +26,8 @@ const onSubmitSignUp = async (values) => {
   return true
 }
 
-const LoginWithEmail: React.FC<any> = ({ setWithEmail }) => {
+const EmailReset: React.FC<any> = () => {
+  const router = useRouter()
   const recaptchaRef = React.useRef<ReCAPTCHA>()
   const [formData, setFormData] = React.useState({
     email: '',
@@ -56,13 +57,20 @@ const LoginWithEmail: React.FC<any> = ({ setWithEmail }) => {
     <form onSubmit={onSubmitForm}>
       <ActionBtn
         dataName="LoginEmailBtn"
-        text={'← Use social logins'}
+        text={'← Back to login'}
         type="btn__small"
-        onClick={() => setWithEmail(false)}
+        onClick={() => router.push(routs.login)}
       />
+
       <h1 className="mt-6 mb-4 text-center font-serif text-3xl">
-        Join with Email
+        Forgot your password?
       </h1>
+
+      <p className="text_nut5 mb-4 text-center">
+        Enter your email address to receive a secured link that will allow you
+        to reset your password.
+      </p>
+
       <Input
         id="email"
         name="email"
@@ -73,32 +81,17 @@ const LoginWithEmail: React.FC<any> = ({ setWithEmail }) => {
         autoFocus
         required
       />
-      <Input
-        id="password"
-        name="password"
-        label={'Password'}
-        type="password"
-        value={formData.password}
-        onChange={onChange}
-        required
-      />
-      <ActionLink
-        dataName="NewsListItem"
-        text="forgot password"
-        href={'/forgotPassword'}
-        type="link__small"
-        className="mt-2 block text-right"
-      />
 
       <ReCAPTCHA
         ref={recaptchaRef}
         size="invisible"
         sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
       />
+
       <div className="px-8">
         <ActionBtn
-          dataName="LoginWithEmailBtn"
-          text={'Login'}
+          dataName="EmailResetBtn"
+          text={'Submit'}
           type={'btn__primary'}
           className="mt-8"
           submit
@@ -110,4 +103,4 @@ const LoginWithEmail: React.FC<any> = ({ setWithEmail }) => {
   )
 }
 
-export default LoginWithEmail
+export default EmailReset

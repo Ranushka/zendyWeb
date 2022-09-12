@@ -175,13 +175,19 @@ const GetLoginBtn = () => {
 }
 
 const __getLoggedInUser = (session) => {
+  const router = useRouter()
+
   return (
-    <div className="overflow-auto overflow-ellipsis">
-      <ActionLink
-        dataName="HeaderLoggedInUserBtn"
+    <div className="w-full overflow-visible overflow-ellipsis">
+      {/* {JSON.stringify(session.user)} */}
+
+      <ActionBtn
+        dataName="HeaderLoginBtn"
+        className="w-full whitespace-nowrap rounded-3xl "
         text={__getUserNameInitials(session.user)}
-        href={'/profile'}
-        type="link"
+        onClick={() => router.push(routs.profile)}
+        type="btn__default"
+        bold
       />
     </div>
   )
@@ -189,11 +195,19 @@ const __getLoggedInUser = (session) => {
 
 const __getUserNameInitials = ({ firstName, lastName, email }) => {
   if (firstName || lastName) {
-    return `${firstName} ${lastName}`
+    return <span className="truncate">{`${firstName} ${lastName}`}</span>
   }
 
   if (email) {
-    return `${email}`
+    return (
+      <span className="truncate">
+        {/* <img
+          className="absolute w-4"
+          src={`https://0.gravatar.com/avatar/${email}=80`}
+        /> */}
+        <span className="truncate">{email}</span>
+      </span>
+    )
   }
 
   return 'Good, day!'

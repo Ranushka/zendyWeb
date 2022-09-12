@@ -6,11 +6,7 @@ import { IconArrowLeft, IconArrowRight } from 'components/icons'
 
 /* __DOC
 
- <NextArticle
-          url="/"
-          prev
-          title="Platform Competition in the Sharing Economy: Understanding How Ride-Hailing Services Influence New Car Purch..."
-        />
+NextArticle
 
 DOC__ */
 
@@ -25,9 +21,15 @@ const NextArticle: React.FC<Props> = (props) => {
 
   return (
     <ActionLink dataName="NextArticle" href={url}>
-      <div className={classnames('bg_white rounded-md shadow')}>
-        <div className="">{prev ? <IconArrowLeft /> : <IconArrowRight />}</div>
-
+      <div
+        className={classnames(
+          'bg_white flex py-2 shadow',
+          prev ? 'rounded-r-md pr-2' : 'flex-row-reverse rounded-l-md pl-2'
+        )}
+      >
+        <div className="flex">
+          {prev ? <IconArrowLeft /> : <IconArrowRight />}
+        </div>
         <small className="">{title}</small>
       </div>
     </ActionLink>

@@ -1,5 +1,7 @@
 import React from 'react'
 export interface SearchResultItemProps {
+  isCompact?: boolean
+
   resultId: string
   href: string
   title: string

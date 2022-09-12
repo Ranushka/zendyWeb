@@ -42,35 +42,42 @@ const __renderContent = (data) => {
 
   return (
     <>
-      <article className="m-auto max-w-4xl px-8 pt-12">
-        <GetGoBackBtn />
-        <PublicationIssueJsonLd
-          authorName={authors && authors.flatMap((auObj) => auObj.name)}
-          name={title}
-          datePublished={publicationYear}
-          description={abstract}
-          issueNumber={volume}
-          publisher={publicationName}
-        />
-        <SearchResultTitle {...data} />
-        <SearchResultItemSource
-          journalTitle={journalTitle}
-          publicationName={publicationName}
-        />
-        <SearchResultItemAbstract abstract={abstract} all />
-        <SearchResultKeywords keywords={keywords} all />
-        <SearchResultSubjects subjects={subjects} all />
-        <SearchResultAuthors authors={authors} all />
+      <div className="mx-auto flex max-w-7xl">
+        <div className="w-9/12">
+          <article className="m-auto max-w-4xl px-8 pt-12">
+            <GetGoBackBtn />
+            <PublicationIssueJsonLd
+              authorName={authors && authors.flatMap((auObj) => auObj.name)}
+              name={title}
+              datePublished={publicationYear}
+              description={abstract}
+              issueNumber={volume}
+              publisher={publicationName}
+            />
+            <SearchResultTitle {...data} />
+            <SearchResultItemSource
+              journalTitle={journalTitle}
+              publicationName={publicationName}
+            />
+            <SearchResultItemAbstract abstract={abstract} all />
+          </article>
+          {downloadLink && <DetailPdf pdfUrl={downloadLink} />}
+        </div>
+        <aside className="mt-32 w-3/12 px-8">
+          <SearchResultKeywords keywords={keywords} all />
+          <SearchResultSubjects subjects={subjects} all />
+          <SearchResultAuthors authors={authors} all />
 
-        <SearchResultCustomItem data={doi} name="DOI" />
-        <SearchResultCustomItem
-          data={issn?.replace(/^(.{4})/, '$1-')}
-          name="ISSN"
-        />
-        <SearchResultCustomItem data={sjr} name="sjr" />
-        <SearchResultCustomItem data={language} name="Language" />
-      </article>
-      {downloadLink && <DetailPdf pdfUrl={downloadLink} />}
+          <SearchResultCustomItem data={doi} name="DOI" />
+          <SearchResultCustomItem
+            data={issn?.replace(/^(.{4})/, '$1-')}
+            name="ISSN"
+          />
+          <SearchResultCustomItem data={sjr} name="sjr" />
+          <SearchResultCustomItem data={language} name="Language" />
+        </aside>
+      </div>
+
       <TitleDetailNextPrevResult />
     </>
   )
