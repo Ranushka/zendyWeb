@@ -143,8 +143,11 @@ const getType = (type) => {
       'inline-block text-gray-700 font-serif',
       'text-xl'
     ),
-    link__small: 'text-xs hover:text_pri6 active:scale-95 duration-150',
-    btn__small: 'btn__small'
+    link__small: classnames(
+      'hover:underline decoration-2 underline-offset-2',
+      'decoration-sky-500 decoration-amber-400',
+      'text-xs'
+    )
   }
 
   return types[type] || ''

@@ -30,7 +30,7 @@ const SearchResultItemCompact: React.FC<SearchResultItemProps> = (props) => {
   // console.log('--data-->', data)
 
   return (
-    <article className="bg_white mb-4 flex max-w-xl items-center rounded-md shadow-sm hover:shadow">
+    <article className="bg_white mb-4 flex max-w-md items-center rounded-md shadow-sm hover:shadow">
       <div className="block w-full py-4 px-6 sm:flex">
         <section className="block w-full">
           <SearchResultTitle {...props} />

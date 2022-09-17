@@ -10,8 +10,8 @@ type Props = {}
 
 const TitleDetailNextPrevResult: React.FC<Props> = () => {
   return (
-    <div className="fixed bottom-1/4 left-0 z-10 w-40">
-      <div className="">
+    <div className="sticky bottom-4">
+      <div className="bottom-1/4 z-10 inline-block w-40">
         <NextArticle
           url="/"
           prev
@@ -19,7 +19,7 @@ const TitleDetailNextPrevResult: React.FC<Props> = () => {
         />
       </div>
 
-      <div className="fixed bottom-1/4 right-0 z-10 w-40">
+      <div className="bottom-1/4 z-10 float-right inline-block w-40">
         <NextArticle
           url="/"
           title="Platform Competition in the Sharing Economy: Understanding How Ride-Hailing Services Influence New Car Purch..."

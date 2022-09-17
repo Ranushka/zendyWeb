@@ -30,7 +30,7 @@ const NextArticle: React.FC<Props> = (props) => {
         <div className="flex">
           {prev ? <IconArrowLeft /> : <IconArrowRight />}
         </div>
-        <small className="">{title}</small>
+        <small className="line-clamp-3">{title}</small>
       </div>
     </ActionLink>
   )

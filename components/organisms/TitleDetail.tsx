@@ -63,7 +63,7 @@ const __renderContent = (data) => {
           </article>
           {downloadLink && <DetailPdf pdfUrl={downloadLink} />}
         </div>
-        <aside className="mt-32 w-3/12 px-8">
+        <aside className="mt-32 w-3/12 pr-8">
           <SearchResultKeywords keywords={keywords} all />
           <SearchResultSubjects subjects={subjects} all />
           <SearchResultAuthors authors={authors} all />

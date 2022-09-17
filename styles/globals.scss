@@ -261,6 +261,7 @@ mark {
     env(safe-area-inset-bottom, 4px) env(safe-area-inset-left, 4px);
 }
 
-.btn__default:hover {
-  text-shadow: 2px 2px 2px var(--pri2), 3px 3px 1px var(--pri2);
-}
+// .btn__default:hover {
+//   text-shadow: 1px 1px 2px var(--pri2), 2px 2px 2px var(--pri2),
+//     3px 3px 2px var(--pri2);
+// }
