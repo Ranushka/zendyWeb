@@ -43,6 +43,7 @@ body {
   --mark: #fff792;
   --outline: #fdba74;
   --backdrop: rgb(0 0 0 / 20%);
+  --text-shadow: rgb(0 0 0 / 20%);
 }
 
 [data-theme='Dark'] {
@@ -259,3 +260,8 @@ mark {
   padding: env(safe-area-inset-top, 4px) env(safe-area-inset-right, 4px)
     env(safe-area-inset-bottom, 4px) env(safe-area-inset-left, 4px);
 }
+
+// .btn__default:hover {
+//   text-shadow: 1px 1px 2px var(--pri2), 2px 2px 2px var(--pri2),
+//     3px 3px 2px var(--pri2);
+// }

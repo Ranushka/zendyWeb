@@ -208,7 +208,8 @@ const SearchInput = ({
           accessKey="/"
           type="text"
           className={classNames(
-            'border_pri5 rounded-3xl border-2 shadow focus:shadow-md',
+            'border_pri5 rounded-3xl border-2 shadow',
+            'hover:shadow-md focus:shadow-md',
             'bg-tr h-12 w-full pr-14 pl-6',
             'relative z-10 appearance-none outline-none',
             hasSuggestions && isShow ? 'bg_white' : 'bg-transparent'

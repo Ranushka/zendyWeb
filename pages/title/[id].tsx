@@ -2,14 +2,15 @@ import React from 'react'
 import { GetStaticPaths } from 'next'
 import { commonMessages } from 'helpers/getMessages'
 import BaseTemplate from 'components/templates/BaseTemplate'
-import { TitleDetail } from 'components/organisms'
+import { RelatedPublications, TitleDetail } from 'components/organisms'
 
 const Title: React.FC = () => {
   // const Title: NextPage = () => {
   return (
     <BaseTemplate>
       <TitleDetail />
-      {/* <RelatedPublications /> */}
+
+      <RelatedPublications />
     </BaseTemplate>
   )
 }

@@ -23,7 +23,7 @@ const Login: React.FC = () => {
           text={'Continue with Google'}
           type={'btn__default'}
           className={socialBtnClass}
-          style={{ backgroundColor: '#fff' }}
+          style={{ backgroundColor: '#fff', textShadow: 'none' }}
           onClick={() => signIn('linkedin')}
           icon={<IconSocialGoogle className="h-6" />}
         />
@@ -36,6 +36,7 @@ const Login: React.FC = () => {
           type={'btn__default'}
           className={socialBtnClass}
           style={{
+            textShadow: 'none',
             backgroundColor: '#3c5a99',
             borderColor: '#3c5a99',
             color: '#fff'
@@ -51,7 +52,11 @@ const Login: React.FC = () => {
           text={'Continue with ORCID ID'}
           type={'btn__default'}
           className={socialBtnClass}
-          style={{ backgroundColor: '#a5cd39', color: '#fff' }}
+          style={{
+            backgroundColor: '#a5cd39',
+            color: '#fff',
+            textShadow: 'none'
+          }}
           onClick={() => signIn('linkedin')}
           icon={<IconSocialOrcid className="text_white" />}
         />

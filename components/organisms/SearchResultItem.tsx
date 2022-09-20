@@ -15,7 +15,7 @@ SearchResultItem
 
 DOC__ */
 
-const SearchResultItem: React.FC<SearchResultItemProps> = (data) => {
+const SearchResultItem: React.FC<SearchResultItemProps> = (props) => {
   const {
     resultId,
     abstract,
@@ -26,7 +26,7 @@ const SearchResultItem: React.FC<SearchResultItemProps> = (data) => {
     zendyLink,
     downloadLink,
     subjects
-  } = data
+  } = props
 
   // console.log('--data-->', data)
 
@@ -34,7 +34,7 @@ const SearchResultItem: React.FC<SearchResultItemProps> = (data) => {
     <article className="bg_white mb-4 flex max-w-4xl items-center rounded-md shadow-sm hover:shadow">
       <div className="block w-full py-4 px-6 sm:flex">
         <section className="block w-full sm:w-9/12">
-          <SearchResultTitle {...data} />
+          <SearchResultTitle {...props} />
           <SearchResultItemSource
             journalTitle={journalTitle}
             publicationName={publicationName}

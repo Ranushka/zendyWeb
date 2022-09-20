@@ -23,7 +23,7 @@ const Logo: React.FC<Props> = ({
     >
       <div>
         <svg
-          style={{ width: '7rem', verticalAlign: 'middle' }}
+          style={{ width: '8rem', verticalAlign: 'middle' }}
           className=""
           viewBox="0 0 96 32"
           fill="none"

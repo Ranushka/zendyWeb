@@ -81,7 +81,7 @@ const getType = (type) => {
     btn__small: 'text-xs hover:text_pri6',
     btn__default: classnames(
       'py-2 px-3 rounded-md flex items-center',
-      'duration-300 active:bg_pri1 active:scale-95'
+      'duration-300 hover:bg_pri1 active:bg_pri1 active:scale-95'
     ),
     btn__secondary: classnames(
       'outline-1 outline-offset-2 text-base items-center',

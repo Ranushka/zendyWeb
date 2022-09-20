@@ -26,6 +26,7 @@ import {
 
 import BaseTemplate from 'components/templates/BaseTemplate'
 
+// move to
 const GetStartedWithUs = dynamic(
   () => import('components/organisms/GetStartedWithUs')
 )
