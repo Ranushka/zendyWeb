@@ -5,5 +5,9 @@ const CMS_BASE_URL = process.env.NEXT_PUBLIC_CMS_BASE_URL
 
 export default function useGetMagazines() {
   const url = `${CMS_BASE_URL}/api/magazine`
-  return useSWR(url, request, { revalidateIfStale: false })
+
+  return useSWR('magazines', () => request(url), {
+    revalidateIfStale: false,
+    revalidateOnMount: false
+  })
 }
