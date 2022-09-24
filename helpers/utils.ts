@@ -19,7 +19,7 @@ export const generateTitleUrlPath = (name: string, id: string) => {
       .replace(/[^a-zA-Z]/g, '_')
       .replace(/_+/g, '_')
       .substring(0, 60)
-  let newId = id && id.replaceAll('/', '___')
+  let newId = id && id.replace(/\//g, '___')
 
   return `${res}=${newId}`
 }
