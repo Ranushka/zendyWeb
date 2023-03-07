@@ -1,11 +1,14 @@
 import React from 'react'
 import Script from 'next/script'
+import { Partytown } from '@builder.io/partytown/react'
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GTM_ID
 
 export const GtmScript: React.FC = () => {
   return (
     <>
+      <Partytown forward={['dataLayer.push']} />
       <Script
+        type="text/partytown"
         strategy="afterInteractive"
         id="gtag-init"
         dangerouslySetInnerHTML={{

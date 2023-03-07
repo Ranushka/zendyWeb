@@ -18,7 +18,7 @@ import {
 } from 'helpers/getMessages'
 import {
   HeroCtaHome,
-  MagazineWidget,
+  // MagazineWidget,
   Curated,
   EmailSubscription,
   Testimonials
@@ -89,12 +89,12 @@ const Home: React.FC = () => {
         linkHref="/subjects"
       />
       <Subjects key="Subjects" /> */}
-      <SubTitle
+      {/* <SubTitle
         title={trans('section3')}
         linkText={trans('see_all')}
         linkHref="/magazines"
       />
-      <MagazineWidget />
+      <MagazineWidget /> */}
       <Testimonials />
       <EmailSubscription />
       <GetStartedWithUs />
