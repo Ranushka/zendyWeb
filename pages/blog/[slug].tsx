@@ -58,6 +58,6 @@ export async function getStaticProps({ params, locale }) {
       },
       post
     },
-    revalidate: 10 // In seconds
+    revalidate: 10000 // In seconds
   }
 }

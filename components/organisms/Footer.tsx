@@ -38,15 +38,7 @@ const Footer: React.FC<{}> = () => {
         <div className="container justify-between px-5 py-10 md:flex">
           <section className="mb-8 max-w-xs pr-4 md:mb-3">
             <Logo className="flex" />
-            <div className="small mt-4">{trans('about_text')}</div>
-          </section>
-
-          <section className="max-w-xs pr-4">
-            <FooterSectionTitle title={trans('explore_title')} />
-
-            <div className="block pb-4">
-              <FooterExploreList />
-            </div>
+            <div className="small mt-4 mb-4">{trans('about_text')}</div>
 
             <FooterSectionTitle title={trans('reach_title')} />
 
@@ -75,6 +67,14 @@ const Footer: React.FC<{}> = () => {
                 icon={<IconSocialTwitter />}
                 small
               />
+            </div>
+          </section>
+
+          <section className="max-w-xs pr-4">
+            <FooterSectionTitle title={trans('explore_title')} />
+
+            <div className="block columns-2 pb-4">
+              <FooterExploreList />
             </div>
           </section>
 

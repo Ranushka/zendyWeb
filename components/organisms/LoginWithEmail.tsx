@@ -60,8 +60,11 @@ const LoginWithEmail: React.FC<any> = ({ setWithEmail }) => {
         type="btn__small"
         onClick={() => setWithEmail(false)}
       />
-      <h1 className="mt-6 mb-4 text-center font-serif text-3xl">
-        Join with Email
+      <h1 className="text mt-6 mb-4 text-center font-serif text-3xl">
+        Login with Email
+        <small className="block text-center font-sans text-xs">
+          user1@zendy.io
+        </small>
       </h1>
       <Input
         id="email"

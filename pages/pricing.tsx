@@ -1,6 +1,7 @@
 import React from 'react'
 import QNA from 'components/organisms/QNA'
-import { commonMessages, pricingMessages } from 'helpers/getMessages'
+import { commonMessages } from 'helpers/getMessages'
+import { priceMsg } from 'fetchHooks/commonMsg'
 import {
   Testimonials,
   SubscriptionPage,
@@ -21,13 +22,13 @@ const Pricing: React.FC = () => {
 
 export async function getStaticProps({ locale }) {
   const commonMsg = await commonMessages(locale)
-  const pricingMsg = await pricingMessages(locale)
+  // const pricingMsg = await pricingMessages(locale)
 
   return {
     props: {
       messages: {
         ...commonMsg,
-        ...pricingMsg
+        ...priceMsg
       }
     }
   }

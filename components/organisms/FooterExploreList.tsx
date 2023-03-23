@@ -18,7 +18,7 @@ const FooterExploreList = () => {
               text={label}
               href={path}
               type="link"
-              className="inline-block pr-4 pb-3"
+              className="block p-2"
             />
           </React.Fragment>
         )

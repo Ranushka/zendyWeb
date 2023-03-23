@@ -5,22 +5,36 @@ const credentialsConfigOptions = {
     password: { label: 'Password', type: 'password' }
   },
   async authorize(credentials) {
-    const bodyData = {
-      email: credentials.email,
-      password: credentials.password,
-      reCaptcha: credentials.reCaptcha
+    // const bodyData = {
+    //   email: credentials.email,
+    //   password: credentials.password,
+    //   reCaptcha: credentials.reCaptcha
+    // }
+
+    // const res = await fetch('https://api.qa-oa.zendy.io/auth/auth', {
+    //   method: 'POST',
+    //   body: JSON.stringify(bodyData),
+    //   headers: { 'Content-Type': 'application/json' }
+    // })
+    // const data = await res.json()
+    const data = {
+      status: true,
+      user: {
+        id: '197093c8-a5eb-4a7d-8510-6878bf5877bb',
+        phoneNumber: '+971123456789',
+        isPhoneVerified: true,
+        isRegistrationCompleted: true,
+        firstName: 'John',
+        lastName: 'Doe',
+        email: 'user1@zendy.io'
+      },
+      error: ''
     }
 
-    const res = await fetch('https://api.staging-oa.zendy.io/auth/auth', {
-      method: 'POST',
-      body: JSON.stringify(bodyData),
-      headers: { 'Content-Type': 'application/json' }
-    })
-    const data = await res.json()
-
-    if (res.ok && data) {
+    // if (res.ok && data) {
+    if (credentials.email === 'user1@zendy.io') {
       const userData = data.user
-      console.log('==user===>>>', userData)
+      //   console.log('==user===>>>', userData)
 
       return {
         md5Email: md5(userData),

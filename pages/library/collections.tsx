@@ -34,8 +34,9 @@ const __dataCollection = (data) => {
         <LibraryDataRow key={'collection' + key} {...item} />
       ))}
 
-      <div className="px-4">
+      <div className="px-4 pt-4">
         <ActionLink
+          className="items-center"
           dataName="CreateNewCollection"
           text={'Create new collection'}
           href={'/'}
@@ -48,7 +49,7 @@ const __dataCollection = (data) => {
 
 const __skeletonCollection = () => {
   return [1, 2, 3].map((id) => (
-    <article key={'skeletonCollection' + id} className="container ml__0 pt-10">
+    <article key={'skeletonCollection' + id} className="ml__0 container pt-10">
       <Skeleton height={30} />
     </article>
   ))
