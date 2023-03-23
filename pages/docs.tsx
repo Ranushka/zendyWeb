@@ -1949,11 +1949,29 @@ const StyleGuide: React.FC = () => {
           <h2 className="docModuleName">SearchResultItemCompact</h2>
           <div>
             <a href="http://localhost:3000/__nextjs_launch-editor?file=./components/organisms/SearchResultItemCompact.tsx" className="goToCode">Go to code</a>
-            <a href="javascript:void(0);" data-content="aW1wb3J0IFNlYXJjaFJlc3VsdEl0ZW1Db21wYWN0IGZyb20gJy4uLy4vY29tcG9uZW50cy9vcmdhbmlzbXMvU2VhcmNoUmVzdWx0SXRlbUNvbXBhY3QnCjxTZWFyY2hSZXN1bHRJdGVtQ29tcGFjdCAvPg==" onClick={(e)=>{alert(atob(e.currentTarget.dataset.content))}}>Get code</a>
+            <a href="javascript:void(0);" data-content="aW1wb3J0IFNlYXJjaFJlc3VsdEl0ZW1Db21wYWN0IGZyb20gJy4uLy4vY29tcG9uZW50cy9vcmdhbmlzbXMvU2VhcmNoUmVzdWx0SXRlbUNvbXBhY3QnCjxTZWFyY2hSZXN1bHRJdGVtQ29tcGFjdCAgCiAga2V5PSIxIgogIHJlc3VsdElkPSJzc3MiCiAgaHJlZj17Jy8nfQogIHB1YmxpY2F0aW9uTmFtZT17J2RzYWQnfQogIGpvdXJuYWxUaXRsZT0iYWJjIHRpdGxlIgogIHB1YmxpY2F0aW9uWWVhcj0iMjAyMCIKICBwdWJsaWNhdGlvblR5cGU9ImpvdXJuYWwiCiAgaXNQcmVtaXVtCiAgZG93bmxvYWRMaW5rPSIvIgogIHBlcm1hbmVudExpbmtJZD0idWlkIgogIGF1dGhvcnM9e1snbmFtZSBvbmUnXX0KICBrZXl3b3Jkcz17WyduYW1lIG9uZSddfQogIHN1YmplY3RzPXtbJ3N1YmplY3QnXX0KICBsaW5rPXtbXX0KICB6ZW5keUxpbms9IiMiCiAgdGl0bGU9IlBsYXRmb3JtIENvbXBldGl0aW9uIGluIHRoZSBTaGFyaW5nIEVjb25vbXk6IFVuZGVyc3RhbmRpbmcgSG93IFJpZGUtSGFpbGluZyBTZXJ2aWNlcyBJbmZsdWVuY2UgTmV3IENhciBQdXJjaGFzZXMuIgogIGFic3RyYWN0PSJSaWRlLWhhaWxpbmcgc2VydmljZXMgcHJvdmlkZSBub3Qgb25seSBhbHRlcm5hdGl2ZSB0cmFuc3BvcnRhdGlvbiBmb3IgcGFzc2VuZ2VycyBidXQgYWxzbyBqb2Igb3Bwb3J0dW5pdGllcyBmb3IgcG90ZW50aWFsIGRyaXZlcnMsICBpbiBib3RoIG5lZ2F0aXZlIGFuZCBwb3NpdGl2ZSBlZmZlY3RzIG9uIG5ldyBjYXIgcHVyY2hhc2VzLiBPdXIgc3R1ZHkgYXNzZXNzZXMgdGhlIGltcGFjdCBvZiByaWRlLWhhaWxpbmcgcGxhdGZvcm1zJyBtYXJrZXQgZW50cnkgb24gbmV3IGNhciBwdXJjaGFzZXMgaW4gdGhlIHByZXNlbmNlLiBFbnRyeSBvbiBuZXcgY2EuLi4iCiAvPg==" onClick={(e)=>{alert(atob(e.currentTarget.dataset.content))}}>Get code</a>
           </div>
         </header>
         <div className="docStageContent">
-          <SearchResultItemCompact />
+          <SearchResultItemCompact  
+  key="1"
+  resultId="sss"
+  href={'/'}
+  publicationName={'dsad'}
+  journalTitle="abc title"
+  publicationYear="2020"
+  publicationType="journal"
+  isPremium
+  downloadLink="/"
+  permanentLinkId="uid"
+  authors={['name one']}
+  keywords={['name one']}
+  subjects={['subject']}
+  link={[]}
+  zendyLink="#"
+  title="Platform Competition in the Sharing Economy: Understanding How Ride-Hailing Services Influence New Car Purchases."
+  abstract="Ride-hailing services provide not only alternative transportation for passengers but also job opportunities for potential drivers,  in both negative and positive effects on new car purchases. Our study assesses the impact of ride-hailing platforms' market entry on new car purchases in the presence. Entry on new ca..."
+ />
         </div>
       </article>
 <article className="docStage mod_SearchResultItemSource" key="SearchResultItemSource">
