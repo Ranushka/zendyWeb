@@ -7,10 +7,10 @@ const LibraryDataRow: React.FC<any> = (props) => {
 
   return (
     <div className="my-1">
-      <div className="px-4 py-2 flex justify-between align-baseline bg_white shadow rounded-md">
+      <div className="bg_white flex items-center justify-between rounded-md px-4 py-2 align-baseline shadow">
         <div>
           <span className="first_letter_caps">{name}</span>
-          <span>{count}</span>
+          <span className="ml-2 font-bold">{count}</span>
         </div>
 
         <ButtonFab

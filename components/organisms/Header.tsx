@@ -183,7 +183,7 @@ const __getLoggedInUser = (session) => {
 
       <ActionBtn
         dataName="HeaderLoginBtn"
-        className="w-full whitespace-nowrap rounded-3xl "
+        className="border_pri2 w-full whitespace-nowrap rounded-3xl border"
         text={__getUserNameInitials(session.user)}
         onClick={() => router.push(routs.profile)}
         type="btn__default"
@@ -200,13 +200,13 @@ const __getUserNameInitials = ({ firstName, lastName, email }) => {
 
   if (email) {
     return (
-      <span className="truncate">
+      <div className="w-full truncate">
         {/* <img
           className="absolute w-4"
           src={`https://0.gravatar.com/avatar/${email}=80`}
         /> */}
         <span className="truncate">{email}</span>
-      </span>
+      </div>
     )
   }
 

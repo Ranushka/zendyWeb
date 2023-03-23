@@ -36,7 +36,7 @@
     "memory-cache": "^0.2.0",
     "mongodb": "^4.3.1",
     "next": "12.1.6",
-    "next-auth": "4.1.2",
+    "next-auth": "4.20.1",
     "next-intl": "^2.4.0",
     "next-pwa": "^5.4.4",
     "nprogress": "^0.2.0",

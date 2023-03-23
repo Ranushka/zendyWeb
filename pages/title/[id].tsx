@@ -5,7 +5,6 @@ import BaseTemplate from 'components/templates/BaseTemplate'
 import { RelatedPublications, TitleDetail } from 'components/organisms'
 
 const Title: React.FC = () => {
-  // const Title: NextPage = () => {
   return (
     <BaseTemplate>
       <TitleDetail />

@@ -114,7 +114,11 @@ const __linkWithChildren = (props: Props) => {
     className,
     children
   } = props
-  const finalClassNames = classnames(type, block && 'block', className)
+  const finalClassNames = classnames(
+    type,
+    block && 'block',
+    className && className.toString()
+  )
 
   return (
     <NextLink href={href} as={as}>
@@ -135,7 +139,7 @@ const getType = (type) => {
   const types = {
     link: classnames(
       'hover:underline decoration-2 underline-offset-2',
-      'decoration-sky-500 decoration-amber-400',
+      'decoration_pri2 decoration-amber-400',
       'active:scale-95 duration-150'
     ),
     link__title: classnames(
@@ -145,7 +149,7 @@ const getType = (type) => {
     ),
     link__small: classnames(
       'hover:underline decoration-2 underline-offset-2',
-      'decoration-sky-500 decoration-amber-400',
+      'decoration_pri2 decoration-amber-400',
       'text-xs'
     )
   }
