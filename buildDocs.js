@@ -10,7 +10,7 @@ const removeItem = (arr) => {
     if (!item.match(/index|.DS|Svg./g)) {
       return item
     }
-  })
+  });
 }
 
 async function getCompFiles() {

@@ -15,12 +15,12 @@ const Blog = ({ post }) => {
           className="card-text pb-8"
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}
         ></div>
-        <Link href="/">
-          <a className="btn btn-primary">Back to Home</a>
+        <Link href="/" className="btn btn-primary">
+          Back to Home
         </Link>
       </div>
     </BaseTemplate>
-  )
+  );
 }
 
 const PostNotFound = () => {
@@ -29,12 +29,12 @@ const PostNotFound = () => {
       <div className="m-auto max-w-3xl overflow-x-hidden px-4 pt-16 md:px-8">
         <h1 className="pb-8 font-serif text-4xl">Post not found</h1>
 
-        <Link href="/">
-          <a className="btn btn-primary">Back to Home</a>
+        <Link href="/" className="btn btn-primary">
+          Back to Home
         </Link>
       </div>
     </BaseTemplate>
-  )
+  );
 }
 
 export default Blog

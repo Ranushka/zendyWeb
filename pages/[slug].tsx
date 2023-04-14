@@ -23,12 +23,12 @@ export default function PagersCMS({ pageData }) {
           className="card-text pb-8"
           dangerouslySetInnerHTML={{ __html: pageData?.content?.rendered }}
         ></div>
-        <Link href="/">
-          <a className="btn btn-primary">Back to Home</a>
+        <Link href="/" className="btn btn-primary">
+          Back to Home
         </Link>
       </div>
     </BaseTemplate>
-  )
+  );
 }
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {

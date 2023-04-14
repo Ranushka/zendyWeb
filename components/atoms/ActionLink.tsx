@@ -89,16 +89,16 @@ const __link = (props: Props) => {
   }
 
   return (
-    <NextLink href={href} as={as}>
-      <a
-        data-name={dataName}
-        className={finalClassNames}
-        tabIndex={tabIndex}
-        onClick={handleClick}
-      >
-        <span>{text}</span>
-        {icon && icon}
-      </a>
+    <NextLink
+      href={href}
+      as={as}
+      data-name={dataName}
+      className={finalClassNames}
+      tabIndex={tabIndex}
+      onClick={handleClick}
+    >
+      <span>{text}</span>
+      {icon && icon}
     </NextLink>
   )
 }
@@ -121,16 +121,16 @@ const __linkWithChildren = (props: Props) => {
   )
 
   return (
-    <NextLink href={href} as={as}>
-      <a
-        aria-label="Get Help"
-        className={finalClassNames}
-        tabIndex={tabIndex}
-        data-name={dataName}
-        onClick={() => analyticsClickEvent(props)}
-      >
-        {children}
-      </a>
+    <NextLink
+      href={href}
+      as={as}
+      aria-label="Get Help"
+      className={finalClassNames}
+      tabIndex={tabIndex}
+      data-name={dataName}
+      onClick={() => analyticsClickEvent(props)}
+    >
+      {children}
     </NextLink>
   )
 }
