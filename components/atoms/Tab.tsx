@@ -25,7 +25,7 @@ const Tab: React.FC<Props> = ({ children, href }) => {
 
   return (
     <NextLink.default href={href}>
-      <a className={finalClassNames}>{children}</a>
+      <div className={finalClassNames}>{children}</div>
     </NextLink.default>
   )
 }

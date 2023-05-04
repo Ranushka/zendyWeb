@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+import Image from "next/image"
 
 type Props = {}
 
@@ -20,12 +20,15 @@ const Publishers: React.FC<Props> = () => {
               src={`/publishers/${item}.png`}
               alt={item}
               placeholder="empty"
-            />
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </div>
         ))}
       </section>
     </div>
-  )
+  );
 }
 
 export default Publishers

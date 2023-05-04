@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+import Image from "next/image"
 
 const SecurityStripBlock: React.FC<{}> = () => {
   return (
@@ -15,9 +15,12 @@ const SecurityStripBlock: React.FC<{}> = () => {
         src="/img/trust.png"
         alt="you can pay by card"
         placeholder="empty"
-      />
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
     </div>
-  )
+  );
 }
 
 export default SecurityStripBlock

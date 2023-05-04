@@ -32,9 +32,12 @@ const CardCurated: React.FC<Props> = (props) => {
               priority
               alt={title?.toString()}
               src={imgUrl || '/'}
-              layout="fill"
-              objectFit="cover"
               quality={100}
+              fill
+              sizes="100vw"
+              style={{
+                objectFit: 'cover'
+              }}
             />
           </div>
           <div className="bg_white w-full p-4">

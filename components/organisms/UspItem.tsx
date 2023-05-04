@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+import Image from "next/image"
 
 /* __DOC
 
@@ -24,13 +24,16 @@ const UspItem: React.FC<Props> = (props) => {
         src={src}
         alt={title?.toString()}
         placeholder="empty"
-      />
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
 
       <h3>{title}</h3>
 
       <small>{content}</small>
     </div>
-  )
+  );
 }
 
 export default UspItem

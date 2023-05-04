@@ -51,35 +51,6 @@ const Desktop: React.FC<Props> = () => {
         )}
       </ProfileBlock>
 
-      <ProfileBlock title="Email’s and Notifications">
-        {loading && __skeletonProfileBlocks()}
-        {session && (
-          <>
-            <CheckBox
-              key={'subscribe_to_newsletter'}
-              id={'subscribe_to_newsletter'}
-              name={'subscribe_to_newsletter'}
-              label={'Subscribe to Newsletter'}
-              className="mt__0 my-8"
-            />
-            <CheckBox
-              key={'emails_on_interests'}
-              id={'emails_on_interests'}
-              name={'emails_on_interests'}
-              label={'Emails on your interests'}
-              className="mt__0 my-8"
-            />
-            <CheckBox
-              key={'notification_on_interests'}
-              id={'notification_on_interests'}
-              name={'notification_on_interests'}
-              label={'Notifications on your interests'}
-              className="mt__0 my-8"
-            />
-          </>
-        )}
-      </ProfileBlock>
-
       <ProfileBlock title="Subscription info">
         {loading && __skeletonProfileBlocks()}
         {session && (
@@ -120,6 +91,35 @@ const Desktop: React.FC<Props> = () => {
           </>
         )}
       </ProfileBlock>
+
+      <ProfileBlock title="Email’s and Notifications">
+        {loading && __skeletonProfileBlocks()}
+        {session && (
+          <>
+            <CheckBox
+              key={'subscribe_to_newsletter'}
+              id={'subscribe_to_newsletter'}
+              name={'subscribe_to_newsletter'}
+              label={'Subscribe to Newsletter'}
+              className="my-4"
+            />
+            <CheckBox
+              key={'emails_on_interests'}
+              id={'emails_on_interests'}
+              name={'emails_on_interests'}
+              label={'Emails on your interests'}
+              className="my-4"
+            />
+            <CheckBox
+              key={'notification_on_interests'}
+              id={'notification_on_interests'}
+              name={'notification_on_interests'}
+              label={'Notifications on your interests'}
+              className="my-4"
+            />
+          </>
+        )}
+      </ProfileBlock>
     </section>
   )
 }
@@ -136,6 +136,10 @@ const InputContent = () => (
       src="/cardTypes/paymentVisa.png"
       alt="zendy stripe payment logo"
       placeholder="empty"
+      style={{
+        maxWidth: '100%',
+        height: 'auto'
+      }}
     />
   </div>
 )

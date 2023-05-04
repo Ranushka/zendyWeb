@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+import Image from "next/image"
 import { ActionLink } from 'components/atoms'
 import classnames from 'classnames'
 import { CardMagazineProps } from 'types'
@@ -24,16 +24,18 @@ const CardMagazine: React.FC<CardMagazineProps> = (props) => {
           <Image
             alt={title?.toString()}
             src={`/${img}`}
-            layout="fill"
-            objectFit="cover"
             quality={100}
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover"
+            }} />
         </div>
         <p className="mt-2 px-3">{title}</p>
         <small className="px-3">{content}</small>
       </div>
     </ActionLink>
-  )
+  );
 }
 
 export default CardMagazine

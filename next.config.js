@@ -6,41 +6,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const CMS_IMG_HOSTNAME = new URL(process.env.NEXT_PUBLIC_CMS_BASE_URL).hostname
 
 const config = {
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: '/library',
-  //       destination: '/library/collections',
-  //       permanent: true,
-  //     },
-  //   ]
-  // },
-
-  // compilerOptions: {
-  //   baseUrl: '.'
-  // },
-
-  compiler: {
-    // removeConsole: true
-  },
-
-  async rewrites() {
-    return [
-      {
-        source: '/publisher/:publisher',
-        destination: '/search?q=publisher%3A :publisher'
-      },
-      {
-        source: '/subject/:subject',
-        destination: `/search?q=subject%3A :subject`
-      },
-      {
-        source: '/journal/:journal',
-        destination: `/search?q=journal%3A :journal`
-      }
-    ]
-  },
-
   async exportPathMap(defaultPathMap) {
     return {
       ...defaultPathMap
@@ -54,6 +19,9 @@ const config = {
 }
 
 const toExport = {
+  compiler: {
+    // removeConsole: true
+  },
   images: {
     domains: [
       CMS_IMG_HOSTNAME,
@@ -65,6 +33,22 @@ const toExport = {
   i18n: {
     locales: ['en', 'ar'],
     defaultLocale: 'en'
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/publisher/:publisher',
+        destination: '/search?q=publisher%3A :publisher'
+      },
+      {
+        source: '/subject/:subject',
+        destination: `/search?q=subject%3A :subject`
+      },
+      {
+        source: '/material/:material',
+        destination: `/search?q=material%3A :material`
+      }
+    ]
   },
   // reactStrictMode: true,
   // swcMinify: true,

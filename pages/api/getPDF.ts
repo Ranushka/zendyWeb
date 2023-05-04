@@ -15,11 +15,11 @@ export default async function handler(
     request({
       url: pdfUrl
     })
-      .on('error', function(e) {
+      .on('error', function (e) {
         res.end(e)
       })
       .pipe(res)
   } catch (err) {
-    res.status(500).json({ statusCode: 500, message: JSON.parse(err) })
+    res.status(500).json({ statusCode: 500, message: err.toString() })
   }
 }

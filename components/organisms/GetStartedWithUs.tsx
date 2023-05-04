@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+import Image from "next/image"
 import { useTranslations } from 'next-intl'
 import { ActionBtn } from 'components/atoms'
 
@@ -13,12 +13,14 @@ const GetStartedWithUs: React.FC<Props> = () => {
       <div className="relative m-auto max-w-5xl overflow-hidden rounded-xl shadow">
         <Image
           placeholder="empty"
-          objectFit="cover"
           className="rounded__2"
-          layout="fill"
           alt="water_portrait"
           src="/img/lastCallBackground.png"
-        />
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover"
+          }} />
         <div className="relative py-16 px-4">
           <h2 className="mb-2 font-serif text-3xl">Try Zendy Plus for Free</h2>
           <p className="text-base">{trans('subtitle')}</p>
@@ -32,7 +34,7 @@ const GetStartedWithUs: React.FC<Props> = () => {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 export default GetStartedWithUs

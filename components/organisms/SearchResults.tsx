@@ -139,7 +139,7 @@ const __resultData = () => {
 
   const searchResults = get(data, 'data.searchResults', null)
 
-  if (searchResults.totalResults) {
+  if (searchResults?.totalResults) {
     return <ResultsWithData {...searchResults} />
   }
 

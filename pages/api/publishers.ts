@@ -10,6 +10,6 @@ export default async function handler(
 
     res.status(200).json(dataFromSolr)
   } catch (err) {
-    res.status(500).json({ statusCode: 500, message: JSON.parse(err.message) })
+    res.status(500).json({ statusCode: 500, message: err.toString() })
   }
 }

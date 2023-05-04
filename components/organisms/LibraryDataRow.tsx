@@ -1,6 +1,6 @@
 import React from 'react'
 import { ButtonFab } from 'components/atoms'
-import { IconMore } from 'components/icons'
+import { IconMore, IconArrowRight } from 'components/icons'
 
 const LibraryDataRow: React.FC<any> = (props) => {
   const { name = '#', count = 0 } = props
@@ -8,7 +8,12 @@ const LibraryDataRow: React.FC<any> = (props) => {
   return (
     <div className="my-1">
       <div className="bg_white flex items-center justify-between rounded-md px-4 py-2 align-baseline shadow">
-        <div>
+        <ButtonFab
+          dataName="LibraryDataMore"
+          classNames="bg_white"
+          icon={<IconArrowRight />}
+        />
+        <div className="ml-2 w-full ">
           <span className="first_letter_caps">{name}</span>
           <span className="ml-2 font-bold">{count}</span>
         </div>

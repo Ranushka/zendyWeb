@@ -1,22 +1,12 @@
 // export const homeMsg =
 export const homeMsg = {}
-
-export const priceMsg = {
+export const commonMsg = {
   header: {
     my_link: 'My library',
     nav_items: [
-      {
-        path: '/platform',
-        label: 'About platform'
-      },
-      {
-        path: '/pricing',
-        label: 'Pricing'
-      },
-      {
-        path: '/blog',
-        label: 'Blog'
-      }
+      { path: '/platform', label: 'About platform' },
+      { path: '/pricing', label: 'Pricing' },
+      { path: '/blog', label: 'Blog' }
     ],
     mega_menu_btn: 'Browse by',
     login_btn_name: 'Login / Register',
@@ -25,115 +15,48 @@ export const priceMsg = {
       {
         items: [
           {
-            path: '/Social',
-            label: 'Social Sciences'
+            path: '/subject/artificial_intelligence',
+            label: 'Artificial intelligence'
           },
-          {
-            path: '/Avionics',
-            label: 'Avionics'
-          },
-          {
-            path: '/Area',
-            label: 'Area Studies'
-          },
-          {
-            path: '/Arts',
-            label: 'Arts'
-          },
-          {
-            path: '/Medicine',
-            label: 'Medicine'
-          },
-          {
-            path: '/Hospitality',
-            label: 'Hospitality'
-          },
-          {
-            path: '/Law',
-            label: 'Law'
-          },
-          {
-            path: '/History',
-            label: 'History'
-          },
-          {
-            path: '/All',
-            label: 'All subjects'
-          }
+          { path: '/subject/machine_learning', label: 'Machine learning' },
+          { path: '/subject/arts', label: 'Arts' },
+          { path: '/subject/medicine', label: 'Medicine' },
+          { path: '/subject/hospitality', label: 'Hospitality' },
+          { path: '/subject/law', label: 'Law' },
+          { path: '/subject/history', label: 'History' },
+          { path: '/subjects', label: 'All subjects' }
         ],
         title: 'by Subject'
       },
       {
         items: [
+          { path: '/material/Journals', label: 'Journals' },
+          { path: '/material/Books', label: 'Books' },
           {
-            path: '/biographies',
-            label: 'Biographies'
-          },
-          {
-            path: '/Books',
-            label: 'Books'
-          },
-          {
-            path: '/Conference_Materials',
+            path: '/material/Conference_Materials',
             label: 'Conference Materials'
           },
+          { path: '/material/EBooks', label: 'EBooks' },
+          { path: '/material/magazines', label: 'Magazines' },
           {
-            path: '/EBooks',
-            label: 'EBooks'
-          },
-          {
-            path: '/magazines',
-            label: 'Magazines'
-          },
-          {
-            path: '/primary_source_documents',
+            path: '/material/primary_source_documents',
             label: 'Primary Source Documents'
           },
-          {
-            path: '/reports',
-            label: 'Reports'
-          },
-          {
-            path: '/reviews',
-            label: 'Reviews'
-          }
+          { path: '/material/reports', label: 'Reports' },
+          { path: '/material/reviews', label: 'Reviews' }
         ],
         title: 'by Material'
       },
       {
         items: [
-          {
-            path: '/biographies',
-            label: 'Biographies'
-          },
-          {
-            path: '/Books',
-            label: 'Books'
-          },
-          {
-            path: '/Conference_Materials',
-            label: 'Conference Materials'
-          },
-          {
-            path: '/EBooks',
-            label: 'EBooks'
-          },
-          {
-            path: '/magazines',
-            label: 'Magazines'
-          },
-          {
-            path: '/primary_source_documents',
-            label: 'Primary Source Documents'
-          },
-          {
-            path: '/reports',
-            label: 'Reports'
-          },
-          {
-            path: '/publishers',
-            label: 'All Publishers'
-          }
+          { path: '/publisher/Springer_Nature', label: 'Springer Nature' },
+          { path: '/publisher/MDPI', label: 'MDPI' },
+          { path: '/publisher/Elsevier ', label: 'Elsevier' },
+          { path: '/publisher/EBooks', label: 'EBooks' },
+          { path: '/publisher/IEEE', label: 'IEEE' },
+          { path: '/publisher/SAGE', label: 'SAGE' },
+          { path: '/publisher/JSTOR', label: 'JSTOR' },
+          { path: '/publishers', label: 'All Publishers' }
         ],
         title: 'by Publishers'
       }
@@ -141,6 +64,101 @@ export const priceMsg = {
     search_placeholder_d: 'Search by title, author, ISBN or Collection',
     search_placeholder_m: 'Search by title, author'
   },
+  footer: {
+    news_list: [
+      { path: '/', label: 'What is new in zendi.io' },
+      { path: '/', label: 'How to do better research' },
+      { path: '/', label: 'Checklist for a effective research' },
+      { path: '/', label: 'Research collection relate to COVID-19' },
+      { path: '/', label: 'Our give back to the community' }
+    ],
+    about_text:
+      'We help you to broaden your research horizons and we help you to keep up with latest development in your field by providing a access to a platform for a price of a single price of a research paper.',
+    news_title: 'From our news',
+    reach_title: 'Reach us',
+    rights_text: 'All Rights Reserved with Knowledge E © 2020.',
+    explore_list: [
+      { path: '/pricing', label: 'Zendy Plus' },
+      { path: '/faqs', label: 'FAQs' },
+      { path: '/contact', label: 'Contact' },
+      { path: '/about', label: 'About' },
+      { path: '/blog', label: 'Blog' },
+      { path: '/csr', label: 'CSR' },
+      { path: '/feedback', label: 'Feedback' },
+      { path: '/jobs', label: 'Careers' },
+      { path: '/login', label: 'Login/Register' }
+    ],
+    privacy_list: [
+      { path: '/privacy-policy', label: 'Privacy' },
+      { path: '/zendy-terms-of-use', label: 'Terms' },
+      { path: '/feedback', label: 'Feedback' }
+    ],
+    explore_title: 'Explore'
+  },
+  testimonial: {
+    title: 'We are trusted by professionals around the world',
+    subtitle:
+      'Our library is trusted by many universities and government organization in GCC.',
+    testimonials: [
+      {
+        name: 'Prakash Kumar',
+        quote:
+          'I have chosen Zendy to reach out to readers across the globe and increase my revenue. I hope Zendy will be a great digital publishing partner for me!',
+        title: 'Digital Marketing, Neutral Publishing House Ltd.'
+      },
+      {
+        name: 'Molife Kumona',
+        quote:
+          'Outside Magazine is pleased to partner with Zendy. We are excited at this opportunity to expand our digital offerings and to grow our audience worldwide.',
+        title: 'Head of Digital, Conde Nast South Africa.'
+      },
+      {
+        name: 'Thokozani Ndlovu',
+        quote:
+          'We find Zendy the easiest to use of all the online magazine publishing platforms. They are a key partner for us as we evolve into a digital-first business.',
+        title: 'Student, African Mining News'
+      }
+    ]
+  },
+  subscribe: {
+    btn: 'Count me in',
+    title:
+      'Subscribe to your own weekly briefing of research publications in your field.',
+    subtitle:
+      'Be on your toes, stay ahead of the cave, get your weekly briefing into your Email.',
+    description:
+      'We take privacy very seriously. we will not be sharing or selling your email to any third party. You can easily unsubscribe or easily manage a subscription upon your sign up.'
+  },
+  cta_final: {
+    btn: 'Start your Free Trial',
+    title: 'Get Started with a Free Trial',
+    subtitle:
+      'No credit card is required, you can cancel at any time. Sign in/Sign now for free.'
+  },
+  createdAt: '2022-03-05T15:38:41.541Z',
+  updatedAt: '2022-03-05T16:13:42.245Z',
+  publishedAt: '2022-03-05T15:38:43.156Z',
+  locale: 'en',
+  settings: {
+    title: 'Customize appearance',
+    select_lang: 'Select language',
+    select_size: 'Font size',
+    select_them: 'App theme'
+  },
+
+  common: {
+    cta: '“Research is creating new knowledge.”',
+    title: 'Zendy, Premium research publications library',
+    cta_sub: 'Welcome to Zendy',
+    see_all: 'See all',
+    section1: 'From our blog',
+    section2: 'Browse by subject',
+    section3: 'Magazines'
+  }
+}
+
+export const priceMsg = {
+  header: { ...commonMsg.header },
   footer: {
     news_list: [
       {
@@ -338,159 +356,4 @@ export const curatedMsg = {
         'This guide is intended to help students organize and write a quality research paper for classes taught in the social and behavioral sciences. Also included are recommendations concerning how to successfully manage and complete specific course assignments.'
     }
   ]
-}
-
-export const commonMsg = {
-  header: {
-    my_link: 'My library',
-    nav_items: [
-      { path: '/platform', label: 'About platform' },
-      { path: '/pricing', label: 'Pricing' },
-      { path: '/blog', label: 'Blog' }
-    ],
-    mega_menu_btn: 'Browse by',
-    login_btn_name: 'Login / Register',
-    advanced_search: 'Advanced Search',
-    mega_menu_items: [
-      {
-        items: [
-          { path: '/Social', label: 'Social Sciences' },
-          { path: '/Avionics', label: 'Avionics' },
-          { path: '/Area', label: 'Area Studies' },
-          { path: '/Arts', label: 'Arts' },
-          { path: '/Medicine', label: 'Medicine' },
-          { path: '/Hospitality', label: 'Hospitality' },
-          { path: '/Law', label: 'Law' },
-          { path: '/History', label: 'History' },
-          { path: '/All', label: 'All subjects' }
-        ],
-        title: 'by Subject'
-      },
-      {
-        items: [
-          { path: '/biographies', label: 'Biographies' },
-          { path: '/Books', label: 'Books' },
-          { path: '/Conference_Materials', label: 'Conference Materials' },
-          { path: '/EBooks', label: 'EBooks' },
-          { path: '/magazines', label: 'Magazines' },
-          {
-            path: '/primary_source_documents',
-            label: 'Primary Source Documents'
-          },
-          { path: '/reports', label: 'Reports' },
-          { path: '/reviews', label: 'Reviews' }
-        ],
-        title: 'by Material'
-      },
-      {
-        items: [
-          { path: '/biographies', label: 'Biographies' },
-          { path: '/Books', label: 'Books' },
-          { path: '/Conference_Materials', label: 'Conference Materials' },
-          { path: '/EBooks', label: 'EBooks' },
-          { path: '/magazines', label: 'Magazines' },
-          {
-            path: '/primary_source_documents',
-            label: 'Primary Source Documents'
-          },
-          { path: '/reports', label: 'Reports' },
-          { path: '/publishers', label: 'All Publishers' }
-        ],
-        title: 'by Publishers'
-      }
-    ],
-    search_placeholder_d: 'Search by title, author, ISBN or Collection',
-    search_placeholder_m: 'Search by title, author'
-  },
-  footer: {
-    news_list: [
-      { path: '/', label: 'What is new in zendi.io' },
-      { path: '/', label: 'How to do better research' },
-      { path: '/', label: 'Checklist for a effective research' },
-      { path: '/', label: 'Research collection relate to COVID-19' },
-      { path: '/', label: 'Our give back to the community' }
-    ],
-    about_text:
-      'We help you to broaden your research horizons and we help you to keep up with latest development in your field by providing a access to a platform for a price of a single price of a research paper.',
-    news_title: 'From our news',
-    reach_title: 'Reach us',
-    rights_text: 'All Rights Reserved with Knowledge E © 2020.',
-    explore_list: [
-      { path: '/pricing', label: 'Zendy Plus' },
-      { path: '/faqs', label: 'FAQs' },
-      { path: '/contact', label: 'Contact' },
-      { path: '/about', label: 'About' },
-      { path: '/blog', label: 'Blog' },
-      { path: '/csr', label: 'CSR' },
-      { path: '/feedback', label: 'Feedback' },
-      { path: '/jobs', label: 'Careers' },
-      { path: '/login', label: 'Login/Register' }
-    ],
-    privacy_list: [
-      { path: '/privacy-policy', label: 'Privacy' },
-      { path: '/zendy-terms-of-use', label: 'Terms' },
-      { path: '/feedback', label: 'Feedback' }
-    ],
-    explore_title: 'Explore'
-  },
-  testimonial: {
-    title: 'We are trusted by professionals around the world',
-    subtitle:
-      'Our library is trusted by many universities and government organization in GCC.',
-    testimonials: [
-      {
-        name: 'Prakash Kumar',
-        quote:
-          'I have chosen Zendy to reach out to readers across the globe and increase my revenue. I hope Zendy will be a great digital publishing partner for me!',
-        title: 'Digital Marketing, Neutral Publishing House Ltd.'
-      },
-      {
-        name: 'Molife Kumona',
-        quote:
-          'Outside Magazine is pleased to partner with Zendy. We are excited at this opportunity to expand our digital offerings and to grow our audience worldwide.',
-        title: 'Head of Digital, Conde Nast South Africa.'
-      },
-      {
-        name: 'Thokozani Ndlovu',
-        quote:
-          'We find Zendy the easiest to use of all the online magazine publishing platforms. They are a key partner for us as we evolve into a digital-first business.',
-        title: 'Student, African Mining News'
-      }
-    ]
-  },
-  subscribe: {
-    btn: 'Count me in',
-    title:
-      'Subscribe to your own weekly briefing of research publications in your field.',
-    subtitle:
-      'Be on your toes, stay ahead of the cave, get your weekly briefing into your Email.',
-    description:
-      'We take privacy very seriously. we will not be sharing or selling your email to any third party. You can easily unsubscribe or easily manage a subscription upon your sign up.'
-  },
-  cta_final: {
-    btn: 'Start your Free Trial',
-    title: 'Get Started with a Free Trial',
-    subtitle:
-      'No credit card is required, you can cancel at any time. Sign in/Sign now for free.'
-  },
-  createdAt: '2022-03-05T15:38:41.541Z',
-  updatedAt: '2022-03-05T16:13:42.245Z',
-  publishedAt: '2022-03-05T15:38:43.156Z',
-  locale: 'en',
-  settings: {
-    title: 'Customize appearance',
-    select_lang: 'Select language',
-    select_size: 'Font size',
-    select_them: 'App theme'
-  },
-
-  common: {
-    cta: '“Research is creating new knowledge.”',
-    title: 'Zendy, Premium research publications library',
-    cta_sub: 'Welcome to Zendy',
-    see_all: 'See all',
-    section1: 'See all news',
-    section2: 'Browse by subject',
-    section3: 'Magazines'
-  }
 }

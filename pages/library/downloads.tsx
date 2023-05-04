@@ -16,8 +16,7 @@ const Downloads: React.FC = () => {
 const dataSet = [
   {
     id: 23,
-    name:
-      'optio ipsam molestias necessitatibus occaecati facilis veritatis dolores aut'
+    name: 'optio ipsam molestias necessitatibus occaecati facilis veritatis dolores aut'
   },
   {
     id: 24,
